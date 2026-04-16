@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e3a5f">
+  <meta name="description" content="CHSOS Exam Study App — Spaced repetition quiz for the Certified Healthcare Simulation Operations Specialist exam.">
+  <title>CHSOS Study App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ======================================================
+       LOADING SCREEN
+  ====================================================== -->
+  <div id="screen-loading">
+    <header class="app-header">
+      <div>
+        <div class="app-header-title">CHSOS Study App</div>
+        <div class="app-header-sub">Certified Healthcare Simulation Operations Specialist</div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="loading-screen">
+        <div class="spinner"></div>
+        <p>Loading study materials…</p>
+        <p id="loading-error" hidden class="error-msg"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       MENU SCREEN
+  ====================================================== -->
+  <div id="screen-menu" hidden class="screen">
+    <header class="app-header">
+      <div>
+        <div class="app-header-title">CHSOS Study App</div>
+        <div class="app-header-sub">Certified Healthcare Simulation Operations Specialist</div>
+      </div>
+    </header>
+    <div class="container">
+
+      <!-- Progress summary -->
+      <div class="card">
+        <div class="section-title">Your Progress</div>
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-value" id="stat-studied">—</div>
+            <div class="stat-label">KSAs Studied</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-mastered">—</div>
+            <div class="stat-label">Mastered (L5)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-terms">—</div>
+            <div class="stat-label">Terms ≥ L3</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study mode buttons -->
+      <div class="section-title">Study Modes</div>
+      <div class="mode-grid">
+        <button class="mode-btn" id="btn-mode-scenarios">
+          <div class="mode-icon">📋</div>
+          <div class="mode-title">Scenario Drills</div>
+          <div class="mode-desc">Clinical Q&amp;A from all 5 domains</div>
+        </button>
+        <button class="mode-btn" id="btn-mode-terms">
+          <div class="mode-icon">📖</div>
+          <div class="mode-title">Terminology</div>
+          <div class="mode-desc">Flashcard-style definitions</div>
+        </button>
+        <button class="mode-btn mode-btn--spaced" id="btn-mode-spaced">
+          <div class="mode-icon">🔄</div>
+          <div class="mode-title">Spaced Repetition</div>
+          <div class="mode-desc">Leitner system — automatically focuses on your weakest areas first</div>
+        </button>
+      </div>
+
+      <!-- Dashboard link -->
+      <button class="btn btn-outline btn-full" id="btn-dashboard" style="margin-bottom: 1rem;">
+        📊 Progress Dashboard
+      </button>
+
+      <!-- Data management -->
+      <div class="card">
+        <div class="section-title">Data</div>
+        <div class="settings-row">
+          <button class="btn btn-outline" id="btn-export">⬇ Export Progress</button>
+          <button class="btn btn-outline" id="btn-import">⬆ Import Progress</button>
+          <button class="btn btn-outline btn-danger-outline" id="btn-reset">🗑 Reset</button>
+        </div>
+        <input type="file" id="import-file" accept=".json" hidden>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================
+       QUIZ SCREEN
+  ====================================================== -->
+  <div id="screen-quiz" hidden class="screen">
+    <header class="app-header">
+      <button class="back-btn" id="btn-quiz-back" title="Back to menu">←</button>
+      <div style="flex: 1; min-width: 0;">
+        <div class="app-header-title" id="quiz-mode-label">Quiz</div>
+        <div class="app-header-sub" id="session-stats"></div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="card">
+
+        <!-- Top row: KSA badge + mastery level dots -->
+        <div class="quiz-meta-row">
+          <span class="ksa-badge" id="ksa-badge"></span>
+          <div class="level-dots" id="mastery-dots" title="Mastery level (0–5)"></div>
+        </div>
+
+        <!-- Question text -->
+        <div class="question-text" id="question-text"></div>
+
+        <!-- Feedback banner (shown after answering) -->
+        <div id="feedback-banner" class="feedback-banner" hidden></div>
+
+        <!-- Reveal button -->
+        <button class="btn btn-reveal" id="btn-reveal">Reveal Answer ↓</button>
+
+        <!-- Answer section (hidden until reveal) -->
+        <div id="answer-section" hidden>
+          <hr class="answer-divider">
+          <div class="answer-label">Official Rationale</div>
+          <div class="answer-text" id="answer-text"></div>
+          <div class="answer-ksa" id="answer-ksa" hidden></div>
+        </div>
+
+        <!-- Got It / Missed It buttons -->
+        <div id="answer-btns" class="btn-group" hidden>
+          <button class="btn btn-success" id="btn-correct">✓ Got It</button>
+          <button class="btn btn-danger"  id="btn-incorrect">✗ Missed It</button>
+        </div>
+
+        <!-- Next / Menu buttons (after answering) -->
+        <div id="next-btns" class="btn-group" hidden>
+          <button class="btn btn-primary" style="flex: 2;" id="btn-next">Next Question →</button>
+          <button class="btn btn-outline" style="flex: 1;" id="btn-quiz-menu">Menu</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       DASHBOARD SCREEN
+  ====================================================== -->
+  <div id="screen-dashboard" hidden class="screen">
+    <header class="app-header">
+      <button class="back-btn" id="btn-dash-back" title="Back to menu">←</button>
+      <div>
+        <div class="app-header-title">Progress Dashboard</div>
+        <div class="app-header-sub">CHSOS Exam Readiness</div>
+      </div>
+    </header>
+    <div class="container">
+
+      <!-- Overall readiness -->
+      <div class="card">
+        <div class="section-title">Overall Readiness</div>
+        <div class="overall-pct-row">
+          <span class="overall-pct" id="dash-pct">0%</span>
+          <span class="overall-pct-label">avg mastery across all KSAs</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="dash-bar" style="width: 0%;"></div>
+        </div>
+        <div class="stats-bar" style="margin-top: 1rem;">
+          <div class="stat-item">
+            <div class="stat-value" id="dash-reviewed">0</div>
+            <div class="stat-label">Reviewed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="dash-mastered">0</div>
+            <div class="stat-label">Mastered</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="dash-total">0</div>
+            <div class="stat-label">Total KSAs</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain-by-domain breakdown -->
+      <div class="section-title">By Domain</div>
+      <div id="domain-breakdown"></div>
+
+      <!-- Terminology summary -->
+      <div class="card">
+        <div class="section-title">Terminology</div>
+        <div id="terms-stats" style="font-size: .875rem; color: var(--c-muted);"></div>
+        <div class="progress-bar-wrap" style="margin-top: .5rem;">
+          <div class="progress-bar-fill" id="terms-bar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Exam weight reminder -->
+      <div class="exam-tip-card">
+        <div class="section-title">⚠️ Exam Weighting Reminder</div>
+        <strong>Domain II</strong> — Simulation Technology Operations
+        = <span class="weight-high">35%</span><br>
+        <strong>Domain III</strong> — Practices, Principles &amp; Procedures
+        = <span class="weight-med">25%</span><br>
+        <strong>Domains I, IV, V</strong> — 10–15% each
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast" hidden></div>
+
+</div><!-- /#app -->
+<script src="app.js"></script>
+</body>
+</html>

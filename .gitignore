@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+venv/
+.venv/
+env/
+
+# Local study progress (CLI version — web app uses localStorage instead)
+progress.json
+
+# PDFs (reference material — large, not needed in version control)
+*.pdf
+
+# Temp / scratch files
+temp_end.txt
+*.tmp
+*.bak
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

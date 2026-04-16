@@ -1,0 +1,88 @@
+{
+  "domains": [
+    {
+      "id": "I",
+      "title": "Concepts in Healthcare as Applied to Simulation",
+      "weight": "10%",
+      "ksas": [
+        "I.A: General medical conditions, injuries, and diseases",
+        "I.B: Anatomical and physiological systems",
+        "I.C: Common medication administration practices",
+        "I.D: Healthcare equipment, supplies, and environments",
+        "I.E: Roles of healthcare professionals"
+      ]
+    },
+    {
+      "id": "II",
+      "title": "Simulation Technology Operations",
+      "weight": "35%",
+      "ksas": [
+        "II.A.1: Networks and hardware terminology/application",
+        "II.A.2: A/V equipment utilization",
+        "II.A.3: Software and education systems (LMS, video conferencing)",
+        "II.A.4: Technology systems security (physical, network, data)",
+        "II.A.5: Simulation modalities (Manikin, AR/VR, Distance, Hybrid)",
+        "II.A.6: Healthcare vs. Simulation-specific equipment",
+        "II.A.7: Data management (storage, retrieval, file types)",
+        "II.A.8: Simulation spaces (connectivity, air supply)",
+        "II.A.9: Cable connectivity and applications (ports, adapters)",
+        "II.A.10: Wireless connectivity and applications",
+        "II.B.1: AV equipment selection for activities",
+        "II.B.2: Healthcare equipment recommendations",
+        "II.B.3: Simulation-specific equipment recommendations",
+        "II.C.1: Technical troubleshooting and corrective action",
+        "II.C.2: Preventive maintenance and policy creation"
+      ]
+    },
+    {
+      "id": "III",
+      "title": "Healthcare Simulation Practices, Principles, and Procedures",
+      "weight": "25%",
+      "ksas": [
+        "III.A: Documentation management (warranties, agreements)",
+        "III.B: Program sustainability and growth (strategic planning)",
+        "III.C: Equipment training facilitation",
+        "III.D: Resource utilization and inventory management",
+        "III.E: Safe use of simulation equipment and environment"
+      ]
+    },
+    {
+      "id": "IV",
+      "title": "Professional Role: Behavior, Capabilities, and Leadership",
+      "weight": "15%",
+      "ksas": [
+        "IV.A: Advocacy for simulation",
+        "IV.B: Collaboration and teamwork (closed-loop communication)",
+        "IV.C: Respectful relationships with stakeholders",
+        "IV.D: Legal and ethical principles (confidentiality, integrity)",
+        "IV.E: Personnel roles in simulation",
+        "IV.F: Professional development opportunities",
+        "IV.G: Innovation assessment and integration",
+        "IV.H: Diversity, equity, and inclusion in simulation",
+        "IV.I: Credible resources (journals, manuals)",
+        "IV.J: Research contribution (data collection)",
+        "IV.K: Psychological and physical safety"
+      ]
+    },
+    {
+      "id": "V",
+      "title": "Concepts in Instructional Design as Applied to Simulation",
+      "weight": "15%",
+      "ksas": [
+        "V.A: Principles of instructional design",
+        "V.B: Collaborating with Subject Matter Experts (SMEs)",
+        "V.C.1: Needs assessment",
+        "V.C.2: Goals, objectives, and outcomes",
+        "V.C.3: Assessment and evaluation methods",
+        "V.C.4: Reliability and validity",
+        "V.C.5: Logistics (location, resources)",
+        "V.C.6: Equipment and supplies",
+        "V.C.7: Case/scenario design",
+        "V.C.8: Prebrief/brief, debrief, and participant evaluations",
+        "V.C.9: Pilot testing (dress rehearsal)",
+        "V.C.10: Implementation to participants",
+        "V.C.11: Evaluation and improvement"
+      ]
+    }
+  ]
+}
