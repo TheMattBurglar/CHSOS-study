@@ -29,21 +29,26 @@ async function loadKnowledge() {
 
 /**
  * Parse the terminology markdown strings into a flat term→def map.
- * Lines look like:  *   **Term Name**: Definition text
+ * Handles both **Term**: and **Term:** formats.
  */
 function extractTerms(knowledge) {
   const terms = {};
   for (const [ksaId, data] of Object.entries(knowledge)) {
     if (!data.terminology) continue;
     for (const line of data.terminology.split('\n')) {
-      if (!line.includes('**:')) continue;
-      // Strip leading bullet asterisks/spaces, then split on the first **:
-      const clean = line.replace(/^\*+\s*/, '');
-      const idx   = clean.indexOf('**:');
-      if (idx === -1) continue;
-      const term = clean.slice(0, idx).replace(/\*/g, '').trim();
-      const def  = clean.slice(idx + 3).trim();
-      if (term && def) terms[term] = { def, ksa: ksaId };
+      // Matches: * **Term**: Def  OR  * **Term:** Def
+      const match = line.match(/^\*+\s*\*\*([^*]+)\*\*[:：]?\s*(.*)$/);
+      if (match) {
+        let term = match[1].trim();
+        const def = match[2].trim();
+
+        // If colon was inside the bold markers (e.g. **Term:**)
+        if (term.endsWith(':')) {
+          term = term.slice(0, -1).trim();
+        }
+
+        if (term && def) terms[term] = { def, ksa: ksaId };
+      }
     }
   }
   return terms;
@@ -216,9 +221,18 @@ function buildSpacedItem() {
   const pKsa    = getPriorityItems('ksa',   ksaIds,  5);
   const pTerms  = getPriorityItems('terms', termIds, 5);
 
-  if (Math.random() > 0.5 && pKsa.length)  return buildScenarioItem(pKsa);
-  if (pTerms.length)                         return buildTermItem(pTerms);
-  return buildScenarioItem(pKsa.length ? pKsa : ksaIds);
+  const hasKsa   = pKsa.length > 0;
+  const hasTerms = pTerms.length > 0;
+
+  if (Math.random() > 0.5 && hasKsa)  return buildScenarioItem(pKsa);
+  if (hasTerms)                       return buildTermItem(pTerms);
+  if (hasKsa)                         return buildScenarioItem(pKsa);
+
+  // Fallback to absolute random if priority lists were empty
+  if (ksaIds.length)  return buildScenarioItem(ksaIds);
+  if (termIds.length) return buildTermItem(termIds);
+
+  return { type: 'ksa', id: 'Error', question: 'No study items found.', answer: 'Check your data source.' };
 }
 
 /* ============================================================
@@ -234,6 +248,7 @@ const html = (id, h) => { $(id).innerHTML   = h; };
 let _toastTimer;
 function showToast(msg, isError = false) {
   const t     = $('toast');
+  if (!t) return;
   t.textContent = msg;
   t.className   = 'toast' + (isError ? ' toast-error' : '');
   t.hidden      = false;
@@ -293,9 +308,17 @@ function loadNextQuestion() {
 
   let item;
   switch (state.currentMode) {
-    case 'scenarios': item = buildScenarioItem(ksaIds); break;
-    case 'terms':     item = buildTermItem(termIds);    break;
-    default:          item = buildSpacedItem();         break;
+    case 'scenarios':
+      if (!ksaIds.length) { showToast('No scenarios available', true); showMenu(); return; }
+      item = buildScenarioItem(ksaIds);
+      break;
+    case 'terms':
+      if (!termIds.length) { showToast('No terminology available', true); showMenu(); return; }
+      item = buildTermItem(termIds);
+      break;
+    default:
+      item = buildSpacedItem();
+      break;
   }
   state.currentItem = item;
 
