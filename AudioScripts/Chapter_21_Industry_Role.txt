@@ -1,0 +1,9 @@
+Chapter 21: Partnering with Industry
+
+The relationship between a sim center and a vendor shouldn't just be about buying and selling. It should be a partnership. 
+
+You'll learn the "Corporate Structure" of simulation companies. Knowing the difference between a Sales Rep, a Field Engineer, and Technical Support helps you get your problems solved faster. 
+
+The S-B-A-R Method: When a piece of equipment breaks, don't just call and say "it's broken." Use the S-B-A-R framework: Situation, Background, Assessment, and Request. Tell the technician exactly what happened, what you've already tried to fix, and what you need from them. This professional approach gets you better service and helps the company improve their products. 
+
+Ultimately, vendors want your center to succeed because your success proves that their technology works. By working together, the H-S-T-S and the industry can drive the entire field of healthcare simulation forward.

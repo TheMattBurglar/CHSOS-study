@@ -1,0 +1,9 @@
+Chapter 10: The Modern HSTS
+
+The Healthcare Simulation Technology Specialist—or H-S-T-S—is the "backbone" of modern simulation. This role was created because medical technology has become too complex for clinical educators to handle alone. 
+
+A specialist is more than just a "tech guy." They are an Operations Specialist who must master eight distinct domains: from A/V and I-T networking to medical knowledge and management. 
+
+The chapter describes the H-S-T-S as a "Producer." Much like in a theater or film production, the specialist ensures that all the technical elements—the lighting, the sound, the manikin's responses, and the recording—work together seamlessly to maintain "immersion." If the tech fails, the "illusion" of the clinical scenario breaks, and the student stops learning.
+
+To be successful, a specialist needs "Technical Agility." This means being able to troubleshoot a network crash one minute and fix a leaking manikin lung the next. The C-H-S-O-S certification is the primary way this profession is now being standardized globally.

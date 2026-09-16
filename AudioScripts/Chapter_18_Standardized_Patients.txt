@@ -1,0 +1,9 @@
+Chapter 18: Working with Standardized Patients
+
+Standardized Patients, or S-Ps, are actors trained to play patients. They are the ultimate "High-Fidelity" tool because they are real humans.
+
+As a tech specialist, you'll work closely with S-Ps in Hybrid Simulations. This is where an S-P might wear a "task trainer" (like a fake chest for a needle procedure). You have to train the S-P on how the technology works so they can react naturally when the student touches the device.
+
+You might also be the one to apply Moulage (special makeup) to the S-P to create realistic bruises or wounds. 
+
+The key to working with S-Ps is communication. You need to make sure they are comfortable with the technology and that they know their "Blocking"—where to stand so they don't block the cameras. When the tech and the actor are in sync, the simulation becomes a powerful, life-like experience.

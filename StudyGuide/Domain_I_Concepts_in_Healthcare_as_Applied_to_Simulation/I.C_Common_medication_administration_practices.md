@@ -5,7 +5,7 @@
 ### [Status]: 🟢 Studied
 
 ### [Technician Perspective]
-**Common Medication Administration Practices:** Understand routes (PO, IV, IM, IO) and the 'Six Rights' of medication safety. Techs often manage simulated medication vials and infusion pumps. Simulated meds must be clearly labeled and never used on humans.
+**Common Medication Administration Practices:** Understand routes (PO, IV, IM, SubQ, IO, Sublingual) and the 'Six Rights' of medication safety. Techs often manage simulated medication vials and infusion pumps, and should be able to explain **Titration** (adjusting a drip rate to a target effect, e.g. a vasopressor titrated to a MAP goal) when faculty script a scenario around it. Simulated meds must be clearly labeled and never used on humans.
 
 ### [Clinical Application]
 Simulating realistic medication timing (e.g., 'onset of action') allows learners to practice the 'Wait and See' aspect of clinical care.
@@ -14,6 +14,8 @@ Simulating realistic medication timing (e.g., 'onset of action') allows learners
 *   **Bolus:** A single, large dose of a drug given all at once (usually IV).
 *   **IO (Intraosseous):** Injecting directly into the marrow of a bone (common in emergency sim).
 *   **Six Rights:** Right Patient, Drug, Dose, Route, Time, Documentation.
+*   **SubQ (Subcutaneous):** Injection into the fatty tissue layer below the skin (e.g., insulin, heparin), a slower-onset route than IM.
+*   **Titration:** The process of adjusting the dose or rate of a medication (usually a continuous infusion) to achieve a specific clinical effect.
 
 ### [Exam Scenario]
 **Q:** A student gives a simulated dose of Epinephrine during a 'Code Blue'. How should the operator respond on the monitor?

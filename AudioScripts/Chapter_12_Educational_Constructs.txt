@@ -1,0 +1,9 @@
+Chapter 12: The Science of Learning
+
+To be a great Tech Specialist, you need to understand how people learn. Most simulation is based on Adult Learning Theory. Unlike children, adults learn best when the information is immediately relevant to their jobs and when they can learn by "doing."
+
+This chapter introduces the P-A-D-D-I-E model for building a simulation: Preparation, Analysis, Design, Development, Implementation, and Evaluation.
+
+As the tech specialist, you are most involved in the Development and Implementation phases. This is where you take a written script and turn it into a working manikin program. You create the "Triggers"—for example, if a student gives the wrong dose of a drug, you program the manikin's heart rate to climb. 
+
+A key concept here is Psychological Fidelity. This isn't just about the robot looking real; it's about the student feeling like the situation is real. Your job is to manage the "suspension of disbelief" by ensuring there are no technical glitches that remind the student they are just in a classroom.

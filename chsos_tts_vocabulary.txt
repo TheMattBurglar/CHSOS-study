@@ -1,0 +1,644 @@
+Domain Four. Professional Role. Behavior, Capabilities, And Leadership
+======================================================================
+
+Actor:
+Typically an entity or agent within the simulated environment that Adaptive learning adapts to the needs of the students . simulations outcome . system interfaces . In healthcare simulation, professional andor amateur people trained to reproduce the components of real clinical experience, especially involving communication between health professionals Adverse Event and patients or colleagues . event that); , that which happens; from French event, from A person who has probably not lived through the situation they Latin eventus occurrence, accident, event, fortune, fate, lot, issue. portray but brings skill in playing the role . Refers to someone . . . playing the part of the patient who has been trained and briefed to the extent that a clinician cannot tell Unintended physical injury resulting from or contributed to by them apart from a patient with the condition unless they have medical care that requires additional monitoring, treatment, or access to test results . hospitalization, or that results in death . Can represent a person playing another role within a simulation- based experience . identify problems that would be an adverse event in real-life or They may offer insight into the scenario itself, such as the design recreate situations where an adverse event occurred to identify . causes and improve human and systems performance .
+
+Adaptive Learning:
+knowledge, from leornian and then asks the learners for an explanation of their thoughts or actions . Advocacy includes statements that communicate what an Anchoring Error individual thinks, knows, wants, or feels. Inquiry seeks to learn what others think, know, want, or feel fix or secure in a particular place, c. , 167). perhaps in Old English, from anchor . errorem. In this technique, the facilitator demonstrates rough authentic interest, support, and questioning to help trainees identify and alter unhelpful cognitive frames and actions, thus achieving better Simulation relevance includes the need to integrate the patient outcomes . simulation activity design . Anchoring errors include anchoring bias, confirmation bias and cognitive biases.
+
+Advocacy:
+Public support for or recommendation of a particular cause or policy (e.g., simulation).
+
+Advocacy - Inquiry:
+Advocacy-Inquiry is a debriefing technique where the facilitator first states an observation or opinion (advocacy) and then asks the learner to explain their internal thought process (inquiry) to uncover the frames behind their actions.
+
+Alpha and Beta Testing:
+Alpha: Early testing of a product, including simulation, by the developers or programmers, but not by potential users. The purpose of alpha-testing is to find and resolve problems during Artificial Intelligence in-te-l-jn. from artificium a work of art; skill; theory, system, from artifex . In healthcare simulation, this can refer to underlying programming that provides physiological or system- a variety of people, including a facilitator, instructor, clinician, based algorithm changes based on inputs from users and learners. simulated patient, or SP, etc. . Often paired with machine learning, in which the software Must have specific and substantial training, expertise, and is programmed to alter algorithms and predictions based on competency in conducting assessments . Hauser, 2013). Virtual patients use artificial intelligence . Augmented Reality , from Late Latin augmentare to increase, from . enlarge, enrich. Related: Augmented; augmenting.
+
+Angoff Method:
+A standard-setting method where a panel of experts estimates what percentage of minimally competent candidates would get each question right.
+
+ASPE:
+Association of Standardized Patient Educators.
+
+Brief (Briefing):
+a facilitated activity prior to the simulation-based experience intended to establish a psychologically safe learning environment by conveying important ground rules . An interaction that gives context and helps learners relate to the simulation activity as a real clinical encounter . clearly communicating the complete script of the scenario in advance with the simulation facilitation team to prevent individuals from giving confusing information to participants . C Cave Automatic Virtual EnvironmentTM . 13c., from Old French cave a cave, vault, cellar ; , that which happens; from Middle French event, from Latin eventus occurrence, accident, event, fortune, which a person or thing lives is by . The walls have projected images to simulate an mission, , from de- brief . move their head within the bounds of the CAVE, the correct A facilitated discussion after an actual clinical event designed perspective and stereo projections of the environment appear on to promote reflection, and improve outcomes for the individual, the display screen . team, and patient . , ; Welch-Horan , ).
+
+Closed-Loop Communication:
+Sender states a message - Receiver repeats it - Sender confirms.
+
+Coaching:
+Coaching is a direct method of instruction where a facilitator or peer provides active guidance to a learner during a simulation to help them achieve a specific skill. It is more overt and hands-on than cueing or prompting.
+
+Confederate:
+A confederate is an individual who is part of the simulation team and plays a scripted role to guide the scenario or provide information from within.
+
+Confederate (Embedded Participant):
+An individual who plays a role to guide the scenario from the inside.
+
+Confidentiality:
+The state of keeping or being kept secret or private.
+
+Conflict Resolution:
+The process of finding a peaceful solution to a disagreement.
+
+Continuing Education:
+Education provided for adults after they have left the formal education system.
+
+Credentialing:
+The process of establishing the qualifications of licensed professionals.
+
+Cultural Humility:
+A humble and respectful attitude toward individuals of other cultures.
+
+Customer Service:
+The assistance and advice provided by a company to those people who buy or use its products or services.
+
+De-roling:
+Techniques used to help an SP leave their characters emotionsphysicality behind after a session.
+
+Distance Simulation:
+A method of health care training in which the learners and facilitators are in different physical locations . The administration of a clinical simulated scenario using high-fidelity manikins and their associated computers with the participants located somewhere distant to the operator, who controls the manikins remotely . Durational Simulation simu- from Medieval Latin durationem . A Durational Simulation is the opposite of a Discrete Simulation in that the changes occur in the system between simulations.
+
+Dry Run:
+A complete run through of a new simulation scheduled with staff and facilitators prior to the simulation being implemented with learners. Helpful to refine the performance measures. Raters have an opportunity to evaluate performance measures. Should include all faculty facilitators. The dry run tests the scenario design using faculty participating in the learner role to experience it from the learners perspective and to provide solutions for any gap in design. to prevent design errors, provide clarity for differential diagnoses, assist the learner by ensuring the simulation design provides all evidence-both objective and subjective-for learners to arrive at the correct patient care plan, diagnosis, patient education, andor treatment. A dry run provides an opportunity to ensure all needed equipment is includedin the setup and determine the amount of time that needs to be allotted for completion of the simulation. Includes a debriefing to revise the simulation design . A meeting with all involved in a simulation to review the scenario, goals, objectives, critical actions, expected outcomes, resources, and production needs . planning meetingto review the scenario with the standardized learner, uncover inconsistencies in the simulation, clarify terminology or roles and adjust the standardized learners attitude, knowledge or skill level . Conducted in advance of the planned simulation to identify gaps in the development process .
+
+Early Adopter:
+An individual or lab that tries new technology before it becomes mainstream.
+
+Educator (Simulation Educator):
+A clinical simulation professional whose responsibility is to faithfulness, adherence, trustiness, from fidelis faithful, true, develop and implement clinical simulation-based education trusty, sincere, from fides faith. From as faithful adherence designed to enhance patient safety and quality during healthcare to truth or reality; specifically of sound reproduction from . delivery. Should be able to run scenarios and debrief students using their clinical experience. In other words, they should be content experts. They should follow scenario objectives and The degree to which the equipment and environmental cues the facility standards as well as conduct debriefing sessions with distinguish information as real . A person who supports healthcare professionals who are The degree to which cues provide a duplication of the learning to manage clinical situations and provide care thats environment and motion through the environment .
+
+Embedded Participant:
+An Embedded Participant, formerly called a confederate, is a staff member who plays a role inside the scenario to guide the simulation, provide information, or troubleshoot technical issues without breaking the fiction.
+
+Evidence-Based Practice:
+The use of the best available evidence in making decisions about the care of individual patients.
+
+Extended Reality (XR):
+An umbrella term that is a fusion of all the realities including Augmented Reality . Merging graphical virtual environments with the real world . noun A common process used to prospectively identify error risk widely used technique for assessing risk of patient injury by An individual who is involved in the implementation andor prospectively identifying and prioritizing potential system delivery of simulation activities. For example, faculty, educators, failures . clinicians etc. Simulation facilitator development should be guided by a set of common facilitator competencies grounded in expert consensus Failure to Rescue to noun and evidenced based practice. These elements include: 1) Able to create positive, comfortable, trusting atmosphere and learning
+
+Facilitator:
+Manages the overall learning experience.
+
+Feedback:
+Feedback is the direct relaying of information to a learner about their performance. Unlike debriefing, which is a reflective conversation, feedback is often one-way and focused on correcting specific technical or procedural actions.
+
+Fixation Error:
+A Fixation Error is a specific cognitive trap where a team or individual focuses exclusively on one aspect of a patients case while ignoring more relevant or life-threatening information.
+
+Gamification:
+A strategy for increasing engagement by incorporating game elements into an educational environment to enhance certain Guided Reflection ri-flek- abilities, introduce objectives that give learning a purpose, engage students, optimize learning, support behavior change, and guider to guide, lead, conduct . witan show the way or a similar Germanic source. Approach for increasing learners motivation and engagement by incorporating game design elements in educational environments
+
+Haptic:
+mock-up for purposes of experiment or training is from 1954. In healthcare simulation, refers to devices that providing tactile feedback to the user. Haptics can be used to simulate touching, palpating an organ, or body part, and the cutting, tearing, or A technique that uses a situation or environment created to allow traction on a tissue. persons to experience a representation of a real healthcare event for the purpose of practice, learning, evaluation, testing, or to gain Haptics are here defined as the combination of tactile perception understanding of systems or human actions: the applications of a . . Healthcare simulation is informed and enhanced by perspectives Haptic simulation combines both virtual reality and force from a variety of sciences, technologies, engineering and the arts feedback and represents a new reproducible tool to provide a safe . learning environment . Healthcare simulation as a practice forms the foundation for the A mechanism or technology used for tactile feedback to enhance three tenets comprising: safety, advocacy, and leadership . vibration, touch, or force feedback. haptic controllers create
+
+Harm:
+devise, invent; get, gain, procure. physiology of the body and physical, social, or psychological Loosely defined or informal rules often arrived at through issues arising from the impairment such as disease, disability, or experience or trial and error that make assessments and decisions death. In the context of patient safety, the term adverse event . wrong, with frequently used heuristics often forming the basis for Simulation relevance includes the need to address potential harm the many cognitive biases, such as anchoring bias, availability for multiple parties to include . . To maximize learner experience and prevent harm, simulation Simulation relevance includes the need to identify where heuristic pedagogy should be considered when developing and conducting methods are being utilized by participants . ).
+
+Heuristic:
+A Heuristic is a mental rule of thumb or shortcut that allows for quick decision-making. In simulation, we study heuristics to understand how clinicians make fast choices under pressure, for better or worse. HSSOBP TM (Healthcare Simulation Standards of Best Practice): The gold standard for simulation program operations.
+
+Human Simulation:
+A recognized methodology that involves human role players interacting with learners in a wide range of experiential learning and assessment contexts . I
+
+Immersion:
+Immersion is the degree to which a learner feels physically and psychologically present within a simulation-based experience. It involves a 'suspension of disbelief' where the learner treats the simulated environment as real.
+
+Implicit Bias:
+Unconscious attitudes or stereotypes that affect our understanding and actions.
+
+Informed Consent:
+Permission granted in the knowledge of the possible consequences, typically that which is given by a patient to a doctor.
+
+Innovation:
+The action or process of innovating (e.g., new tech in sim).
+
+Interprofessional:
+Interprofessional education occurs when students from two or more professions learn about, from, and with each other to enable effective collaboration and improve health outcomes.
+
+Journal:
+A newspaper or magazine that deals with a particular subject or professional activity.
+
+Learning Culture:
+The environment where learners feel safe and supported in their professional growth.
+
+LEARNING EXPERIENCE:
+The education of healthcare professionals with different but complementary knowledge and skills in a simulation environment A context for learning that consists of a controlled and shielded that promotes a collaborative team approach. Simulation- representation of real-world situations, and a set of educational enhanced interprofessional education . linked objectives and outcomes . An atmosphere that is created by the facilitator to allow for Simulations designed for the individuals involved to learn about, sharing and discussion of participant experiences without fear of from, and with each other to enable effective collaboration and humiliation or punitive action. improve health outcomes . A setting, surrounding, or conditions that reproduce components A collaborative educational approach that brings together or aspects of the real-world environment, for the purpose of healthcare professionals of varying specialties in a simulation. learning and related activities, andor research . A self-imposed formalized code for all simulationists that simulare imitate, from stem of similis like. Meaning a model or includes the following values: integrity, transparency, mutual mock-up for purposes of experiment or training is from 1954. respect, professionalism, accountability, and results orientation . from guide line ; based on frameworks and values; includes simulation based experience . A recommendation of the qualities for simulation fidelity, With the growing trend to increase the use of simulation simulation validity, simulation program, or for formative or activities, a deeper focus is required by the educator to summative evaluation. deliberately integrate ethical principles into simulation design. A set of procedures or principles that are recommended to Educators and learners have a regulatory obligation to adhere to assist in meeting standards. Guidelines are not necessarily ethical principles in clinical practice and should mirror the same comprehensive. They provide a framework for developing in simulation activities as well . policies and procedures based on best practice. A basis for simulations to promote patient safety and engage A set of recommendations, incorporating currently known best learnersparticipants . practice, based on research andor expert opinion. Guidelines are recommendations to users when specific standards do not apply. Guidelines are designed to streamline
+
+Learning Goal:
+Old English had utancumen . traffic flow, adequate space and storage, room usage, lighting, air handling, scheduling, and information technology assets . a set of objectives . Ensuring the details, in simulation-based education, such as scheduling of learners, facilitators, moulage, props, scenario Learning outcomes measure the effects on learning: preparation, and design are all complete. psychomotor, affective and cognitive skills .
+
+Mastery Learning:
+leornian. Mentally rehearsing an action to enhance performance . Cognitive rehearsal of a task in the absence of overt physical Mastery learning is a form of competency-based education that movement that can be used to learn expects all learners to achieve all curriculum learning objectives cognitive, kinesthetic, psychomotor, or technical skills . the science of expertise, features deliberate practice, rigorous assessment, feedback, multiple learning opportunities, and Activities that take place in the brain such as mental imagery, psychological safety. Educational outcomes are uniform among imagination, thought flow, narrative transportation, fantasizing, learners, while the time needed to reach the outcomes may vary and counterfactual thinking. These are specific processes that . occur in the brain when an individual is mentally simulating an action, forming a mental image, or are focused on the An instructional strategy that encourages students to learn at consequences of mental simulation processes for affect, their own pace and master skills progressively. The strategy cognition, motivation, and behavior . includes six key elements: . beyond; from Greek meta , from Latin universum all things, everybody, all people, the outcomes have been demonstrated in simulated settings and as whole world, noun use of neuter of adjective universus all together, translational results to improved patient care practices, patient all in one, whole, entire, relating to all, literally turned into one, clinical outcomes, and public health effects . participle of vertere to turn, turn back, be turned; convert, transform, translate; be changed .
+
+Negative Learning:
+Occurs in higher education when students, for instance, use academically unwarranted, unvalidated information or draw false conclusions while developing domain-specific knowledge Non-technical Skills .
+
+Never Event:
+A Never Event is a catastrophic medical error that should never occur in healthcare, such as surgery on the wrong site. These are often used as the basis for high-stakes safety simulations.
+
+Online Simulation:
+Interactive simulation experience offered through an online platform that connects participants with other learners in a virtual world to complete assessment, diagnosis, and treatment tasks for virtual patients . etc., to face east or any other specified direction, noun of action from orient Providing information about the use of recording equipment and observations by peers, faculty, facilitators, staff, health professionals, and administrators. 2) Reviewing the evaluation methods 3) Explaining all factors of the simulation, including objectives, scenario, equipment, manikins or other technology, embedded personnel, setting, and other environmental factors. Simulationists may choose not to disclose specific performance measures or critical actions. . The process of giving participants information prior to a simulation event to familiarize them with a simulation activity or environment, such as center rules, timing, and how the simulation modalities work, with the intent of preparing the participants. An activity that occurs prior to a simulation activity to prepare the facultyinstructors or learners; for example, a slide presentation that all participants must review to understand how the center operates, or how the activity is being conducted.
+
+Operations Specialist:
+Manages the tech and environment.
+
+Participant:
+physicalis of nature, natural, from Latin physica study of nature One who engages in a simulation-based activity for the purpose . from 1970. Related: Physically. A person engaged in a simulation activity or event and for those
+
+Peer-Review:
+A process where experts evaluate work before it is published.
+
+Physiologic Modeling:
+communication cables. The mathematical computer models governing complex human Latin praeparationem averts defensive behaviors. facilitates the rapport between the facilitator and learner and contributes to a conductive learning An activity immediately preceding the start of a simulation environment during debriefing. Should establish simulation activity where the participants receive essential information. ground rules that inform all learners of the mutual expectations Preparation materials support understanding of the concepts of the learning experience. . may incorporate assigned readings or audiovisual materials, concept mapping, among other instructions, or guidelines. For Essential overarching elements of prebriefing should include: example, before beginning a session, faculty conduct a briefing 1) setting the scene, 2) expectations, 3) debriefing, 4) simulation about the scenario to review the information being provided to the scenario, 5) simulation room orientation and 6) preparation time participants. . 2021, p. 11) Role of prebriefing, or presimulation briefing, is to attend to the Eds. Note: The terms Briefing, Orientation, Prebriefing, and Training method that incorporates cognitive knowledge and Preparation are often used interchangeably. technical skill into a precise sequence of actions that are both safe and efficient. Example: The pharmacists are using augmented reality technology to create a procedural simulation of cleaning a Prepackaged Preprogrammed Scenario sterile flow hood . si-nair-ee-oh pros-es sim-yuh-ley-shuh n sahy-kuh-loj-i-kuh l noun simulare imitate, from stem of similis like. Meaning a model or psychologia, probably coined mid-16c. in Germany by Melanchthon mock-up for purposes of experiment or training is from 1954. from Latinized form of Greek psykhe- breath, spirit, soul logia study of. Meaning study of the mind first recorded 1748, from Christian Wolffs Psychologia empirica ; main modern A tool in the evaluation of the safety of new healthcare teams behavioral sense is from early 1890s. and new facilities, proactively identifying latent threats before delivering patient care .
+
+Pilot Study:
+A small scale preliminary study conducted in order to evaluate feasibility.
+
+Pre-test Questions:
+Unscored questions hidden in an exam to gather data for future tests.
+
+Psychological Fidelity:
+Psychological Fidelity is the extent to which a simulation evokes the same cognitive and emotional responses as the real-world task. It focuses on the learners internal experience and their suspension of disbelief during the session.
+
+Psychological Safety:
+A shared belief that the team is safe for interpersonal risk taking.
+
+Qualitative Research:
+The process of collecting and analyzing non-numerical data (e.g., text, video).
+
+Quantitative Research:
+The process of collecting and analyzing numerical data.
+
+Realism:
+of taking time to think critically about ongoing activities and The ability to impart the suspension of disbelief to the learner by processes and plan for the best way forward . environment; realism includes the environment, simulated patient, and activities of the educators, assessors, andor facilitators. The facilitator plans the pause ahead of time or enacts it after observing . A technique that may be useful when waiting until the end of the simulation can create dilemmas, including the possibility The quality or fact of representing a person, thing, or situation of not addressing shortcomings in performance that can lead to accurately in a way true to life; this enables participants to act as confident incompetence leaving the learning environment and if the situation or problem was real. practicing in patient areas. . Refers to the physical characteristics of the activity, semantical The reflective pause facilitates the reflection-in-action process aspects of the activity (theories and conceptual relations if A that is a natural part of learning. happens then B occurs), andor the phenomenal aspects of the activity (emotions, beliefs, and thoughts experienced). During a reflective pause, feedback is provided, and self- correction is supported. Deficiencies and misunderstandings are
+
+Reflective Pause:
+of removere move back or away, take away, put out of view, The engagement of self-monitoring that occurs during or after subtract, from re- back, of action from past participle stem of and facilitator guidance to aid in this process . mock-up for purposes of experiment or training is from . of the events of the simulation; this process allows participants to make meaning out of the experience, to identify questions Simulation facilitated and run from a remote computer in another generated by the experience, and ultimately, to assimilate the location separate from the participants . knowledge, skills, and attitudes uncovered through the experience Simulation that uses an online curriculum and simulation-based with pre-existing knowledge. training facilitated through remote video conferencing . and demonstrating the areas in which they may need further A simulation-based session where mannequins are operated by improvement; this reflection requires conscious self-evaluation to remote control and instructors facilitate in real time via web deal with unique patient situations . or videoconferencing, as an alternative method to face-to-face
+
+Remote Simulation:
+A system is resilient if it can adjust its functioning before, during, simulare imitate, from stem of similis like. Meaning a model or or following events . Resilience is a characteristic that enables organizations to adapt Simulation performed with either the facilitator, learners or both to uncertain conditions in their work environment. Resilient in an offsite location separate from other members to complete organizations are able to anticipate risk and continuously educational or assessment activities . Facilitation and assessment can be performed failure. While important, personal resilience is not the focus either synchronously or asynchronously using video or web of this , but resilience as an organizational trait helps conferencing tools. to minimize the overreliance on individual resilience through
+
+Representation:
+The degree to which simulation materials reflect the diversity of the real patient population.
+
+Risk Management:
+risk management from ; risk taker from . One who participates in a simulation-based training method in which medical students alternately play the patients and manipulation, from manage -ment. Sense of act of man aging by clinicians role . physical manipulation is from . Meaning governing body, One who assumes the attitudes, actions, and discourse of directors of an undertaking collectively .
+
+ROI (Return on Investment):
+The financial or clinical benefit vs. the cost of the program.
+
+Role Clarity:
+Everyone knows their specific job (e.g., who is the confederate, who is the operator).
+
+Roleplay / Role-play:
+A technique in which learners are actively involved in the more impromptu type of simulation experience. construction of their learning which has also been shown
+
+Safe Container:
+A Safe Container is a psychological learning environment where participants feel safe to take risks, make mistakes, and engage in honest reflection.
+
+Safe Learning Environment                                                 Scenario:
+health, progress, etc., of someone or something. The scripts, stories, or algorithms created for instructing the to interact with the students. A students belief as to whether or not it is safe for them to take interpersonal risks, such as asking questions, sharing an idea for The description of an exercise . part. A learning environment where it is clarified that learners feel A patient case with a main storyline and having the aim of physically and psychologically safe to make decisions, take bringing out specific learning outcomes for the participants and actions, and interact in the simulation . Tennessee System, , Safe Learning Environment). An artificial representation of a real-world event to achieve A learning environment of mutual respect, support, and respectful educational goals through experiential learning . and mutual respect for thought and action encouraged and Real life situations that often include a sequence of learning practiced . activities that involve complex decision-making, problem-solving
+
+Safe Work Environment:
+One of the 5 pillars of ASPE SOBP.
+
+Saturation in Training:
+A model, theory, or approach in which it is proposed to train as many people as possible in the shortest timeframe to achieve the greatest desired effect and change in behaviors; it is often discussed in relation to TeamSTEPPSTM . Screen - based Simulation Simulator projected images is from , originally in reference to magic from . lantern shows; later of movies. Related screenshot screen . similis like. In reference to training devices for complex systems, A written set of instructions providing a detailed plan of action from . Meaning imitativefor purposes of experiment or training is from . In commercial simulated patients during a simulation event. jargon, artificial, imitation by . A computer script is a list of commands that are executed by a certain program or scripting engine. Scripts may be used to automate processes on a local computer or to generate web pages A form of simulation in which a clinical scenario with one on the web . or more patients is presented through a digital screen surface scenarios that require real-time decision-making . A concept defined as physically simulated trajectories of care
+
+SBAR:
+SBAR stands for Situation, Background, Assessment, and Recommendation, and it is a standardized communication framework used to convey critical information between healthcare providers.
+
+Scaled Score:
+Transforming a raw score into a standardized scale.
+
+Scenario:
+A Scenario is the complete plan for a simulation-based experience, including the context, objectives, and patient information. It is the story and logic that guides the entire event.
+
+Scribe / Scribing:
+patients experiences, wishes and needs . The act of making notes about a scenario and documenting the actions taken or not taken.
+
+Script:
+A Script is the specific, line-by-line set of instructions or dialogue used by role players and simulators within a scenario. While the scenario is the overall plan, the script is the precise execution of that plan.
+
+Simulated Patient:
+Simulated Patient is a broader term for any person playing the role of a patient. While often used interchangeably with Standardized Patient, the term Simulated emphasizes the use of the role for training rather than high-stakes standardized assessment.
+
+Simulation Time:
+A simulations internal representation of time; simulation time may accumulate faster, slower, or at the same pace as real time. A time established by the simulation educator before the start of the simulation exercise, irrespective of the actual real time . Simulation Validity vuh-lid-i-tee sim-yuh-ley- simulare imitate, from stem of similis like. Meaning a model or copier, feigner, from simulare imitate, from stem of mock-up for purposes of experiment or training is from . similis like. In reference to training devices for complex systems, from . Meaning imitative Validity is the extent to which a test, model, measurement, for purposes of experiment or training is from , simulation, or other reproduction provides an accurate simulator in the related sense dates from . In commercial jargon, representation of its real equivalent. A valid simulation is one that artificial, imitation by . is an accurate representation of the target task, within the context of the learning objectives and the target population . A setting, device, computer program or system that performs simulation . The degree to which a model or simulation accurately represents or measures what it intends to measure . Any object or representation used during training or assessment that behaves or operates like a given system and responds to the In healthcare simulation, the quality of a simulation or simulation users actions. program that demonstrates that the relationship between the process and its intended purpose is specific, sensitive, reliable, A device that duplicates the essential features of a task situation. and reproducible . A simulator generally has three elements a modeled process which represents, emulates, or otherwise simulates a real-world Validity in research refers to how accurately a study answers system; a control system; and a human-machine interface which the study question or the strength of the study conclusions. For is representative of the inputs found in the real-world system outcome measures such as surveys or tests, validity refers to . Examples include the accuracy of measurement. Validity refers to how well the manikins and part-task trainers. assessment tool actually measures the underlying outcome of interest. Validity is not a property of the tool itself, but rather of Simulators can be classified according to their resemblance the interpretation or specific purpose of the assessment tool with to reality into low-fidelity, medium- fidelity and high-fidelity particular settings and learners . simulators .
+
+Simulationist:
+A modeling and simulation professional . Learning curve attested by . ). A person who is involved, full-time or part-time, in modeling or simulation activities. For example, collects data, develops Central to the concept of situated learning is the learners models to be used for simulation purposes; performs simulation authentic participation in a real world environment with other studies; develops simulation software; manages simulation learners, ideally peers, more advanced learners, and experts, who projects; advertises andor markets simulation products andor together form a community of practice . simulation-based solutions to important problems; advances A theory that posits that learning occurs within authentic activity, simulation technology; and advances simulation methodology context, and culture. Social interaction and collaboration are andor theory . considered essential components . This is in contrast to a classroom learning activity that is simulation activities, products, and services . This can include simulated patient educators, Situated learning theory states that every idea and human trainers, and standardized or simulated patients . Wenger, ). The perception of environmental elements within time and SQUIRE-SIM, developed following established consensus space, and a perception of their meaning; it involves being process methodology, provides simulation-based extensions to aware of what is happening around you to understand how SQUIRE 2.0 reporting guidelines to improve the quality and information, events, and your own actions impact the outcomes standardization of reporting on simulation-specific elements of and objectives . healthcare improvement research . A field of study concerned with understanding of the environment critical to decision makers in complex, dynamic areas; situational awareness refers to the degree to which ones perception of a Standardized Patient . crisis or patient. Most commonly used in the context of crisis resource management training .
+
+Stakeholder Management:
+Balancing the needs and expectations of different groups involved in the lab.
+
+Standardization:
+Ensuring every research participant experiences the exact same technical environment.
+
+Standardized Patient:
+A Standardized Patient is an individual trained to portray a patients history, physical findings, and emotional state in a highly consistent and repeatable manner, primarily used for assessment and communication training.
+
+Systems Approach:
+first recorded . An engineering term meaning to bring together the component approach . relatively inexperienced personnel faced with cognitively complex situations). Rather than focusing corrective efforts on reprimanding individuals or pursuing remedial education, the systems approach seeks to identify situations or factors likely to give rise to human error and implement systems changes that will reduce their occurrence or minimize their impact on patients. This view holds that efforts to catch human errors before they occur or block them from causing harm will ultimately be more fruitful than ones that seek to somehow create flawless providers . T Tabletop Exercise learners an opportunity to apply knowledge through formal discussion of a described scenario .
+
+Team Dynamics:
+The behavioral relationships between members of a group that are assigned connected tasks.
+
+Team-based Learning:
+A learning method that makes use of small group discussion and collaborative, self-directed study to foster new learning as opposed to imparting information. After a period of preliminary individual accountability, teams of learners compete with each other to learn information and solve problems. This is
+
+Technical skills:
+having to do with the mechanical arts . Telepresence is the bridging of geographical separation using skil distinction, ability to make out, discernment, adjustment, approximate to being actually present. Work-from-home meeting related to skilja . A procedural skill that is required for the accomplishment of a specific task. In healthcare, the knowledge, skill, and ability to accomplish a specific medical task; for example, inserting a chest tube or performing a physical examination. Telesimulation , from Greek tele far off, afar, at or to a distance, apply to practice or operations and are not based in reality related to teleos . PIE root kwel- . An event or events that move the simulation from one state to Provides simulation education in situations where the simulator another. and learners are geographically remote from the instructor. Anything, as an act or event, that serves as a stimulus and initiates Technologies such as Web-conferencing, screen-sharing software, or precipitates a reaction . microphones, and webcams make telesimulation possible and what the other is doing in real time . The classification of different educational methods or equipment; for example, 3-dimensional models, computer software, Telesimulation is a novel, practical, inexpensive, effective, and standardized patients, partial-task trainers, or high-fidelity patient well-received method for teaching appropriate procedural skills simulators . .
+
+Training Scar:
+A Training Scar is an unintended bad habit or incorrect clinical practice that a learner acquires because of a flaw in the simulations design or a limitation of the equipment.
+
+Value on Investment (VOI):
+A broader measure of the value of simulation, including non-financial benefits like safety and culture.
+
+Vegas Rule:
+What happens in sim, stays in sim.
+
+Virtual Patient:
+A Virtual Patient is a computer-based representation of a clinical case, often on a screen. This is distinct from a Manikin, which is a physical, life-sized representation of a patient.
+
+
+Domain One. Concepts In Healthcare As Applied To Simulation
+===========================================================
+
+AMI:
+Acute Myocardial Infarction occurs when blood flow to the heart muscle is blocked, leading to tissue damage and characteristic EKG changes like ST-segment elevation.
+
+Bolus:
+A single, large dose of a drug given all at once (usually IV).
+
+Conflict of Role:
+When a participant (or confederate) performs actions outside their assigned clinical or professional boundaries.
+
+Crash Cart:
+A tray or wheeler with equipment for resuscitation.
+
+CVA:
+A Cerebrovascular Accident, or stroke, occurs when blood flow to the brain is interrupted by a clot or a ruptured blood vessel, causing neurological deficits.
+
+Cyanosis:
+A bluish discoloration of the skin resulting from poor circulation or inadequate oxygenation of the blood.
+
+Defibrillator:
+A device that gives an electric shock to the heart to restore a normal rhythm.
+
+Environmental Fidelity:
+The degree to which the simulation environment (room, equipment, noise) matches the real clinical setting.
+
+Fidelity (Conceptual):
+The degree to which the simulator behaves like a real patient (e.g., vitals match the clinical state).
+
+Fidelity (Physical):
+The degree to which the equipment and environment lookfeel real.
+
+Fidelity (Psychological):
+The degree to which the learner feels the same pressureemotions as in a real event.
+
+Functional Fidelity:
+The degree to which the simulator functions like a real patient in response to interventions.
+
+Glucometer:
+A device used to determine the approximate concentration of glucose in the blood.
+
+Homeostasis:
+The state of steady internal physical and chemical conditions.
+
+Hypoxia:
+A condition in which the body or a region of the body is deprived of adequate oxygen supply at the tissue level.
+
+Interprofessional Simulation:
+A simulation involving participants from two or more professions learning with, from, and about each other.
+
+IO (Intraosseous):
+Injecting directly into the marrow of a bone (common in emergency sim).
+
+IPE (Interprofessional Education):
+Students from two or more professions learning about, from, and with each other.
+
+IV Pump (Infusion Pump):
+A medical device that delivers fluids, such as nutrients and medications, into a patients body in controlled amounts.
+
+MAR (Medication Administration Record):
+The report that serves as a legal record of the drugs administered to a patient.
+
+Onset of Action:
+The time it takes for a medication to produce a response after administration.
+
+Pre-briefing:
+The phase before the simulation where instructions and orientation are provided. Pulse Oximetry (SpO2): Measures oxygen saturation in the blood.
+
+Pulse Point:
+A place on the body where an artery is close to the skin and a pulse can be felt (e.g., Carotid, Radial).
+
+Scope of Practice:
+Procedures, actions, and processes that a healthcare practitioner is permitted to undertake.
+
+Sepsis:
+Sepsis is a life-threatening medical emergency caused by the bodys extreme response to an infection, often leading to organ failure and septic shock.
+
+Six Rights:
+Right Patient, Drug, Dose, Route, Time, Documentation.
+
+Social Fidelity:
+The realism of the social interactions and communications within the simulation.
+
+Staged Clues:
+Physical items placed in the environment (e.g., an empty pill bottle) to provide diagnostic information to the learner.
+
+Standardized Participant:
+A broader term for any individual (SP, student, or staff) playing a scripted role in a simulation.
+
+Tension Pneumothorax:
+A tension pneumothorax is a life-threatening condition where air trapped in the pleural space causes the lung to collapse and shifts the mediastinum.
+
+Titration:
+The process of adjusting the dose of a medication to achieve a specific clinical effect.
+
+
+Domain Three. Healthcare Simulation Practices, Principles, And Procedures
+=========================================================================
+
+Asset Tag:
+A label used to identify and track physical assets.
+
+Competency Checklist:
+A tool to ensure uniform technical skill levels.
+
+Corrective Maintenance:
+Corrective Maintenance is the reactive repair of equipment after it has already failed. This is distinct from Preventive Maintenance, which is scheduled and proactive.
+
+Deliberate Practice:
+A virtual model of a physical . .
+
+Fiction Contract:
+The Fiction Contract is an explicit agreement where learners commit to treating the simulation as real while facilitators ensure a safe and supportive environment.
+
+Inventory Management:
+The process of ordering, storing, and using a companys inventory.
+
+Lead Time:
+The delay between ordering and receiving goods.
+
+PAR Level:
+The Minimum stock level required.
+
+Peer-to-Peer Training:
+A method where colleagues train each other on technical systems.
+
+PM (Preventive Maintenance):
+Scheduled upkeep. This is a critical simulation term.
+
+Preventive Maintenance:
+Preventive Maintenance is the scheduled, proactive upkeep of equipment to prevent failures. In contrast, Corrective Maintenance is the reactive repair of equipment after it has already failed.
+
+Redundancy:
+Intentional duplication of critical system components.
+
+Safety Data Sheet (SDS):
+A document that lists information relating to occupational safety and health for the use of various substances.
+
+Safety Stock:
+The Buffer stock kept for unexpected spikes in demand.
+
+SDS (Safety Data Sheets):
+Essential documents for every chemicalfluid in the lab.
+
+Sharps Container:
+A container that is filled with used medical needles and other sharp medical instruments.
+
+SSH Accreditation:
+Formal recognition that a sim program meets the Society for Simulation in Healthcares rigorous standards.
+
+Strategic Plan:
+A document used to communicate the organizations goals and the actions needed to achieve them.
+
+Supply Chain:
+The sequence of processes involved in the production and distribution of a commodity.
+
+Technical Orientation:
+A session where facultystudents are introduced to the simulation technology.
+
+Throughput:
+The number of learners that a simulation center can train in a given period.
+
+Train-the-Trainer:
+A model where the specialist trains key faculty members who then train their peers.
+
+Utilization Rate:
+The measure of resource efficiency.
+
+
+Domain Two. Simulation Technology Operations
+============================================
+
+Access Point (AP):
+Hardware that transmits the Wi-Fi signal.
+
+Acoustic Isolation:
+Soundproofing control rooms from sim rooms.
+
+Anaplastology:
+The art and science of restoring a malformed or absent part of the human body through artificial means (e.g., high-end prosthetics for moulage).
+
+API (Application Programming Interface):
+A set of protocols for building and integrating application software.
+
+Avatar:
+A graphical representation, typically three-dimensional, of a person capable of relatively complex actions, including facial expression and physical responses while participating in a virtual SBE . It may be controlled . . . using a mouse, keyboard, or a type of joystick . A virtual object used to represent a physical object . A third--person perspective places the view and camera so the user and learner can see the controlled avatar . May be digital in nature and associated with virtual reality . B Back Story or Backstory or Back-story Behavioral or Behavioural Skills stor- bi-h-vy- direction, Middle English, from back , also backermore. To or toward ending from Middle English havour possession, a word altered . A story is by derivation a short history, and schele separation, discrimination; from PIE root skel- . and communications among others . standardized, or simulated patients, and staff as required to support May also be called behavioral performance which is . . . the simulation activity.) decision-making and team interaction processes used during the The backstory or backstory elaboration is described as teams management of a situation . a method for developing the needed elements of a game or Skills may be called non-technical ; however, behavioral may be a more appropriate term believable . . The concealment or alteration of information or equipment is experienceand serves to prepare and orient learners to the primarily used by educators to not reveal the precise scenario simulation experience. The briefing in advance of the simulation objectives . activity consists of several key components. These include reviewing the sessions goals and objectives, establishing a fiction The use of deception for the benefit of the learners development contract with learners, providing logistic details about the session, is part of the art of simulation . and pledging to respect the learners . learners by the educators during the simulation activity pre- The information and guidelines given to faculty or simulated briefing is generally intentional and justifiable, especially if it patientsparticipants participating in a scenario to allow them to pushes learners to exercise critical thinking . fully prepare for interactions with the participants . used by educators to encourage learners to exercise critical Briefing materials may include a verbal, recorded or written Deception in Simulation section, para. 2). . For example, at the start of the simulation scenario, be expected in real life, whereas it is achieved in a totally participants receive a notification from ambulance personnel different manner through artistic or technological shortcuts, regarding a patient being transported to their facility with a thus promoting realism . gunshot wound.
+
+Bandwidth:
+The maximum rate of data transfer across a given path.
+
+BNC Connector:
+A miniature quick connectdisconnect radio frequency connector used for coaxial cable.
+
+Boundary Microphone:
+A small omnidirectional condenser mic capsule positioned flush with or in close proximity to a boundary (surface).
+
+Casting:
+The process of creating a mold of a body part for moulage or task trainer creation. Cat6: A standardized twisted pair cable for Ethernet and other network physical layers.
+
+Checklist:
+An algorithmic listing of actions to be performed in a given clinical setting, the goal being to ensure that no step will be forgotten. Although a seemingly simple intervention, checklists have a sound theoretical basis in principles of human factors engineering and have played a major role in some of the most significant successes achieved in the patient safety movement . Clinical Scenario s-ner-- kch-i kg-n- beginning or starting point, an ending point, a debriefing, and a way to evaluate .
+
+Cloud Storage:
+A model of computer data storage in which the digital data is stored in logical pools, said to be on the cloud.
+
+Compressed Air:
+Air kept under a pressure that is greater than atmospheric pressure, used for manikin pneumatics.
+
+Dante:
+Industry standard for digital audio networking.
+
+Data Retention Policy:
+The lifecycle of a file from creation to deletion.
+
+DHCP Reservation:
+A permanent IP address assignment within the DHCP scope, ensuring a device always gets the same IP while remaining centrally managed.
+
+DNS (Domain Name System):
+The service that translates domain names to IP addresses.
+
+EDID:
+Data sent by a display to tell the source what resolution it supports.
+
+Encoder:
+A device or software that converts a raw videoaudio signal into a digital format for streaming or recording.
+
+Encryption:
+Data at rest vs. Data in transit.
+
+FERPA:
+Family Educational Rights and Privacy Act.
+
+Field of View (FOV):
+How much of the room the camera captures.
+
+Firewall:
+A network security system that monitors and controls incoming and outgoing network traffic.
+
+Firmware Update:
+A software program used to update the low-level control code for a piece of hardware.
+
+Gain Staging:
+Managing the level at each step of an audio signal to prevent distortion.
+
+Galvanic Isolation:
+Protecting simulator circuits from real electrical shocks.
+
+Gaussian Blur:
+A video effect used to obscure faces or sensitive information in recordings to maintain participant confidentiality.
+
+Haptic Feedback:
+Technology that simulates the sense of touch by applying forces, vibrations, or motions to the user.
+
+Haptics:
+Tactile feedback in VRTask trainers.
+
+Hardware Failure:
+A malfunction of a physical component of the simulation system.
+
+HDBaseT:
+A technology that transmits 4K video, audio, and power over a single Cat6 cable.
+
+HVAC:
+Heating, Ventilation, and Air Conditioning; critical for maintaining equipment temperature and student comfort.
+
+Hybrid Simulator:
+The use of two or more simulation modalities concurrently (e.g., an SP wearing a task trainer).
+
+Lavalier Microphone:
+A small microphone used for television, theatre, and public speaking applications in order to allow hands-free operation.
+
+MAC Address:
+A Media Access Control address is a unique hardware identifier assigned to a network interface controller for communications within a network segment.
+
+MAC Filtering:
+A security method that allows or blocks devices based on their unique hardware address.
+
+Manikin:
+sense where we might use model. A life-sized human like simulator representing a patient for healthcare simulation and education . See: MANIKIN The method of operation in which an operator inputs a value method . to a given parameter regardless of how it would affect any
+
+Mixed Reality (MR):
+and directly Medieval Latin realitatem is from differentiated from hybrid simulation in that it is not characterized . by the combining of one type of simulation to enhance another, but rather the use of multiple types of simulation in the same A category that encompasses the hybrid combination of virtual mannequin are used in a scenario, or a task trainer paired with an environments and reality to create a new environment .
+
+Mixer:
+A device for merging, routing, and changing the volume level, timbre andor dynamics of many different audio signals.
+
+Modality:
+Modality refers to the platform or method used for a simulation experience, such as a manikin, standardized patient, virtual reality environment, or a task trainer.
+
+Moulage:
+simulare imitate, from stem of similis like. Meaning a model or The makeup and molds applied to humans or manikins used to mock-up for purposes of experiment or training is from 1954. portray lesions, skin findings, bleeding, and traumatized areas The application of makeup and molds to a human or simulators The use of multiple modalities of simulation in the same limbs, chest, head, etc. to provide elements of realism . manikin used in a scenario. or a task trainer paired with an SP Techniques used to simulate injury, disease, aging, and other for venipuncture, etc. Differentiated from hybrid simulation physical characteristics specific to a scenario . that combines of one type of simulation to enhance another . moulage supports the sensory perceptions of participants and MP4: A digital multimedia container format most commonly used to store video and audio.
+
+NAS:
+Network Attached Storage is a file-level computer data storage server connected to a computer network providing data access to a heterogeneous group of clients.
+
+NDI (Network Device Interface):
+High-quality, low-latency video over standard Ethernet.
+
+Patch Test:
+Checking for stainingreaction on a small, hidden area.
+
+Patient Simulator:
+past participle adjective from simulate . p.vi). An individual who is trained to teach and provide feedback A device that enables the operator to reproduce or represent on basic physical exam techniques and process; serves as a under test conditions phenomena likely to occur in actual coach and model . University, 2019). High- or low-fidelity full-body manikins controlled by instructors Faculty extenders used to teach students physical exam to create a structured learning environment in a clinically realistic maneuvers according to accepted physical exam guidelines and setting where learning can take precedence over patient care often act as primary evaluators for the physical exam component . in summative clinical exams . French fidlit . stimuli that raise stress levels in the participant, enhancing the psychological fidelity . design and procedure . Phantom Power (48V): DC voltage used to power condenser microphones.
+
+Ping / Traceroute:
+First line of diagnostic commands.
+
+PoE Budget:
+The total amount of power a network switch can provide to devices (cameras, access points) over Ethernet cables.
+
+Preventive Maintenance (PM):
+Scheduled upkeep to prevent catastrophic failure.
+
+Prop:
+15c.). A perceived or actual feeling of mental threat as a result of Examples include feelings of shame or humiliation . enhance realism, or to provide a cue to learners.
+
+PSI / Bar:
+Pressure measurements for pneumatics. This is a critical simulation term.
+
+Realistic Environment:
+The degree to which the physical simulation space mimics the actual clinical workspace.
+
+Root Cause Analysis:
+Finding the fundamental reason for a failure, not just treating the symptom.
+
+RSSI (Received Signal Strength Indicator):
+Measures how strong the Wi-Fi signal is.
+
+SCORM / xAPI:
+Standards for elearning software communication.
+
+SDI:
+Serial Digital Interface; the professional standard for long video runs.
+
+Simulated Blood:
+A fluid used to mimic the appearance and properties of human blood for simulation.
+
+Simulated Meds:
+Placebo medications used in simulation that look real but contain no active ingredients.
+
+Software Bug:
+An error, flaw or fault in a computer program or system that causes it to produce an incorrect or unexpected result.
+
+SOPHIE:
+A mnemonic for moulage: Surface, Odor, Position, Hydration, Integrity, and Extent.
+
+SSID (Service Set Identifier):
+The primary name associated with an 802.11 wireless local area network.
+
+SSO (Single Sign-On):
+Security and convenience for users.
+
+Subnet Mask:
+A subnet mask is a thirty-two-bit number that masks an IP address and divides the IP address into network and host addresses.
+
+Task Trainer:
+A Task Trainer is a specialized simulator designed to teach one specific psychomotor skill, like an IV arm or a birthing torso, rather than simulating a whole-body clinical experience.
+
+TCO (Total Cost of Ownership):
+Initial cost maintenance consumables. This is a critical term for the exam.
+
+Telesimulation:
+Use of telecommunication and simulation technologies to provide education, training, andor assessment to learners at an off-site location.
+
+Transfer of Training:
+Applying skills learned in sim to the real world.
+
+Virtual Webcam:
+Software that allows a computer to treat a video stream (like from a sim system) as if it were a local USB camera.
+
+VLAN (Virtual Local Area Network):
+A logical subnetwork that groups together a collection of devices from different physical LANs.
+
+Wireless Jitter:
+Variation in the delay of received packets, often caused by network congestion or interference, leading to erratic simulator behavior. WPA3: The latest security protocol for wireless networks, providing stronger encryption than WPA2.

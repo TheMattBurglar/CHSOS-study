@@ -1,0 +1,9 @@
+Chapter 17: Bringing the Scenario to Life
+
+This chapter is about the "Performance" of simulation. A scenario isn't just a list of medical facts; it's a story.
+
+To make it work, you need a clear Pre-Brief. This is where you orient the students to the manikin and the room so they know what they can and can't do. 
+
+During the simulation, the tech specialist is the "Director." You are watching the cameras, listening to the students, and adjusting the manikin in real-time. You are looking for Triggers—if the student gives the right medicine, you make the patient feel better. If they miss a step, you might make the patient's condition "crash." 
+
+After the scenario, the Debrief is where the learning is solidified. Your role here is to have the video clips ready to go so the educator can show the students exactly what happened.

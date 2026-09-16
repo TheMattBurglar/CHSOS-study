@@ -5,21 +5,32 @@
 ### [Status]: 🟢 Studied
 
 ### [Technician Perspective]
-**Legal and Ethical Principles:** Protect learner confidentiality (the 'Vegas Rule'). The **SSH Core Standards** emphasize Professional Values and Capabilities. Manage video recordings according to institutional policies (FERPA/HIPAA-like).
+**Legal, Ethical, and Professional Standards:
+*   **ASPE Standards (Standardized Patients):** Focus on Safe Work Environment, Case Development, and SP Training.
+*   **Psychological Safety:** Ensuring SPs and learners are protected. Include 'De-roling' to help SPs transition out of character.
+*   **Confidentiality:** Protect learner performance and identity ('Vegas Rule') so what happens in a scenario is not shared outside the debrief.
+*   **Integrity:** Report equipment status, checklist results, and research/assessment data accurately and completely, even when a truthful report is inconvenient (e.g., a malfunction that invalidates a "passed" exam attempt). Never alter logs or scores to smooth over a technical failure.
+*   **Mutual Respect:** Treat SPs, learners, faculty, and colleagues with equal professional courtesy regardless of role or seniority; an SP or tech deserves the same respect as a physician stakeholder.
 
 ### [Clinical Application]
-Ethical behavior in simulation models the professional integrity expected in the clinical environment. Never share a learner's 'Fail' with their peers.
+Confidentiality is the bedrock of simulation. Following ASPE standards ensures that human actors (SPs) are treated ethically and that the data they collect (e.g., student checklists) is reliable for high-stakes assessment. Integrity in reporting protects the validity of high-stakes pass/fail decisions, and mutual respect across roles models the interprofessional respect learners are expected to demonstrate in real clinical teams.
 
 ### [Key Terminology]
-*   **Accreditation:** A process where a professional organization grants recognition to a simulation program for meeting pre-determined standards.
-*   **Vegas Rule:** 'What happens in sim, stays in sim.'
-*   **KSA:** Knowledge, Skills, and Abilities (or Attitudes) expected of a functional professional.
+*   **ASPE:** Association of Standardized Patient Educators.
+*   **De-roling:** Techniques used to help an SP leave their character's emotions/physicality behind after a session.
+*   **Vegas Rule:** 'What happens in sim, stays in sim.' (Confidentiality)
+*   **Safe Work Environment:** One of the 5 pillars of ASPE SOBP.
+*   **Integrity:** Honesty and accuracy in reporting simulation outcomes, equipment status, and assessment data, without fabrication or omission.
+*   **Mutual Respect:** Extending equal professional courtesy to every participant and colleague, independent of their role or position in the institutional hierarchy.
 
 ### [Exam Scenario]
-**[Application Level] Q:** An administrator asks for a copy of a specific student's simulation recording to use in a disciplinary hearing. No prior consent was signed for this use. What is the correct operational response?
-**A:** Refuse the request. Based on the **SSH Standards of Best Practice**, simulation data should be used for formative or summative assessment as predefined, and use for discipline without prior consent violates the 'Safe Container'.
+**Q:** After a high-intensity simulation involving a 'patient death,' the SP actor appears visibly distressed. What is the specialist's/facilitator's duty?
+**A:** Implement **De-roling** techniques and provide a safe space for the SP to transition out of the role, as mandated by the ASPE Standards of Best Practice (Safe Work Environment).
+
+**Q:** During a high-stakes OSCE, the manikin's simulated pulse briefly failed for one student, but the student still appeared to pass on the visible checklist items. A colleague suggests just leaving the record as "passed" to avoid a re-test dispute. What is the specialist's ethical obligation?
+**A:** Uphold **Integrity** by accurately documenting the equipment malfunction and flagging that session for review, regardless of the inconvenience; falsifying or omitting the record to avoid conflict compromises the validity of a high-stakes decision.
 
 ### [Notes & Lab Application]
-*   Ensure every participant signs a 'Confidentiality and Photo Release' form before starting.
+*   Review your center's 'Confidentiality Agreement' and ensure it includes a section for Standardized Patients.
 
 *(Add more lab-specific details here)*

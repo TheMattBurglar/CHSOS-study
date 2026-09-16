@@ -5,21 +5,25 @@
 ### [Status]: 🟢 Studied
 
 ### [Technician Perspective]
-**Recommend simulation-specific equipment:**
-*   Understand the spectrum: Task trainer (skills) -> Low-fidelity (CPR) -> High-fidelity (complex physiology).
-*   Evaluate Total Cost of Ownership (TCO): Initial cost + annual maintenance + consumables (fake blood, skins).
+**Recommend simulation-specific equipment & Moulage:**
+*   **Equipment Spectrum:** Task trainer (skills) -> Low-fidelity (CPR) -> High-fidelity (physiology).
+*   **Moulage Materials:** Silicone (realistic, non-staining) vs. Wax/Greasepaint (cheap, stains plastic). Use 'Barrier Sprays' before applying makeup to manikins.
+*   **Patch Testing:** Always test new moulage on a hidden area of the manikin skin first.
+*   **Total Cost of Ownership (TCO):** Include maintenance and consumables (skins, blood, mock drugs).
 
 ### [Clinical Application]
-Recommending an expensive high-fidelity manikin for basic CPR training is a poor use of resources; a specialized BLS task trainer provides better real-time compression feedback.
+Proper moulage (e.g., matching 'Central Cyanosis' with low SpO2) is critical for 'Conceptual Fidelity'. Using real clinical supplies (e.g., chest tubes) instead of cheaper sim-specific versions increases 'Physical Fidelity'.
 
 ### [Key Terminology]
-*   **Total Cost of Ownership (TCO):** The long-term financial impact of equipment.
+*   **Moulage:** The art of applying mock injuries for training.
+*   **TCO (Total Cost of Ownership):** Initial cost + maintenance + consumables.
+*   **Patch Test:** Checking for staining/reaction on a small, hidden area.
 
 ### [Exam Scenario]
-**Q:** A nursing program wants to teach basic Foley catheter insertion. What equipment do you recommend?
-**A:** A dedicated IV/phlebotomy arm task trainer, not a full-body high-fidelity manikin.
+**Q:** A faculty member wants to apply 'Burn Moulage' to a $100k manikin. What is the specialist's priority?
+**A:** Ensure the materials are manikin-safe (non-staining) and perform a patch test on a hidden area before application.
 
 ### [Notes & Lab Application]
-*   Create an equipment request matrix based on learning objectives.
+*   Create a 'Moulage Recipe' book and an inventory of manikin-safe cleaners (99% Isopropyl Alcohol).
 
 *(Add more lab-specific details here)*

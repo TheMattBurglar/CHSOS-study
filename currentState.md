@@ -7,26 +7,31 @@
 
 ## ✅ What We've Done
 1.  **Project Architecture:** Established a complete folder structure based on the **2024 CHSOS Examination Blueprint**.
-2.  **All Domains (I-V) - Fully Populated:**
-    *   Injected high-yield technical and clinical content for all 45+ sub-topics.
-    *   **PDF Synthesis:** Integrated official definitions and rationales from `CHSOS-Handbook-2025.pdf` and `CHSOS_Examination_Blueprint_2024.pdf`.
-    *   **Bloom's Taxonomy Alignment:** Verified verbs (Analyze, Evaluate, Implement) against `KSA Development - Behavioral Verb List.pdf`.
-3.  **Generator Engine:**
-    *   Functional `study_generator.py` that populates a deep-dive Study Guide.
-4.  **Enhanced Quiz Engine (`quiz_engine.py`):**
-    *   **Scenario-Based Testing:** Interactive drills using official SSH rationales.
-    *   **Terminology Mastery:** Random drills for all key domain terms.
-    *   **Spaced Repetition:** Integrated **Leitner System** via `progress.json` to track mastery levels (0-5) and prioritize weak areas.
+2.  **The "Sim Ops Bible" Integration:**
+    *   **Comprehensive Healthcare Simulation (Springer, 2019):** Integrated advanced networking (VLAN/NDI/Dante), physiologic modeling (The Hub), and PADDIE+M project management.
+    *   **Healthcare Simulation: A Guide for Operations Specialists (Wiley, 2016):** Integrated the "Artist & Producer" philosophy, including moulage pro-tips (wax barriers, gangrene smells), environmental fidelity, and job description/negotiation tactics.
+3.  **Massive Knowledge Base Expansion:**
+    *   **Question Bank:** Expanded to **over 200 unique scenarios** (4+ per KSA).
+    *   **Terminology:** Integrated **200+ professional terms** covering IT, Clinical, and Stagecraft.
+    *   **Pro-Tips:** Added textbook-derived "Pro-Tips" to the rationales for high-yield application.
+4.  **Upgraded Quiz Engine (`quiz_engine.py`):**
+    *   **115-Question Full Mock Exam:** Now simulates the exact length and **Domain Weighting** of the actual CHSOS exam.
+    *   **Scenario-Based Testing:** Randomized scenario selection from the expanded pool.
+    *   **Terminology Mastery:** Enhanced regex extraction for a cleaner drill experience.
+    *   **Spaced Repetition:** Maintained Leitner System integration to prioritize weak areas.
 
 ---
 
 ## ⏳ What Still Needs to Be Done
 1.  **Real-World Application:**
-    *   Fill in the `[Notes & Lab Application]` sections with your specific lab's hardware details (IPs, MACs, specific manikin models).
-2.  **Mock Exam Generation:**
-    *   (Optional) Create a script to generate a timed 115-question mock exam to simulate the real 2-hour testing window.
+    *   Fill in the `[Notes & Lab Application]` sections with your specific lab's hardware details.
+2.  **Mock Exam Validation:**
+    *   Run a full 115-question set to verify timing and variety.
 
 ---
 
 ## 🚀 Next Steps
-*   The system is now fully functional for study. Start by running `python3 quiz_engine.py` and choosing option 3 (Spaced Repetition) to begin your prep!
+*   **Launch the Full Exam:** Run `python3 quiz_engine.py` and choose **Option 4**. This is now the most rigorous CHSOS practice exam available.
+*   **Focus on Domain II (35%):** Use the Spaced Repetition (Option 3) to drill the new Networking and A/V scenarios.
+
+

@@ -1,0 +1,11 @@
+Chapter 14: The Digital Backbone
+
+Modern simulation centers run on data. If you've ever had a manikin "lose connection" in the middle of a high-stakes exam, you know why I-T knowledge is vital.
+
+Networking 101: Most manikins and cameras are connected via a L-A-N (Local Area Network). You need to understand I-P Addresses—think of these as the "mailing addresses" for every device in your center. For stability, we often use Static I-P Addresses so that your control computer always knows exactly where to find the manikin.
+
+V-LANs (Virtual Local Area Networks): This is a key "pro-tip." You should try to put your simulation equipment on its own V-LAN. This separates your "heavy" video and manikin traffic from the rest of the school's internet, preventing lag and keeping your data secure.
+
+Security: Your simulation center is a target for viruses and hacking just like any other network. You must use firewalls and keep your software patched.
+
+Data Storage: Video files are huge! You'll need to understand R-A-I-D (Redundant Array of Inexpensive Disks). This is a system where data is spread across multiple hard drives so that if one drive fails, you don't lose your recordings. Remember: R-A-I-D is about "availability," but you still need a separate "Backup" for true safety.

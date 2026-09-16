@@ -5,20 +5,21 @@
 ### [Status]: 🟢 Studied
 
 ### [Technician Perspective]
-**Roles of Healthcare Professionals:** Understand the 'Scope of Practice' for RNs, MDs, RTs, and Paramedics. Techs often act as 'Embedded Participants' or provide the 'Voice of the Provider' over the phone. Interprofessional Education (IPE) is a key simulation goal.
+**Roles of Healthcare Professionals:** Understand 'Scope of Practice' boundaries. For example, an RN can assess and administer IV meds; an LPN/LVN can monitor but typically cannot give IV push meds; a Respiratory Therapist (RT) manages ventilators and advanced airways. Techs often act as 'Embedded Participants' or the 'Voice of the Provider'.
 
 ### [Clinical Application]
-Realistic role-playing by the tech/confederate ensures that learners practice professional communication and delegation, not just psychomotor skills.
+Realistic role-playing prevents 'Conflict of Role'. If a tech playing an LPN assesses a patient's lungs and orders a medication, it breaks the clinical accuracy of the scenario and misleads the learners.
 
 ### [Key Terminology]
-*   **Scope of Practice:** The procedures, actions, and processes that a healthcare practitioner is permitted to undertake in keeping with the terms of their professional license.
-*   **IPE (Interprofessional Education):** When students from two or more professions learn about, from, and with each other.
+*   **Scope of Practice:** Procedures, actions, and processes that a healthcare practitioner is permitted to undertake.
+*   **Conflict of Role:** When a participant (or confederate) performs actions outside their assigned clinical or professional boundaries.
+*   **IPE (Interprofessional Education):** Students from two or more professions learning about, from, and with each other.
 
 ### [Exam Scenario]
-**Q:** You are acting as the 'Voice of the Physician' on the phone. A student nurse asks you for a medication order. What information should you insist on before giving the order?
-**A:** A full SBAR report (Situation, Background, Assessment, Recommendation) to ensure professional communication standards are met.
+**Q:** You are acting as a confederate LPN in a scenario. The student RN tells you to push IV epinephrine. What is the most appropriate action?
+**A:** Refuse the order while staying in character, stating that IV push medications are outside your scope of practice, forcing the RN to administer it themselves.
 
 ### [Notes & Lab Application]
-*   When acting as a 'Voice of the Physician', keep an 'SBAR Cheat Sheet' by the phone to prompt the students.
+*   Keep an 'SBAR Cheat Sheet' and a 'Scope of Practice' quick-reference by the phone to prompt students accurately.
 
 *(Add more lab-specific details here)*

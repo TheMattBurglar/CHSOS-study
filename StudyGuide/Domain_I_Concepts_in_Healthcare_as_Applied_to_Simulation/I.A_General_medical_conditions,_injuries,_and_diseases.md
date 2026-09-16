@@ -15,6 +15,9 @@ Accuracy in clinical signs (e.g., matching a pulse of 140 with low BP for shock)
 *   **CVA:** Cerebrovascular Accident (Stroke).
 *   **Sepsis:** A life-threatening reaction to infection.
 *   **Tension Pneumothorax:** A life-threatening buildup of air in the pleural space.
+*   **Pulse Oximetry (SpO2):** A non-invasive reading of blood oxygen saturation, often driven manually or by scenario logic on a manikin.
+*   **Cyanosis:** A bluish discoloration of the skin from poor oxygenation; simulated with mottling makeup or a manikin's built-in cyanosis lighting feature.
+*   **Hypoxia:** Inadequate oxygen supply at the tissue level; the operator should pair low SpO2 with matching respiratory rate and mental status changes.
 
 ### [Exam Scenario]
 **Q:** A faculty member wants to simulate a 'Tension Pneumothorax'. What technical features must the operator ensure are functional?

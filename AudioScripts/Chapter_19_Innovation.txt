@@ -1,0 +1,7 @@
+Chapter 19: Thinking Outside the Box
+
+High-tech doesn't always mean high-quality. This chapter reminds us that sometimes the most effective training tool is a low-tech one. 
+
+You'll learn about the spectrum of technology—from simple "static" models to fully robotic manikins. The key for a tech specialist is finding the right "fidelity" for the job. You don't need a hundred-thousand-dollar manikin to teach someone how to start an I-V; a simple plastic arm often works better because students aren't afraid of breaking it.
+
+The chapter also encourages "Innovation." Many of the best tools in a sim center were created by tech specialists who modified off-the-shelf products to meet a specific need. Whether it's using a tablet as a secondary monitor or 3D-printing a replacement part, innovation is about solving problems with whatever you have on hand.

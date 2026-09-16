@@ -11,9 +11,10 @@
 const state = {
   knowledge:   {},   // { [ksaId]: { perspective, clinical, terminology, scenario, … } }
   terms:       {},   // { [term]:  { def, ksa } }
-  progress:    { ksa: {}, terms: {} },
-  currentMode: null, // 'scenarios' | 'terms' | 'spaced'
-  currentItem: null, // { type, id, question, answer, relatedKsa? }
+  mcqs:        [],   // [ { id, domain, ksa, question, options: {A,B,C,D}, answer, rationale } ]
+  progress:    { ksa: {}, terms: {}, mcqs: {} },
+  currentMode: null, // 'scenarios' | 'terms' | 'mcq' | 'spaced' | 'exam'
+  currentItem: null, // { type, id, question, answer, relatedKsa? } (mcq items also carry options/rationale)
   session:     { correct: 0, total: 0 },
 };
 
@@ -25,6 +26,23 @@ async function loadKnowledge() {
   const res = await fetch('expert_knowledge.json');
   if (!res.ok) throw new Error(`HTTP ${res.status} fetching expert_knowledge.json`);
   return res.json();
+}
+
+/**
+ * Load the multiple-choice question bank. This is optional data — if the
+ * file is missing or fails to parse, MCQ mode is simply unavailable rather
+ * than breaking the whole app (unlike loadKnowledge(), whose failure is fatal).
+ */
+async function loadMcqs() {
+  try {
+    const res = await fetch('mcq_bank.json');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    return Array.isArray(data) ? data : [];
+  } catch (err) {
+    console.warn(`MCQ bank unavailable: ${err.message}`);
+    return [];
+  }
 }
 
 /**
@@ -64,9 +82,9 @@ function loadProgress() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     const p   = raw ? JSON.parse(raw) : {};
-    return { ksa: p.ksa || {}, terms: p.terms || {} };
+    return { ksa: p.ksa || {}, terms: p.terms || {}, mcqs: p.mcqs || {} };
   } catch {
-    return { ksa: {}, terms: {} };
+    return { ksa: {}, terms: {}, mcqs: {} };
   }
 }
 
@@ -126,7 +144,8 @@ function importProgress(file) {
     try {
       const data = JSON.parse(e.target.result);
       if (typeof data.ksa === 'object' && typeof data.terms === 'object') {
-        state.progress = { ksa: data.ksa, terms: data.terms };
+        const mcqs = (data.mcqs && typeof data.mcqs === 'object') ? data.mcqs : {};
+        state.progress = { ksa: data.ksa, terms: data.terms, mcqs };
         saveProgress();
         renderMenuStats();
         showToast('Progress imported ✓');
@@ -166,11 +185,25 @@ function md(text) {
    ============================================================ */
 
 /**
+ * Pick a random scenario string for a KSA. Modern entries store a
+ * `scenarios` array (like the Python quiz engine); older/seed entries may
+ * still have a single `scenario` string. Support both.
+ */
+function pickScenarioText(ksaId) {
+  const data = state.knowledge[ksaId];
+  if (!data) return 'No scenario available for this KSA.';
+  if (Array.isArray(data.scenarios) && data.scenarios.length) {
+    return pickRandom(data.scenarios);
+  }
+  return data.scenario ?? 'No scenario available for this KSA.';
+}
+
+/**
  * Split a scenario string on the **A:** marker.
  * Keeps **Q:** in the question so md() renders it as bold.
  */
 function parseScenario(ksaId) {
-  const raw = state.knowledge[ksaId]?.scenario ?? 'No scenario available for this KSA.';
+  const raw = pickScenarioText(ksaId);
 
   // Primary format:  **Q:** … \n**A:** …
   const boldAIdx = raw.indexOf('**A:**');
@@ -212,6 +245,27 @@ function buildTermItem(termNames) {
     question:   `Define: **${term}**`,
     answer:     def,
     relatedKsa: ksa,
+  };
+}
+
+/**
+ * Build a multiple-choice item, mirroring the priority selection used by
+ * the Python CLI's run_mcq_quiz(): weight toward the 5 lowest-mastery /
+ * least-recently-seen questions, then pick randomly among them.
+ */
+function buildMcqItem(mcqList) {
+  const ids      = mcqList.map(m => m.id);
+  const priority = getPriorityItems('mcqs', ids, 5);
+  const pool     = priority.length ? priority : ids;
+  const id       = pickRandom(pool);
+  const q        = mcqList.find(m => m.id === id);
+  return {
+    type:      'mcqs',
+    id:        q.id,
+    question:  q.question,
+    options:   q.options,
+    answer:    q.answer,
+    rationale: q.rationale,
   };
 }
 
@@ -268,14 +322,17 @@ function hideAllScreens() {
 function renderMenuStats() {
   const ksaIds  = Object.keys(state.knowledge);
   const termIds = Object.keys(state.terms);
+  const mcqIds  = state.mcqs.map(m => m.id);
 
   const studied  = ksaIds.filter(id => state.progress.ksa[id]?.lastReviewed).length;
   const mastered = ksaIds.filter(id => (state.progress.ksa[id]?.level ?? 0) >= 5).length;
   const termsL3  = termIds.filter(id => (state.progress.terms[id]?.level ?? 0) >= 3).length;
+  const mcqsL3   = mcqIds.filter(id => (state.progress.mcqs[id]?.level ?? 0) >= 3).length;
 
   txt('stat-studied',  `${studied}/${ksaIds.length}`);
   txt('stat-mastered', mastered);
   txt('stat-terms',    `${termsL3}/${termIds.length}`);
+  txt('stat-mcqs',     `${mcqsL3}/${mcqIds.length}`);
 }
 
 function showMenu() {
@@ -291,15 +348,43 @@ function showMenu() {
 const MODE_LABELS = {
   scenarios: '📋 Scenario Drill',
   terms:     '📖 Terminology',
+  mcq:       '✅ Multiple Choice',
   spaced:    '🔄 Spaced Repetition',
+  exam:      '⏱️ Mock Exam',
 };
+
+let examInterval = null;
 
 function startMode(mode) {
   state.currentMode = mode;
   state.session     = { correct: 0, total: 0 };
+  
+  if (mode === 'exam') {
+    const ksaIds = Object.keys(state.knowledge);
+    // Shuffle array for the exam
+    state.examQuestions = ksaIds.sort(() => 0.5 - Math.random());
+    state.examIndex = 0;
+    state.examStartTime = Date.now();
+    show('exam-timer');
+    
+    if (examInterval) clearInterval(examInterval);
+    examInterval = setInterval(updateExamTimer, 1000);
+    updateExamTimer();
+  } else {
+    hide('exam-timer');
+    if (examInterval) { clearInterval(examInterval); examInterval = null; }
+  }
+
   hideAllScreens();
   show('screen-quiz');
   loadNextQuestion();
+}
+
+function updateExamTimer() {
+  const elapsed = Math.floor((Date.now() - state.examStartTime) / 1000);
+  const m = String(Math.floor(elapsed / 60)).padStart(2, '0');
+  const s = String(elapsed % 60).padStart(2, '0');
+  $('exam-timer').textContent = `${m}:${s}`;
 }
 
 function loadNextQuestion() {
@@ -308,6 +393,21 @@ function loadNextQuestion() {
 
   let item;
   switch (state.currentMode) {
+    case 'exam':
+      if (state.examIndex >= state.examQuestions.length) {
+        // Exam finished
+        clearInterval(examInterval);
+        hide('exam-timer');
+        const score = Math.round((state.session.correct / state.session.total) * 100) || 0;
+        let resultMsg = score >= 80 ? 'Mastery Level! Excellent job.' : (score >= 70 ? 'Pass! Good work.' : 'Needs Review. Keep studying.');
+        showToast(`Exam Complete: ${score}% (${state.session.correct}/${state.session.total}). ${resultMsg}`, false, 5000);
+        showMenu();
+        return;
+      }
+      const examKsa = state.examQuestions[state.examIndex];
+      const { question: examQ, answer: examA } = parseScenario(examKsa);
+      item = { type: 'ksa', id: examKsa, question: examQ, answer: examA };
+      break;
     case 'scenarios':
       if (!ksaIds.length) { showToast('No scenarios available', true); showMenu(); return; }
       item = buildScenarioItem(ksaIds);
@@ -315,6 +415,10 @@ function loadNextQuestion() {
     case 'terms':
       if (!termIds.length) { showToast('No terminology available', true); showMenu(); return; }
       item = buildTermItem(termIds);
+      break;
+    case 'mcq':
+      if (!state.mcqs.length) { showToast('No multiple-choice questions available', true); showMenu(); return; }
+      item = buildMcqItem(state.mcqs);
       break;
     default:
       item = buildSpacedItem();
@@ -324,11 +428,13 @@ function loadNextQuestion() {
 
   // Header
   txt('quiz-mode-label', MODE_LABELS[state.currentMode] ?? 'Quiz');
-  txt('session-stats',
-    state.session.total > 0
-      ? `${state.session.correct}/${state.session.total} this session`
-      : ''
-  );
+  let statText = '';
+  if (state.currentMode === 'exam') {
+    statText = `Question ${state.examIndex + 1} / ${state.examQuestions.length}`;
+  } else if (state.session.total > 0) {
+    statText = `${state.session.correct}/${state.session.total} this session`;
+  }
+  txt('session-stats', statText);
 
   // KSA badge
   if (item.type === 'ksa') { txt('ksa-badge', item.id); show('ksa-badge'); }
@@ -352,7 +458,77 @@ function loadNextQuestion() {
   hide('answer-section');
   hide('answer-btns');
   hide('next-btns');
-  show('btn-reveal');
+
+  // MCQ mode skips the reveal-then-self-grade flow: the pick itself grades
+  // the answer, so show lettered options instead of the reveal button.
+  if (state.currentMode === 'mcq') {
+    hide('btn-reveal');
+    renderMcqOptions(item);
+    show('mcq-options');
+  } else {
+    hide('mcq-options');
+    show('btn-reveal');
+  }
+}
+
+/**
+ * Populate the 4 MCQ option buttons from item.options ({A,B,C,D} → text)
+ * and reset their enabled/highlighted state for a fresh question.
+ */
+function renderMcqOptions(item) {
+  document.querySelectorAll('.mcq-option').forEach(btn => {
+    const letter = btn.dataset.letter;
+    const text   = item.options?.[letter];
+    btn.textContent = text ? `${letter}) ${text}` : '';
+    btn.hidden      = !text;
+    btn.disabled    = false;
+    btn.classList.remove('mcq-correct', 'mcq-incorrect');
+  });
+}
+
+/**
+ * Grade an MCQ pick immediately (no self-grading needed — it's objective),
+ * highlight the correct/incorrect options, and reveal the rationale.
+ */
+function submitMcqAnswer(letter) {
+  const item    = state.currentItem;
+  const correct = letter === item.answer;
+  updateScore('mcqs', item.id, correct);
+
+  state.session.total++;
+  if (correct) state.session.correct++;
+
+  document.querySelectorAll('.mcq-option').forEach(btn => {
+    btn.disabled = true;
+    if (btn.dataset.letter === item.answer)      btn.classList.add('mcq-correct');
+    else if (btn.dataset.letter === letter)      btn.classList.add('mcq-incorrect');
+  });
+
+  const newLevel = state.progress.mcqs[item.id].level;
+  const banner   = $('feedback-banner');
+  if (correct) {
+    banner.className = 'feedback-banner feedback-correct';
+    banner.innerHTML = newLevel >= 5
+      ? '🌟 Mastered! Reached level 5.'
+      : `✓ Correct — level ${newLevel}/5`;
+  } else {
+    banner.className = 'feedback-banner feedback-incorrect';
+    banner.innerHTML = `✗ Incorrect — level ${newLevel}/5`;
+  }
+  show('feedback-banner');
+
+  // Reuse the existing answer-section to show the rationale, CLI-style.
+  const prefix = correct
+    ? '**Correct!**\n\n'
+    : `**Incorrect — correct answer was ${item.answer}.**\n\n`;
+  html('answer-text', md(prefix + item.rationale));
+  hide('answer-ksa');
+  show('answer-section');
+
+  hide('mcq-options');
+  show('next-btns');
+
+  txt('session-stats', `${state.session.correct}/${state.session.total} this session`);
 }
 
 function revealAnswer() {
@@ -381,6 +557,7 @@ function submitAnswer(correct) {
 
   state.session.total++;
   if (correct) state.session.correct++;
+  if (state.currentMode === 'exam') state.examIndex++;
 
   const newLevel = state.progress[item.type][item.id].level;
   const banner   = $('feedback-banner');
@@ -399,7 +576,13 @@ function submitAnswer(correct) {
   hide('answer-btns');
   show('next-btns');
 
-  txt('session-stats', `${state.session.correct}/${state.session.total} this session`);
+  let statText = '';
+  if (state.currentMode === 'exam') {
+    statText = `Score: ${state.session.correct}/${state.session.total} — Next up: Q${state.examIndex + 1}`;
+  } else {
+    statText = `${state.session.correct}/${state.session.total} this session`;
+  }
+  txt('session-stats', statText);
 }
 
 /* ============================================================
@@ -491,6 +674,18 @@ function showDashboard() {
     `${termsReviewed} / ${termIds.length} terms reviewed · ${termsL3} at level 3+`
   );
   $('terms-bar').style.width = `${termsPct}%`;
+
+  // ---- Multiple Choice ----
+  const mcqIds       = state.mcqs.map(m => m.id);
+  const mcqLevels    = mcqIds.map(id => state.progress.mcqs[id]?.level ?? 0);
+  const mcqsReviewed = mcqLevels.filter(l => l > 0).length;
+  const mcqsL3       = mcqLevels.filter(l => l >= 3).length;
+  const mcqsPct      = Math.round((mcqsReviewed / (mcqIds.length || 1)) * 100);
+
+  txt('mcqs-stats',
+    `${mcqsReviewed} / ${mcqIds.length} MCQs reviewed · ${mcqsL3} at level 3+`
+  );
+  $('mcqs-bar').style.width = `${mcqsPct}%`;
 }
 
 /* ============================================================
@@ -503,6 +698,7 @@ async function init() {
   try {
     state.knowledge = await loadKnowledge();
     state.terms     = extractTerms(state.knowledge);
+    state.mcqs      = await loadMcqs(); // optional — resolves to [] on failure, never throws
     state.progress  = loadProgress();
   } catch (err) {
     $('loading-error').textContent =
@@ -516,7 +712,9 @@ async function init() {
   // ---- Menu buttons ----
   $('btn-mode-scenarios').addEventListener('click', () => startMode('scenarios'));
   $('btn-mode-terms')    .addEventListener('click', () => startMode('terms'));
+  $('btn-mode-mcq')      .addEventListener('click', () => startMode('mcq'));
   $('btn-mode-spaced')   .addEventListener('click', () => startMode('spaced'));
+  $('btn-mode-exam')     .addEventListener('click', () => startMode('exam'));
   $('btn-dashboard')     .addEventListener('click', showDashboard);
 
   // ---- Quiz buttons ----
@@ -526,6 +724,13 @@ async function init() {
   $('btn-next')     .addEventListener('click', loadNextQuestion);
   $('btn-quiz-back').addEventListener('click', showMenu);
   $('btn-quiz-menu').addEventListener('click', showMenu);
+
+  // ---- MCQ option buttons (event delegation — content is re-rendered per question) ----
+  $('mcq-options').addEventListener('click', e => {
+    const btn = e.target.closest('.mcq-option');
+    if (!btn || btn.disabled || btn.hidden) return;
+    submitMcqAnswer(btn.dataset.letter);
+  });
 
   // ---- Dashboard buttons ----
   $('btn-dash-back').addEventListener('click', showMenu);
@@ -541,7 +746,7 @@ async function init() {
 
   $('btn-reset').addEventListener('click', () => {
     if (confirm('Reset all progress? This cannot be undone.')) {
-      state.progress = { ksa: {}, terms: {} };
+      state.progress = { ksa: {}, terms: {}, mcqs: {} };
       saveProgress();
       renderMenuStats();
       showToast('Progress reset');
@@ -552,6 +757,14 @@ async function init() {
   document.addEventListener('keydown', e => {
     if ($('screen-quiz').hidden) return;
     const key = e.key.toLowerCase();
+
+    // A/B/C/D → pick an MCQ option
+    if (state.currentMode === 'mcq' && ['a', 'b', 'c', 'd'].includes(key) && !$('mcq-options').hidden) {
+      const letter = key.toUpperCase();
+      const optBtn = document.querySelector(`.mcq-option[data-letter="${letter}"]`);
+      if (optBtn && !optBtn.hidden && !optBtn.disabled) submitMcqAnswer(letter);
+      return;
+    }
 
     // Space or Enter → reveal answer
     if ((key === ' ' || key === 'enter') && !$('btn-reveal').hidden) {

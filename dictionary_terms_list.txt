@@ -1,0 +1,115 @@
+Actor \
+Adaptive Learning \
+Adverse Event \
+Advocacy - Inquiry \
+Alpha and Beta Testing \
+Anchoring Error \
+Assessment \
+Assessor \
+Augmented Reality (AR) \
+Avatar \
+Benevolent Deception \
+Brief (Briefing) \
+Checklist \
+Coaching \
+Cognitive Load \
+Conceptual Fidelity \
+Cue / Cueing \
+Debrief (Debriefing) \
+Deterministic \
+Debriefer \
+Digital Twin \
+Deliberate Practice \
+Distance Simulation \
+Dry Run \
+Educator (Simulation Educator) \
+Embedded Participant \
+Evaluation \
+Extended Reality (XR) \
+Failure to Rescue \
+Feedback \
+Fixation Error \
+Fidelity \
+Frame \
+Formative Assessment \
+Gamification \
+Guided Reflection \
+Haptic \
+Harm \
+Heuristic \
+High Stakes Assessment \
+Hot Debriefings (HoDs) \
+Hybrid Simulation \
+Human Simulation \
+Immersion \
+In Silico \
+Interdisciplinary \
+Interprofessional \
+Interprofessionalism \
+Learning Goal \
+Learning Objective \
+Logistics \
+Low-Fidelity \
+Manikin \
+Mannequin \
+Mental Simulation \
+Mastery Learning \
+Metaverse \
+Mixed Reality (MR) \
+Mixed Reality Human \
+Modality \
+Model (as in Modeling and Simulation) \
+Multidisciplinary \
+Moulage \
+Negative Learning \
+Never Event \
+Non-technical Skills (NTS) \
+Online Simulation \
+Participant \
+Patient Simulator \
+Pilot Test \
+Physiologic Modeling \
+Portable Simulator \
+Preparation \
+Prompt \
+Prop \
+Psychological Risk \
+Realism \
+Reflective Pause \
+Reliability \
+Remote Simulation \
+Risk Management \
+Roleplay / Role-play \
+Role Player \
+Running on the Fly \
+Saturation in Training \
+Scenario \
+Script \
+Scribe / Scribing \
+Shared Mental Model \
+Simulated Patient (SP) \
+Simulation \
+Simulation Fidelity \
+Simulation Tool \
+Simulation Time \
+Simulator \
+Simulationist \
+Situated Learning \
+Standardized Patient (SP) \
+State / States \
+Stochastic \
+Summative Assessment \
+Systems Integration \
+Systems Approach \
+Team-based Learning \
+Technical skills \
+Telepresence \
+Training Scar \
+Trigger \
+Typology \
+Validity \
+Virtual Presence \
+Virtual Patient \
+Virtual Simulation \
+Virtual World \
+Confederate \

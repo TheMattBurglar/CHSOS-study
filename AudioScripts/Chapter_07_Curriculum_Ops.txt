@@ -1,0 +1,9 @@
+Chapter 7: How a Simulation is Born
+
+A good simulation isn't just "playing doctor" with a robot. it's a carefully designed educational event. It starts with a Needs Assessment: what exactly are the students failing at in the real world? 
+
+Once you have a goal, you build a Scenario. This is like a movie script. It includes the patient's history, their vital signs, and "trigger points"—specific things the student does that cause the patient to get better or worse.
+
+Operations are the "engine" of this process. This includes scheduling the rooms, making sure you have enough "consumables" (like fake blood and syringes), and testing the equipment before the students arrive. 
+
+The most important part, however, is the Debriefing. This is the conversation after the scenario where students reflect on their performance. As a tech specialist, your job is to provide the "evidence" for this talk by capturing clear video and audio of exactly what happened. Without a good debrief, the simulation is just a high-tech game.

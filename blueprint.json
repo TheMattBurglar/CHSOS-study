@@ -43,7 +43,16 @@
         "III.B: Program sustainability and growth (strategic planning)",
         "III.C: Equipment training facilitation",
         "III.D: Resource utilization and inventory management",
-        "III.E: Safe use of simulation equipment and environment"
+        "III.E: Safe use of simulation equipment and environment",
+        "III.F: Coordinating schedule requests, supply needs, and participant feedback",
+        "III.G: Safe removal of hazardous materials and supplies",
+        "III.H: Utilization data collection and review",
+        "III.I: Principles of realism in simulation",
+        "III.J: Impact of scenario modifications on reliability and validity",
+        "III.K: Risk management in simulation",
+        "III.L: Moulage application and removal",
+        "III.M: Stakeholder orientation (principles, equipment, spaces)",
+        "III.N: Public relations (tours, community outreach)"
       ]
     },
     {
@@ -81,7 +90,10 @@
         "V.C.8: Prebrief/brief, debrief, and participant evaluations",
         "V.C.9: Pilot testing (dress rehearsal)",
         "V.C.10: Implementation to participants",
-        "V.C.11: Evaluation and improvement"
+        "V.C.11: Evaluation and improvement",
+        "V.D: Interprofessional/interdisciplinary education (IPE)",
+        "V.E: Distance/remote simulation",
+        "V.F: Simulation modalities (manikin, AR/VR/XR, screen-based)"
       ]
     }
   ]

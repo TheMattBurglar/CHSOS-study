@@ -6,18 +6,19 @@
 
 ### [Technician Perspective]
 **A/V Equipment Utilization:**
-*   **PTZ (Pan-Tilt-Zoom) Cameras:** Essential for capturing non-verbal communication.
-*   **Microphones:** Boundary mics (room-wide) vs. Lavalier (lapel). Phantom power (+48V) may be needed for condenser mics.
-*   **Codecs:** H.264 / H.265 are standard for video compression.
-*   **Frame Rates & Resolution:** 1080p at 30fps is usually sufficient; 4K requires massive storage overhead.
+*   **Signal Standards:** H.264/H.265 for compression. NDI (Network Device Interface) for video-over-IP; Dante for audio-over-IP.
+*   **Audio Chain:** Understand 'Gain Stages' (Mic -> Pre-amp -> Mixer -> Recorder). Improper gain leads to clipping or 'noise floors'.
+*   **Microphones:** Boundary mics (ambient) vs. Lavaliers (direct). Phantom power (+48V) is required for condenser mics.
+*   **PTZ (Pan-Tilt-Zoom) Cameras:** Essential for capturing non-verbal cues and environmental context.
 
 ### [Clinical Application]
-Clear audio is critical during debriefing. If a student's closed-loop communication cannot be heard, the facilitator cannot evaluate their competency.
+Clear audio is critical for debriefing. If a student's closed-loop communication cannot be heard, the facilitator cannot evaluate their competency. Video latency must be <100ms to maintain immersion.
 
 ### [Key Terminology]
-*   **Phantom Power:** DC voltage sent down mic cables.
-*   **Latency:** Delay between action and video display.
-*   **Bitrate:** Amount of data processed per second.
+*   **NDI (Network Device Interface):** High-quality, low-latency video over standard Ethernet.
+*   **Dante:** Industry standard for digital audio networking.
+*   **Gain Staging:** Managing the level at each step of an audio signal to prevent distortion.
+*   **Phantom Power (+48V):** DC voltage used to power condenser microphones.
 
 ### [Exam Scenario]
 **Q:** During playback in debriefing, the video is clear but the audio has a loud humming noise. What is the most likely cause?

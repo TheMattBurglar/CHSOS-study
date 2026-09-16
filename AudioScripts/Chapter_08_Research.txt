@@ -1,0 +1,7 @@
+Chapter 8: The Science of Sim
+
+We know simulation works, but to prove it to hospital boards and universities, we need research. Simulation research focuses on two things: Validity (does the simulator actually measure what it says it does?) and Reliability (does it give the same result every time?).
+
+As a technology specialist, you play a key role in research by ensuring data integrity. If a study is measuring a resident's reaction time, your recording system must be perfectly synced. 
+
+Research often involves the I-R-B (Institutional Review Board), which ensures that any study involving human students is ethical and safe. While it might seem academic, good research is what secures the grants and funding that keep simulation centers running.

@@ -1,0 +1,13 @@
+Chapter 9: Designing the Perfect Lab
+
+Building a simulation center is about more than just putting a bed in a room. It's about "Environmental Fidelity"—making the space feel real so students forget they are in a school.
+
+The Layout: You need "Zones." A reception area for greeting, classrooms for orientation, and the simulation rooms themselves. 
+
+Acoustics are Critical: You can't have sound leaking between rooms. If a student in Room A hears a "code blue" in Room B, it ruins the immersion. This requires special wall construction and door gaskets.
+
+The Control Room: This is the "brain" of the center. It should have a one-way mirror looking into the simulation room, but it must be soundproof. This is where the tech specialist controls the manikin and the A/V system.
+
+Storage: Never underestimate storage! You need space for extra manikins, beds, and mountains of supplies. A good rule of thumb is that twenty percent of your center's square footage should be dedicated to storage. 
+
+From "Ward Rooms" with multiple beds to specialized "Wet Labs" for surgical practice, every inch of a simulation center should be designed to support the mission of patient safety.

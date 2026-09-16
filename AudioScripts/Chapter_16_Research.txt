@@ -1,0 +1,7 @@
+Chapter 16: Supporting the Science
+
+Simulation centers are often used for research studies. As a tech specialist, your role is to ensure "Data Integrity." 
+
+If a researcher is studying how fast a nurse reacts to a patient's heart stopping, they need perfectly synced audio and video. If your recording system is off by even a second, the whole study could be ruined. 
+
+You might also help set up Blind Studies, where the researchers don't know which students received which type of training. Your job is to set up the technology so that the data is collected objectively, without any bias. In the world of research, the tech specialist is the "Silent Partner" who makes the data possible.

@@ -5,21 +5,27 @@
 ### [Status]: 🟢 Studied
 
 ### [Technician Perspective]
-**Prebrief/Brief, Debrief, and Participant Evaluations:** The specialist manages the 'Tech Orientation' during prebriefing (where the pulses are, how the monitor works). During debriefing, manage video playback and ensure the environment is comfortable for reflection.
+**Prebrief/Brief, Debrief, and Evaluation:**
+*   **Debriefing Models:** **GAS** (Gather, Analyze, Summarize), **Plus-Delta** (What went well/What to change), **The Diamond** (Description, Analysis, Application), **PEARLS** (Promoting Excellence And Reflective Learning in Simulation — a blended framework that lets the facilitator mix directive feedback with guided reflection depending on the topic), and **Debriefing with Good Judgment** (uses the Advocacy-Inquiry technique: the facilitator states an observation plus their judgment, then asks the learner to explain their reasoning, surfacing the learner's frame without shaming).
+*   **Evaluation Tools:** **DASH** (Debriefing Assessment for Simulation in Healthcare) is the standard for evaluating the quality of a debrief.
+*   **Tech Role:** Manage video playback, 'Tech Orientation' during prebrief, and data capture for evaluations.
 
 ### [Clinical Application]
-Prebriefing establishes the 'Safe Container' and 'Fiction Contract', which are essential for the psychological safety needed for effective debriefing.
+Prebriefing establishes the 'Safe Container'. Effective debriefing using structured models like GAS ensures that learning objectives are met and clinical mistakes are corrected without shaming.
 
 ### [Key Terminology]
-*   **Prebriefing:** Preparation and briefing held before the simulation.
-*   **Debriefing:** A collaborative, reflective process following the simulation to integrate learning.
-*   **Fiction Contract:** Agreement to treat the sim as real while acknowledging it is not.
+*   **GAS:** Gather, Analyze, Summarize.
+*   **Plus-Delta:** A simple debriefing tool for identifying strengths and areas for improvement.
+*   **DASH:** A tool used to assess the effectiveness of simulation debriefings.
+*   **The Diamond:** A debriefing framework involving Description, Analysis, and Application.
+*   **PEARLS:** Promoting Excellence And Reflective Learning in Simulation — a blended debriefing framework combining self-assessment, focused facilitation, and directive feedback.
+*   **Debriefing with Good Judgment:** Uses the **Advocacy-Inquiry** technique — pairing a direct observation with genuine curiosity about the learner's reasoning ('I noticed X, and I was wondering what you were thinking at that point') — to uncover flawed mental models non-judgmentally.
 
 ### [Exam Scenario]
-**Q:** During debriefing, the video playback system fails. How should the specialist handle this?
-**A:** Inform the facilitator immediately; transition to a verbal debrief using the facilitator's notes or the simulator's log file as a reference.
+**Q:** A facilitator wants to objectively measure the quality of their own debriefing sessions. Which tool should the specialist recommend?
+**A:** The **DASH** (Debriefing Assessment for Simulation in Healthcare) tool.
 
 ### [Notes & Lab Application]
-*   Create a 2-minute 'Tech Orientation' video to show students so the prebrief is consistent for every group.
+*   Create a 'Debriefing Room Checklist' to ensure the A/V is ready for video review.
 
 *(Add more lab-specific details here)*

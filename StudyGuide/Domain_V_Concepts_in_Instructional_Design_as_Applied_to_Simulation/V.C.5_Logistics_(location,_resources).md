@@ -20,5 +20,6 @@ Smooth logistics prevent 'Cognitive Overload' for both learners and faculty, all
 
 ### [Notes & Lab Application]
 *   Use a 'Room Setup Map' to ensure every instructor gets the same layout every time.
+*   **Differentiation:** Logistics is the advance planning layer (booking the room, scheduling staff, arranging transport, defining the equipment footprint). The hands-on staging that happens immediately before each run, using the tools Logistics produced (like the Room Setup Map), is covered separately under 'Set-up'.
 
 *(Add more lab-specific details here)*

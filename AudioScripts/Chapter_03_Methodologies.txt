@@ -1,0 +1,13 @@
+Chapter 3: The Tools of the Trade
+
+To do simulation well, you have to choose the right tool for the job. We often talk about "Fidelity," which is just a fancy word for realism. 
+
+Low-Fidelity tools are simple. Think of a plastic torso for CPR. It doesn't look like a real person, but it's perfect for practicing chest compressions. These are cheap, easy to set up, and great for repeating a single skill over and over.
+
+High-Fidelity tools are the "Ferraris" of the sim world. These are full-body manikins that breathe, have pulses, their pupils react to light, and they can even "speak" through a microphone. These are used for complex scenarios where a whole team needs to work together to save a "crashing" patient.
+
+Then we have Task Trainers. These are models of specific body parts—like a head for practicing airway management or a pelvis for birthing. They are "procedural" tools.
+
+One of the most effective methods is Hybrid Simulation. This is where you combine tools. For example, a live actor (a Standardized Patient) might wear a "cut suit"—a special vest that allows a student to perform a real surgical procedure on the vest while still talking to the "patient." This forces the student to manage the technical skill and the human connection at the same time.
+
+Lastly, there is Virtual Reality (VR). This is growing fast because it allows students to practice rare surgeries or complex anatomy in a digital space before they ever touch a scalpel.

@@ -1,0 +1,13 @@
+Chapter 11: Mastering Audio and Video
+
+In simulation, "Audio is King." While you can learn a lot from watching a video, if you can't hear the communication between a doctor and a nurse, you've lost the most important part of the training.
+
+Audio Basics: We use two main types of microphones. Dynamic mics are rugged but not very sensitive. Condenser mics are much more sensitive and are usually mounted in the ceiling to catch whispers from anywhere in the room. Remember, condenser mics require "Phantom Power" (forty-eight volts) to work!
+
+The Audio Mixer: This is where all the microphone signals meet. You use it to "balance" the sound, ensuring the "Voice of God" (the instructor's page) is clear, and the patient's voice can be heard over the background noise of medical equipment.
+
+Video Systems: We have moved from old analog systems (C-C-T-V) to Digital I-P Cameras. These cameras are networked, meaning they send their signal over regular internet cables (Cat-five or Cat-six). 
+
+The Delay Factor: One downside of digital video is "latency"—a small delay between what happens in the room and what you see on the screen. If the delay is more than three-hundred milliseconds, it can make real-time talking between the tech and the student very confusing.
+
+Recording: We record using CODECs (like H-dot-two-six-four) which compress the video so it doesn't take up too much hard drive space. The goal is to provide "Evidence-Based Feedback" during the debriefing. If a student says "I checked the pulse," but the video shows they didn't, that's where the real learning happens.
