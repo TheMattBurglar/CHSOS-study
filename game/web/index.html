@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CHSOS Roguelite — Vertical Slice</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- INTRO / NEW GAME -->
+<section id="screen-intro" class="screen" hidden>
+  <div class="center-shell">
+    <div class="card">
+      <h1 id="intro-title">SPECIALIST FILE — NEW HIRE</h1>
+      <p id="intro-text"></p>
+      <div class="btn-row">
+        <button id="btn-intro-continue" class="btn">BEGIN</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER HUB -->
+<section id="screen-hub" class="screen" hidden>
+  <div class="topbar">
+    <div class="topbar-title">
+      <span class="eyebrow">SPECIALIST FILE</span>
+      <span class="main" id="hub-rank">JUNIOR SIM TECH</span>
+    </div>
+    <div class="save-controls">
+      <button id="btn-export" class="btn-secondary">EXPORT SAVE</button>
+      <button id="btn-import" class="btn-secondary">IMPORT SAVE</button>
+      <button id="btn-new-game" class="btn-secondary">NEW GAME</button>
+      <input type="file" id="file-import" accept="application/json" hidden>
+    </div>
+  </div>
+
+  <div class="hub-main">
+    <div class="panel">
+      <div class="panel-title">KSA MASTERY BY DOMAIN</div>
+      <div id="hub-domains"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">CREW ROSTER</div>
+      <div id="hub-crew"></div>
+    </div>
+  </div>
+
+  <div class="hub-main" style="grid-template-columns: 1fr;">
+    <div class="panel">
+      <div class="panel-title">HUB</div>
+      <div class="hub-line" id="hub-line"></div>
+      <div class="btn-row">
+        <button id="btn-begin-deployment" class="btn">BEGIN DEPLOYMENT</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NODE MAP -->
+<section id="screen-map" class="screen" hidden>
+  <div class="topbar">
+    <div class="topbar-title">
+      <span class="eyebrow" id="map-location">SECTOR 1 · 2019</span>
+      <span class="main">FORT KESSLER REGIONAL TRAINING CENTER</span>
+    </div>
+    <div class="stat-row">
+      <div class="stat-pill"><span class="label">INTEGRITY</span><span class="value" id="stat-integrity">100</span></div>
+      <div class="stat-pill"><span class="label">MORALE</span><span class="value" id="stat-morale">100</span></div>
+      <div class="stat-pill"><span class="label">BUDGET</span><span class="value" id="stat-budget">200 CR</span></div>
+    </div>
+  </div>
+
+  <div class="map-layers">
+    <div class="map-layer-label">NEXT ROTATION</div>
+    <div class="map-canvas" id="map-canvas">
+      <svg id="map-svg" viewBox="0 0 640 520" preserveAspectRatio="xMidYMid meet"></svg>
+      <div id="map-nodes"></div>
+      <div id="ship-marker" class="ship-marker"></div>
+    </div>
+  </div>
+</section>
+
+<!-- NODE INTERACTION OVERLAY -->
+<div id="overlay-node" class="overlay" hidden>
+  <div class="node-panel" id="node-panel-content"></div>
+</div>
+
+<!-- RUN END -->
+<section id="screen-runend" class="screen" hidden>
+  <div class="center-shell">
+    <div class="card">
+      <h1>DEPLOYMENT COMPLETE</h1>
+      <p id="runend-text"></p>
+      <div class="effects-row" id="runend-stats"></div>
+      <div class="btn-row">
+        <button id="btn-return-hub" class="btn">RETURN TO HUB</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
