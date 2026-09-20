@@ -107,6 +107,141 @@ Scope decisions made before building: Android/PortMaster is off the table for th
 
 **Godot question (resolved, revisit only if this game's needs change):** Matthew asked directly whether Godot would render more dynamically. Conclusion: the approved visual design (flat HUD panels, no overworld sprite/parallax) is squarely in HTML/CSS's comfort zone — Godot's real advantages (tweened animation, particles, audio bus routing, camera work) apply to games with an animated *world*, not a panel-based dashboard-with-dialogue like this one. The story/content JSON is engine-agnostic by design, so this isn't a one-way door if priorities change later.
 
-**Not yet done:** procedural map generation (still hand-authored), Sector 2+ content, Moulage/Debrief/Simulationist crew recruitment, any Act 1 narrative beyond the intro + the gated funding-board joke, checkpoint escalation design for later sectors, and a content-tagging pipeline to pull from the full `mcq_bank.json`/`expert_knowledge.json` bank instead of hand-picking.
+**Not yet done:** procedural map generation (still hand-authored), Sector 2+ content, Moulage/Debrief/Simulationist crew recruitment, any Act 1 narrative beyond the intro + the gated funding-board joke, and checkpoint escalation design for later sectors.
+
+---
+
+## Content-Tagging Pipeline (2026-09-20)
+
+Built [`game/pipeline/build_nodes.py`](game/pipeline/build_nodes.py), which converts the *entire* `mcq_bank.json` (107 MCQs) and `expert_knowledge.json` (273 terminology entries, 250 Q/A scenarios) into schema-conformant Node Templates — up from the 7 hand-picked for the vertical slice. Run with `python3 game/pipeline/build_nodes.py`; it's idempotent and regenerates both outputs from the source banks:
+- `game/nodes.json` — the master pool, per `SCHEMA.md`'s own recommendation.
+- `game/web/nodes_generated.js` — same data as `const GENERATED_NODES`, loadable by the browser game with no build step (not yet wired into `app.js`/`content.js` — sector curation is still a separate step).
+
+**Mapping used:** MCQs → `diagnostic` nodes (1:1). Terminology → `intel` nodes (1:1, reusing the `"Field Briefing: {term}"` title convention from the hand-authored example). Expert-knowledge `**Q:**/**A:**` scenario prose → `scenario` nodes, auto-built into a generic two-choice template (`by_the_book`: the correct answer; `wry`: a generic "cut a corner" shortcut) — the same shape as the hand-authored FERPA/USB scenario, just not bespoke writing. `year`/`location_name` are assigned deterministically (round-robin over a small fictional site pool and 2019–2029) so a future procedural generator has real inputs to filter on — not narratively meaningful yet.
+
+**Known placeholders, called out in the script's docstring, to revisit before this content ships into a real sector:**
+- Diagnostic/scenario `title`/`flavor_intro` are mechanical (`"Field Call — {ksa}"` / `"Judgment Call — {ksa}"`), not written in Hub's voice.
+- Scenario choice text is a generic template, not bespoke branching writing per scenario.
+- `rank_min` per domain (which rank/act gates each domain's content) is a best guess pending the real crew/rank-gating decision — Domain IV (Debrief Facilitator) in particular is unconfirmed.
+- No `callback` cross-run hooks or `sets_flags` story beats — narrative curation is still a separate task.
+- Two bugs caught and fixed during a spot-check before trusting the output: (1) inconsistent source markdown (`**Term:**` vs `**Term**:`) was leaving a trailing colon on 182 of 273 parsed terms; (2) `**bold**` markdown inside 102 of 250 scenario answers/prompts was leaking raw asterisks into what should be plain display text (existing hand-authored content has none). Both are now sanitized in the pipeline itself, not just this run's output.
+
+**Next step (not started):** use this pool to build Sector 2+ (currently still fully separate from `game/web/content.js`'s hand-authored Sector 1), and/or the procedural map-generation algorithm this pool was built to feed.
+
+---
+
+## Procedural Map Generator (2026-09-20)
+
+Matthew's call: keep Sector 1 as the one hand-authored/tested sector, but prioritize the map generator over Sector 2+ content — the actual goal is players learning Sim Ops judgment, not memorizing which node on a fixed map has which answer. Wired the 630-node pipeline pool into live gameplay so **every "Begin Deployment" now generates a fresh map**, pulling different specific questions/terms each run instead of replaying the same fixed Sector 1 layout.
+
+**Built:**
+- [`game/web/mapgen.js`](game/web/mapgen.js) — `generateSectorMap({ profile, usedNodeIds, seed })`. Merges hand-authored `NODES` (content.js) + pipeline `GENERATED_NODES` into one pool, filters by each template's `requires` (rank/crew gating), and lays out a small parameterized layered DAG (2-3 nodes per layer, same "assign varied content onto a handful of map shapes" approach FTL/Slay the Spire use, not a fully generic graph algorithm). `rest` and `checkpoint` nodes have no source content in the study banks, so they're synthesized: `rest` is a lightly-randomized clone of the hand-authored template; `checkpoint` stitches two freshly-picked diagnostic nodes into a two-stage chain, mirroring `CHK-II-2019-001`'s pattern exactly.
+- **Anti-repetition** (the actual point, per Matthew's framing): `profile.recent_node_ids` now tracks the last ~60 node ids played (roughly 7-8 runs), and the generator excludes them from selection where possible, falling back to allowing reuse only if the eligible pool after exclusion is too small. Verified via a standalone Node harness: 0/N overlap with recent history across 15 consecutive simulated runs.
+- Refactored [`game/web/app.js`](game/web/app.js) to read `run.map.{nodes,edges,positions,start}` instead of the old global `SECTOR_1_MAP`/`NODE_POSITIONS`/`NODES` constants (all call sites: `showMap`, `renderSectorMap`, `currentShipAnchor`, `travelTo`, `openNode`, `advanceAfterNode`). The hand-authored Sector 1 content in `content.js` is now just part of the pool, not a fixed map — its 7 nodes can still appear, just not guaranteed or in a fixed order.
+- `index.html` now loads `nodes_generated.js` and `mapgen.js` between `content.js` and `app.js`.
+
+**Bug caught before trusting it:** first pass positioned the checkpoint node using a hardcoded `MAP_VIEWBOX.w - 50`, independent of the content-layer x-math — it landed almost exactly on top of the last content-layer node (30px apart, both ~56px circles), making one of them effectively unclickable. Caught via a screenshot during Playwright verification, not by eyeballing the code. Fixed by making the checkpoint occupy a proper trailing "layer slot" in the same x-coordinate formula (`computePositions` now takes the layer count *including* the checkpoint's reserved slot). Re-verified with a 200-run headless sweep: worst-case distance between any two real (clickable) node centers is now 140px, well clear of the 56px button size.
+
+**Verified via Playwright** (installed fresh into the scratchpad for this session — chromium browser binary was already cached from a prior session's pass, per `currentState.md`'s existing Playwright precedent): zero console errors across two full consecutive runs, map renders every time, clicking through intel/diagnostic/scenario/rest/checkpoint nodes all work, runs complete via the checkpoint into the recap screen, and run 2's specific content (questions/terms, not just the generic "A Night Off"/"Accreditation Site Visit" labels which are expected to repeat by design) differed from run 1's.
+
+**Known simplifications, not yet decided/built:**
+- Map shape is one parameterized template (layer widths randomized in a narrow range), not multiple distinct topologies — structural variety is currently secondary to content variety, which was the stated priority.
+- No `seed`-based "same map for everyone today" feature is exposed anywhere yet, though the generator supports it.
+- SCHEMA.md's `template_id` vs. run-local `node_id` distinction is still not implemented — a picked template's `node_id` doubles as its id for the run, same simplification the vertical slice already made. Fine as long as a run never needs the same template twice, which the anti-duplicate-within-run logic guarantees.
+- No Sector 2+ yet — the generator currently always produces "Sector 1"-scoped content (whatever the profile's rank/crew unlocks, which today is still only `junior_sim_tech` + `av_tech`, i.e. Domains I/II) since there's no UI yet to advance rank or recruit further crew.
+
+---
+
+## Scenario Incentive Fix + Rank-Up (2026-09-20)
+
+Matthew played the generated build and caught a real design flaw: the generic scenario "wrong choice" (`"Skip the correct step this once to save time."`) had no situational pressure behind it anywhere in the scene, so it read as a strictly dominated option nobody would ever pick — which teaches nothing about judgment. He also asked how rank-up should work, given the domain/rank structure is fixed but the question pool will keep growing as he gets bored of repeats and asks for more content.
+
+**Scenario pressure archetypes** (`game/pipeline/build_nodes.py`): each scenario now deterministically rotates through 4 grounded temptations — time crunch, budget crunch, deference to a non-expert authority, and false precedent ("it's worked before") — via `PRESSURE_ARCHETYPES` + `stable_pick()` (MD5-keyed on `node_id`, so regeneration stays reproducible). The picked archetype's `pressure_line` now feeds the `flavor_intro` and its `wrong_text`/`wrong_result` drive the "wry" choice, so the temptation is actually set up in the scene instead of floating free. Also fixed a real bug caught in the same pass: generated scenario choices were missing `result_text` entirely, which `app.js`'s `renderScenario()` unconditionally injects into the result box — every generated scenario was about to show a literal `"undefined"` after either choice. Both choices now carry proper `result_text`. Regenerated the pool; verified via Playwright that a wrong-choice click shows real consequence text and the flavor_intro names a concrete pressure.
+
+**Rank-up** (locked design, implemented in `game/web/app.js`): promotion requires **both** (1) mastery of the domain tied to the current rank — ≥60% average Leitner level across ≥50% of that domain's distinct KSAs (`domainMasteryReady()`), so volume/grinding a couple of easy KSAs can't substitute for real coverage, and the bar stays stable as the question pool grows since it's keyed to the fixed KSA list, not pool size — **and** (2) at least one sector cleared (checkpoint passed) at the current rank, so mastery grinding in isolation can't skip the in-fiction deployment beat. Checked "Hades-style" on Hub return (`maybeRankUp()`, called from the `btn-return-hub` handler). Progression: `junior_sim_tech` (Domain II mastery) → `operations_specialist` (unlocks `moulage_artist`/III) → `lead_specialist` (unlocks `debrief_facilitator`/IV) → `chsos_certified` (unlocks `simulationist`/V, terminal). Also fixed `RANK_MIN_BY_DOMAIN` in the pipeline to match this exact progression (Domain IV now gates at `lead_specialist` not `operations_specialist`, Domain V at `chsos_certified` not `lead_specialist` — both were placeholder guesses before this was locked).
+
+**Verified via Playwright**, both directions: (a) positive — seeded mastery + a sector-clear flag, drove the real "RETURN TO HUB" button, confirmed rank/crew/hub-line/crew-card all updated correctly and post-promotion map samples now surface Domain III content; (b) negative — two natural, unseeded runs stay at `junior_sim_tech` with only `av_tech` unlocked, confirming the gate actually blocks premature promotion rather than firing unconditionally. Zero console errors across all of it.
+
+**Not yet done:** the promotion is currently silent beyond the Hub line — no distinct SFX/animation, no `pending_promotion` narrative hook wired into the story-bible breadcrumb system. Domain I still isn't factored into any rank gate (unchanged from the story bible's original call that it's baseline competency, not a gated crew domain).
+
+---
+
+## Sector Progression (2026-09-20)
+
+Matthew asked whether Sector 2 was ready to build. It wasn't quite — nothing tracked *which* sector you were on (`"SECTOR 1"` was hardcoded in `app.js`), and although the pipeline had already tagged every node with a `year` (2019-2029), the generator never filtered by it, so a single deployment could freely mix a 2019 node with a 2027 one. Matthew chose the "narrower year window per sector" option over a flavor-only counter or collapsing sector into rank.
+
+**Design:** `game/web/mapgen.js` now defines `SECTOR_YEAR_WINDOWS` — four contiguous slices of the 2019-2029 range (`[2019,2021]`, `[2022,2024]`, `[2025,2027]`, `[2028,2029]`). `profile.sector_index` (0-based, persistent) advances by one on every *successful* run (checkpoint passed) and caps at the final window — sector progression is deliberately independent of rank (rank gates which domains/crew you have access to; sector gates which chronological slice the deployment is drawn from), matching `SCHEMA.md`'s original intent that a run's `sector_index` and the player's rank are separate axes. A failed run leaves `sector_index` unchanged, so a failed deployment retries the *same* posting rather than skipping ahead — consistent with the "leap snaps back" framing already locked in the story bible.
+
+**Generator change:** `generateSectorMap()` now prefers in-window content but never hard-blocks on it — the fallback order is (in-window AND unseen-recently) → (in-window) → (unseen-recently, any year) → (anything of the right type), so a sector never comes up short even for narrow domain/rank combinations. Verified this matters in practice: even the most constrained profile (`junior_sim_tech` + `av_tech` only, Domains I/II) held **98-100% in-window content** across 30 simulated runs per sector, competing against the same 60-item anti-repeat exclusion from the earlier session — the fallback tiers exist as a safety net but are essentially never needed at current pool size.
+
+**UI:** the map topbar and a new Hub line (`"NEXT DEPLOYMENT — SECTOR N · {year}–{year}"`) both now reflect the real sector/window instead of a hardcoded label.
+
+**Verified via Playwright:** fresh game starts at Sector 1 (2019-2021); five consecutive forced successes correctly advance Sector 1 → 2 → 3 → 4 and then hold at Sector 4 (2028-2029) rather than overflowing; both the Hub and map screens reflect each transition immediately; zero console errors. Also re-ran the original two-run regression pass (checkpoint stage-picking was refactored to share the same tiered fallback logic) to confirm ordinary play still works end-to-end.
+
+**Net effect:** Sector 2 *already exists* now — no new content needed to be authored. Clearing one run naturally advances into it, pulling from a distinct, period-appropriate slice of the same 630-node pool.
+
+**Not yet done:** no distinct narrative/flavor text per sector (site names and flavor_intro are still domain-driven, not sector-aware) — a sector transition currently only changes *which* content shows up, not any surrounding text acknowledging the jump forward in time. No sector count/label anywhere beyond the Hub and map topbar (e.g. no "Sectors cleared: N" stat).
+
+---
+
+## Map Node Label Fix (2026-09-20)
+
+Matthew spotted (via a real screenshot of his own playthrough) that the always-on node title labels under each map node were unreadable — faint, and directly overlapping the node's own circle rather than sitting below it as intended. Root cause: `style.css`'s `.map-node-label` had `top: calc(50% + 34px)` meant to offset it below the node, but `app.js` was setting the label's inline `style.top` to the exact same value as its button (an inline style always wins over a stylesheet rule for the same property), so the offset never applied.
+
+Fix, per Matthew's own suggestion: removed the always-on labels entirely and replaced them with a single shared tooltip (`#map-tooltip`) shown on hover/focus of a node button, positioned via the same offset math the label was supposed to use. Verified via Playwright + screenshots: no labels visible on an idle map, tooltip appears with correct text positioned just below the node on hover, and disappears when the pointer moves away.
+
+---
+
+## Hub Callback System (2026-09-20)
+
+Matthew noticed, while actually playing, that Hub banter was thin — playing at Sector 3, he was still seeing the same funding-board joke every visit. Investigation found the real bug: `hubLineForVisit()`'s visit-count logic permanently parks on that one line for every visit from the 2nd Hub return onward (visit 0 -> intro line, visit 1 -> neutral line, visit ≥2 -> stuck on the board joke forever). Rather than just writing more static lines, he chose to activate `SCHEMA.md`'s existing-but-unused **callback** design: a node queues an "outpost reports back" Hub line, delivered a few visits later, with success/fail text depending on how the node actually resolved.
+
+**Pipeline** (`game/pipeline/build_nodes.py`): added `CALLBACK_TEMPLATES` (8 generic success/fail message pairs in Hub's voice, e.g. *"Whatever you sorted out at {site} held. No repeat complaints."* / *"{site} flagged the same problem again last month. Should've stuck the first time."*) and `maybe_build_callback()`, which deterministically (by node_id, so regeneration stays reproducible) attaches a callback to ~35% of diagnostic/scenario nodes with a 2-5 Hub-visit delay — enough coverage for a steady trickle without flooding every visit or feeling omnipresent from just 8 templates. Intel nodes deliberately excluded (a flashcard has no "how'd it turn out" consequence). Regenerated the pool: 139/357 eligible nodes (38.9%) now carry a callback.
+
+**Runtime** (`game/web/app.js`): `queueCallback()` fires from `advanceAfterNode()` on any node with a `callback`, pushing `{flag, message, deliver_after_hub_visits, queued_at_visit}` onto `profile.pending_callbacks` — deduplicated both against the current queue and a permanent `delivered_callback_flags` list, so a node template recurring in a later run (once the anti-repeat window rolls past it) never re-delivers the same line twice. `checkDueCallback()`, called from the `btn-return-hub` handler, delivers the oldest eligible one (FIFO), at most one per visit — same "one line per Hub visit" convention as the promotion line. Priority order when multiple things want the Hub line the same visit: **promotion > due callback > generic rotation** — a due callback is deliberately left in the queue (not consumed) if a promotion is also showing that visit, so it surfaces cleanly on a later, uncontested visit instead of being silently discarded. Also fixed the underlying `hubLineForVisit()` bug while in there: it now alternates between its two non-intro lines instead of freezing on one forever (still just 2 lines of real generic variety — the "bigger rotating pool" option Matthew deprioritized in favor of callbacks remains the next lever for that specifically).
+
+**Verified via Playwright**, both in isolation and through real play: dedup within the queue, correct not-due-yet/due-at-exactly-N-visits/not-repeated-after timing, permanent post-delivery dedup, and the promotion-priority deferral (a due callback correctly stays queued when a promotion coincides, then delivers cleanly once the promotion clears) — all via direct calls to the real in-page functions. Separately confirmed the natural path: a real generated map's callback-bearing node, resolved through the actual `advanceAfterNode()` a player's click would trigger, correctly queues with properly interpolated site text. Zero console errors throughout.
+
+**Not yet done:** callback messages are still generic templates (8 variants, {site}-interpolated), not bespoke per-node writing — same honest scoping as the pressure archetypes. No UI indicator of how many callbacks are pending/queued. The `flag` field callbacks set isn't yet cross-referenced by anything else (e.g. no Hub/crew dialogue eligibility currently reads `delivered_callback_flags` or the callback's own flag), even though `SCHEMA.md` envisioned flags driving broader dialogue gating.
+
+---
+
+## Scenario Format Fix — Solvable Without Reading (2026-09-20)
+
+Matthew, looking at a real generated scenario node, spotted that the 2-choice format was solvable without reading the question at all — two separate tells, not one. The tone tag itself was a giveaway (BY THE BOOK = always correct, WRY = always wrong; the tonal dial was only ever supposed to be personality flavor per the story bible, never a correctness signal), and on top of that the correct choice was always the long, detailed, specific answer while the wrong one was always a generic "skip it" line. The pressure-archetype fix from earlier the same day fixed *why* someone might pick wrong, but not that the format itself gave away *which one* was wrong regardless.
+
+He asked for alternatives; among four options (symmetric 2-choice text, expand to MCQ-style, delay the reveal via callbacks, reframe as genuine tradeoffs with no clean right answer), he picked **reusing mcq_bank.json's already-well-designed 4-option distractor sets** — the same content diagnostic nodes already draw from, which doesn't suffer from either tell (all four options are comparably-phrased technical statements, no built-in asymmetry).
+
+**Change:** `build_scenario_nodes()` in `game/pipeline/build_nodes.py` now sources scenario nodes from `mcq_bank.json` (same 107 MCQs diagnostic nodes use, via a separate Counter bucket so each gets its own site/year and doesn't node_id-collide with the matching diagnostic node) instead of `expert_knowledge.json`'s Q&A `scenarios` field. Presented untimed (matching scenario's original "judgment call, not a speed drill" intent) with a heavier fail penalty than diagnostic (-15/-10/-15 vs. -10/-5/0) and the same pressure-archetype flavor_intro for narrative texture. **Tradeoff, stated plainly:** `expert_knowledge.json`'s 250 scenario Q&A pairs are unused pipeline input now — they only ever had one correct answer with no ready distractors, so there was no safe way to give them a 4-option treatment without either fabricating weak wrong answers or reviving them later with real bespoke writing (noted as future work, not done here). Scenario node count dropped from 250 to 107 as a direct result — still a large jump over the original 7, just smaller than the previous (flawed) version. Removed the now-dead `parse_scenario`/`SCENARIO_QA_RE`/`strip_markdown` helpers that only existed to parse that field.
+
+**Runtime** (`game/web/app.js`): `renderMCQBlock()` now supports an untimed mode (skips the countdown bar entirely when `time_limit_seconds` is falsy). `renderScenario()` now branches on payload shape — `payload.choices` (the one hand-authored `content.js` scenario, the FERPA/USB judgment call) still renders through the original tone-dial branching UI unchanged, since a human writer can make that asymmetric format work through real craft; everything pipeline-generated now renders through the same `renderMCQBlock()` UI diagnostic nodes use, just untimed and framed with a "SCENARIO" tag instead of "DIAGNOSTIC / REPAIR".
+
+**Verified via Playwright:** the new format shows zero tone-tag elements, zero timer bar, exactly 4 comparably-phrased options (51-73 characters in the sampled node, no long-vs-short asymmetry), and resolves correctly end to end. Separately confirmed the legacy hand-authored scenario still renders through its original branching path unchanged. Re-ran the 40-run-per-profile structural validation sweep (connectivity, single checkpoint) against the new 487-node pool — all passed. Zero console errors throughout.
+
+---
+
+## Session Summary — End of 2026-09-20
+
+Eight changes today, in order, each caught and fixed real problems Matthew found by actually playing the build rather than just reading code:
+
+1. **Content-tagging pipeline** (`game/pipeline/build_nodes.py`) — full `mcq_bank.json`/`expert_knowledge.json` banks turned into a 630-node pool (later 487, see #7), replacing the 7 hand-picked vertical-slice nodes.
+2. **Procedural map generator** (`game/web/mapgen.js`) — every deployment now generates a fresh map from that pool instead of replaying a fixed layout; caught and fixed a checkpoint/node overlap bug via a Playwright screenshot before trusting it.
+3. **Scenario pressure archetypes + rank-up** — gave the "wrong" scenario choice an actual in-fiction reason to pick it (time/budget/deference/precedent pressure), and built mastery-gated rank promotion (`maybeRankUp()` in `app.js`) tied to `SCHEMA.md`'s locked design.
+4. **Sector progression** (`SECTOR_YEAR_WINDOWS` in `mapgen.js`) — `profile.sector_index` now advances toward the 2039 war on every successful run, independent of rank; the generator prefers in-window content with graceful fallback.
+5. **Map node label fix** — always-on node labels were unreadable (a real CSS/inline-style bug, not just a styling tweak); replaced with a hover/focus tooltip.
+6. **Hub callback system** — activated `SCHEMA.md`'s previously-unused "outpost reports back N visits later" design; also fixed `hubLineForVisit()` permanently freezing on one line past visit 2.
+7. **Scenario format fix** — the 2-choice format was solvable without reading (tone tag always matched correctness, correct answer always the detailed one); scenario nodes now reuse `mcq_bank.json`'s real 4-option distractor sets instead of `expert_knowledge.json`'s Q&A field, which had no usable distractors. Pool dropped from 630 to 487 nodes as a direct, stated tradeoff (107 diagnostic + 273 intel + 107 scenario).
+
+**Where things stand:** the game is playable end-to-end (intro → Hub → procedurally generated map → all 5 node types → checkpoint → recap → back to Hub), currently scoped to Domains I/II only (Junior Sim Tech + AV Technician, the only rank/crew reachable — nothing has promoted yet in real play). Every change above was verified with Playwright (not just read/reasoned about) before being reported done.
+
+**Real gaps carried forward, not yet addressed:**
+- `expert_knowledge.json`'s 250 scenario Q&A pairs are unused pipeline input (no safe distractors without bespoke rewriting).
+- Hub banter beyond callbacks/promotion is still just 2 alternating generic lines — the "bigger rotating pool" option Matthew deprioritized twice now in favor of higher-leverage fixes.
+- No Sector 2+ *content* distinction beyond which nodes get pulled (no per-sector flavor text).
+- No Moulage/Debrief/Simulationist crew recruitment has been observed in real play yet — rank-up is built and Playwright-verified but not yet reached organically (mastery-gated on purpose).
+- Procedural map shape is one parameterized layered-DAG template, not multiple distinct topologies.
+- `callback`/`sets_flags` still don't feed any broader Hub/crew dialogue eligibility system, despite `SCHEMA.md` originally scoping flags for that.
+
+**Everything in this session is uncommitted as of this note** — see the next commit for what actually shipped.
 
 

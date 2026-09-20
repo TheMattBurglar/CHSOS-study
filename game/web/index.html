@@ -52,6 +52,7 @@
   <div class="hub-main" style="grid-template-columns: 1fr;">
     <div class="panel">
       <div class="panel-title">HUB</div>
+      <div class="eyebrow" id="hub-sector" style="margin-bottom:8px"></div>
       <div class="hub-line" id="hub-line"></div>
       <div class="btn-row">
         <button id="btn-begin-deployment" class="btn">BEGIN DEPLOYMENT</button>
@@ -64,8 +65,8 @@
 <section id="screen-map" class="screen" hidden>
   <div class="topbar">
     <div class="topbar-title">
-      <span class="eyebrow" id="map-location">SECTOR 1 · 2019</span>
-      <span class="main">FORT KESSLER REGIONAL TRAINING CENTER</span>
+      <span class="eyebrow" id="map-location">SECTOR 1</span>
+      <span class="main" id="map-subtitle">MULTI-SITE ROTATION</span>
     </div>
     <div class="stat-row">
       <div class="stat-pill"><span class="label">INTEGRITY</span><span class="value" id="stat-integrity">100</span></div>
@@ -80,6 +81,7 @@
       <svg id="map-svg" viewBox="0 0 640 520" preserveAspectRatio="xMidYMid meet"></svg>
       <div id="map-nodes"></div>
       <div id="ship-marker" class="ship-marker"></div>
+      <div id="map-tooltip" class="map-tooltip"></div>
     </div>
   </div>
 </section>
@@ -104,6 +106,8 @@
 </section>
 
 <script src="content.js"></script>
+<script src="nodes_generated.js"></script>
+<script src="mapgen.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

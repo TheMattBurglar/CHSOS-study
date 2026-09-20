@@ -96,7 +96,14 @@ function defaultProfile() {
     hub_visits: 0,
     seen_intro: false,
     ksa_mastery: {},   // "II.A.1" -> { level: 0-5, last_reviewed: epoch ms }
-    global_flags: {}
+    global_flags: {},
+    recent_node_ids: [],  // anti-repeat memory the map generator excludes from picks
+    sector_cleared_at_current_rank: false,  // gates promotion: mastery alone can't skip the deployment beat
+    pending_promotion: null,  // { rank, crew } -- surfaced once on the next Hub visit, then cleared
+    sector_index: 0,  // 0-based; advances toward the war on each successful run, independent of rank (see mapgen.js's SECTOR_YEAR_WINDOWS)
+    pending_callbacks: [],  // [{flag, message, deliver_after_hub_visits, queued_at_visit}] -- "outpost reports back" (SCHEMA.md), queued when a node with a `callback` resolves
+    delivered_callback_flags: [],  // dedup guard: a recurring node's callback should only ever surface once, even if drawn again in a later run
+    pending_callback_line: null  // due callback message surfaced once on the next eligible Hub visit, then cleared
   };
 }
 
@@ -163,6 +170,85 @@ function domainMasteryPercent(domainId) {
   return Math.round((avg / 5) * 100);
 }
 
+// ---------- rank-up ----------
+//
+// Design (locked with Matthew 2026-09-20): promotion is gated on demonstrated
+// mastery, not on raw question volume or pure run-completion count, because
+// the point of this game is retained judgment, not memorization or grinding.
+// RANK_ORDER/rankIndex come from mapgen.js (shared with its own rank gating).
+//
+// A rank promotion requires BOTH:
+//   1. Mastery of the domain tied to the CURRENT rank (broad coverage, not
+//      just a couple of easy KSAs run into the ground -- see MIN_KSA_COVERAGE_RATIO)
+//   2. At least one sector cleared (checkpoint passed) at the current rank
+// so volume can't substitute for retention, and retention alone can't skip
+// the in-fiction deployment beat. Checked "Hades-style" on Hub return.
+
+const RANK_GATE_DOMAIN = { junior_sim_tech: "II", operations_specialist: "III", lead_specialist: "IV" };
+const RANK_UNLOCKS_CREW = { junior_sim_tech: "moulage_artist", operations_specialist: "debrief_facilitator", lead_specialist: "simulationist" };
+const MASTERY_THRESHOLD_PERCENT = 60;
+const MIN_KSA_COVERAGE_RATIO = 0.5;
+
+function domainKsaCodes(domainId) {
+  const set = new Set();
+  Object.values(ALL_NODE_TEMPLATES).forEach(n => { if (n.domain === domainId && n.ksa) set.add(n.ksa); });
+  return set;
+}
+
+function domainMasteryReady(domainId) {
+  const allKsas = domainKsaCodes(domainId);
+  if (allKsas.size === 0) return false;
+  const touched = [...allKsas].filter(k => profile.ksa_mastery[k]);
+  if (touched.length / allKsas.size < MIN_KSA_COVERAGE_RATIO) return false;
+  return domainMasteryPercent(domainId) >= MASTERY_THRESHOLD_PERCENT;
+}
+
+function maybeRankUp() {
+  const gateDomain = RANK_GATE_DOMAIN[profile.rank];
+  if (!gateDomain) return; // chsos_certified is terminal
+  if (!profile.sector_cleared_at_current_rank) return;
+  if (!domainMasteryReady(gateDomain)) return;
+
+  const nextRank = RANK_ORDER[rankIndex(profile.rank) + 1];
+  const newCrew = RANK_UNLOCKS_CREW[profile.rank];
+  profile.rank = nextRank;
+  if (newCrew && !profile.unlocked_crew.includes(newCrew)) profile.unlocked_crew.push(newCrew);
+  profile.sector_cleared_at_current_rank = false;
+  profile.pending_promotion = { rank: nextRank, crew: newCrew };
+}
+
+// ---------- callbacks ("outpost reports back", SCHEMA.md) ----------
+//
+// A node with a `callback` (see game/pipeline/build_nodes.py's
+// maybe_build_callback -- ~35% of diagnostic/scenario nodes) queues a future
+// Hub line on completion. Delivered FIFO, at most one per Hub visit -- same
+// "one line per visit" convention as the promotion line -- once at least
+// `deliver_after_hub_visits` visits have passed since it was queued. A flag
+// only ever delivers once even if the same node template recurs in a later run.
+
+function queueCallback(node, success) {
+  if (!node.callback) return;
+  const flag = node.callback.flag;
+  if ((profile.delivered_callback_flags || []).includes(flag)) return;
+  if (profile.pending_callbacks.some(c => c.flag === flag)) return;
+  profile.pending_callbacks.push({
+    flag,
+    message: success ? node.callback.messages.success : node.callback.messages.fail,
+    deliver_after_hub_visits: node.callback.deliver_after_hub_visits,
+    queued_at_visit: profile.hub_visits,
+  });
+}
+
+function checkDueCallback() {
+  const dueIndex = profile.pending_callbacks.findIndex(
+    c => profile.hub_visits >= c.queued_at_visit + c.deliver_after_hub_visits
+  );
+  if (dueIndex === -1) return null;
+  const [due] = profile.pending_callbacks.splice(dueIndex, 1);
+  profile.delivered_callback_flags = (profile.delivered_callback_flags || []).concat(due.flag).slice(-200);
+  return due.message;
+}
+
 // ---------- screen helpers ----------
 
 function showScreen(id) {
@@ -192,13 +278,34 @@ document.getElementById("btn-intro-continue").addEventListener("click", () => {
 
 function hubLineForVisit() {
   if (profile.hub_visits <= 0) return HUB_LINES.first_visit;
-  if (profile.hub_visits === 1) return HUB_LINES.default;
-  return HUB_LINES.second_visit_bonus;
+  // Alternates rather than parking on one line forever past visit 2 -- still
+  // just 2 lines of real variety here; see currentState.md for the bigger
+  // rotating-pool expansion this doesn't replace.
+  return profile.hub_visits % 2 === 1 ? HUB_LINES.default : HUB_LINES.second_visit_bonus;
+}
+
+function promotionLine(promotion) {
+  const crewLine = promotion.crew
+    ? ` And there's someone new joining the roster: ${CREW_DEFS[promotion.crew].name}.`
+    : "";
+  return `Command must've liked what they saw. You're being bumped to ${RANK_LABELS[promotion.rank].toUpperCase()}.${crewLine}`;
 }
 
 function showHub() {
   document.getElementById("hub-rank").textContent = RANK_LABELS[profile.rank].toUpperCase();
-  document.getElementById("hub-line").textContent = hubLineForVisit();
+  const window = sectorYearWindow(profile.sector_index);
+  document.getElementById("hub-sector").textContent = `NEXT DEPLOYMENT — SECTOR ${profile.sector_index + 1} · ${window[0]}–${window[1]}`;
+  if (profile.pending_promotion) {
+    document.getElementById("hub-line").textContent = promotionLine(profile.pending_promotion);
+    profile.pending_promotion = null;
+    saveProfile();
+  } else if (profile.pending_callback_line) {
+    document.getElementById("hub-line").textContent = profile.pending_callback_line;
+    profile.pending_callback_line = null;
+    saveProfile();
+  } else {
+    document.getElementById("hub-line").textContent = hubLineForVisit();
+  }
 
   const domainsEl = document.getElementById("hub-domains");
   domainsEl.innerHTML = "";
@@ -237,9 +344,12 @@ function showHub() {
 }
 
 document.getElementById("btn-begin-deployment").addEventListener("click", () => {
+  const usedNodeIds = new Set(profile.recent_node_ids || []);
+  const map = generateSectorMap({ profile, usedNodeIds });
   run = {
     resources: { integrity: 100, morale: 100, budget: 200 },
-    available: [...SECTOR_1_MAP.start],
+    map,
+    available: [...map.start],
     completedIds: [],
     lastOutcomeOk: true
   };
@@ -262,7 +372,13 @@ document.getElementById("btn-new-game").addEventListener("click", () => {
 // ---------- map ----------
 
 function showMap() {
-  document.getElementById("map-location").textContent = "SECTOR 1 · 2019";
+  const years = Object.values(run.map.nodes).map(n => n.year).filter(Boolean);
+  const yearLabel = years.length ? ` · ${Math.min(...years)}–${Math.max(...years)}` : "";
+  document.getElementById("map-location").textContent = `SECTOR ${profile.sector_index + 1}${yearLabel}`;
+
+  const sites = new Set(Object.values(run.map.nodes).map(n => n.location_name).filter(Boolean));
+  document.getElementById("map-subtitle").textContent = sites.size === 1 ? [...sites][0].toUpperCase() : "MULTI-SITE ROTATION";
+
   renderStats();
   renderSectorMap();
   showScreen("screen-map");
@@ -286,7 +402,7 @@ function nodeState(nodeId) {
 
 function currentShipAnchor() {
   const lastId = run.completedIds[run.completedIds.length - 1];
-  return NODE_POSITIONS[lastId || "start"];
+  return run.map.positions[lastId || "start"];
 }
 
 function pctPos(pos) {
@@ -298,11 +414,12 @@ function renderSectorMap() {
   const nodesLayer = document.getElementById("map-nodes");
   svg.innerHTML = "";
   nodesLayer.innerHTML = "";
+  hideNodeTooltip();
 
   const svgNS = "http://www.w3.org/2000/svg";
-  allSectorEdges().forEach(([from, to]) => {
-    const fromPos = NODE_POSITIONS[from];
-    const toPos = NODE_POSITIONS[to];
+  allMapEdges(run.map).forEach(([from, to]) => {
+    const fromPos = run.map.positions[from];
+    const toPos = run.map.positions[to];
     const fromReached = from === "start" || run.completedIds.includes(from);
     const toDone = run.completedIds.includes(to);
     const toAvailable = run.available.includes(to);
@@ -321,10 +438,10 @@ function renderSectorMap() {
     svg.appendChild(line);
   });
 
-  Object.keys(NODE_POSITIONS).forEach(nodeId => {
+  Object.keys(run.map.positions).forEach(nodeId => {
     if (nodeId === "start") return;
-    const node = NODES[nodeId];
-    const pos = pctPos(NODE_POSITIONS[nodeId]);
+    const node = run.map.nodes[nodeId];
+    const pos = pctPos(run.map.positions[nodeId]);
     const state = nodeState(nodeId);
     const color = domainColor(node.domain);
 
@@ -340,14 +457,11 @@ function renderSectorMap() {
     btn.disabled = state !== "available";
     btn.setAttribute("aria-label", node.title);
     if (state === "available") btn.addEventListener("click", () => travelTo(nodeId));
+    btn.addEventListener("mouseenter", () => showNodeTooltip(node.title, pos));
+    btn.addEventListener("mouseleave", hideNodeTooltip);
+    btn.addEventListener("focus", () => showNodeTooltip(node.title, pos));
+    btn.addEventListener("blur", hideNodeTooltip);
     nodesLayer.appendChild(btn);
-
-    const label = document.createElement("div");
-    label.className = "map-node-label";
-    label.style.left = pos.left;
-    label.style.top = pos.top;
-    label.textContent = node.title;
-    nodesLayer.appendChild(label);
   });
 
   snapShipMarker();
@@ -363,11 +477,24 @@ function snapShipMarker() {
   marker.style.transition = "";
 }
 
+function showNodeTooltip(title, pos) {
+  const tip = document.getElementById("map-tooltip");
+  tip.textContent = title;
+  tip.style.left = pos.left;
+  tip.style.top = `calc(${pos.top} + 34px)`;
+  tip.classList.add("visible");
+}
+
+function hideNodeTooltip() {
+  document.getElementById("map-tooltip").classList.remove("visible");
+}
+
 function travelTo(nodeId) {
+  hideNodeTooltip();
   sfxSelect();
   document.querySelectorAll(".map-node-btn").forEach(b => b.disabled = true);
   const marker = document.getElementById("ship-marker");
-  const pos = pctPos(NODE_POSITIONS[nodeId]);
+  const pos = pctPos(run.map.positions[nodeId]);
   marker.style.left = pos.left;
   marker.style.top = pos.top;
   setTimeout(() => openNode(nodeId), 620);
@@ -376,7 +503,7 @@ function travelTo(nodeId) {
 // ---------- node interaction ----------
 
 function openNode(nodeId) {
-  const node = NODES[nodeId];
+  const node = run.map.nodes[nodeId];
   clearActiveTimer();
   document.getElementById("overlay-node").hidden = false;
   switch (node.type) {
@@ -423,11 +550,12 @@ function advanceAfterNode(node, success) {
   run.completedIds.push(node.node_id);
   run.lastOutcomeOk = success;
   bumpMastery(node.ksa, success);
+  queueCallback(node, success);
   if (node.type === "checkpoint") {
     endRun(success);
     return;
   }
-  run.available = SECTOR_1_MAP.edges[node.node_id] || [];
+  run.available = run.map.edges[node.node_id] || [];
   closeNodeOverlay();
   renderStats();
   renderSectorMap();
@@ -453,10 +581,11 @@ function renderIntel(node) {
 // -- diagnostic (also reused by checkpoint stages) --
 
 function renderMCQBlock(container, mcq, onResolved) {
+  const timed = !!mcq.time_limit_seconds;
   let remaining = mcq.time_limit_seconds || 30;
   container.innerHTML += `
     <p style="font-size:15px;line-height:1.6;">${mcq.question}</p>
-    <div class="timer-bar-track"><div class="timer-bar-fill" id="mcq-timer-fill" style="width:100%"></div></div>
+    ${timed ? '<div class="timer-bar-track"><div class="timer-bar-fill" id="mcq-timer-fill" style="width:100%"></div></div>' : ""}
     <div id="mcq-options"></div>
   `;
   const optionsEl = container.querySelector("#mcq-options");
@@ -489,12 +618,14 @@ function renderMCQBlock(container, mcq, onResolved) {
     onResolved(correct);
   }
 
-  activeTimer = setInterval(() => {
-    remaining -= 1;
-    const fill = document.getElementById("mcq-timer-fill");
-    if (fill) fill.style.width = Math.max(0, (remaining / (mcq.time_limit_seconds || 30)) * 100) + "%";
-    if (remaining <= 0) { clearInterval(activeTimer); resolve(null); }
-  }, 1000);
+  if (timed) {
+    activeTimer = setInterval(() => {
+      remaining -= 1;
+      const fill = document.getElementById("mcq-timer-fill");
+      if (fill) fill.style.width = Math.max(0, (remaining / mcq.time_limit_seconds) * 100) + "%";
+      if (remaining <= 0) { clearInterval(activeTimer); resolve(null); }
+    }, 1000);
+  }
 }
 
 function renderDiagnostic(node) {
@@ -516,9 +647,47 @@ function renderDiagnostic(node) {
 }
 
 // -- scenario --
+//
+// Two payload shapes coexist here:
+//   - `payload.choices` (legacy tone-dial branching): content.js's one
+//     hand-authored scenario (the FERPA/USB judgment call). A human writer
+//     can make an asymmetric "obviously right vs. tempting wrong" pair work
+//     through real craft -- left as-is, still Playwright-validated.
+//   - `payload.options`/`answer`/`rationale` (MCQ-style, pipeline-generated):
+//     every procedurally-generated scenario, as of 2026-09-20. Matthew caught
+//     that the old templated 2-choice version had two tells that let you
+//     solve it without reading anything -- the tone tag always matched
+//     correctness (BY THE BOOK = right, WRY = wrong), and the correct choice
+//     was always the long detailed one, the wrong one always a generic
+//     "skip it" line. Reusing mcq_bank.json's already-well-designed 4-option
+//     distractor sets (the same source diagnostic nodes use) through the
+//     same renderMCQBlock() UI fixes both: same source pool, same format,
+//     just untimed and narratively framed, so the only way to solve it is
+//     to actually know the content.
 
 function renderScenario(node) {
   const p = panel();
+  if (node.payload.choices) {
+    renderScenarioChoiceLegacy(node, p);
+  } else {
+    p.innerHTML = `
+      <span class="node-type-tag" style="background:${domainColor(node.domain)}22;color:${domainColor(node.domain)}">SCENARIO</span>
+      <h1 class="hud" style="margin:10px 0">${node.title}</h1>
+      <div class="flavor">${node.flavor_intro}</div>
+    `;
+    renderMCQBlock(p, node.payload, (correct) => {
+      const effects = correct ? node.effects.on_pass : node.effects.on_fail;
+      p.innerHTML += effectsRowHtml(effects);
+      p.innerHTML += `<div class="btn-row"><button class="btn" id="node-continue">CONTINUE</button></div>`;
+      document.getElementById("node-continue").onclick = () => {
+        applyEffects(effects);
+        advanceAfterNode(node, correct);
+      };
+    });
+  }
+}
+
+function renderScenarioChoiceLegacy(node, p) {
   p.innerHTML = `
     <span class="node-type-tag" style="background:${domainColor(node.domain)}22;color:${domainColor(node.domain)}">SCENARIO</span>
     <h1 class="hud" style="margin:10px 0">${node.title}</h1>
@@ -633,6 +802,15 @@ function endRun(success) {
     <span class="effect-chip">MORALE ${run.resources.morale}</span>
     <span class="effect-chip">BUDGET ${run.resources.budget} CR</span>
   `;
+  profile.recent_node_ids = (profile.recent_node_ids || [])
+    .concat(Object.keys(run.map.nodes))
+    .slice(-60); // remembers roughly the last 7-8 runs' worth of content
+  if (success) {
+    profile.sector_cleared_at_current_rank = true;
+    profile.sector_index = Math.min(profile.sector_index + 1, SECTOR_YEAR_WINDOWS.length - 1);
+  }
+  saveProfile();
+
   closeNodeOverlay();
   showScreen("screen-runend");
 }
@@ -640,6 +818,12 @@ function endRun(success) {
 document.getElementById("btn-return-hub").addEventListener("click", () => {
   profile.hub_visits += 1;
   run = null;
+  maybeRankUp();
+  // Don't consume a due callback if a promotion is also showing this visit --
+  // it stays queued and surfaces on a later, uncontested visit instead.
+  if (!profile.pending_promotion) {
+    profile.pending_callback_line = checkDueCallback();
+  }
   saveProfile();
   showHub();
 });
