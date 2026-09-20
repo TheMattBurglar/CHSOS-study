@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medi-Sim Patient Scenarios</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            color: #0056b3;
+            font-size: 24px;
+        }
+
+        .print-btn {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .print-btn:hover {
+            background-color: #004494;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #444;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .note {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f7ff;
+            border-left: 4px solid #0056b3;
+            font-size: 13px;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+
+            body {
+                margin: 0;
+                padding: 10px;
+            }
+
+            th {
+                background-color: #eee !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Medi-Sim Patient Scenarios - Quick Reference</h1>
+        <button class="print-btn" onclick="window.print()">Print List</button>
+    </div>
+
+    <table id="patientTable">
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>MRN</th>
+                <th>Account #</th>
+                <th>DOB (Age)</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody id="patientBody">
+            <!-- Patients will be loaded here -->
+        </tbody>
+    </table>
+
+    <div class="note">
+        <strong>How to use:</strong> Open <code>index.html</code> in your browser, then enter any of the MRNs or Account
+        Numbers above in the search field to load that patient's complete medical record.
+    </div>
+
+    <script src="patients.js"></script>
+    <script>
+        function calculateAge(dobString) {
+            const dob = new Date(dobString);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        // Shuffle array function
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        // Get 15 random patients
+        const shuffledPatients = shuffleArray(PATIENT_DATABASE);
+        const selectedPatients = shuffledPatients.slice(0, 15);
+
+        // Populate table
+        const tbody = document.getElementById('patientBody');
+        selectedPatients.forEach(patient => {
+            const age = calculateAge(patient.dob);
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><strong>${patient.lastName}, ${patient.firstName}</strong></td>
+                <td>${patient.mrn}</td>
+                <td>${patient.accountNumber}</td>
+                <td>${patient.dob} (${age} y/o)</td>
+                <td>${patient.gender.charAt(0).toUpperCase() + patient.gender.slice(1)}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    </script>
+</body>
+
+</html>

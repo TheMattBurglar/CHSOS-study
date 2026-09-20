@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHR Simulation - Nurse Training Interface</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Patient Header Banner -->
+    <header class="patient-header">
+        <div class="patient-header-content">
+            <!-- Top Row: Search -->
+            <div class="header-row-top">
+                <div class="header-search-group">
+                    <input type="text" id="patient-search-input"
+                        placeholder="Enter MRN (e.g. S1234567) or Account # (e.g. S123456789)" class="search-input">
+                    <button class="btn btn-secondary btn-sm" onclick="searchPatient()">Search</button>
+                </div>
+            </div>
+
+            <!-- Bottom Row: Patient Info -->
+            <div class="header-row-bottom">
+                <div class="patient-info-item">
+                    <span class="patient-info-label">Patient Name</span>
+                    <span class="patient-info-value" id="header-patient-name">--</span>
+                </div>
+                <div class="patient-info-item">
+                    <span class="patient-info-label">MRN</span>
+                    <span class="patient-info-value" id="header-mrn">--</span>
+                </div>
+                <div class="patient-info-item">
+                    <span class="patient-info-label">Account #</span>
+                    <span class="patient-info-value" id="header-account">--</span>
+                </div>
+                <div class="patient-info-item">
+                    <span class="patient-info-label">DOB / Age</span>
+                    <span class="patient-info-value" id="header-dob">--</span>
+                </div>
+                <div class="patient-info-item">
+                    <span class="patient-info-label">Room / Bed</span>
+                    <span class="patient-info-value">ICU 301-A</span>
+                </div>
+                <div class="patient-info-item">
+                    <span class="patient-info-label">Allergies</span>
+                    <span class="allergy-badge" id="header-allergies" style="display: none;">--</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Tab Navigation -->
+        <nav class="tab-navigation">
+            <button class="tab-button active" data-tab="demographics">Demographics</button>
+            <button class="tab-button" data-tab="history">Medical History</button>
+            <button class="tab-button" data-tab="vitals">Vital Signs</button>
+            <button class="tab-button" data-tab="medications">Medication Administration</button>
+            <button class="tab-button" data-tab="assessments">Assessments</button>
+            <button class="tab-button" data-tab="careplans">Care Plans & Interventions</button>
+            <button class="tab-button" data-tab="communication">Communication & Handoff</button>
+        </nav>
+
+        <!-- Demographics Tab -->
+        <div class="tab-content active" id="demographics">
+            <div class="content-card">
+                <h2 class="section-title">Patient Demographics</h2>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="mrn">Medical Record Number (MRN) <span class="required">*</span></label>
+                        <input type="text" id="mrn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="account-number">Account Number (Visit #) <span class="required">*</span></label>
+                        <input type="text" id="account-number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admission-date">Admission Date</label>
+                        <input type="date" id="admission-date">
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Personal Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="last-name">Last Name <span class="required">*</span></label>
+                        <input type="text" id="last-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="first-name">First Name <span class="required">*</span></label>
+                        <input type="text" id="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="middle-name">Middle Name</label>
+                        <input type="text" id="middle-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth <span class="required">*</span></label>
+                        <input type="date" id="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender">
+                            <option value="">Select...</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pronouns">Preferred Pronouns</label>
+                        <input type="text" id="pronouns" placeholder="e.g., he/him, she/her, they/them">
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Contact Information</h3>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" placeholder="Street Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">ZIP Code</label>
+                        <input type="text" id="zip">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="patient@email.com">
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Emergency Contact</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="emergency-name">Contact Name</label>
+                        <input type="text" id="emergency-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="emergency-relationship">Relationship</label>
+                        <input type="text" id="emergency-relationship" placeholder="e.g., Spouse, Parent">
+                    </div>
+                    <div class="form-group">
+                        <label for="emergency-phone">Phone Number</label>
+                        <input type="tel" id="emergency-phone" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Medical Information</h3>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="allergies">Allergies <span class="required">*</span></label>
+                        <textarea id="allergies"
+                            placeholder="List all known allergies (medications, food, environmental)"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="code-status">Code Status</label>
+                        <select id="code-status">
+                            <option value="full-code">Full Code</option>
+                            <option value="dnr">DNR (Do Not Resuscitate)</option>
+                            <option value="dni">DNI (Do Not Intubate)</option>
+                            <option value="dnr-dni">DNR/DNI</option>
+                            <option value="comfort-care">Comfort Care Only</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="primary-language">Primary Language</label>
+                        <input type="text" id="primary-language">
+                    </div>
+                    <div class="form-group">
+                        <label for="interpreter-needed">Interpreter Needed?</label>
+                        <select id="interpreter-needed">
+                            <option value="no" selected>No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Insurance Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="insurance-provider">Insurance Provider</label>
+                        <input type="text" id="insurance-provider">
+                    </div>
+                    <div class="form-group">
+                        <label for="policy-number">Policy Number</label>
+                        <input type="text" id="policy-number">
+                    </div>
+                    <div class="form-group">
+                        <label for="group-number">Group Number</label>
+                        <input type="text" id="group-number">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="saveDemographics()">Save Demographics</button>
+                    <button class="btn btn-secondary" onclick="clearForm('demographics')">Clear Form</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical History Tab -->
+        <div class="tab-content" id="history">
+            <div class="content-card">
+                <h2 class="section-title">Medical History</h2>
+
+                <h3 class="section-subtitle">Past Medical History (PMH)</h3>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="pmh-htn">
+                        <label for="pmh-htn">Hypertension (HTN)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="pmh-dm">
+                        <label for="pmh-dm">Diabetes Mellitus (Type 1/2)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="pmh-cad">
+                        <label for="pmh-cad">Coronary Artery Disease (CAD)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="pmh-copd">
+                        <label for="pmh-copd">COPD/Asthma</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="pmh-ckd">
+                        <label for="pmh-ckd">Chronic Kidney Disease</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="pmh-chf">
+                        <label for="pmh-chf">Heart Failure (CHF)</label>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="pmh-notes">Other Medical History / Details</label>
+                    <textarea id="pmh-notes" placeholder="List other conditions, dates of diagnosis, etc."></textarea>
+                </div>
+
+                <h3 class="section-subtitle">Surgical History (PSH)</h3>
+                <div class="form-group full-width">
+                    <label for="psh-notes">Surgeries & Procedures</label>
+                    <textarea id="psh-notes"
+                        placeholder="List surgeries with approximate dates (e.g., Appendectomy 2010, TKA Right Knee 2018)"></textarea>
+                </div>
+
+                <h3 class="section-subtitle">Family Medical History</h3>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="fh-cancer">
+                        <label for="fh-cancer">Cancer (Family)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="fh-heart">
+                        <label for="fh-heart">Heart Disease (Family)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="fh-dm">
+                        <label for="fh-dm">Diabetes (Family)</label>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="fh-notes">Family History Details</label>
+                    <textarea id="fh-notes"
+                        placeholder="Specify relation and condition (e.g., Mother - Breast Cancer, Father - MI at 55)"></textarea>
+                </div>
+
+                <h3 class="section-subtitle">Social History</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="sh-tobacco">Tobacco Use</label>
+                        <select id="sh-tobacco">
+                            <option value="never">Never Smoker</option>
+                            <option value="former">Former Smoker</option>
+                            <option value="current">Current Smoker</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sh-alcohol">Alcohol Use</label>
+                        <select id="sh-alcohol">
+                            <option value="none">None</option>
+                            <option value="social">Social</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="heavy">Heavy</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sh-drugs">Illicit Drug Use</label>
+                        <select id="sh-drugs">
+                            <option value="none">None</option>
+                            <option value="past">Past Use</option>
+                            <option value="current">Current Use</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sh-occupation">Occupation</label>
+                        <input type="text" id="sh-occupation" placeholder="Current/Former Occupation">
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="sh-notes">Social History Notes</label>
+                    <textarea id="sh-notes" placeholder="Living situation, support system, etc."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="saveHistory()">Save History</button>
+                    <button class="btn btn-secondary" onclick="clearForm('history')">Clear Form</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vital Signs Tab -->
+    <div class="tab-content" id="vitals">
+        <div class="content-card">
+            <h2 class="section-title">Vital Signs</h2>
+
+            <div class="vitals-entry">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label>Account Number (Visit #)</label>
+                    <input type="text" id="vitals-account-number" readonly class="readonly-field">
+                </div>
+                <h3 class="section-subtitle">Record New Vital Signs</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="vital-date">Date</label>
+                        <input type="date" id="vital-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="vital-time">Time</label>
+                        <input type="time" id="vital-time">
+                    </div>
+                </div>
+
+                <div class="vitals-grid">
+                    <div class="form-group">
+                        <label for="bp-systolic">Blood Pressure</label>
+                        <div class="vital-value">
+                            <input type="number" id="bp-systolic" placeholder="Systolic" style="width: 80px;">
+                            <span>/</span>
+                            <input type="number" id="bp-diastolic" placeholder="Diastolic" style="width: 80px;">
+                            <span class="vital-unit">mmHg</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="heart-rate">Heart Rate</label>
+                        <div class="vital-value">
+                            <input type="number" id="heart-rate" placeholder="HR">
+                            <span class="vital-unit">bpm</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resp-rate">Respiratory Rate</label>
+                        <div class="vital-value">
+                            <input type="number" id="resp-rate" placeholder="RR">
+                            <span class="vital-unit">breaths/min</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="temp">Temperature</label>
+                        <div class="vital-value">
+                            <input type="number" id="temp" step="0.1" placeholder="Temp">
+                            <select id="temp-route" style="width: 100px;">
+                                <option value="oral">Oral</option>
+                                <option value="axillary">Axillary</option>
+                                <option value="rectal">Rectal</option>
+                                <option value="tympanic">Tympanic</option>
+                                <option value="temporal">Temporal</option>
+                            </select>
+                            <span class="vital-unit">°F</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="spo2">SpO2</label>
+                        <div class="vital-value">
+                            <input type="number" id="spo2" placeholder="SpO2">
+                            <span class="vital-unit">%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="o2-delivery">O2 Delivery</label>
+                        <select id="o2-delivery">
+                            <option value="room-air">Room Air</option>
+                            <option value="nasal-cannula">Nasal Cannula</option>
+                            <option value="face-mask">Face Mask</option>
+                            <option value="non-rebreather">Non-Rebreather</option>
+                            <option value="ventilator">Ventilator</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pain-scale">Pain Scale (0-10)</label>
+                        <div class="vital-value">
+                            <input type="number" id="pain-scale" min="0" max="10" placeholder="0-10">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pain-location">Pain Location</label>
+                        <input type="text" id="pain-location" placeholder="Location">
+                    </div>
+                </div>
+
+                <div class="form-grid" style="margin-top: 1rem;">
+                    <div class="form-group">
+                        <label for="weight">Weight</label>
+                        <div class="vital-value">
+                            <input type="number" id="weight" step="0.1" placeholder="Weight">
+                            <select id="weight-unit" style="width: 70px;">
+                                <option value="kg">kg</option>
+                                <option value="lbs">lbs</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="height">Height</label>
+                        <div class="vital-value">
+                            <input type="number" id="height" step="0.1" placeholder="Height">
+                            <select id="height-unit" style="width: 70px;">
+                                <option value="cm">cm</option>
+                                <option value="in">in</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bmi">BMI (calculated)</label>
+                        <input type="text" id="bmi" readonly placeholder="Auto-calculated">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="recordVitals()">Record Vitals</button>
+                    <button class="btn btn-secondary" onclick="clearVitalsForm()">Clear</button>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle">Vital Signs History</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Date/Time</th>
+                        <th>BP</th>
+                        <th>HR</th>
+                        <th>RR</th>
+                        <th>Temp</th>
+                        <th>SpO2</th>
+                        <th>Pain</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="vitals-history">
+                    <tr>
+                        <td colspan="8" class="text-center">No vital signs recorded yet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Medication Administration Tab -->
+    <div class="tab-content" id="medications">
+        <div class="content-card">
+            <h2 class="section-title">Medication Administration Record (MAR)</h2>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label>Account Number (Visit #)</label>
+                <input type="text" id="meds-account-number" readonly class="readonly-field">
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="showAddMedicationForm()">+ Add New Medication</button>
+            </div>
+
+            <div id="add-medication-form" class="vitals-entry" style="display: none; margin-top: 1rem;">
+                <h3 class="section-subtitle">Add Medication Order</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="med-name">Medication Name <span class="required">*</span></label>
+                        <input type="text" id="med-name" placeholder="e.g., Metoprolol" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="med-dose">Dose <span class="required">*</span></label>
+                        <input type="text" id="med-dose" placeholder="e.g., 50 mg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="med-route">Route <span class="required">*</span></label>
+                        <select id="med-route">
+                            <option value="">Select...</option>
+                            <option value="PO">PO (By Mouth)</option>
+                            <option value="IV">IV (Intravenous)</option>
+                            <option value="IM">IM (Intramuscular)</option>
+                            <option value="SubQ">SubQ (Subcutaneous)</option>
+                            <option value="Topical">Topical</option>
+                            <option value="Inhaled">Inhaled</option>
+                            <option value="Rectal">Rectal</option>
+                            <option value="Sublingual">Sublingual</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="med-frequency">Frequency <span class="required">*</span></label>
+                        <select id="med-frequency">
+                            <option value="">Select...</option>
+                            <option value="Once">Once</option>
+                            <option value="Daily">Daily</option>
+                            <option value="BID">BID (Twice Daily)</option>
+                            <option value="TID">TID (Three Times Daily)</option>
+                            <option value="QID">QID (Four Times Daily)</option>
+                            <option value="Q4H">Every 4 Hours</option>
+                            <option value="Q6H">Every 6 Hours</option>
+                            <option value="Q8H">Every 8 Hours</option>
+                            <option value="Q12H">Every 12 Hours</option>
+                            <option value="PRN">PRN (As Needed)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="med-indication">Indication</label>
+                        <input type="text" id="med-indication" placeholder="e.g., Hypertension">
+                    </div>
+                    <div class="form-group">
+                        <label for="med-start-date">Start Date</label>
+                        <input type="date" id="med-start-date">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-success" onclick="addMedication()">Add to MAR</button>
+                    <button class="btn btn-secondary" onclick="hideAddMedicationForm()">Cancel</button>
+                </div>
+            </div>
+
+            <!-- BCMA Modal / Section -->
+            <div id="bcma-scanner-section" class="vitals-entry"
+                style="display: none; margin-top: 1rem; border-left: 4px solid var(--primary-blue); background: #f0f7ff;">
+                <h3 class="section-subtitle">Barcode Medication Administration (BCMA)</h3>
+                <p style="margin-bottom: 1rem; color: var(--text-secondary);">Simulate scanning by entering the IDs
+                    below.</p>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="scan-patient-id">1. Scan Patient Wristband (Account #)</label>
+                        <input type="text" id="scan-patient-id" placeholder="Scan/Type Account Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="scan-med-id">2. Scan Medication (Barcode ID)</label>
+                        <input type="text" id="scan-med-id" placeholder="Scan/Type Med Barcode" readonly>
+                        <!-- Auto-filled for simulation ease or manual? Let's make it manual for realism, but maybe readonly if we want to force a specific flow. Actually, user should type it. -->
+                    </div>
+                </div>
+                <div id="bcma-status" style="margin-bottom: 1rem; font-weight: bold;"></div>
+
+                <div class="button-group">
+                    <button class="btn btn-success" onclick="confirmAdministration()">Confirm & Administer</button>
+                    <button class="btn btn-secondary" onclick="cancelAdministration()">Cancel</button>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle" style="margin-top: 2rem;">Active Medications</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Medication</th>
+                        <th>Barcode ID</th> <!-- New Column -->
+                        <th>Dose/Route/Freq</th>
+                        <th>Last Given</th>
+                        <th>Next Due</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="medication-list">
+                    <tr>
+                        <td colspan="7" class="text-center">No medications ordered</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="section-subtitle" style="margin-top: 2rem;">Administration Log</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Date/Time</th>
+                        <th>Medication</th>
+                        <th>Dose</th>
+                        <th>Route</th>
+                        <th>Site (if applicable)</th>
+                        <th>Nurse Initials</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-log">
+                    <tr>
+                        <td colspan="6" class="text-center">No administrations recorded</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Assessments Tab -->
+    <div class="tab-content" id="assessments">
+        <div class="content-card">
+            <h2 class="section-title">Nursing Assessment</h2>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="assessment-date">Assessment Date</label>
+                    <input type="date" id="assessment-date">
+                </div>
+                <div class="form-group">
+                    <label for="assessment-time">Assessment Time</label>
+                    <input type="time" id="assessment-time">
+                </div>
+                <div class="form-group">
+                    <label for="assessment-type">Assessment Type</label>
+                    <select id="assessment-type">
+                        <option value="admission">Admission Assessment</option>
+                        <option value="shift">Shift Assessment</option>
+                        <option value="focused">Focused Assessment</option>
+                        <option value="head-to-toe">Head-to-Toe Assessment</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle">Neurological</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="loc">Level of Consciousness</label>
+                    <select id="loc">
+                        <option value="alert">Alert & Oriented x4</option>
+                        <option value="alert-x3">Alert & Oriented x3</option>
+                        <option value="alert-x2">Alert & Oriented x2</option>
+                        <option value="alert-x1">Alert & Oriented x1</option>
+                        <option value="lethargic">Lethargic</option>
+                        <option value="obtunded">Obtunded</option>
+                        <option value="stuporous">Stuporous</option>
+                        <option value="comatose">Comatose</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pupils">Pupils</label>
+                    <select id="pupils">
+                        <option value="perrla">PERRLA (Normal)</option>
+                        <option value="dilated">Dilated</option>
+                        <option value="constricted">Constricted</option>
+                        <option value="unequal">Unequal</option>
+                        <option value="non-reactive">Non-Reactive</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="motor-function">Motor Function</label>
+                    <select id="motor-function">
+                        <option value="normal">Moves All Extremities</option>
+                        <option value="weakness-right">Weakness - Right Side</option>
+                        <option value="weakness-left">Weakness - Left Side</option>
+                        <option value="paralysis">Paralysis Present</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label for="neuro-notes">Neurological Notes</label>
+                <textarea id="neuro-notes" placeholder="Additional neurological findings..."></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Cardiovascular</h3>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cv-regular-rhythm">
+                    <label for="cv-regular-rhythm">Regular Rhythm</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cv-irregular-rhythm">
+                    <label for="cv-irregular-rhythm">Irregular Rhythm</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cv-peripheral-pulses">
+                    <label for="cv-peripheral-pulses">Peripheral Pulses Present</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cv-edema">
+                    <label for="cv-edema">Edema Present</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cv-cap-refill">
+                    <label for="cv-cap-refill">Cap Refill &lt; 3 sec</label>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label for="cv-notes">Cardiovascular Notes</label>
+                <textarea id="cv-notes" placeholder="Heart sounds, edema location, pulse quality..."></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Respiratory</h3>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="resp-clear">
+                    <label for="resp-clear">Clear Lung Sounds</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="resp-crackles">
+                    <label for="resp-crackles">Crackles</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="resp-wheezes">
+                    <label for="resp-wheezes">Wheezes</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="resp-diminished">
+                    <label for="resp-diminished">Diminished Sounds</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="resp-labored">
+                    <label for="resp-labored">Labored Breathing</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="resp-cough">
+                    <label for="resp-cough">Productive Cough</label>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label for="resp-notes">Respiratory Notes</label>
+                <textarea id="resp-notes" placeholder="Breath sounds, oxygen needs, cough details..."></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Gastrointestinal</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="bowel-sounds">Bowel Sounds</label>
+                    <select id="bowel-sounds">
+                        <option value="normoactive">Normoactive (Normal)</option>
+                        <option value="hyperactive">Hyperactive</option>
+                        <option value="hypoactive">Hypoactive</option>
+                        <option value="absent">Absent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="last-bm">Last Bowel Movement</label>
+                    <input type="date" id="last-bm">
+                </div>
+                <div class="form-group">
+                    <label for="diet-tolerance">Diet Tolerance</label>
+                    <select id="diet-tolerance">
+                        <option value="tolerating">Tolerating Well</option>
+                        <option value="nausea">Nausea Present</option>
+                        <option value="vomiting">Vomiting</option>
+                        <option value="npo">NPO (Nothing By Mouth)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label for="gi-notes">Gastrointestinal Notes</label>
+                <textarea id="gi-notes" placeholder="Abdomen assessment, BM characteristics, appetite..."></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Genitourinary</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="urine-output">Urine Output (mL/hr)</label>
+                    <input type="number" id="urine-output" placeholder="Average output">
+                </div>
+                <div class="form-group">
+                    <label for="urine-color">Urine Color</label>
+                    <select id="urine-color">
+                        <option value="clear-yellow">Clear Yellow</option>
+                        <option value="dark-yellow">Dark Yellow</option>
+                        <option value="amber">Amber</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="bloody">Bloody</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="catheter">Catheter Type</label>
+                    <select id="catheter">
+                        <option value="none">None</option>
+                        <option value="foley">Foley Catheter</option>
+                        <option value="straight">Straight Cath</option>
+                        <option value="suprapubic">Suprapubic</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label for="gu-notes">Genitourinary Notes</label>
+                <textarea id="gu-notes" placeholder="Voiding patterns, catheter care, concerns..."></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Integumentary (Skin)</h3>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skin-intact">
+                    <label for="skin-intact">Skin Intact</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skin-warm-dry">
+                    <label for="skin-warm-dry">Warm & Dry</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skin-wound">
+                    <label for="skin-wound">Wound Present</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skin-pressure-injury">
+                    <label for="skin-pressure-injury">Pressure Injury</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skin-rash">
+                    <label for="skin-rash">Rash Present</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="skin-bruising">
+                    <label for="skin-bruising">Bruising</label>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label for="skin-notes">Integumentary Notes</label>
+                <textarea id="skin-notes"
+                    placeholder="Wound location/description, skin condition, dressing changes..."></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Musculoskeletal & Mobility</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="mobility">Mobility Level</label>
+                    <select id="mobility">
+                        <option value="independent">Independent</option>
+                        <option value="assist-1">Assist of 1</option>
+                        <option value="assist-2">Assist of 2</option>
+                        <option value="total-care">Total Care</option>
+                        <option value="bedrest">Bedrest Ordered</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fall-risk">Fall Risk</label>
+                    <select id="fall-risk">
+                        <option value="low">Low Risk</option>
+                        <option value="moderate">Moderate Risk</option>
+                        <option value="high">High Risk</option>
+                    </select>
+                </div>
+            </div>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ms-full-rom">
+                    <label for="ms-full-rom">Full Range of Motion</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ms-limited-rom">
+                    <label for="ms-limited-rom">Limited ROM</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ms-gait-steady">
+                    <label for="ms-gait-steady">Steady Gait</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ms-assistive-device">
+                    <label for="ms-assistive-device">Uses Assistive Device</label>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label for="ms-notes">Musculoskeletal Notes</label>
+                <textarea id="ms-notes" placeholder="Mobility concerns, assistive devices, transfers..."></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="saveAssessment()">Save Assessment</button>
+                <button class="btn btn-secondary" onclick="clearForm('assessments')">Clear Form</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Care Plans & Interventions Tab -->
+    <div class="tab-content" id="careplans">
+        <div class="content-card">
+            <h2 class="section-title">Care Plans & Interventions</h2>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="showAddCarePlanForm()">+ Add Care Plan</button>
+            </div>
+
+            <div id="add-careplan-form" class="vitals-entry" style="display: none; margin-top: 1rem;">
+                <h3 class="section-subtitle">New Care Plan</h3>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="nursing-diagnosis">Nursing Diagnosis <span class="required">*</span></label>
+                        <select id="nursing-diagnosis">
+                            <option value="">Select a diagnosis...</option>
+                            <option value="acute-pain">Acute Pain</option>
+                            <option value="impaired-gas-exchange">Impaired Gas Exchange</option>
+                            <option value="risk-infection">Risk for Infection</option>
+                            <option value="decreased-cardiac-output">Decreased Cardiac Output</option>
+                            <option value="impaired-mobility">Impaired Physical Mobility</option>
+                            <option value="risk-falls">Risk for Falls</option>
+                            <option value="impaired-skin-integrity">Impaired Skin Integrity</option>
+                            <option value="anxiety">Anxiety</option>
+                            <option value="deficient-knowledge">Deficient Knowledge</option>
+                            <option value="ineffective-coping">Ineffective Coping</option>
+                            <option value="other">Other (Custom)</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width" id="custom-diagnosis-group" style="display: none;">
+                        <label for="custom-diagnosis">Custom Diagnosis</label>
+                        <input type="text" id="custom-diagnosis" placeholder="Enter custom nursing diagnosis">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="related-to">Related To</label>
+                        <input type="text" id="related-to" placeholder="e.g., surgical incision, immobility">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="evidenced-by">As Evidenced By</label>
+                        <input type="text" id="evidenced-by" placeholder="e.g., patient reports pain 7/10">
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 1rem; color: var(--primary-blue);">Goals</h4>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="short-term-goal">Short-Term Goal</label>
+                        <textarea id="short-term-goal"
+                            placeholder="Goal to be achieved within 24-48 hours..."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="long-term-goal">Long-Term Goal</label>
+                        <textarea id="long-term-goal" placeholder="Goal to be achieved by discharge..."></textarea>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 1rem; color: var(--primary-blue);">Interventions</h4>
+                <div class="form-group full-width">
+                    <label for="interventions">Planned Interventions</label>
+                    <textarea id="interventions" placeholder="List nursing interventions (one per line)..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-success" onclick="addCarePlan()">Add Care Plan</button>
+                    <button class="btn btn-secondary" onclick="hideAddCarePlanForm()">Cancel</button>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle" style="margin-top: 2rem;">Active Care Plans</h3>
+            <div id="active-careplans">
+                <p style="text-align: center; color: var(--text-secondary); padding: 2rem;">No care plans created
+                    yet</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Communication & Handoff Tab -->
+    <div class="tab-content" id="communication">
+        <div class="content-card">
+            <h2 class="section-title">Communication & Handoff Tools</h2>
+
+            <h3 class="section-subtitle">SBAR Report</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                <strong>SBAR</strong> (Situation, Background, Assessment, Recommendation) is a standardized
+                communication tool for healthcare professionals.
+            </p>
+
+            <div class="sbar-section">
+                <h4>S - Situation</h4>
+                <textarea id="sbar-situation"
+                    placeholder="What is happening with the patient right now? State the problem clearly and concisely."></textarea>
+            </div>
+
+            <div class="sbar-section">
+                <h4>B - Background</h4>
+                <textarea id="sbar-background"
+                    placeholder="What is the relevant background/context? Include pertinent medical history, medications, vital signs, lab results."></textarea>
+            </div>
+
+            <div class="sbar-section">
+                <h4>A - Assessment</h4>
+                <textarea id="sbar-assessment"
+                    placeholder="What do you think the problem is? What is your clinical impression?"></textarea>
+            </div>
+
+            <div class="sbar-section">
+                <h4>R - Recommendation</h4>
+                <textarea id="sbar-recommendation"
+                    placeholder="What do you recommend or what do you need? Be specific about what you want to happen."></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="saveSBAR()">Save SBAR Report</button>
+                <button class="btn btn-secondary" onclick="clearSBAR()">Clear</button>
+            </div>
+
+            <h3 class="section-subtitle" style="margin-top: 2rem;">Shift Report / Handoff Notes</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="shift-date">Date</label>
+                    <input type="date" id="shift-date">
+                </div>
+                <div class="form-group">
+                    <label for="shift-type">Shift</label>
+                    <select id="shift-type">
+                        <option value="day">Day Shift (7a-7p)</option>
+                        <option value="night">Night Shift (7p-7a)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="oncoming-nurse">Oncoming Nurse</label>
+                    <input type="text" id="oncoming-nurse" placeholder="Nurse receiving report">
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="shift-notes">Shift Report Notes</label>
+                <textarea id="shift-notes" placeholder="Key events during shift, pending tasks, patient updates..."
+                    style="min-height: 150px;"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="saveShiftReport()">Save Shift Report</button>
+                <button class="btn btn-secondary" onclick="clearShiftReport()">Clear</button>
+            </div>
+
+            <h3 class="section-subtitle" style="margin-top: 2rem;">Communication Log</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Date/Time</th>
+                        <th>Type</th>
+                        <th>Recipient</th>
+                        <th>Summary</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="communication-log">
+                    <tr>
+                        <td colspan="5" class="text-center">No communications logged</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <!-- Save Indicator -->
+    <div class="save-indicator" id="save-indicator">
+        ✓ Data Saved
+    </div>
+
+    <script src="patients.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

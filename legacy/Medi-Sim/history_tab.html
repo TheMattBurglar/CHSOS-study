@@ -1,0 +1,108 @@
+<!-- Medical History Tab -->
+<div class="tab-content" id="history">
+    <div class="content-card">
+        <h2 class="section-title">Medical History</h2>
+
+        <h3 class="section-subtitle">Past Medical History (PMH)</h3>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="pmh-htn">
+                <label for="pmh-htn">Hypertension (HTN)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="pmh-dm">
+                <label for="pmh-dm">Diabetes Mellitus (Type 1/2)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="pmh-cad">
+                <label for="pmh-cad">Coronary Artery Disease (CAD)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="pmh-copd">
+                <label for="pmh-copd">COPD/Asthma</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="pmh-ckd">
+                <label for="pmh-ckd">Chronic Kidney Disease</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="pmh-chf">
+                <label for="pmh-chf">Heart Failure (CHF)</label>
+            </div>
+        </div>
+        <div class="form-group full-width">
+            <label for="pmh-notes">Other Medical History / Details</label>
+            <textarea id="pmh-notes" placeholder="List other conditions, dates of diagnosis, etc."></textarea>
+        </div>
+
+        <h3 class="section-subtitle">Surgical History (PSH)</h3>
+        <div class="form-group full-width">
+            <label for="psh-notes">Surgeries & Procedures</label>
+            <textarea id="psh-notes"
+                placeholder="List surgeries with approximate dates (e.g., Appendectomy 2010, TKA Right Knee 2018)"></textarea>
+        </div>
+
+        <h3 class="section-subtitle">Family Medical History</h3>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="fh-cancer">
+                <label for="fh-cancer">Cancer (Family)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="fh-heart">
+                <label for="fh-heart">Heart Disease (Family)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="fh-dm">
+                <label for="fh-dm">Diabetes (Family)</label>
+            </div>
+        </div>
+        <div class="form-group full-width">
+            <label for="fh-notes">Family History Details</label>
+            <textarea id="fh-notes"
+                placeholder="Specify relation and condition (e.g., Mother - Breast Cancer, Father - MI at 55)"></textarea>
+        </div>
+
+        <h3 class="section-subtitle">Social History</h3>
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="sh-tobacco">Tobacco Use</label>
+                <select id="sh-tobacco">
+                    <option value="never">Never Smoker</option>
+                    <option value="former">Former Smoker</option>
+                    <option value="current">Current Smoker</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sh-alcohol">Alcohol Use</label>
+                <select id="sh-alcohol">
+                    <option value="none">None</option>
+                    <option value="social">Social</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="heavy">Heavy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sh-drugs">Illicit Drug Use</label>
+                <select id="sh-drugs">
+                    <option value="none">None</option>
+                    <option value="past">Past Use</option>
+                    <option value="current">Current Use</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sh-occupation">Occupation</label>
+                <input type="text" id="sh-occupation" placeholder="Current/Former Occupation">
+            </div>
+        </div>
+        <div class="form-group full-width">
+            <label for="sh-notes">Social History Notes</label>
+            <textarea id="sh-notes" placeholder="Living situation, support system, etc."></textarea>
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-primary" onclick="saveHistory()">Save History</button>
+            <button class="btn btn-secondary" onclick="clearForm('history')">Clear Form</button>
+        </div>
+    </div>
+</div>
