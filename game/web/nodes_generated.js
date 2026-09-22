@@ -5442,6 +5442,2131 @@ const GENERATED_NODES = {
       }
     }
   },
+  "DIAG-I-2027-509": {
+    "node_id": "DIAG-I-2027-509",
+    "type": "diagnostic",
+    "domain": "I",
+    "ksa": "I.A",
+    "crew_affinity": null,
+    "year": 2027,
+    "location_name": "Waystation 4",
+    "title": "Field Call — I.A",
+    "flavor_intro": "A technical question comes up on site at Waystation 4. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.09"
+    },
+    "payload": {
+      "question": "An SME wants a 'Sepsis' scenario where blood pressure drops gradually if the learner delays fluid resuscitation. What is the correct technical approach to programming this?",
+      "options": {
+        "A": "Manually drop the BP by 40 points the instant the scenario begins, regardless of learner action.",
+        "B": "Program a timed trend that decreases BP over several minutes, triggered by the absence of a 'Fluid Bolus' event in the software log.",
+        "C": "Disable the blood pressure monitor entirely so the value cannot be checked.",
+        "D": "Set the manikin's heart rate to zero to force a code."
+      },
+      "answer": "B",
+      "rationale": "A programmed trend tied to a missing fluid-bolus event lets the vitals respond realistically to what the learner actually does (or fails to do), rather than following a fixed script.",
+      "time_limit_seconds": 43
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-I-2028-510": {
+    "node_id": "DIAG-I-2028-510",
+    "type": "diagnostic",
+    "domain": "I",
+    "ksa": "I.A",
+    "crew_affinity": null,
+    "year": 2028,
+    "location_name": "en route",
+    "title": "Field Call — I.A",
+    "flavor_intro": "A technical question comes up on site at en route. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.10"
+    },
+    "payload": {
+      "question": "A scenario calls for a 'Pulmonary Embolism' with sudden desaturation triggered by an operator event trigger (OET) tied to patient movement. Which event should the specialist link the SpO2 drop to?",
+      "options": {
+        "A": "The learner assisting the patient to stand or ambulate.",
+        "B": "The learner checking the patient's blood glucose.",
+        "C": "The facilitator entering the debriefing room.",
+        "D": "The control PC's screen saver activating."
+      },
+      "answer": "A",
+      "rationale": "Sudden desaturation on exertion/ambulation is a classic PE presentation, so tying the OET to that specific learner action keeps the physiology clinically believable.",
+      "time_limit_seconds": 39
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-I-2028-510_callback",
+      "deliver_after_hub_visits": 2,
+      "messages": {
+        "success": "A trainee at en route asked about the fix you made. Apparently it's become the example they teach from now.",
+        "fail": "en route worked around it instead of fixing it properly. It's still broken, just quieter about it."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-I-2029-511": {
+    "node_id": "DIAG-I-2029-511",
+    "type": "diagnostic",
+    "domain": "I",
+    "ksa": "I.B",
+    "crew_affinity": null,
+    "year": 2029,
+    "location_name": "Coastal Med Annex 4",
+    "title": "Field Call — I.B",
+    "flavor_intro": "A technical question comes up on site at Coastal Med Annex 4. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.11"
+    },
+    "payload": {
+      "question": "A learner performs needle decompression on a manikin with simulated tension pneumothorax. The monitor immediately shows return of spontaneous circulation, but the manikin's chest remains visibly asymmetric. What is the technical issue?",
+      "options": {
+        "A": "A lack of physical fidelity -- the chest's physical air-release valve failed to respond even though the software updated correctly.",
+        "B": "A lack of conceptual fidelity -- the monitor's vitals are inaccurate for the clinical state.",
+        "C": "A lack of psychological fidelity -- the learner is not emotionally engaged.",
+        "D": "A network connectivity failure between the monitor and control PC."
+      },
+      "answer": "A",
+      "rationale": "The software state (conceptual fidelity) updated correctly, but the physical manikin hardware -- the air-release valve -- failed to reflect it, which is specifically a physical fidelity failure.",
+      "time_limit_seconds": 44
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-I-2029-511_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "A trainee at Coastal Med Annex 4 asked about the fix you made. Apparently it's become the example they teach from now.",
+        "fail": "Coastal Med Annex 4 worked around it instead of fixing it properly. It's still broken, just quieter about it."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-I-2019-512": {
+    "node_id": "DIAG-I-2019-512",
+    "type": "diagnostic",
+    "domain": "I",
+    "ksa": "I.B",
+    "crew_affinity": null,
+    "year": 2019,
+    "location_name": "Fort Kessler Regional Training Center",
+    "title": "Field Call — I.B",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.12"
+    },
+    "payload": {
+      "question": "An instructor is designing an 'Anaphylaxis' scenario and wants the learner to visually recognize impending airway obstruction. Which manikin features should the specialist activate?",
+      "options": {
+        "A": "Tongue edema and pharyngeal swelling.",
+        "B": "Bowel sounds and abdominal distension.",
+        "C": "Bilateral pupil dilation only.",
+        "D": "A slowed heart rate with no other changes."
+      },
+      "answer": "A",
+      "rationale": "Tongue edema and pharyngeal swelling are the standard software-controlled anatomical features used to represent airway compromise from anaphylaxis.",
+      "time_limit_seconds": 38
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-I-2019-512_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Fort Kessler Regional Training Center's numbers came back clean on the quarterly audit. That one's staying fixed.",
+        "fail": "Fort Kessler Regional Training Center pulled the readiness report. Yours is the name next to the open item."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-I-2020-513": {
+    "node_id": "DIAG-I-2020-513",
+    "type": "diagnostic",
+    "domain": "I",
+    "ksa": "I.C",
+    "crew_affinity": null,
+    "year": 2020,
+    "location_name": "Waystation 4",
+    "title": "Field Call — I.C",
+    "flavor_intro": "A technical question comes up on site at Waystation 4. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.13"
+    },
+    "payload": {
+      "question": "An RFID-tagged medication cart fails to recognize a vial of Atropine mid-scenario. To keep the scenario moving without breaking immersion, what should the specialist do FIRST?",
+      "options": {
+        "A": "Check the RFID sensor alignment and tag integrity, and give the learner a verbal cue in the meantime to preserve flow.",
+        "B": "Stop the scenario immediately and restart the simulation software.",
+        "C": "Replace the vial with a completely different, unlabeled medication.",
+        "D": "Tell the learner the medication doesn't exist in the system."
+      },
+      "answer": "A",
+      "rationale": "A quick physical check plus a verbal workaround keeps the scenario running while the real technical cause (sensor alignment or a damaged tag) gets addressed.",
+      "time_limit_seconds": 42
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-I-2020-513_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Waystation 4 passed their next review without a single note on the item you handled.",
+        "fail": "Waystation 4's follow-up review flagged the exact same issue. It's on record now."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-I-2021-514": {
+    "node_id": "DIAG-I-2021-514",
+    "type": "diagnostic",
+    "domain": "I",
+    "ksa": "I.D",
+    "crew_affinity": null,
+    "year": 2021,
+    "location_name": "en route",
+    "title": "Field Call — I.D",
+    "flavor_intro": "A technical question comes up on site at en route. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.14"
+    },
+    "payload": {
+      "question": "A faculty member wants to display the manikin's vitals on a real clinical-brand patient monitor instead of the simulator's built-in display, to increase physical fidelity. What technical interface does the specialist need?",
+      "options": {
+        "A": "A vitals signal generator or video-out adapter that translates the simulator's data into a waveform the real monitor can read.",
+        "B": "A standard HDMI cable connected directly from the control PC to the monitor.",
+        "C": "A Bluetooth pairing between the manikin and the monitor.",
+        "D": "No adapter is needed; clinical monitors read simulator data natively."
+      },
+      "answer": "A",
+      "rationale": "Real clinical monitors expect a physiologic waveform signal, not a raw software feed, so a dedicated vitals signal generator/adapter is required to bridge the two.",
+      "time_limit_seconds": 43
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-I-2022-515": {
+    "node_id": "DIAG-I-2022-515",
+    "type": "diagnostic",
+    "domain": "I",
+    "ksa": "I.D",
+    "crew_affinity": null,
+    "year": 2022,
+    "location_name": "Coastal Med Annex 4",
+    "title": "Field Call — I.D",
+    "flavor_intro": "A technical question comes up on site at Coastal Med Annex 4. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.15"
+    },
+    "payload": {
+      "question": "A student turns the dial on the simulation room's headwall oxygen flowmeter, but it reads 0 L/min. What is the MOST likely cause?",
+      "options": {
+        "A": "The lab's central air/oxygen compressor is off, or the mock flowmeter isn't connected to a pressurized source.",
+        "B": "The student is reading the dial upside down.",
+        "C": "The manikin's internal battery is depleted.",
+        "D": "The simulation software needs to be restarted."
+      },
+      "answer": "A",
+      "rationale": "Headwall flowmeters in a sim lab are typically mock fixtures fed by a central compressor; if that supply is off or disconnected, the dial will read zero regardless of how it's turned.",
+      "time_limit_seconds": 39
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-I-2023-516": {
+    "node_id": "DIAG-I-2023-516",
+    "type": "diagnostic",
+    "domain": "I",
+    "ksa": "I.E",
+    "crew_affinity": null,
+    "year": 2023,
+    "location_name": "Fort Kessler Regional Training Center",
+    "title": "Field Call — I.E",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.16"
+    },
+    "payload": {
+      "question": "While voicing the patient in a scenario, you notice the learner is ignoring vocalized complaints of pain and focusing only on the monitor. What is the BEST way to use your role to redirect their attention?",
+      "options": {
+        "A": "Increase the frequency and intensity of the verbal complaints to force engagement with the patient, not just the numbers.",
+        "B": "Break character and tell the learner to pay attention to the patient.",
+        "C": "Stop vocalizing entirely until the debrief.",
+        "D": "Ask the facilitator to pause the scenario and explain the objective."
+      },
+      "answer": "A",
+      "rationale": "Staying in character while escalating the patient's complaints raises psychological fidelity and naturally redirects the learner without breaking the scenario.",
+      "time_limit_seconds": 42
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-I-2023-516_callback",
+      "deliver_after_hub_visits": 2,
+      "messages": {
+        "success": "Fort Kessler Regional Training Center passed their next review without a single note on the item you handled.",
+        "fail": "Fort Kessler Regional Training Center's follow-up review flagged the exact same issue. It's on record now."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2025-529": {
+    "node_id": "DIAG-II-2025-529",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.1",
+    "crew_affinity": "av_tech",
+    "year": 2025,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Field Call — II.A.1",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, Server Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.29"
+    },
+    "payload": {
+      "question": "A manikin loses its network connection every time the lab's DHCP lease renews overnight, forcing a manual reboot each morning. What is the BEST long-term fix?",
+      "options": {
+        "A": "Configure a DHCP reservation so the manikin always receives the same IP address tied to its MAC address.",
+        "B": "Switch the manikin to a random new IP address daily.",
+        "C": "Disable DNS on the control PC.",
+        "D": "Increase the DHCP lease time to 24 hours only."
+      },
+      "answer": "A",
+      "rationale": "A DHCP reservation permanently ties the manikin's MAC address to one IP within the DHCP scope, eliminating renewal-related disconnects while staying centrally managed.",
+      "time_limit_seconds": 39
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2026-530": {
+    "node_id": "DIAG-II-2026-530",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.2",
+    "crew_affinity": "av_tech",
+    "year": 2026,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Field Call — II.A.2",
+    "flavor_intro": "A technical question comes up on site at Harbor District Training Annex, Control Booth. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.30"
+    },
+    "payload": {
+      "question": "A facilitator needs to add a live 'Heart Sounds' audio feed from the manikin into the control room speakers for real-time monitoring. What is the correct way to route this?",
+      "options": {
+        "A": "Take a line-out from the manikin's audio jack (or capture the software audio) and route it through the A/V mixer to the control room.",
+        "B": "Place a physical microphone directly against the manikin's chest and stream it via Bluetooth.",
+        "C": "Ask the learner to describe the heart sounds out loud.",
+        "D": "There is no way to route manikin audio into the control room."
+      },
+      "answer": "A",
+      "rationale": "The manikin's audio output can be captured directly (line-out or software audio) and mixed into the control room feed, which is far more reliable than an ad hoc microphone.",
+      "time_limit_seconds": 42
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2026-530_callback",
+      "deliver_after_hub_visits": 4,
+      "messages": {
+        "success": "Whatever you sorted out at Harbor District Training Annex, Control Booth held. No repeat complaints.",
+        "fail": "Harbor District Training Annex, Control Booth flagged the same problem again last month. Should've stuck the first time."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2027-531": {
+    "node_id": "DIAG-II-2027-531",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.3",
+    "crew_affinity": "av_tech",
+    "year": 2027,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Field Call — II.A.3",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Wing C. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.31"
+    },
+    "payload": {
+      "question": "You need to stream a live simulation to a remote classroom with the lowest possible latency. Which setup is MOST reliable?",
+      "options": {
+        "A": "A hardwired capture card directly encoding the camera feeds to the streaming PC, bypassing wireless networks.",
+        "B": "A smartphone held up to the debriefing monitor, streaming over cellular data.",
+        "C": "A wireless webcam streaming over the hospital's guest Wi-Fi.",
+        "D": "Screen-recording the debrief session after the fact and uploading it later."
+      },
+      "answer": "A",
+      "rationale": "A hardwired capture chain avoids the latency and reliability problems of wireless or cellular links, which matters most for anything approaching real-time viewing.",
+      "time_limit_seconds": 41
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2027-531_callback",
+      "deliver_after_hub_visits": 5,
+      "messages": {
+        "success": "Fort Kessler Regional Training Center, Wing C's numbers came back clean on the quarterly audit. That one's staying fixed.",
+        "fail": "Fort Kessler Regional Training Center, Wing C pulled the readiness report. Yours is the name next to the open item."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2028-532": {
+    "node_id": "DIAG-II-2028-532",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.3",
+    "crew_affinity": "av_tech",
+    "year": 2028,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Field Call — II.A.3",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Control Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.32"
+    },
+    "payload": {
+      "question": "A center wants to integrate an AI-driven automated debriefing tool that analyzes scenario recordings, and feed the results into the existing LMS gradebook. What is the correct technical approach?",
+      "options": {
+        "A": "Use an API to export the simulation logs into the LMS's grading module in a compatible xAPI/SCORM format.",
+        "B": "Manually retype each learner's results into the LMS by hand.",
+        "C": "Email the raw video files to the LMS administrator.",
+        "D": "Disable the LMS gradebook and use the debriefing tool exclusively."
+      },
+      "answer": "A",
+      "rationale": "An API export in a standard e-learning data format (xAPI/SCORM) is the supported, scalable way to move results between two separate education systems.",
+      "time_limit_seconds": 41
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2029-533": {
+    "node_id": "DIAG-II-2029-533",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.4",
+    "crew_affinity": "av_tech",
+    "year": 2029,
+    "location_name": "Fort Kessler Regional Training Center, Server Closet",
+    "title": "Field Call — II.A.4",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Server Closet. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.33"
+    },
+    "payload": {
+      "question": "A guest speaker asks to connect a personal laptop to the simulation center's Wi-Fi network during a visit. What is the BEST response?",
+      "options": {
+        "A": "Politely decline -- guest devices on the isolated sim network risk bandwidth contention and a security/malware exposure.",
+        "B": "Allow it, since it's only for one afternoon.",
+        "C": "Give the guest the administrator password so they can configure it themselves.",
+        "D": "Allow it only if they promise not to browse the internet."
+      },
+      "answer": "A",
+      "rationale": "The simulation network is kept isolated specifically to protect manikin/control-PC connectivity and student data; an unmanaged personal device undermines both.",
+      "time_limit_seconds": 40
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2029-533_callback",
+      "deliver_after_hub_visits": 2,
+      "messages": {
+        "success": "Whatever you sorted out at Fort Kessler Regional Training Center, Server Closet held. No repeat complaints.",
+        "fail": "Fort Kessler Regional Training Center, Server Closet flagged the same problem again last month. Should've stuck the first time."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2019-534": {
+    "node_id": "DIAG-II-2019-534",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.4",
+    "crew_affinity": "av_tech",
+    "year": 2019,
+    "location_name": "Ridgeline Sim Center, AV Bay",
+    "title": "Field Call — II.A.4",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, AV Bay. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.34"
+    },
+    "payload": {
+      "question": "You are setting up remote vendor support access to a newly segmented VLAN for simulation equipment. Which combination of controls BEST maintains network security while still allowing the vendor to work?",
+      "options": {
+        "A": "A VPN gateway with two-factor authentication, restricted to the vendor's known MAC address and a fixed DHCP reservation.",
+        "B": "A shared general login with no time limit, posted on a whiteboard in the control room.",
+        "C": "Full open access to the guest Wi-Fi network.",
+        "D": "Disabling the firewall for the duration of the support session."
+      },
+      "answer": "A",
+      "rationale": "Layering authentication, device restriction, and a fixed address keeps vendor access auditable and scoped, instead of opening the network broadly.",
+      "time_limit_seconds": 42
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2020-535": {
+    "node_id": "DIAG-II-2020-535",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.5",
+    "crew_affinity": "av_tech",
+    "year": 2020,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Field Call — II.A.5",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, Server Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.35"
+    },
+    "payload": {
+      "question": "A program needs 50 nursing students to each practice a lumbar puncture in a 2-hour lab session. Is a single high-fidelity manikin the most efficient modality choice?",
+      "options": {
+        "A": "No -- multiple partial-task trainers allow far more students to get hands-on repetitions in the same time.",
+        "B": "Yes, a single high-fidelity manikin is always the best choice regardless of throughput.",
+        "C": "No -- a Standardized Patient is better suited for a purely psychomotor skill like this.",
+        "D": "Yes, because task trainers cannot teach psychomotor skills."
+      },
+      "answer": "A",
+      "rationale": "High-throughput psychomotor skill practice is exactly what multiple, lower-cost task trainers are designed for, since they let many students practice in parallel.",
+      "time_limit_seconds": 42
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2020-535_callback",
+      "deliver_after_hub_visits": 2,
+      "messages": {
+        "success": "No news out of Ridgeline Sim Center, Server Room on that one. In this job, no news is the best you get.",
+        "fail": "Ridgeline Sim Center, Server Room put in a request for the same part again. Make of that what you will."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2021-536": {
+    "node_id": "DIAG-II-2021-536",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.5",
+    "crew_affinity": "av_tech",
+    "year": 2021,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Field Call — II.A.5",
+    "flavor_intro": "A technical question comes up on site at Harbor District Training Annex, Control Booth. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.36"
+    },
+    "payload": {
+      "question": "A learner using a new VR training module reports feeling nauseous partway through the session. What is the MOST likely technical cause and the fix?",
+      "options": {
+        "A": "An unstable frame rate or poorly calibrated tracking sensors, causing lag between head movement and the visual display -- stabilize the frame rate and recalibrate tracking.",
+        "B": "The headset's resolution is too high; permanently lower it.",
+        "C": "The learner simply needs a snack break; this is not a technical issue.",
+        "D": "The haptic gloves are the cause and should be removed."
+      },
+      "answer": "A",
+      "rationale": "Motion sickness in VR is most commonly caused by latency between physical head movement and the rendered display, which frame-rate stability and sensor calibration directly address.",
+      "time_limit_seconds": 42
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2021-536_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Harbor District Training Annex, Control Booth passed their next review without a single note on the item you handled.",
+        "fail": "Harbor District Training Annex, Control Booth's follow-up review flagged the exact same issue. It's on record now."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2022-537": {
+    "node_id": "DIAG-II-2022-537",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.6",
+    "crew_affinity": "av_tech",
+    "year": 2022,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Field Call — II.A.6",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Wing C. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.37"
+    },
+    "payload": {
+      "question": "A real hospital ventilator keeps alarming 'High Pressure' when connected to a manikin, even though the ventilator itself is functioning correctly. What is the sim-tech fix?",
+      "options": {
+        "A": "Check for a kink in the manikin's internal lung bag, or adjust the software's lung compliance setting to reduce resistance.",
+        "B": "Replace the ventilator with a different unit of the same model.",
+        "C": "Increase the ventilator's delivered pressure until the alarm stops.",
+        "D": "Disconnect the high-pressure alarm sensor on the ventilator."
+      },
+      "answer": "A",
+      "rationale": "Real ventilators are sensitive to resistance, so a stiffer-than-expected manikin lung (from a kink or a mismatched compliance setting) is the most likely, and most fixable, cause.",
+      "time_limit_seconds": 42
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2023-538": {
+    "node_id": "DIAG-II-2023-538",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.6",
+    "crew_affinity": "av_tech",
+    "year": 2023,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Field Call — II.A.6",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Control Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.38"
+    },
+    "payload": {
+      "question": "A real IV pump connected to a manikin is not dripping fluid at all, even though the pump display shows it is running. What are the two MOST likely causes?",
+      "options": {
+        "A": "The manikin's internal venous-return reservoir is full (creating back-pressure), or the internal fluid valves are closed in the software.",
+        "B": "The IV bag is expired.",
+        "C": "The pump's firmware needs an update.",
+        "D": "The manikin's compressor is overheating."
+      },
+      "answer": "A",
+      "rationale": "A full return reservoir or closed software-controlled valves are the manikin-side causes that specifically block flow despite the pump itself running normally.",
+      "time_limit_seconds": 39
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2024-539": {
+    "node_id": "DIAG-II-2024-539",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.6",
+    "crew_affinity": "av_tech",
+    "year": 2024,
+    "location_name": "Fort Kessler Regional Training Center, Server Closet",
+    "title": "Field Call — II.A.6",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Server Closet. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.39"
+    },
+    "payload": {
+      "question": "Before connecting a real clinical ventilator to a manikin for the first time, what is the recommended calibration step to prevent nuisance alarms?",
+      "options": {
+        "A": "Use a test lung to calibrate the ventilator's settings before connecting it to the manikin.",
+        "B": "Set the ventilator to maximum pressure to 'break it in'.",
+        "C": "Skip calibration; ventilators self-calibrate automatically to any load.",
+        "D": "Connect the ventilator directly to the compressed air supply, bypassing the manikin entirely."
+      },
+      "answer": "A",
+      "rationale": "Calibrating against a test lung first lets the specialist tune the ventilator's expected resistance before introducing the manikin's own variable compliance.",
+      "time_limit_seconds": 41
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2024-539_callback",
+      "deliver_after_hub_visits": 5,
+      "messages": {
+        "success": "Whatever you sorted out at Fort Kessler Regional Training Center, Server Closet held. No repeat complaints.",
+        "fail": "Fort Kessler Regional Training Center, Server Closet flagged the same problem again last month. Should've stuck the first time."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2025-540": {
+    "node_id": "DIAG-II-2025-540",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.7",
+    "crew_affinity": "av_tech",
+    "year": 2025,
+    "location_name": "Ridgeline Sim Center, AV Bay",
+    "title": "Field Call — II.A.7",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, AV Bay. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.40"
+    },
+    "payload": {
+      "question": "A center is preparing to move its debriefing system to a cloud-based platform. What is the PRIMARY technical concern to evaluate first?",
+      "options": {
+        "A": "Upload bandwidth -- multiple simultaneous HD video streams require significant outbound speed.",
+        "B": "The color scheme of the video files.",
+        "C": "Whether the cloud provider offers a mobile app.",
+        "D": "The font used in the debriefing software's menus."
+      },
+      "answer": "A",
+      "rationale": "Cloud debriefing depends on getting large HD video streams out of the building reliably, so outbound bandwidth is the technical bottleneck to size for first.",
+      "time_limit_seconds": 39
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2026-541": {
+    "node_id": "DIAG-II-2026-541",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.7",
+    "crew_affinity": "av_tech",
+    "year": 2026,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Field Call — II.A.7",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, Server Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.41"
+    },
+    "payload": {
+      "question": "To protect against 'bit rot' (silent data corruption) on a NAS storing years of simulation recordings, what should the specialist implement?",
+      "options": {
+        "A": "A RAID configuration with data redundancy, plus scheduled integrity/checksum scrub cycles.",
+        "B": "A single unprotected hard drive to save on cost.",
+        "C": "Weekly manual visual review of every stored video file.",
+        "D": "Disabling automatic backups to save storage space."
+      },
+      "answer": "A",
+      "rationale": "Redundant storage plus periodic checksum scrubbing is the standard way to catch and correct silent corruption before it destroys otherwise-unmonitored archival files.",
+      "time_limit_seconds": 39
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2026-541_callback",
+      "deliver_after_hub_visits": 4,
+      "messages": {
+        "success": "Whatever you sorted out at Ridgeline Sim Center, Server Room held. No repeat complaints.",
+        "fail": "Ridgeline Sim Center, Server Room flagged the same problem again last month. Should've stuck the first time."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2027-542": {
+    "node_id": "DIAG-II-2027-542",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.8",
+    "crew_affinity": "av_tech",
+    "year": 2027,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Field Call — II.A.8",
+    "flavor_intro": "A technical question comes up on site at Harbor District Training Annex, Control Booth. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.42"
+    },
+    "payload": {
+      "question": "A simulation room consistently runs at 80°F (27°C) due to a malfunctioning HVAC system. What equipment risk does this create?",
+      "options": {
+        "A": "Increased risk of overheating for the manikin's internal electronics and the control PC, potentially causing crashes or shortened hardware life.",
+        "B": "No equipment risk; only learner comfort is affected.",
+        "C": "The manikin's skin color will permanently change.",
+        "D": "The Wi-Fi signal strength will increase."
+      },
+      "answer": "A",
+      "rationale": "Sustained heat stresses electronics well beyond comfort concerns, raising the chance of thermal shutdowns, crashes, and shortened component lifespan.",
+      "time_limit_seconds": 40
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2028-543": {
+    "node_id": "DIAG-II-2028-543",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.8",
+    "crew_affinity": "av_tech",
+    "year": 2028,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Field Call — II.A.8",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Wing C. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.43"
+    },
+    "payload": {
+      "question": "You are adding four new PTZ cameras to a room where the switch's PoE budget is 60W, and each camera draws 15W under normal load. Why is running at exactly 100% of budget considered a technical risk?",
+      "options": {
+        "A": "Any brief power spike, such as during a fast pan/tilt movement, could overload the switch and cause it to reboot or drop cameras.",
+        "B": "PoE budgets are only theoretical and don't actually limit anything in practice.",
+        "C": "It isn't a risk; switches never exceed their rated PoE budget.",
+        "D": "The cameras will simply run at reduced video quality instead of losing power."
+      },
+      "answer": "A",
+      "rationale": "Running at the exact rated ceiling leaves no headroom for momentary draw spikes, which is why a power buffer is recommended rather than budgeting to 100%.",
+      "time_limit_seconds": 43
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2029-544": {
+    "node_id": "DIAG-II-2029-544",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.9",
+    "crew_affinity": "av_tech",
+    "year": 2029,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Field Call — II.A.9",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Control Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.44"
+    },
+    "payload": {
+      "question": "A specialist needs to connect an older VGA monitor to a new HDMI-only control PC. What is required?",
+      "options": {
+        "A": "An active HDMI-to-VGA converter, since HDMI is digital and VGA is analog, plus a separate audio cable if sound is needed.",
+        "B": "A simple passive HDMI-to-VGA adapter with no additional cabling.",
+        "C": "Nothing; HDMI and VGA are electrically compatible.",
+        "D": "A USB-to-Ethernet adapter."
+      },
+      "answer": "A",
+      "rationale": "Converting between a digital signal (HDMI) and an analog one (VGA) requires active conversion hardware, and VGA carries no audio, so a separate audio path is also needed.",
+      "time_limit_seconds": 39
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2029-544_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Fort Kessler Regional Training Center, Control Room passed their next review without a single note on the item you handled.",
+        "fail": "Fort Kessler Regional Training Center, Control Room's follow-up review flagged the exact same issue. It's on record now."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2019-545": {
+    "node_id": "DIAG-II-2019-545",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.9",
+    "crew_affinity": "av_tech",
+    "year": 2019,
+    "location_name": "Fort Kessler Regional Training Center, Server Closet",
+    "title": "Field Call — II.A.9",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Server Closet. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.45"
+    },
+    "payload": {
+      "question": "A newly run Cat6 cable, installed parallel to and touching a high-voltage power line, is producing an intermittent, flaky network connection. What is the cause, and the fix?",
+      "options": {
+        "A": "Electromagnetic interference (EMI) from the power line -- use shielded twisted pair (STP) cable or reroute the cable away from the power line.",
+        "B": "The cable is simply too long; shorten it.",
+        "C": "The switch port is misconfigured for the wrong duplex setting.",
+        "D": "Cat6 cable is not rated for indoor use."
+      },
+      "answer": "A",
+      "rationale": "Running unshielded network cable alongside a high-voltage line is a classic EMI source; shielding or physical separation resolves it.",
+      "time_limit_seconds": 41
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2020-546": {
+    "node_id": "DIAG-II-2020-546",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.9",
+    "crew_affinity": "av_tech",
+    "year": 2020,
+    "location_name": "Ridgeline Sim Center, AV Bay",
+    "title": "Field Call — II.A.9",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, AV Bay. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.46"
+    },
+    "payload": {
+      "question": "An SDI video run using BNC connectors is producing an intermittent signal despite a good-quality cable. What is the recommended fix?",
+      "options": {
+        "A": "Use a BNC torque tool to ensure a secure, locked connection, and verify the cable's impedance matches 75 ohms.",
+        "B": "Switch to a standard (non-locking) RCA connector for a more secure fit.",
+        "C": "Add as many right-angle adapters as needed to route around obstacles.",
+        "D": "Increase the video resolution to compensate for signal loss."
+      },
+      "answer": "A",
+      "rationale": "A loose BNC lock or an impedance mismatch are the most common causes of an intermittent SDI signal, and right-angle adapters are known failure points to avoid, not add.",
+      "time_limit_seconds": 41
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2021-547": {
+    "node_id": "DIAG-II-2021-547",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.10",
+    "crew_affinity": "av_tech",
+    "year": 2021,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Field Call — II.A.10",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, Server Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.47"
+    },
+    "payload": {
+      "question": "During an in-situ simulation in a hospital parking lot using a mobile hotspot, the manikin keeps disconnecting. What is the MOST likely cause?",
+      "options": {
+        "A": "High latency or weak signal strength from the cellular network, or interference from nearby vehicle electronics.",
+        "B": "The manikin's internal battery is too cold.",
+        "C": "The mobile hotspot doesn't support manikin traffic by design.",
+        "D": "The parking lot's pavement is blocking the compressor's air supply."
+      },
+      "answer": "A",
+      "rationale": "Cellular-based connections in an open, uncontrolled environment are the most common point of failure for wireless-dependent equipment during in-situ sims.",
+      "time_limit_seconds": 40
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2022-548": {
+    "node_id": "DIAG-II-2022-548",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.10",
+    "crew_affinity": "av_tech",
+    "year": 2022,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Field Call — II.A.10",
+    "flavor_intro": "A technical question comes up on site at Harbor District Training Annex, Control Booth. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.48"
+    },
+    "payload": {
+      "question": "A student wearing a personal smartwatch enters the sim room, and the Wi-Fi-connected heart rate monitor display suddenly starts jumping erratically. What is the MOST likely cause?",
+      "options": {
+        "A": "Bluetooth interference, if both devices are operating in the same 2.4GHz frequency band.",
+        "B": "The smartwatch is hacking into the simulation software.",
+        "C": "The manikin's compressor has failed.",
+        "D": "The student's smartwatch is drawing power from the manikin."
+      },
+      "answer": "A",
+      "rationale": "Bluetooth and 2.4GHz Wi-Fi share spectrum, so a nearby personal device transmitting on that band can introduce interference that shows up as erratic readings.",
+      "time_limit_seconds": 40
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2022-548_callback",
+      "deliver_after_hub_visits": 5,
+      "messages": {
+        "success": "Ran into someone from Harbor District Training Annex, Control Booth at a conference. Unprompted, she mentioned it's still holding up fine.",
+        "fail": "Heard through the grapevine Harbor District Training Annex, Control Booth had to redo that fix from scratch. Word gets around."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2023-549": {
+    "node_id": "DIAG-II-2023-549",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.A.10",
+    "crew_affinity": "av_tech",
+    "year": 2023,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Field Call — II.A.10",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Wing C. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.49"
+    },
+    "payload": {
+      "question": "You're running an in-situ simulation in a parking lot near cellular towers and experiencing significant wireless jitter. What combination of fixes BEST addresses this while keeping a reliable fallback available?",
+      "options": {
+        "A": "Use a directional antenna to focus the signal between the manikin and control van, lower the video bitrate to prioritize control packets, and keep a hardwired Cat6 backup on hand.",
+        "B": "Increase the video bitrate to overpower the interference.",
+        "C": "Move the control van further from the manikin to reduce signal congestion.",
+        "D": "Switch entirely to Bluetooth for all manikin communication."
+      },
+      "answer": "A",
+      "rationale": "Focusing the signal, prioritizing the traffic that actually matters for control, and keeping a wired fallback together give the most resilient setup for an uncontrolled outdoor environment.",
+      "time_limit_seconds": 44
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2023-549_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Fort Kessler Regional Training Center, Wing C's numbers came back clean on the quarterly audit. That one's staying fixed.",
+        "fail": "Fort Kessler Regional Training Center, Wing C pulled the readiness report. Yours is the name next to the open item."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2024-550": {
+    "node_id": "DIAG-II-2024-550",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.B.1",
+    "crew_affinity": "av_tech",
+    "year": 2024,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Field Call — II.B.1",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Control Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.50"
+    },
+    "payload": {
+      "question": "A facilitator wants to capture a 'patient's eye view' for a scenario designed to build learner empathy. What equipment BEST accomplishes this?",
+      "options": {
+        "A": "A point-of-view wearable camera, or a small action camera mounted at the manikin's head level.",
+        "B": "A fixed, room-wide PTZ camera in the corner of the ceiling.",
+        "C": "A single boundary microphone with no camera.",
+        "D": "A whiteboard sketch of the patient's perspective."
+      },
+      "answer": "A",
+      "rationale": "Only a camera positioned and angled from the patient's own vantage point can actually produce a patient's-eye-view recording.",
+      "time_limit_seconds": 39
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2025-551": {
+    "node_id": "DIAG-II-2025-551",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.B.1",
+    "crew_affinity": "av_tech",
+    "year": 2025,
+    "location_name": "Fort Kessler Regional Training Center, Server Closet",
+    "title": "Field Call — II.B.1",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Server Closet. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.51"
+    },
+    "payload": {
+      "question": "A debriefing room has high ceilings and heavy echo, making recorded participant audio muddy and hard to understand. What is the BEST microphone choice to fix this?",
+      "options": {
+        "A": "Lavalier microphones on each participant, to capture direct voice and minimize room ambience and echo.",
+        "B": "A single boundary microphone placed on the far wall.",
+        "C": "The camera's built-in microphone, zoomed in tighter.",
+        "D": "No microphone; rely on the video alone for debriefing."
+      },
+      "answer": "A",
+      "rationale": "Close-source (lavalier) mics pick up direct voice while rejecting a much larger share of reflected room sound than a distant boundary or camera mic would.",
+      "time_limit_seconds": 40
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2026-552": {
+    "node_id": "DIAG-II-2026-552",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.B.1",
+    "crew_affinity": "av_tech",
+    "year": 2026,
+    "location_name": "Ridgeline Sim Center, AV Bay",
+    "title": "Field Call — II.B.1",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, AV Bay. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.52"
+    },
+    "payload": {
+      "question": "An instructor wants to record close-up footage of moulage application for a training tutorial. What AV setup produces the BEST result?",
+      "options": {
+        "A": "A macro lens on a stationary camera with high-CRI lighting, to capture fine texture and color detail.",
+        "B": "A wide-angle PTZ camera positioned across the room.",
+        "C": "A smartphone camera in low ambient light.",
+        "D": "An audio-only recording with photos taken afterward."
+      },
+      "answer": "A",
+      "rationale": "Fine texture and color work like moulage needs close focus and accurate color rendering, which a macro lens and high-CRI lighting are specifically suited for.",
+      "time_limit_seconds": 39
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2027-553": {
+    "node_id": "DIAG-II-2027-553",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.B.2",
+    "crew_affinity": "av_tech",
+    "year": 2027,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Field Call — II.B.2",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, Server Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.53"
+    },
+    "payload": {
+      "question": "A center has no MRI machine but wants to simulate an MRI suite for a claustrophobia/patient-comfort scenario. What is the recommended way to build this environment on a budget?",
+      "options": {
+        "A": "Play a recording of MRI 'knocking' sounds and use a mock MRI tube or tunnel to simulate the cramped space.",
+        "B": "Purchase a full working MRI machine for the sim lab.",
+        "C": "Skip the environment entirely and describe it verbally to learners.",
+        "D": "Use a CT scanner mockup instead, since the experience is functionally identical."
+      },
+      "answer": "A",
+      "rationale": "Environmental fidelity for an MRI scenario is driven by the characteristic sound and the confined space, both of which can be reproduced cheaply without a real machine.",
+      "time_limit_seconds": 42
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2028-554": {
+    "node_id": "DIAG-II-2028-554",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.B.2",
+    "crew_affinity": "av_tech",
+    "year": 2028,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Field Call — II.B.2",
+    "flavor_intro": "A technical question comes up on site at Harbor District Training Annex, Control Booth. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.54"
+    },
+    "payload": {
+      "question": "A faculty member is designing a home-health visit scenario for a patient with early dementia and wants realistic props that shift the context away from a hospital setting. Which prop set is MOST appropriate?",
+      "options": {
+        "A": "Non-clinical household items like throw rugs, pill organizers, and ordinary furniture.",
+        "B": "A full hospital crash cart placed in the living room.",
+        "C": "A defibrillator mounted on the wall.",
+        "D": "Hospital-branded patient ID wristbands."
+      },
+      "answer": "A",
+      "rationale": "Home-health environmental fidelity depends on ordinary household context, not hospital equipment, which would undercut the scenario's setting.",
+      "time_limit_seconds": 40
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2029-555": {
+    "node_id": "DIAG-II-2029-555",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.B.3",
+    "crew_affinity": "av_tech",
+    "year": 2029,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Field Call — II.B.3",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Wing C. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.55"
+    },
+    "payload": {
+      "question": "A specialist needs to simulate a gunshot wound with active bleeding on a high-fidelity manikin. What materials should be used?",
+      "options": {
+        "A": "A silicone-based wound moulage with an embedded bleeding line connected to a pressurized reservoir of simulated blood.",
+        "B": "Real ketchup and a standard bandage.",
+        "C": "A printed photo of a wound taped to the manikin.",
+        "D": "Simulated blood poured directly onto the manikin's bare skin with no moulage material."
+      },
+      "answer": "A",
+      "rationale": "A proper silicone wound with a controllable bleeding line gives realistic appearance and a controllable active-bleed effect without staining or damaging the manikin's skin.",
+      "time_limit_seconds": 40
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2019-556": {
+    "node_id": "DIAG-II-2019-556",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.B.3",
+    "crew_affinity": "av_tech",
+    "year": 2019,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Field Call — II.B.3",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Control Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.56"
+    },
+    "payload": {
+      "question": "How can a specialist simulate 'cold, clammy skin' on a manikin just before learners enter the room?",
+      "options": {
+        "A": "Apply a thin layer of glycerin or a specialized cooling/sweat spray to the manikin's skin.",
+        "B": "Place the entire manikin in a refrigerator for an hour.",
+        "C": "Lower the room's HVAC temperature to 50°F.",
+        "D": "Apply baby powder to the manikin's skin."
+      },
+      "answer": "A",
+      "rationale": "A thin glycerin or sweat-spray layer reproduces the clammy appearance and feel quickly and safely, without risking the manikin's electronics or the room's comfort.",
+      "time_limit_seconds": 38
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2019-556_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "No news out of Fort Kessler Regional Training Center, Control Room on that one. In this job, no news is the best you get.",
+        "fail": "Fort Kessler Regional Training Center, Control Room put in a request for the same part again. Make of that what you will."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2020-557": {
+    "node_id": "DIAG-II-2020-557",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.B.3",
+    "crew_affinity": "av_tech",
+    "year": 2020,
+    "location_name": "Fort Kessler Regional Training Center, Server Closet",
+    "title": "Field Call — II.B.3",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Server Closet. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.57"
+    },
+    "payload": {
+      "question": "Before applying any new moulage product to an expensive high-fidelity manikin for the first time, what is the specialist's safety priority?",
+      "options": {
+        "A": "Confirm the material is manikin-safe (non-staining) and perform a patch test on a hidden area first.",
+        "B": "Apply it directly to the most visible part of the manikin to check how it looks on camera.",
+        "C": "Skip testing if the product worked on a different manikin brand.",
+        "D": "Apply extra layers to guarantee visibility during the scenario."
+      },
+      "answer": "A",
+      "rationale": "Manikin skin materials vary in how they react to moulage products, so a hidden-area patch test is the standard way to avoid permanent staining or damage.",
+      "time_limit_seconds": 41
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2020-557_callback",
+      "deliver_after_hub_visits": 4,
+      "messages": {
+        "success": "Fort Kessler Regional Training Center, Server Closet passed their next review without a single note on the item you handled.",
+        "fail": "Fort Kessler Regional Training Center, Server Closet's follow-up review flagged the exact same issue. It's on record now."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2021-558": {
+    "node_id": "DIAG-II-2021-558",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.C.1",
+    "crew_affinity": "av_tech",
+    "year": 2021,
+    "location_name": "Ridgeline Sim Center, AV Bay",
+    "title": "Field Call — II.C.1",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, AV Bay. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.58"
+    },
+    "payload": {
+      "question": "A learner accidentally pushes 500cc of real tap water into a manikin's internal lung reservoir instead of using the simulated fluid. What is the correct corrective action?",
+      "options": {
+        "A": "Immediately drain the lung, flush with isopropyl alcohol to prevent mold, and leave it open to air-dry for 24-48 hours.",
+        "B": "Leave the water in place; it will evaporate on its own during normal use.",
+        "C": "Immediately power-wash the manikin's exterior skin.",
+        "D": "Replace the entire manikin, since internal water damage cannot be remediated."
+      },
+      "answer": "A",
+      "rationale": "Draining, flushing, and thoroughly air-drying the internal reservoir is the standard corrective action to prevent mold growth inside a sealed manikin cavity.",
+      "time_limit_seconds": 42
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2021-558_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Ridgeline Sim Center, AV Bay's lead tech sent a one-line email: 'still good.' High praise, for her.",
+        "fail": "Ridgeline Sim Center, AV Bay's lead tech sent a one-line email. It was not 'still good.'"
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2022-559": {
+    "node_id": "DIAG-II-2022-559",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.C.1",
+    "crew_affinity": "av_tech",
+    "year": 2022,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Field Call — II.C.1",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center, Server Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.59"
+    },
+    "payload": {
+      "question": "A manikin's internal fluid pump is leaking, and the specialist traces the root cause to a cracked Y-connector. What is the appropriate fix?",
+      "options": {
+        "A": "Replace the connector with a medical-grade nylon fitting, secured with proper hose clamps rather than zip ties, and log it in the maintenance record.",
+        "B": "Wrap the crack in electrical tape and continue using it.",
+        "C": "Ignore it since fluid leaks don't affect scenario outcomes.",
+        "D": "Increase the pump's flow rate to compensate for the leak."
+      },
+      "answer": "A",
+      "rationale": "A proper replacement part and secure clamping fixes the actual root cause, and logging it helps catch whether it's part of a recurring manufacturer issue.",
+      "time_limit_seconds": 41
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2023-560": {
+    "node_id": "DIAG-II-2023-560",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.C.2",
+    "crew_affinity": "av_tech",
+    "year": 2023,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Field Call — II.C.2",
+    "flavor_intro": "A technical question comes up on site at Harbor District Training Annex, Control Booth. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.60"
+    },
+    "payload": {
+      "question": "A specialist notices a manikin's skin has become tacky and sticky to the touch over several weeks of use. What is the correct preventive-maintenance fix?",
+      "options": {
+        "A": "Clean the skin with mild soap and water, then apply a light coating of manufacturer-recommended, talc-free manikin powder.",
+        "B": "Apply a heavy layer of silicone lubricant to restore the texture.",
+        "C": "Wipe the skin down with rubbing alcohol only, with no other treatment.",
+        "D": "Replace the manikin's entire skin immediately, since tackiness cannot be treated."
+      },
+      "answer": "A",
+      "rationale": "A mild clean followed by manufacturer-approved powder is the standard fix for tacky manikin skin, and avoids products that could degrade the material further.",
+      "time_limit_seconds": 42
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2024-561": {
+    "node_id": "DIAG-II-2024-561",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.C.2",
+    "crew_affinity": "av_tech",
+    "year": 2024,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Field Call — II.C.2",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Wing C. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.61"
+    },
+    "payload": {
+      "question": "What is the recommended approach for applying firmware updates to simulation infrastructure like network switches and encoders?",
+      "options": {
+        "A": "Follow a quarterly review cycle, checking for updates every few months, but only applying them when there's enough down time to test for regressions.",
+        "B": "Apply every firmware update the moment it's released, with no testing window.",
+        "C": "Never apply firmware updates once equipment is installed.",
+        "D": "Only apply updates after a device has already failed."
+      },
+      "answer": "A",
+      "rationale": "A scheduled review-and-test cycle balances staying current with avoiding an update-induced outage during active teaching time.",
+      "time_limit_seconds": 41
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "DIAG-II-2024-561_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Fort Kessler Regional Training Center, Wing C's numbers came back clean on the quarterly audit. That one's staying fixed.",
+        "fail": "Fort Kessler Regional Training Center, Wing C pulled the readiness report. Yours is the name next to the open item."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
+  "DIAG-II-2025-562": {
+    "node_id": "DIAG-II-2025-562",
+    "type": "diagnostic",
+    "domain": "II",
+    "ksa": "II.C.2",
+    "crew_affinity": "av_tech",
+    "year": 2025,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Field Call — II.C.2",
+    "flavor_intro": "A technical question comes up on site at Fort Kessler Regional Training Center, Control Room. Your crew wants a second opinion before it becomes a bigger problem.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.62"
+    },
+    "payload": {
+      "question": "During preventive maintenance on a manikin's airway, what is the recommended way to prepare a 'tongue edema' balloon before reinstalling it, to prevent it from sticking to the internal airway walls over time?",
+      "options": {
+        "A": "Lightly dust it with cornstarch (not talc) before installation.",
+        "B": "Coat it heavily in silicone grease.",
+        "C": "Install it wet, straight out of a cleaning solution.",
+        "D": "No preparation is needed; the balloons are self-lubricating."
+      },
+      "answer": "A",
+      "rationale": "A light cornstarch dusting is the manufacturer-recommended way to keep the balloon from adhering to itself or the airway walls over repeated use.",
+      "time_limit_seconds": 40
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -10,
+        "morale": -5,
+        "budget": 0
+      }
+    }
+  },
   "INT-I-2019-501": {
     "node_id": "INT-I-2019-501",
     "type": "intel",
@@ -21840,6 +23965,2173 @@ const GENERATED_NODES = {
     },
     "sets_flags": {},
     "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-I-2027-509": {
+    "node_id": "SCN-I-2027-509",
+    "type": "scenario",
+    "domain": "I",
+    "ksa": "I.A",
+    "crew_affinity": null,
+    "year": 2027,
+    "location_name": "Waystation 4",
+    "title": "Judgment Call — I.A",
+    "flavor_intro": "A judgment call comes up at Waystation 4 that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.09",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "An SME wants a 'Sepsis' scenario where blood pressure drops gradually if the learner delays fluid resuscitation. What is the correct technical approach to programming this?",
+      "options": {
+        "A": "Manually drop the BP by 40 points the instant the scenario begins, regardless of learner action.",
+        "B": "Program a timed trend that decreases BP over several minutes, triggered by the absence of a 'Fluid Bolus' event in the software log.",
+        "C": "Disable the blood pressure monitor entirely so the value cannot be checked.",
+        "D": "Set the manikin's heart rate to zero to force a code."
+      },
+      "answer": "B",
+      "rationale": "A programmed trend tied to a missing fluid-bolus event lets the vitals respond realistically to what the learner actually does (or fails to do), rather than following a fixed script.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-I-2028-510": {
+    "node_id": "SCN-I-2028-510",
+    "type": "scenario",
+    "domain": "I",
+    "ksa": "I.A",
+    "crew_affinity": null,
+    "year": 2028,
+    "location_name": "en route",
+    "title": "Judgment Call — I.A",
+    "flavor_intro": "A judgment call comes up at en route that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.10",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A scenario calls for a 'Pulmonary Embolism' with sudden desaturation triggered by an operator event trigger (OET) tied to patient movement. Which event should the specialist link the SpO2 drop to?",
+      "options": {
+        "A": "The learner assisting the patient to stand or ambulate.",
+        "B": "The learner checking the patient's blood glucose.",
+        "C": "The facilitator entering the debriefing room.",
+        "D": "The control PC's screen saver activating."
+      },
+      "answer": "A",
+      "rationale": "Sudden desaturation on exertion/ambulation is a classic PE presentation, so tying the OET to that specific learner action keeps the physiology clinically believable.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-I-2029-511": {
+    "node_id": "SCN-I-2029-511",
+    "type": "scenario",
+    "domain": "I",
+    "ksa": "I.B",
+    "crew_affinity": null,
+    "year": 2029,
+    "location_name": "Coastal Med Annex 4",
+    "title": "Judgment Call — I.B",
+    "flavor_intro": "A judgment call comes up at Coastal Med Annex 4 that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.11",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A learner performs needle decompression on a manikin with simulated tension pneumothorax. The monitor immediately shows return of spontaneous circulation, but the manikin's chest remains visibly asymmetric. What is the technical issue?",
+      "options": {
+        "A": "A lack of physical fidelity -- the chest's physical air-release valve failed to respond even though the software updated correctly.",
+        "B": "A lack of conceptual fidelity -- the monitor's vitals are inaccurate for the clinical state.",
+        "C": "A lack of psychological fidelity -- the learner is not emotionally engaged.",
+        "D": "A network connectivity failure between the monitor and control PC."
+      },
+      "answer": "A",
+      "rationale": "The software state (conceptual fidelity) updated correctly, but the physical manikin hardware -- the air-release valve -- failed to reflect it, which is specifically a physical fidelity failure.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-I-2029-511_callback",
+      "deliver_after_hub_visits": 4,
+      "messages": {
+        "success": "A trainee at Coastal Med Annex 4 asked about the fix you made. Apparently it's become the example they teach from now.",
+        "fail": "Coastal Med Annex 4 worked around it instead of fixing it properly. It's still broken, just quieter about it."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-I-2019-512": {
+    "node_id": "SCN-I-2019-512",
+    "type": "scenario",
+    "domain": "I",
+    "ksa": "I.B",
+    "crew_affinity": null,
+    "year": 2019,
+    "location_name": "Fort Kessler Regional Training Center",
+    "title": "Judgment Call — I.B",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.12",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "An instructor is designing an 'Anaphylaxis' scenario and wants the learner to visually recognize impending airway obstruction. Which manikin features should the specialist activate?",
+      "options": {
+        "A": "Tongue edema and pharyngeal swelling.",
+        "B": "Bowel sounds and abdominal distension.",
+        "C": "Bilateral pupil dilation only.",
+        "D": "A slowed heart rate with no other changes."
+      },
+      "answer": "A",
+      "rationale": "Tongue edema and pharyngeal swelling are the standard software-controlled anatomical features used to represent airway compromise from anaphylaxis.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-I-2020-513": {
+    "node_id": "SCN-I-2020-513",
+    "type": "scenario",
+    "domain": "I",
+    "ksa": "I.C",
+    "crew_affinity": null,
+    "year": 2020,
+    "location_name": "Waystation 4",
+    "title": "Judgment Call — I.C",
+    "flavor_intro": "A judgment call comes up at Waystation 4 that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.13",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "An RFID-tagged medication cart fails to recognize a vial of Atropine mid-scenario. To keep the scenario moving without breaking immersion, what should the specialist do FIRST?",
+      "options": {
+        "A": "Check the RFID sensor alignment and tag integrity, and give the learner a verbal cue in the meantime to preserve flow.",
+        "B": "Stop the scenario immediately and restart the simulation software.",
+        "C": "Replace the vial with a completely different, unlabeled medication.",
+        "D": "Tell the learner the medication doesn't exist in the system."
+      },
+      "answer": "A",
+      "rationale": "A quick physical check plus a verbal workaround keeps the scenario running while the real technical cause (sensor alignment or a damaged tag) gets addressed.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-I-2021-514": {
+    "node_id": "SCN-I-2021-514",
+    "type": "scenario",
+    "domain": "I",
+    "ksa": "I.D",
+    "crew_affinity": null,
+    "year": 2021,
+    "location_name": "en route",
+    "title": "Judgment Call — I.D",
+    "flavor_intro": "A judgment call comes up at en route that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.14",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A faculty member wants to display the manikin's vitals on a real clinical-brand patient monitor instead of the simulator's built-in display, to increase physical fidelity. What technical interface does the specialist need?",
+      "options": {
+        "A": "A vitals signal generator or video-out adapter that translates the simulator's data into a waveform the real monitor can read.",
+        "B": "A standard HDMI cable connected directly from the control PC to the monitor.",
+        "C": "A Bluetooth pairing between the manikin and the monitor.",
+        "D": "No adapter is needed; clinical monitors read simulator data natively."
+      },
+      "answer": "A",
+      "rationale": "Real clinical monitors expect a physiologic waveform signal, not a raw software feed, so a dedicated vitals signal generator/adapter is required to bridge the two.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-I-2021-514_callback",
+      "deliver_after_hub_visits": 2,
+      "messages": {
+        "success": "en route's lead tech sent a one-line email: 'still good.' High praise, for her.",
+        "fail": "en route's lead tech sent a one-line email. It was not 'still good.'"
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-I-2022-515": {
+    "node_id": "SCN-I-2022-515",
+    "type": "scenario",
+    "domain": "I",
+    "ksa": "I.D",
+    "crew_affinity": null,
+    "year": 2022,
+    "location_name": "Coastal Med Annex 4",
+    "title": "Judgment Call — I.D",
+    "flavor_intro": "A judgment call comes up at Coastal Med Annex 4 that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.15",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A student turns the dial on the simulation room's headwall oxygen flowmeter, but it reads 0 L/min. What is the MOST likely cause?",
+      "options": {
+        "A": "The lab's central air/oxygen compressor is off, or the mock flowmeter isn't connected to a pressurized source.",
+        "B": "The student is reading the dial upside down.",
+        "C": "The manikin's internal battery is depleted.",
+        "D": "The simulation software needs to be restarted."
+      },
+      "answer": "A",
+      "rationale": "Headwall flowmeters in a sim lab are typically mock fixtures fed by a central compressor; if that supply is off or disconnected, the dial will read zero regardless of how it's turned.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-I-2023-516": {
+    "node_id": "SCN-I-2023-516",
+    "type": "scenario",
+    "domain": "I",
+    "ksa": "I.E",
+    "crew_affinity": null,
+    "year": 2023,
+    "location_name": "Fort Kessler Regional Training Center",
+    "title": "Judgment Call — I.E",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center that no manual quite covers. The next block starts in twenty minutes and the room isn't ready. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.I.16",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "While voicing the patient in a scenario, you notice the learner is ignoring vocalized complaints of pain and focusing only on the monitor. What is the BEST way to use your role to redirect their attention?",
+      "options": {
+        "A": "Increase the frequency and intensity of the verbal complaints to force engagement with the patient, not just the numbers.",
+        "B": "Break character and tell the learner to pay attention to the patient.",
+        "C": "Stop vocalizing entirely until the debrief.",
+        "D": "Ask the facilitator to pause the scenario and explain the objective."
+      },
+      "answer": "A",
+      "rationale": "Staying in character while escalating the patient's complaints raises psychological fidelity and naturally redirects the learner without breaking the scenario.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech"
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-I-2023-516_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "No news out of Fort Kessler Regional Training Center on that one. In this job, no news is the best you get.",
+        "fail": "Fort Kessler Regional Training Center put in a request for the same part again. Make of that what you will."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2025-529": {
+    "node_id": "SCN-II-2025-529",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.1",
+    "crew_affinity": "av_tech",
+    "year": 2025,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Judgment Call — II.A.1",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, Server Room that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.29",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A manikin loses its network connection every time the lab's DHCP lease renews overnight, forcing a manual reboot each morning. What is the BEST long-term fix?",
+      "options": {
+        "A": "Configure a DHCP reservation so the manikin always receives the same IP address tied to its MAC address.",
+        "B": "Switch the manikin to a random new IP address daily.",
+        "C": "Disable DNS on the control PC.",
+        "D": "Increase the DHCP lease time to 24 hours only."
+      },
+      "answer": "A",
+      "rationale": "A DHCP reservation permanently ties the manikin's MAC address to one IP within the DHCP scope, eliminating renewal-related disconnects while staying centrally managed.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2025-529_callback",
+      "deliver_after_hub_visits": 5,
+      "messages": {
+        "success": "Ridgeline Sim Center, Server Room's numbers came back clean on the quarterly audit. That one's staying fixed.",
+        "fail": "Ridgeline Sim Center, Server Room pulled the readiness report. Yours is the name next to the open item."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2026-530": {
+    "node_id": "SCN-II-2026-530",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.2",
+    "crew_affinity": "av_tech",
+    "year": 2026,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Judgment Call — II.A.2",
+    "flavor_intro": "A judgment call comes up at Harbor District Training Annex, Control Booth that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.30",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A facilitator needs to add a live 'Heart Sounds' audio feed from the manikin into the control room speakers for real-time monitoring. What is the correct way to route this?",
+      "options": {
+        "A": "Take a line-out from the manikin's audio jack (or capture the software audio) and route it through the A/V mixer to the control room.",
+        "B": "Place a physical microphone directly against the manikin's chest and stream it via Bluetooth.",
+        "C": "Ask the learner to describe the heart sounds out loud.",
+        "D": "There is no way to route manikin audio into the control room."
+      },
+      "answer": "A",
+      "rationale": "The manikin's audio output can be captured directly (line-out or software audio) and mixed into the control room feed, which is far more reliable than an ad hoc microphone.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2026-530_callback",
+      "deliver_after_hub_visits": 4,
+      "messages": {
+        "success": "Ran into someone from Harbor District Training Annex, Control Booth at a conference. Unprompted, she mentioned it's still holding up fine.",
+        "fail": "Heard through the grapevine Harbor District Training Annex, Control Booth had to redo that fix from scratch. Word gets around."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2027-531": {
+    "node_id": "SCN-II-2027-531",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.3",
+    "crew_affinity": "av_tech",
+    "year": 2027,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Judgment Call — II.A.3",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Wing C that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.31",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "You need to stream a live simulation to a remote classroom with the lowest possible latency. Which setup is MOST reliable?",
+      "options": {
+        "A": "A hardwired capture card directly encoding the camera feeds to the streaming PC, bypassing wireless networks.",
+        "B": "A smartphone held up to the debriefing monitor, streaming over cellular data.",
+        "C": "A wireless webcam streaming over the hospital's guest Wi-Fi.",
+        "D": "Screen-recording the debrief session after the fact and uploading it later."
+      },
+      "answer": "A",
+      "rationale": "A hardwired capture chain avoids the latency and reliability problems of wireless or cellular links, which matters most for anything approaching real-time viewing.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2028-532": {
+    "node_id": "SCN-II-2028-532",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.3",
+    "crew_affinity": "av_tech",
+    "year": 2028,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Judgment Call — II.A.3",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Control Room that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.32",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A center wants to integrate an AI-driven automated debriefing tool that analyzes scenario recordings, and feed the results into the existing LMS gradebook. What is the correct technical approach?",
+      "options": {
+        "A": "Use an API to export the simulation logs into the LMS's grading module in a compatible xAPI/SCORM format.",
+        "B": "Manually retype each learner's results into the LMS by hand.",
+        "C": "Email the raw video files to the LMS administrator.",
+        "D": "Disable the LMS gradebook and use the debriefing tool exclusively."
+      },
+      "answer": "A",
+      "rationale": "An API export in a standard e-learning data format (xAPI/SCORM) is the supported, scalable way to move results between two separate education systems.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2029-533": {
+    "node_id": "SCN-II-2029-533",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.4",
+    "crew_affinity": "av_tech",
+    "year": 2029,
+    "location_name": "Fort Kessler Regional Training Center, Server Closet",
+    "title": "Judgment Call — II.A.4",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Server Closet that no manual quite covers. The next block starts in twenty minutes and the room isn't ready. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.33",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A guest speaker asks to connect a personal laptop to the simulation center's Wi-Fi network during a visit. What is the BEST response?",
+      "options": {
+        "A": "Politely decline -- guest devices on the isolated sim network risk bandwidth contention and a security/malware exposure.",
+        "B": "Allow it, since it's only for one afternoon.",
+        "C": "Give the guest the administrator password so they can configure it themselves.",
+        "D": "Allow it only if they promise not to browse the internet."
+      },
+      "answer": "A",
+      "rationale": "The simulation network is kept isolated specifically to protect manikin/control-PC connectivity and student data; an unmanaged personal device undermines both.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2019-534": {
+    "node_id": "SCN-II-2019-534",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.4",
+    "crew_affinity": "av_tech",
+    "year": 2019,
+    "location_name": "Ridgeline Sim Center, AV Bay",
+    "title": "Judgment Call — II.A.4",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, AV Bay that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.34",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "You are setting up remote vendor support access to a newly segmented VLAN for simulation equipment. Which combination of controls BEST maintains network security while still allowing the vendor to work?",
+      "options": {
+        "A": "A VPN gateway with two-factor authentication, restricted to the vendor's known MAC address and a fixed DHCP reservation.",
+        "B": "A shared general login with no time limit, posted on a whiteboard in the control room.",
+        "C": "Full open access to the guest Wi-Fi network.",
+        "D": "Disabling the firewall for the duration of the support session."
+      },
+      "answer": "A",
+      "rationale": "Layering authentication, device restriction, and a fixed address keeps vendor access auditable and scoped, instead of opening the network broadly.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2019-534_callback",
+      "deliver_after_hub_visits": 2,
+      "messages": {
+        "success": "Ridgeline Sim Center, AV Bay's numbers came back clean on the quarterly audit. That one's staying fixed.",
+        "fail": "Ridgeline Sim Center, AV Bay pulled the readiness report. Yours is the name next to the open item."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2020-535": {
+    "node_id": "SCN-II-2020-535",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.5",
+    "crew_affinity": "av_tech",
+    "year": 2020,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Judgment Call — II.A.5",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, Server Room that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.35",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A program needs 50 nursing students to each practice a lumbar puncture in a 2-hour lab session. Is a single high-fidelity manikin the most efficient modality choice?",
+      "options": {
+        "A": "No -- multiple partial-task trainers allow far more students to get hands-on repetitions in the same time.",
+        "B": "Yes, a single high-fidelity manikin is always the best choice regardless of throughput.",
+        "C": "No -- a Standardized Patient is better suited for a purely psychomotor skill like this.",
+        "D": "Yes, because task trainers cannot teach psychomotor skills."
+      },
+      "answer": "A",
+      "rationale": "High-throughput psychomotor skill practice is exactly what multiple, lower-cost task trainers are designed for, since they let many students practice in parallel.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2021-536": {
+    "node_id": "SCN-II-2021-536",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.5",
+    "crew_affinity": "av_tech",
+    "year": 2021,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Judgment Call — II.A.5",
+    "flavor_intro": "A judgment call comes up at Harbor District Training Annex, Control Booth that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.36",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A learner using a new VR training module reports feeling nauseous partway through the session. What is the MOST likely technical cause and the fix?",
+      "options": {
+        "A": "An unstable frame rate or poorly calibrated tracking sensors, causing lag between head movement and the visual display -- stabilize the frame rate and recalibrate tracking.",
+        "B": "The headset's resolution is too high; permanently lower it.",
+        "C": "The learner simply needs a snack break; this is not a technical issue.",
+        "D": "The haptic gloves are the cause and should be removed."
+      },
+      "answer": "A",
+      "rationale": "Motion sickness in VR is most commonly caused by latency between physical head movement and the rendered display, which frame-rate stability and sensor calibration directly address.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2021-536_callback",
+      "deliver_after_hub_visits": 5,
+      "messages": {
+        "success": "A trainee at Harbor District Training Annex, Control Booth asked about the fix you made. Apparently it's become the example they teach from now.",
+        "fail": "Harbor District Training Annex, Control Booth worked around it instead of fixing it properly. It's still broken, just quieter about it."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2022-537": {
+    "node_id": "SCN-II-2022-537",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.6",
+    "crew_affinity": "av_tech",
+    "year": 2022,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Judgment Call — II.A.6",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Wing C that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.37",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A real hospital ventilator keeps alarming 'High Pressure' when connected to a manikin, even though the ventilator itself is functioning correctly. What is the sim-tech fix?",
+      "options": {
+        "A": "Check for a kink in the manikin's internal lung bag, or adjust the software's lung compliance setting to reduce resistance.",
+        "B": "Replace the ventilator with a different unit of the same model.",
+        "C": "Increase the ventilator's delivered pressure until the alarm stops.",
+        "D": "Disconnect the high-pressure alarm sensor on the ventilator."
+      },
+      "answer": "A",
+      "rationale": "Real ventilators are sensitive to resistance, so a stiffer-than-expected manikin lung (from a kink or a mismatched compliance setting) is the most likely, and most fixable, cause.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2022-537_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "A trainee at Fort Kessler Regional Training Center, Wing C asked about the fix you made. Apparently it's become the example they teach from now.",
+        "fail": "Fort Kessler Regional Training Center, Wing C worked around it instead of fixing it properly. It's still broken, just quieter about it."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2023-538": {
+    "node_id": "SCN-II-2023-538",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.6",
+    "crew_affinity": "av_tech",
+    "year": 2023,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Judgment Call — II.A.6",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Control Room that no manual quite covers. The next block starts in twenty minutes and the room isn't ready. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.38",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A real IV pump connected to a manikin is not dripping fluid at all, even though the pump display shows it is running. What are the two MOST likely causes?",
+      "options": {
+        "A": "The manikin's internal venous-return reservoir is full (creating back-pressure), or the internal fluid valves are closed in the software.",
+        "B": "The IV bag is expired.",
+        "C": "The pump's firmware needs an update.",
+        "D": "The manikin's compressor is overheating."
+      },
+      "answer": "A",
+      "rationale": "A full return reservoir or closed software-controlled valves are the manikin-side causes that specifically block flow despite the pump itself running normally.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2024-539": {
+    "node_id": "SCN-II-2024-539",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.6",
+    "crew_affinity": "av_tech",
+    "year": 2024,
+    "location_name": "Fort Kessler Regional Training Center, Server Closet",
+    "title": "Judgment Call — II.A.6",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Server Closet that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.39",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "Before connecting a real clinical ventilator to a manikin for the first time, what is the recommended calibration step to prevent nuisance alarms?",
+      "options": {
+        "A": "Use a test lung to calibrate the ventilator's settings before connecting it to the manikin.",
+        "B": "Set the ventilator to maximum pressure to 'break it in'.",
+        "C": "Skip calibration; ventilators self-calibrate automatically to any load.",
+        "D": "Connect the ventilator directly to the compressed air supply, bypassing the manikin entirely."
+      },
+      "answer": "A",
+      "rationale": "Calibrating against a test lung first lets the specialist tune the ventilator's expected resistance before introducing the manikin's own variable compliance.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2025-540": {
+    "node_id": "SCN-II-2025-540",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.7",
+    "crew_affinity": "av_tech",
+    "year": 2025,
+    "location_name": "Ridgeline Sim Center, AV Bay",
+    "title": "Judgment Call — II.A.7",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, AV Bay that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.40",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A center is preparing to move its debriefing system to a cloud-based platform. What is the PRIMARY technical concern to evaluate first?",
+      "options": {
+        "A": "Upload bandwidth -- multiple simultaneous HD video streams require significant outbound speed.",
+        "B": "The color scheme of the video files.",
+        "C": "Whether the cloud provider offers a mobile app.",
+        "D": "The font used in the debriefing software's menus."
+      },
+      "answer": "A",
+      "rationale": "Cloud debriefing depends on getting large HD video streams out of the building reliably, so outbound bandwidth is the technical bottleneck to size for first.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2025-540_callback",
+      "deliver_after_hub_visits": 4,
+      "messages": {
+        "success": "Ridgeline Sim Center, AV Bay's numbers came back clean on the quarterly audit. That one's staying fixed.",
+        "fail": "Ridgeline Sim Center, AV Bay pulled the readiness report. Yours is the name next to the open item."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2026-541": {
+    "node_id": "SCN-II-2026-541",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.7",
+    "crew_affinity": "av_tech",
+    "year": 2026,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Judgment Call — II.A.7",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, Server Room that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.41",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "To protect against 'bit rot' (silent data corruption) on a NAS storing years of simulation recordings, what should the specialist implement?",
+      "options": {
+        "A": "A RAID configuration with data redundancy, plus scheduled integrity/checksum scrub cycles.",
+        "B": "A single unprotected hard drive to save on cost.",
+        "C": "Weekly manual visual review of every stored video file.",
+        "D": "Disabling automatic backups to save storage space."
+      },
+      "answer": "A",
+      "rationale": "Redundant storage plus periodic checksum scrubbing is the standard way to catch and correct silent corruption before it destroys otherwise-unmonitored archival files.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2027-542": {
+    "node_id": "SCN-II-2027-542",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.8",
+    "crew_affinity": "av_tech",
+    "year": 2027,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Judgment Call — II.A.8",
+    "flavor_intro": "A judgment call comes up at Harbor District Training Annex, Control Booth that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.42",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A simulation room consistently runs at 80°F (27°C) due to a malfunctioning HVAC system. What equipment risk does this create?",
+      "options": {
+        "A": "Increased risk of overheating for the manikin's internal electronics and the control PC, potentially causing crashes or shortened hardware life.",
+        "B": "No equipment risk; only learner comfort is affected.",
+        "C": "The manikin's skin color will permanently change.",
+        "D": "The Wi-Fi signal strength will increase."
+      },
+      "answer": "A",
+      "rationale": "Sustained heat stresses electronics well beyond comfort concerns, raising the chance of thermal shutdowns, crashes, and shortened component lifespan.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2027-542_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Ran into someone from Harbor District Training Annex, Control Booth at a conference. Unprompted, she mentioned it's still holding up fine.",
+        "fail": "Heard through the grapevine Harbor District Training Annex, Control Booth had to redo that fix from scratch. Word gets around."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2028-543": {
+    "node_id": "SCN-II-2028-543",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.8",
+    "crew_affinity": "av_tech",
+    "year": 2028,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Judgment Call — II.A.8",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Wing C that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.43",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "You are adding four new PTZ cameras to a room where the switch's PoE budget is 60W, and each camera draws 15W under normal load. Why is running at exactly 100% of budget considered a technical risk?",
+      "options": {
+        "A": "Any brief power spike, such as during a fast pan/tilt movement, could overload the switch and cause it to reboot or drop cameras.",
+        "B": "PoE budgets are only theoretical and don't actually limit anything in practice.",
+        "C": "It isn't a risk; switches never exceed their rated PoE budget.",
+        "D": "The cameras will simply run at reduced video quality instead of losing power."
+      },
+      "answer": "A",
+      "rationale": "Running at the exact rated ceiling leaves no headroom for momentary draw spikes, which is why a power buffer is recommended rather than budgeting to 100%.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2028-543_callback",
+      "deliver_after_hub_visits": 2,
+      "messages": {
+        "success": "Whatever you sorted out at Fort Kessler Regional Training Center, Wing C held. No repeat complaints.",
+        "fail": "Fort Kessler Regional Training Center, Wing C flagged the same problem again last month. Should've stuck the first time."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2029-544": {
+    "node_id": "SCN-II-2029-544",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.9",
+    "crew_affinity": "av_tech",
+    "year": 2029,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Judgment Call — II.A.9",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Control Room that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.44",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A specialist needs to connect an older VGA monitor to a new HDMI-only control PC. What is required?",
+      "options": {
+        "A": "An active HDMI-to-VGA converter, since HDMI is digital and VGA is analog, plus a separate audio cable if sound is needed.",
+        "B": "A simple passive HDMI-to-VGA adapter with no additional cabling.",
+        "C": "Nothing; HDMI and VGA are electrically compatible.",
+        "D": "A USB-to-Ethernet adapter."
+      },
+      "answer": "A",
+      "rationale": "Converting between a digital signal (HDMI) and an analog one (VGA) requires active conversion hardware, and VGA carries no audio, so a separate audio path is also needed.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2029-544_callback",
+      "deliver_after_hub_visits": 5,
+      "messages": {
+        "success": "A trainee at Fort Kessler Regional Training Center, Control Room asked about the fix you made. Apparently it's become the example they teach from now.",
+        "fail": "Fort Kessler Regional Training Center, Control Room worked around it instead of fixing it properly. It's still broken, just quieter about it."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2019-545": {
+    "node_id": "SCN-II-2019-545",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.9",
+    "crew_affinity": "av_tech",
+    "year": 2019,
+    "location_name": "Fort Kessler Regional Training Center, Server Closet",
+    "title": "Judgment Call — II.A.9",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Server Closet that no manual quite covers. The next block starts in twenty minutes and the room isn't ready. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.45",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A newly run Cat6 cable, installed parallel to and touching a high-voltage power line, is producing an intermittent, flaky network connection. What is the cause, and the fix?",
+      "options": {
+        "A": "Electromagnetic interference (EMI) from the power line -- use shielded twisted pair (STP) cable or reroute the cable away from the power line.",
+        "B": "The cable is simply too long; shorten it.",
+        "C": "The switch port is misconfigured for the wrong duplex setting.",
+        "D": "Cat6 cable is not rated for indoor use."
+      },
+      "answer": "A",
+      "rationale": "Running unshielded network cable alongside a high-voltage line is a classic EMI source; shielding or physical separation resolves it.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2020-546": {
+    "node_id": "SCN-II-2020-546",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.9",
+    "crew_affinity": "av_tech",
+    "year": 2020,
+    "location_name": "Ridgeline Sim Center, AV Bay",
+    "title": "Judgment Call — II.A.9",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, AV Bay that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.46",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "An SDI video run using BNC connectors is producing an intermittent signal despite a good-quality cable. What is the recommended fix?",
+      "options": {
+        "A": "Use a BNC torque tool to ensure a secure, locked connection, and verify the cable's impedance matches 75 ohms.",
+        "B": "Switch to a standard (non-locking) RCA connector for a more secure fit.",
+        "C": "Add as many right-angle adapters as needed to route around obstacles.",
+        "D": "Increase the video resolution to compensate for signal loss."
+      },
+      "answer": "A",
+      "rationale": "A loose BNC lock or an impedance mismatch are the most common causes of an intermittent SDI signal, and right-angle adapters are known failure points to avoid, not add.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2021-547": {
+    "node_id": "SCN-II-2021-547",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.10",
+    "crew_affinity": "av_tech",
+    "year": 2021,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Judgment Call — II.A.10",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, Server Room that no manual quite covers. The next block starts in twenty minutes and the room isn't ready. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.47",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "During an in-situ simulation in a hospital parking lot using a mobile hotspot, the manikin keeps disconnecting. What is the MOST likely cause?",
+      "options": {
+        "A": "High latency or weak signal strength from the cellular network, or interference from nearby vehicle electronics.",
+        "B": "The manikin's internal battery is too cold.",
+        "C": "The mobile hotspot doesn't support manikin traffic by design.",
+        "D": "The parking lot's pavement is blocking the compressor's air supply."
+      },
+      "answer": "A",
+      "rationale": "Cellular-based connections in an open, uncontrolled environment are the most common point of failure for wireless-dependent equipment during in-situ sims.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2022-548": {
+    "node_id": "SCN-II-2022-548",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.10",
+    "crew_affinity": "av_tech",
+    "year": 2022,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Judgment Call — II.A.10",
+    "flavor_intro": "A judgment call comes up at Harbor District Training Annex, Control Booth that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.48",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A student wearing a personal smartwatch enters the sim room, and the Wi-Fi-connected heart rate monitor display suddenly starts jumping erratically. What is the MOST likely cause?",
+      "options": {
+        "A": "Bluetooth interference, if both devices are operating in the same 2.4GHz frequency band.",
+        "B": "The smartwatch is hacking into the simulation software.",
+        "C": "The manikin's compressor has failed.",
+        "D": "The student's smartwatch is drawing power from the manikin."
+      },
+      "answer": "A",
+      "rationale": "Bluetooth and 2.4GHz Wi-Fi share spectrum, so a nearby personal device transmitting on that band can introduce interference that shows up as erratic readings.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2022-548_callback",
+      "deliver_after_hub_visits": 4,
+      "messages": {
+        "success": "Command mentioned Harbor District Training Annex, Control Booth in a briefing as a site doing it right. That was you.",
+        "fail": "Command mentioned Harbor District Training Annex, Control Booth in a briefing. Not as an example to follow."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2023-549": {
+    "node_id": "SCN-II-2023-549",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.A.10",
+    "crew_affinity": "av_tech",
+    "year": 2023,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Judgment Call — II.A.10",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Wing C that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.49",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "You're running an in-situ simulation in a parking lot near cellular towers and experiencing significant wireless jitter. What combination of fixes BEST addresses this while keeping a reliable fallback available?",
+      "options": {
+        "A": "Use a directional antenna to focus the signal between the manikin and control van, lower the video bitrate to prioritize control packets, and keep a hardwired Cat6 backup on hand.",
+        "B": "Increase the video bitrate to overpower the interference.",
+        "C": "Move the control van further from the manikin to reduce signal congestion.",
+        "D": "Switch entirely to Bluetooth for all manikin communication."
+      },
+      "answer": "A",
+      "rationale": "Focusing the signal, prioritizing the traffic that actually matters for control, and keeping a wired fallback together give the most resilient setup for an uncontrolled outdoor environment.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2023-549_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Fort Kessler Regional Training Center, Wing C's lead tech sent a one-line email: 'still good.' High praise, for her.",
+        "fail": "Fort Kessler Regional Training Center, Wing C's lead tech sent a one-line email. It was not 'still good.'"
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2024-550": {
+    "node_id": "SCN-II-2024-550",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.B.1",
+    "crew_affinity": "av_tech",
+    "year": 2024,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Judgment Call — II.B.1",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Control Room that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.50",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A facilitator wants to capture a 'patient's eye view' for a scenario designed to build learner empathy. What equipment BEST accomplishes this?",
+      "options": {
+        "A": "A point-of-view wearable camera, or a small action camera mounted at the manikin's head level.",
+        "B": "A fixed, room-wide PTZ camera in the corner of the ceiling.",
+        "C": "A single boundary microphone with no camera.",
+        "D": "A whiteboard sketch of the patient's perspective."
+      },
+      "answer": "A",
+      "rationale": "Only a camera positioned and angled from the patient's own vantage point can actually produce a patient's-eye-view recording.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2024-550_callback",
+      "deliver_after_hub_visits": 5,
+      "messages": {
+        "success": "Command mentioned Fort Kessler Regional Training Center, Control Room in a briefing as a site doing it right. That was you.",
+        "fail": "Command mentioned Fort Kessler Regional Training Center, Control Room in a briefing. Not as an example to follow."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2025-551": {
+    "node_id": "SCN-II-2025-551",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.B.1",
+    "crew_affinity": "av_tech",
+    "year": 2025,
+    "location_name": "Fort Kessler Regional Training Center, Server Closet",
+    "title": "Judgment Call — II.B.1",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Server Closet that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.51",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A debriefing room has high ceilings and heavy echo, making recorded participant audio muddy and hard to understand. What is the BEST microphone choice to fix this?",
+      "options": {
+        "A": "Lavalier microphones on each participant, to capture direct voice and minimize room ambience and echo.",
+        "B": "A single boundary microphone placed on the far wall.",
+        "C": "The camera's built-in microphone, zoomed in tighter.",
+        "D": "No microphone; rely on the video alone for debriefing."
+      },
+      "answer": "A",
+      "rationale": "Close-source (lavalier) mics pick up direct voice while rejecting a much larger share of reflected room sound than a distant boundary or camera mic would.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2026-552": {
+    "node_id": "SCN-II-2026-552",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.B.1",
+    "crew_affinity": "av_tech",
+    "year": 2026,
+    "location_name": "Ridgeline Sim Center, AV Bay",
+    "title": "Judgment Call — II.B.1",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, AV Bay that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.52",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "An instructor wants to record close-up footage of moulage application for a training tutorial. What AV setup produces the BEST result?",
+      "options": {
+        "A": "A macro lens on a stationary camera with high-CRI lighting, to capture fine texture and color detail.",
+        "B": "A wide-angle PTZ camera positioned across the room.",
+        "C": "A smartphone camera in low ambient light.",
+        "D": "An audio-only recording with photos taken afterward."
+      },
+      "answer": "A",
+      "rationale": "Fine texture and color work like moulage needs close focus and accurate color rendering, which a macro lens and high-CRI lighting are specifically suited for.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2026-552_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Ran into someone from Ridgeline Sim Center, AV Bay at a conference. Unprompted, she mentioned it's still holding up fine.",
+        "fail": "Heard through the grapevine Ridgeline Sim Center, AV Bay had to redo that fix from scratch. Word gets around."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2027-553": {
+    "node_id": "SCN-II-2027-553",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.B.2",
+    "crew_affinity": "av_tech",
+    "year": 2027,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Judgment Call — II.B.2",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, Server Room that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.53",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A center has no MRI machine but wants to simulate an MRI suite for a claustrophobia/patient-comfort scenario. What is the recommended way to build this environment on a budget?",
+      "options": {
+        "A": "Play a recording of MRI 'knocking' sounds and use a mock MRI tube or tunnel to simulate the cramped space.",
+        "B": "Purchase a full working MRI machine for the sim lab.",
+        "C": "Skip the environment entirely and describe it verbally to learners.",
+        "D": "Use a CT scanner mockup instead, since the experience is functionally identical."
+      },
+      "answer": "A",
+      "rationale": "Environmental fidelity for an MRI scenario is driven by the characteristic sound and the confined space, both of which can be reproduced cheaply without a real machine.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2028-554": {
+    "node_id": "SCN-II-2028-554",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.B.2",
+    "crew_affinity": "av_tech",
+    "year": 2028,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Judgment Call — II.B.2",
+    "flavor_intro": "A judgment call comes up at Harbor District Training Annex, Control Booth that no manual quite covers. The next block starts in twenty minutes and the room isn't ready. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.54",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A faculty member is designing a home-health visit scenario for a patient with early dementia and wants realistic props that shift the context away from a hospital setting. Which prop set is MOST appropriate?",
+      "options": {
+        "A": "Non-clinical household items like throw rugs, pill organizers, and ordinary furniture.",
+        "B": "A full hospital crash cart placed in the living room.",
+        "C": "A defibrillator mounted on the wall.",
+        "D": "Hospital-branded patient ID wristbands."
+      },
+      "answer": "A",
+      "rationale": "Home-health environmental fidelity depends on ordinary household context, not hospital equipment, which would undercut the scenario's setting.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2029-555": {
+    "node_id": "SCN-II-2029-555",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.B.3",
+    "crew_affinity": "av_tech",
+    "year": 2029,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Judgment Call — II.B.3",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Wing C that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.55",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A specialist needs to simulate a gunshot wound with active bleeding on a high-fidelity manikin. What materials should be used?",
+      "options": {
+        "A": "A silicone-based wound moulage with an embedded bleeding line connected to a pressurized reservoir of simulated blood.",
+        "B": "Real ketchup and a standard bandage.",
+        "C": "A printed photo of a wound taped to the manikin.",
+        "D": "Simulated blood poured directly onto the manikin's bare skin with no moulage material."
+      },
+      "answer": "A",
+      "rationale": "A proper silicone wound with a controllable bleeding line gives realistic appearance and a controllable active-bleed effect without staining or damaging the manikin's skin.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2019-556": {
+    "node_id": "SCN-II-2019-556",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.B.3",
+    "crew_affinity": "av_tech",
+    "year": 2019,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Judgment Call — II.B.3",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Control Room that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.56",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "How can a specialist simulate 'cold, clammy skin' on a manikin just before learners enter the room?",
+      "options": {
+        "A": "Apply a thin layer of glycerin or a specialized cooling/sweat spray to the manikin's skin.",
+        "B": "Place the entire manikin in a refrigerator for an hour.",
+        "C": "Lower the room's HVAC temperature to 50°F.",
+        "D": "Apply baby powder to the manikin's skin."
+      },
+      "answer": "A",
+      "rationale": "A thin glycerin or sweat-spray layer reproduces the clammy appearance and feel quickly and safely, without risking the manikin's electronics or the room's comfort.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2020-557": {
+    "node_id": "SCN-II-2020-557",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.B.3",
+    "crew_affinity": "av_tech",
+    "year": 2020,
+    "location_name": "Fort Kessler Regional Training Center, Server Closet",
+    "title": "Judgment Call — II.B.3",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Server Closet that no manual quite covers. The next block starts in twenty minutes and the room isn't ready. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.57",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "Before applying any new moulage product to an expensive high-fidelity manikin for the first time, what is the specialist's safety priority?",
+      "options": {
+        "A": "Confirm the material is manikin-safe (non-staining) and perform a patch test on a hidden area first.",
+        "B": "Apply it directly to the most visible part of the manikin to check how it looks on camera.",
+        "C": "Skip testing if the product worked on a different manikin brand.",
+        "D": "Apply extra layers to guarantee visibility during the scenario."
+      },
+      "answer": "A",
+      "rationale": "Manikin skin materials vary in how they react to moulage products, so a hidden-area patch test is the standard way to avoid permanent staining or damage.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2021-558": {
+    "node_id": "SCN-II-2021-558",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.C.1",
+    "crew_affinity": "av_tech",
+    "year": 2021,
+    "location_name": "Ridgeline Sim Center, AV Bay",
+    "title": "Judgment Call — II.C.1",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, AV Bay that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.58",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A learner accidentally pushes 500cc of real tap water into a manikin's internal lung reservoir instead of using the simulated fluid. What is the correct corrective action?",
+      "options": {
+        "A": "Immediately drain the lung, flush with isopropyl alcohol to prevent mold, and leave it open to air-dry for 24-48 hours.",
+        "B": "Leave the water in place; it will evaporate on its own during normal use.",
+        "C": "Immediately power-wash the manikin's exterior skin.",
+        "D": "Replace the entire manikin, since internal water damage cannot be remediated."
+      },
+      "answer": "A",
+      "rationale": "Draining, flushing, and thoroughly air-drying the internal reservoir is the standard corrective action to prevent mold growth inside a sealed manikin cavity.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2022-559": {
+    "node_id": "SCN-II-2022-559",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.C.1",
+    "crew_affinity": "av_tech",
+    "year": 2022,
+    "location_name": "Ridgeline Sim Center, Server Room",
+    "title": "Judgment Call — II.C.1",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center, Server Room that no manual quite covers. The next block starts in twenty minutes and the room isn't ready. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.59",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A manikin's internal fluid pump is leaking, and the specialist traces the root cause to a cracked Y-connector. What is the appropriate fix?",
+      "options": {
+        "A": "Replace the connector with a medical-grade nylon fitting, secured with proper hose clamps rather than zip ties, and log it in the maintenance record.",
+        "B": "Wrap the crack in electrical tape and continue using it.",
+        "C": "Ignore it since fluid leaks don't affect scenario outcomes.",
+        "D": "Increase the pump's flow rate to compensate for the leak."
+      },
+      "answer": "A",
+      "rationale": "A proper replacement part and secure clamping fixes the actual root cause, and logging it helps catch whether it's part of a recurring manufacturer issue.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2022-559_callback",
+      "deliver_after_hub_visits": 4,
+      "messages": {
+        "success": "No news out of Ridgeline Sim Center, Server Room on that one. In this job, no news is the best you get.",
+        "fail": "Ridgeline Sim Center, Server Room put in a request for the same part again. Make of that what you will."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2023-560": {
+    "node_id": "SCN-II-2023-560",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.C.2",
+    "crew_affinity": "av_tech",
+    "year": 2023,
+    "location_name": "Harbor District Training Annex, Control Booth",
+    "title": "Judgment Call — II.C.2",
+    "flavor_intro": "A judgment call comes up at Harbor District Training Annex, Control Booth that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.60",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "A specialist notices a manikin's skin has become tacky and sticky to the touch over several weeks of use. What is the correct preventive-maintenance fix?",
+      "options": {
+        "A": "Clean the skin with mild soap and water, then apply a light coating of manufacturer-recommended, talc-free manikin powder.",
+        "B": "Apply a heavy layer of silicone lubricant to restore the texture.",
+        "C": "Wipe the skin down with rubbing alcohol only, with no other treatment.",
+        "D": "Replace the manikin's entire skin immediately, since tackiness cannot be treated."
+      },
+      "answer": "A",
+      "rationale": "A mild clean followed by manufacturer-approved powder is the standard fix for tacky manikin skin, and avoids products that could degrade the material further.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2023-560_callback",
+      "deliver_after_hub_visits": 3,
+      "messages": {
+        "success": "Whatever you sorted out at Harbor District Training Annex, Control Booth held. No repeat complaints.",
+        "fail": "Harbor District Training Annex, Control Booth flagged the same problem again last month. Should've stuck the first time."
+      }
+    },
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2024-561": {
+    "node_id": "SCN-II-2024-561",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.C.2",
+    "crew_affinity": "av_tech",
+    "year": 2024,
+    "location_name": "Fort Kessler Regional Training Center, Wing C",
+    "title": "Judgment Call — II.C.2",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Wing C that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.61",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "What is the recommended approach for applying firmware updates to simulation infrastructure like network switches and encoders?",
+      "options": {
+        "A": "Follow a quarterly review cycle, checking for updates every few months, but only applying them when there's enough down time to test for regressions.",
+        "B": "Apply every firmware update the moment it's released, with no testing window.",
+        "C": "Never apply firmware updates once equipment is installed.",
+        "D": "Only apply updates after a device has already failed."
+      },
+      "answer": "A",
+      "rationale": "A scheduled review-and-test cycle balances staying current with avoiding an update-induced outage during active teaching time.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": null,
+    "weight": null,
+    "effects": {
+      "on_pass": {
+        "integrity": 10,
+        "morale": 5,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -15,
+        "morale": -10,
+        "budget": -15
+      }
+    }
+  },
+  "SCN-II-2025-562": {
+    "node_id": "SCN-II-2025-562",
+    "type": "scenario",
+    "domain": "II",
+    "ksa": "II.C.2",
+    "crew_affinity": "av_tech",
+    "year": 2025,
+    "location_name": "Fort Kessler Regional Training Center, Control Room",
+    "title": "Judgment Call — II.C.2",
+    "flavor_intro": "A judgment call comes up at Fort Kessler Regional Training Center, Control Room that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "source": {
+      "file": "mcq_bank.json",
+      "id": "MCQ.II.62",
+      "as": "scenario"
+    },
+    "payload": {
+      "question": "During preventive maintenance on a manikin's airway, what is the recommended way to prepare a 'tongue edema' balloon before reinstalling it, to prevent it from sticking to the internal airway walls over time?",
+      "options": {
+        "A": "Lightly dust it with cornstarch (not talc) before installation.",
+        "B": "Coat it heavily in silicone grease.",
+        "C": "Install it wet, straight out of a cleaning solution.",
+        "D": "No preparation is needed; the balloons are self-lubricating."
+      },
+      "answer": "A",
+      "rationale": "A light cornstarch dusting is the manufacturer-recommended way to keep the balloon from adhering to itself or the airway walls over repeated use.",
+      "time_limit_seconds": null
+    },
+    "requires": {
+      "rank_min": "junior_sim_tech",
+      "crew_recruited": [
+        "av_tech"
+      ]
+    },
+    "sets_flags": {},
+    "callback": {
+      "flag": "SCN-II-2025-562_callback",
+      "deliver_after_hub_visits": 2,
+      "messages": {
+        "success": "Fort Kessler Regional Training Center, Control Room's numbers came back clean on the quarterly audit. That one's staying fixed.",
+        "fail": "Fort Kessler Regional Training Center, Control Room pulled the readiness report. Yours is the name next to the open item."
+      }
+    },
     "weight": null,
     "effects": {
       "on_pass": {

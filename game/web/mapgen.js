@@ -260,20 +260,41 @@ function generateSectorMap({ profile, usedNodeIds, seed }) {
   const nodes = {};
   let restPlaced = false;
 
+  // Diagnostic and scenario nodes both draw from mcq_bank.json 1:1 -- a
+  // scenario node is the SAME question/options/rationale as its diagnostic
+  // twin, just re-skinned (untimed, pressure-archetype framing). Their
+  // node_ids differ, so plain node_id anti-repeat can't see the duplication:
+  // a player can get "RSSI dead zone" as a diagnostic node one run and the
+  // literal same question text as a scenario node soon after, and it reads
+  // as a repeat even though it technically isn't one by id. Tracking
+  // source.id (the shared mcq_bank id) alongside node_id closes that gap.
+  const usedSourceIds = new Set(
+    [...usedNodeIds]
+      .map(id => ALL_NODE_TEMPLATES[id])
+      .filter(n => n && n.source && n.source.id)
+      .map(n => n.source.id)
+  );
+  const usedSourceIdsThisRun = new Set();
+
   // Prefer content from the sector's own year window, and prefer content not
-  // seen recently -- but never let either preference starve a slot. Tiers,
-  // most-preferred first: (in-window AND fresh) -> (in-window) -> (fresh, any
-  // year) -> (anything of this type at all).
+  // seen recently (by node_id or by shared source id, see above) -- but never
+  // let either preference starve a slot. Tiers, most-preferred first:
+  // (in-window AND fresh) -> (in-window) -> (fresh, any year) -> (anything of
+  // this type at all).
   function pickForType(type) {
     if (type === "rest") return null; // handled separately, no pool content
     const sameType = pool.filter(n => n.type === type && !usedThisRun.has(n.node_id));
     if (!sameType.length) return null;
+    const isFresh = n => !usedNodeIds.has(n.node_id)
+      && !(n.source && n.source.id && (usedSourceIds.has(n.source.id) || usedSourceIdsThisRun.has(n.source.id)));
     const windowed = sameType.filter(inWindow);
-    const windowedFresh = windowed.filter(n => !usedNodeIds.has(n.node_id));
-    const anyFresh = sameType.filter(n => !usedNodeIds.has(n.node_id));
+    const windowedFresh = windowed.filter(isFresh);
+    const anyFresh = sameType.filter(isFresh);
     const tiers = [windowedFresh, windowed, anyFresh, sameType];
     const tier = tiers.find(t => t.length > 0);
-    return weightedDomainPick(tier, rng);
+    const picked = weightedDomainPick(tier, rng);
+    if (picked && picked.source && picked.source.id) usedSourceIdsThisRun.add(picked.source.id);
+    return picked;
   }
 
   slots.forEach(slot => {
