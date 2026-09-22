@@ -320,7 +320,7 @@ def build_intel_nodes(expert_knowledge, counter):
                 "year": year,
                 "location_name": site,
                 "title": f"Field Briefing: {term}",
-                "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+                "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
                 "source": {"file": "expert_knowledge.json", "ksa": ksa, "field": "terminology", "term": term},
                 "payload": {
                     "term": term,
@@ -331,7 +331,10 @@ def build_intel_nodes(expert_knowledge, counter):
                 "sets_flags": {},
                 "callback": None,
                 "weight": None,
-                "effects": {"integrity": 2, "morale": 0, "budget": 0},
+                "effects": {
+                    "on_pass": {"integrity": 4, "morale": 2, "budget": 0},
+                    "on_fail": {"integrity": -4, "morale": 0, "budget": 0},
+                },
             })
     return nodes
 

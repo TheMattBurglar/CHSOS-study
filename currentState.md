@@ -244,4 +244,14 @@ Eight changes today, in order, each caught and fixed real problems Matthew found
 
 **Everything in this session is uncommitted as of this note** — see the next commit for what actually shipped.
 
+---
+
+## Intel: Real Questions, Not Flashcards (2026-09-22)
+
+Matthew played the build with a first-encounter Intel "free flashcard, quiz on the second encounter" design (built same day, previously uncommitted) and rejected the whole framing after seeing it in practice: he was hitting nothing but passive card-reads with no real questions, and pushed back that failing a question is itself part of learning it ("trial and error is part of that teaching, not just memorization") — not something to gate behind a second exposure.
+
+**Change:** Intel nodes now present a real 4-option "define the term" question (distractor definitions drawn from other intel nodes, same-domain preferred) on *every* encounter, not just the second. A wrong answer is graded exactly like a wrong diagnostic answer — normal `on_fail` effects, normal mastery impact, no special-cased softer penalty — and the term comes back around later in the pool for another shot. Removed the now-unneeded `seen_terms` profile field, `renderIntelBriefing()`, and the intermediate `renderIntelRecallCheck()` split (folded into a single `renderIntel()`). Intel's `effects` shape changed from a flat single value to `on_pass`/`on_fail` (matching diagnostic's shape) in `content.js`, `build_nodes.py`, and `SCHEMA.md`'s documented example; regenerated `nodes.json`/`nodes_generated.js` from the pipeline. Flavor/Hub copy updated to match ("Hub doesn't pull up a card this time. 'You should have this one. Prove it.'") since the old "refresh yourself before you land" line no longer matches being tested immediately.
+
+**Verified via Playwright** (fresh profile each run): an Intel node now shows the `INTEL` tag with 4 options immediately, no leading flashcard/CONTINUE-only step. Correct answer: mastery goes from untracked to level 1, integrity effect applied. Incorrect answer: `-4` integrity applied, mastery recorded at level 0 (tracked but not advanced), rationale box correctly shows "Not quite." plus the real definition either way. Zero console errors across both paths.
+
 

@@ -5451,7 +5451,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Waystation 4",
     "title": "Field Briefing: AMI",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.A",
@@ -5470,9 +5470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2020-502": {
@@ -5484,7 +5491,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "en route",
     "title": "Field Briefing: CVA",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.A",
@@ -5503,9 +5510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2021-503": {
@@ -5517,7 +5531,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Sepsis",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.A",
@@ -5536,9 +5550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2022-504": {
@@ -5550,7 +5571,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Fort Kessler Regional Training Center",
     "title": "Field Briefing: Tension Pneumothorax",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.A",
@@ -5569,9 +5590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2023-505": {
@@ -5583,7 +5611,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Waystation 4",
     "title": "Field Briefing: Pulse Oximetry (SpO2)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.A",
@@ -5602,9 +5630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2024-506": {
@@ -5616,7 +5651,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "en route",
     "title": "Field Briefing: Cyanosis",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.A",
@@ -5635,9 +5670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2025-507": {
@@ -5649,7 +5691,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Hypoxia",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.A",
@@ -5668,9 +5710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2026-508": {
@@ -5682,7 +5731,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Fort Kessler Regional Training Center",
     "title": "Field Briefing: Homeostasis",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.B",
@@ -5701,9 +5750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2027-509": {
@@ -5715,7 +5771,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Waystation 4",
     "title": "Field Briefing: Fidelity (Conceptual)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.B",
@@ -5734,9 +5790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2028-510": {
@@ -5748,7 +5811,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "en route",
     "title": "Field Briefing: Fidelity (Physical)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.B",
@@ -5767,9 +5830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2029-511": {
@@ -5781,7 +5851,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Fidelity (Psychological)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.B",
@@ -5800,9 +5870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2019-512": {
@@ -5814,7 +5891,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Fort Kessler Regional Training Center",
     "title": "Field Briefing: Functional Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.B",
@@ -5833,9 +5910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2020-513": {
@@ -5847,7 +5931,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Waystation 4",
     "title": "Field Briefing: Environmental Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.B",
@@ -5866,9 +5950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2021-514": {
@@ -5880,7 +5971,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "en route",
     "title": "Field Briefing: Bolus",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.C",
@@ -5899,9 +5990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2022-515": {
@@ -5913,7 +6011,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: IO (Intraosseous)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.C",
@@ -5932,9 +6030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2023-516": {
@@ -5946,7 +6051,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Fort Kessler Regional Training Center",
     "title": "Field Briefing: Six Rights",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.C",
@@ -5965,9 +6070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2024-517": {
@@ -5979,7 +6091,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Waystation 4",
     "title": "Field Briefing: MAR (Medication Administration Record)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.C",
@@ -5998,9 +6110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2025-518": {
@@ -6012,7 +6131,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "en route",
     "title": "Field Briefing: Onset of Action",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.C",
@@ -6031,9 +6150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2026-519": {
@@ -6045,7 +6171,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Titration",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.C",
@@ -6064,9 +6190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2027-520": {
@@ -6078,7 +6211,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Fort Kessler Regional Training Center",
     "title": "Field Briefing: Crash Cart",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.D",
@@ -6097,9 +6230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2028-521": {
@@ -6111,7 +6251,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Waystation 4",
     "title": "Field Briefing: Defibrillator",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.D",
@@ -6130,9 +6270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2029-522": {
@@ -6144,7 +6291,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "en route",
     "title": "Field Briefing: Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.D",
@@ -6163,9 +6310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2019-523": {
@@ -6177,7 +6331,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: IV Pump (Infusion Pump)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.D",
@@ -6196,9 +6350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2020-524": {
@@ -6210,7 +6371,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Fort Kessler Regional Training Center",
     "title": "Field Briefing: Glucometer",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.D",
@@ -6229,9 +6390,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2021-525": {
@@ -6243,7 +6411,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Waystation 4",
     "title": "Field Briefing: Pulse Point",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.D",
@@ -6262,9 +6430,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2022-526": {
@@ -6276,7 +6451,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "en route",
     "title": "Field Briefing: Environmental Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.D",
@@ -6295,9 +6470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2023-527": {
@@ -6309,7 +6491,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Staged Clues",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.D",
@@ -6328,9 +6510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2024-528": {
@@ -6342,7 +6531,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Fort Kessler Regional Training Center",
     "title": "Field Briefing: Scope of Practice",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.E",
@@ -6361,9 +6550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2025-529": {
@@ -6375,7 +6571,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Waystation 4",
     "title": "Field Briefing: Conflict of Role",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.E",
@@ -6394,9 +6590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2026-530": {
@@ -6408,7 +6611,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "en route",
     "title": "Field Briefing: IPE (Interprofessional Education)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.E",
@@ -6427,9 +6630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2027-531": {
@@ -6441,7 +6651,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Interprofessional Simulation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.E",
@@ -6460,9 +6670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2028-532": {
@@ -6474,7 +6691,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Fort Kessler Regional Training Center",
     "title": "Field Briefing: Standardized Participant",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.E",
@@ -6493,9 +6710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2029-533": {
@@ -6507,7 +6731,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Waystation 4",
     "title": "Field Briefing: Pre-briefing",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.E",
@@ -6526,9 +6750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-I-2019-534": {
@@ -6540,7 +6771,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "en route",
     "title": "Field Briefing: Confederate",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "I.E",
@@ -6559,9 +6790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2019-501": {
@@ -6573,7 +6811,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: MAC Address",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.1",
@@ -6592,9 +6830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2020-502": {
@@ -6606,7 +6851,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: Subnet Mask",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.1",
@@ -6625,9 +6870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2021-503": {
@@ -6639,7 +6891,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: Ping / Traceroute",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.1",
@@ -6658,9 +6910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2022-504": {
@@ -6672,7 +6931,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: DNS (Domain Name System)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.1",
@@ -6691,9 +6950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2023-505": {
@@ -6705,7 +6971,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: SSID (Service Set Identifier)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.1",
@@ -6724,9 +6990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2024-506": {
@@ -6738,7 +7011,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: DHCP Reservation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.1",
@@ -6757,9 +7030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2025-507": {
@@ -6771,7 +7051,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: MAC Filtering",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.1",
@@ -6790,9 +7070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2026-508": {
@@ -6804,7 +7091,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: Wireless Jitter",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.1",
@@ -6823,9 +7110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2027-509": {
@@ -6837,7 +7131,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: NDI (Network Device Interface)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.2",
@@ -6856,9 +7150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2028-510": {
@@ -6870,7 +7171,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: Dante",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.2",
@@ -6889,9 +7190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2029-511": {
@@ -6903,7 +7211,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: Gain Staging",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.2",
@@ -6922,9 +7230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2019-512": {
@@ -6936,7 +7251,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: Phantom Power (+48V)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.2",
@@ -6955,9 +7270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2020-513": {
@@ -6969,7 +7291,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: Mixer",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.2",
@@ -6988,9 +7310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2021-514": {
@@ -7002,7 +7331,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: Encoder",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.2",
@@ -7021,9 +7350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2022-515": {
@@ -7035,7 +7371,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: Dante",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.2",
@@ -7054,9 +7390,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2023-516": {
@@ -7068,7 +7411,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: NDI (Network Device Interface)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.2",
@@ -7087,9 +7430,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2024-517": {
@@ -7101,7 +7451,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: Gaussian Blur",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.2",
@@ -7120,9 +7470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2025-518": {
@@ -7134,7 +7491,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: SCORM / xAPI",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.3",
@@ -7153,9 +7510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2026-519": {
@@ -7167,7 +7531,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: SSO (Single Sign-On)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.3",
@@ -7186,9 +7550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2027-520": {
@@ -7200,7 +7571,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: Virtual Webcam",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.3",
@@ -7219,9 +7590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2028-521": {
@@ -7233,7 +7611,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: API (Application Programming Interface)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.3",
@@ -7252,9 +7630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2029-522": {
@@ -7266,7 +7651,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: FERPA",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.4",
@@ -7285,9 +7670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2019-523": {
@@ -7299,7 +7691,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: Encryption",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.4",
@@ -7318,9 +7710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2020-524": {
@@ -7332,7 +7731,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: WPA3",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.4",
@@ -7351,9 +7750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2021-525": {
@@ -7365,7 +7771,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: Firewall",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.4",
@@ -7384,9 +7790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2022-526": {
@@ -7398,7 +7811,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.5",
@@ -7417,9 +7830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2023-527": {
@@ -7431,7 +7851,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: Haptics",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.5",
@@ -7450,9 +7870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2024-528": {
@@ -7464,7 +7891,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: Mixed Reality (MR)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.5",
@@ -7483,9 +7910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2025-529": {
@@ -7497,7 +7931,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: Telesimulation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.5",
@@ -7516,9 +7950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2026-530": {
@@ -7530,7 +7971,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: Haptic Feedback",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.5",
@@ -7549,9 +7990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2027-531": {
@@ -7563,7 +8011,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: Hybrid Simulator",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.5",
@@ -7582,9 +8030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2028-532": {
@@ -7596,7 +8051,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: Galvanic Isolation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.6",
@@ -7615,9 +8070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2029-533": {
@@ -7629,7 +8091,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: Simulated Meds",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.6",
@@ -7648,9 +8110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2019-534": {
@@ -7662,7 +8131,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: Task Trainer",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.6",
@@ -7681,9 +8150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2020-535": {
@@ -7695,7 +8171,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: NAS",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.7",
@@ -7714,9 +8190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2021-536": {
@@ -7728,7 +8211,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: Data Retention Policy",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.7",
@@ -7747,9 +8230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2022-537": {
@@ -7761,7 +8251,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: MP4",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.7",
@@ -7780,9 +8270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2023-538": {
@@ -7794,7 +8291,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: Cloud Storage",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.7",
@@ -7813,9 +8310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2024-539": {
@@ -7827,7 +8331,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: PSI / Bar",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.8",
@@ -7846,9 +8350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2025-540": {
@@ -7860,7 +8371,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: Acoustic Isolation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.8",
@@ -7879,9 +8390,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2026-541": {
@@ -7893,7 +8411,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: Compressed Air",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.8",
@@ -7912,9 +8430,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2027-542": {
@@ -7926,7 +8451,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: HVAC",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.8",
@@ -7945,9 +8470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2028-543": {
@@ -7959,7 +8491,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: PoE Budget",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.8",
@@ -7978,9 +8510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2029-544": {
@@ -7992,7 +8531,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: VLAN (Virtual Local Area Network)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.8",
@@ -8011,9 +8550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2019-545": {
@@ -8025,7 +8571,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: SDI",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.9",
@@ -8044,9 +8590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2020-546": {
@@ -8058,7 +8611,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: HDBaseT",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.9",
@@ -8077,9 +8630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2021-547": {
@@ -8091,7 +8651,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: EDID",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.9",
@@ -8110,9 +8670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2022-548": {
@@ -8124,7 +8691,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: BNC Connector",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.9",
@@ -8143,9 +8710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2023-549": {
@@ -8157,7 +8731,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: Cat6",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.9",
@@ -8176,9 +8750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2024-550": {
@@ -8190,7 +8771,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: RSSI (Received Signal Strength Indicator)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.10",
@@ -8209,9 +8790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2025-551": {
@@ -8223,7 +8811,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: Access Point (AP)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.10",
@@ -8242,9 +8830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2026-552": {
@@ -8256,7 +8851,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: 802.11ax (Wi-Fi 6)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.10",
@@ -8275,9 +8870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2027-553": {
@@ -8289,7 +8891,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: Bandwidth",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.A.10",
@@ -8308,9 +8910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2028-554": {
@@ -8322,7 +8931,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: Field of View (FOV)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.1",
@@ -8341,9 +8950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2029-555": {
@@ -8355,7 +8971,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: Lavalier Microphone",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.1",
@@ -8374,9 +8990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2019-556": {
@@ -8388,7 +9011,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: Boundary Microphone",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.1",
@@ -8407,9 +9030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2020-557": {
@@ -8421,7 +9051,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: Transfer of Training",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.2",
@@ -8440,9 +9070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2021-558": {
@@ -8454,7 +9091,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: Realistic Environment",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.2",
@@ -8473,9 +9110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2022-559": {
@@ -8487,7 +9131,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: Prop",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.2",
@@ -8506,9 +9150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2023-560": {
@@ -8520,7 +9171,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: Moulage",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.3",
@@ -8539,9 +9190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2024-561": {
@@ -8553,7 +9211,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: TCO (Total Cost of Ownership)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.3",
@@ -8572,9 +9230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2025-562": {
@@ -8586,7 +9251,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: Patch Test",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.3",
@@ -8605,9 +9270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2026-563": {
@@ -8619,7 +9291,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: Casting",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.3",
@@ -8638,9 +9310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2027-564": {
@@ -8652,7 +9331,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: Simulated Blood",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.3",
@@ -8671,9 +9350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2028-565": {
@@ -8685,7 +9371,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: Anaplastology",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.3",
@@ -8704,9 +9390,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2029-566": {
@@ -8718,7 +9411,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: 3D Printing/Slicing",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.B.3",
@@ -8737,9 +9430,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2019-567": {
@@ -8751,7 +9451,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Fort Kessler Regional Training Center, Wing C",
     "title": "Field Briefing: Root Cause Analysis",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.C.1",
@@ -8770,9 +9470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2020-568": {
@@ -8784,7 +9491,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Fort Kessler Regional Training Center, Control Room",
     "title": "Field Briefing: Hardware Failure",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.C.1",
@@ -8803,9 +9510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2021-569": {
@@ -8817,7 +9531,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Fort Kessler Regional Training Center, Server Closet",
     "title": "Field Briefing: Software Bug",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.C.1",
@@ -8836,9 +9550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2022-570": {
@@ -8850,7 +9571,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Ridgeline Sim Center, AV Bay",
     "title": "Field Briefing: Preventive Maintenance (PM)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.C.2",
@@ -8869,9 +9590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2023-571": {
@@ -8883,7 +9611,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Ridgeline Sim Center, Server Room",
     "title": "Field Briefing: Firmware Update",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.C.2",
@@ -8902,9 +9630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-II-2024-572": {
@@ -8916,7 +9651,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Harbor District Training Annex, Control Booth",
     "title": "Field Briefing: Checklist",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "II.C.2",
@@ -8935,9 +9670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2019-501": {
@@ -8949,7 +9691,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: PM (Preventive Maintenance)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.A",
@@ -8968,9 +9710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2020-502": {
@@ -8982,7 +9731,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Corrective Maintenance",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.A",
@@ -9001,9 +9750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2021-503": {
@@ -9015,7 +9771,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: SSH Accreditation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.A",
@@ -9034,9 +9790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2022-504": {
@@ -9048,7 +9811,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Inventory Management",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.A",
@@ -9067,9 +9830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2023-505": {
@@ -9081,7 +9851,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Asset Tag",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.A",
@@ -9100,9 +9870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2024-506": {
@@ -9114,7 +9891,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Utilization Rate",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.B",
@@ -9133,9 +9910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2025-507": {
@@ -9147,7 +9931,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Gap Analysis",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.B",
@@ -9166,9 +9950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2026-508": {
@@ -9180,7 +9971,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Redundancy",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.B",
@@ -9199,9 +9990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2027-509": {
@@ -9213,7 +10011,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Throughput",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.B",
@@ -9232,9 +10030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2028-510": {
@@ -9246,7 +10051,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Strategic Plan",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.B",
@@ -9265,9 +10070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2029-511": {
@@ -9279,7 +10091,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Train-the-Trainer",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.C",
@@ -9298,9 +10110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2019-512": {
@@ -9312,7 +10131,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Competency Checklist",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.C",
@@ -9331,9 +10150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2020-513": {
@@ -9345,7 +10171,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Peer-to-Peer Training",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.C",
@@ -9364,9 +10190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2021-514": {
@@ -9378,7 +10211,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Technical Orientation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.C",
@@ -9397,9 +10230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2022-515": {
@@ -9411,7 +10251,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: PAR Level",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.D",
@@ -9430,9 +10270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2023-516": {
@@ -9444,7 +10291,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Lead Time",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.D",
@@ -9463,9 +10310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2024-517": {
@@ -9477,7 +10331,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Safety Stock",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.D",
@@ -9496,9 +10350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2025-518": {
@@ -9510,7 +10371,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Consumables",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.D",
@@ -9529,9 +10390,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2026-519": {
@@ -9543,7 +10411,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Lead Time",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.D",
@@ -9562,9 +10430,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2027-520": {
@@ -9576,7 +10451,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Supply Chain",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.D",
@@ -9595,9 +10470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2028-521": {
@@ -9609,7 +10491,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: SDS (Safety Data Sheets)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.E",
@@ -9628,9 +10510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2029-522": {
@@ -9642,7 +10531,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Fiction Contract",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.E",
@@ -9661,9 +10550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2019-523": {
@@ -9675,7 +10571,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Safety Data Sheet (SDS)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.E",
@@ -9694,9 +10590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2020-524": {
@@ -9708,7 +10611,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Sharps Container",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.E",
@@ -9727,9 +10630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2021-525": {
@@ -9741,7 +10651,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Fiction Contract",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.E",
@@ -9760,9 +10670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2022-526": {
@@ -9774,7 +10691,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Psychological Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.E",
@@ -9793,9 +10710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2019-501": {
@@ -9807,7 +10731,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: ROI (Return on Investment)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.A",
@@ -9826,9 +10750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2020-502": {
@@ -9840,7 +10771,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Stakeholders",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.A",
@@ -9859,9 +10790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2021-503": {
@@ -9873,7 +10811,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Advocacy",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.A",
@@ -9892,9 +10830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2022-504": {
@@ -9906,7 +10851,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Value on Investment (VOI)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.A",
@@ -9925,9 +10870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2023-505": {
@@ -9939,7 +10891,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Closed-Loop Communication",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.B",
@@ -9958,9 +10910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2024-506": {
@@ -9972,7 +10931,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Role Clarity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.B",
@@ -9991,9 +10950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2025-507": {
@@ -10005,7 +10971,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Conflict Resolution",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.B",
@@ -10024,9 +10990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2026-508": {
@@ -10038,7 +11011,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Team Dynamics",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.B",
@@ -10057,9 +11030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2027-509": {
@@ -10071,7 +11051,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Stakeholder Management",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.C",
@@ -10090,9 +11070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2028-510": {
@@ -10104,7 +11091,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Learning Culture",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.C",
@@ -10123,9 +11110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2029-511": {
@@ -10137,7 +11131,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Stakeholder Management",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.C",
@@ -10156,9 +11150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2019-512": {
@@ -10170,7 +11171,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Customer Service",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.C",
@@ -10189,9 +11190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2020-513": {
@@ -10203,7 +11211,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: ASPE",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.D",
@@ -10222,9 +11230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2021-514": {
@@ -10236,7 +11251,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: De-roling",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.D",
@@ -10255,9 +11270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2022-515": {
@@ -10269,7 +11291,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Vegas Rule",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.D",
@@ -10288,9 +11310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2023-516": {
@@ -10302,7 +11331,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Safe Work Environment",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.D",
@@ -10321,9 +11350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2024-517": {
@@ -10335,7 +11371,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Informed Consent",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.D",
@@ -10354,9 +11390,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2025-518": {
@@ -10368,7 +11411,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Confidentiality",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.D",
@@ -10387,9 +11430,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2026-519": {
@@ -10401,7 +11451,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Confederate (Embedded Participant)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.E",
@@ -10420,9 +11470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2027-520": {
@@ -10434,7 +11491,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Operations Specialist",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.E",
@@ -10453,9 +11510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2028-521": {
@@ -10467,7 +11531,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Facilitator",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.E",
@@ -10486,9 +11550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2029-522": {
@@ -10500,7 +11571,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Embedded Participant",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.E",
@@ -10519,9 +11590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2019-523": {
@@ -10533,7 +11611,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Confederate",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.E",
@@ -10552,9 +11630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2020-524": {
@@ -10566,7 +11651,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Angoff Method",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.F",
@@ -10585,9 +11670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2021-525": {
@@ -10599,7 +11691,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Pre-test Questions",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.F",
@@ -10618,9 +11710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2022-526": {
@@ -10632,7 +11731,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Scaled Score",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.F",
@@ -10651,9 +11750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2023-527": {
@@ -10665,7 +11771,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Credentialing",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.F",
@@ -10684,9 +11790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2024-528": {
@@ -10698,7 +11811,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Continuing Education",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.F",
@@ -10717,9 +11830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2025-529": {
@@ -10731,7 +11851,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Early Adopter",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.G",
@@ -10750,9 +11870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2026-530": {
@@ -10764,7 +11891,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Technical Feasibility",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.G",
@@ -10783,9 +11910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2027-531": {
@@ -10797,7 +11931,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Innovation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.G",
@@ -10816,9 +11950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2028-532": {
@@ -10830,7 +11971,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Pilot Study",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.G",
@@ -10849,9 +11990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2029-533": {
@@ -10863,7 +12011,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Representation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.H",
@@ -10882,9 +12030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2019-534": {
@@ -10896,7 +12051,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Implicit Bias",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.H",
@@ -10915,9 +12070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2020-535": {
@@ -10929,7 +12091,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Implicit Bias",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.H",
@@ -10948,9 +12110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2021-536": {
@@ -10962,7 +12131,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Cultural Humility",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.H",
@@ -10981,9 +12150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2022-537": {
@@ -10995,7 +12171,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Peer-Review",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.I",
@@ -11014,9 +12190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2023-538": {
@@ -11028,7 +12211,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: HSSOBP™ (Healthcare Simulation Standards of Best Practice)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.I",
@@ -11047,9 +12230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2024-539": {
@@ -11061,7 +12251,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Evidence-Based Practice",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.I",
@@ -11080,9 +12270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2025-540": {
@@ -11094,7 +12291,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Journal",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.I",
@@ -11113,9 +12310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2026-541": {
@@ -11127,7 +12331,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Software Logs",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.J",
@@ -11146,9 +12350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2027-542": {
@@ -11160,7 +12371,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Standardization",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.J",
@@ -11179,9 +12390,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2028-543": {
@@ -11193,7 +12411,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Quantitative Research",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.J",
@@ -11212,9 +12430,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2029-544": {
@@ -11226,7 +12451,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Qualitative Research",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.J",
@@ -11245,9 +12470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2019-545": {
@@ -11259,7 +12491,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Safe Container",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.K",
@@ -11278,9 +12510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2020-546": {
@@ -11292,7 +12531,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Ridgeline Sim Center, Debrief Room",
     "title": "Field Briefing: Psychological Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.K",
@@ -11311,9 +12550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2021-547": {
@@ -11325,7 +12571,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Coastal Med Annex 4, Debrief Suite",
     "title": "Field Briefing: Safe Container",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.K",
@@ -11344,9 +12590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-IV-2022-548": {
@@ -11358,7 +12611,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Harbor District Training Annex, Conference Room",
     "title": "Field Briefing: Psychological Safety",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "IV.K",
@@ -11377,9 +12630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2019-501": {
@@ -11391,7 +12651,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: ADDIE",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.A",
@@ -11410,9 +12670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2020-502": {
@@ -11424,7 +12691,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Needs Assessment (Analysis)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.A",
@@ -11443,9 +12710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2021-503": {
@@ -11457,7 +12731,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: SME (Subject Matter Expert)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.A",
@@ -11476,9 +12750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2022-504": {
@@ -11490,7 +12771,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Analysis Phase",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.A",
@@ -11509,9 +12790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2023-505": {
@@ -11523,7 +12811,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Design Phase",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.A",
@@ -11542,9 +12830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2024-506": {
@@ -11556,7 +12851,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: PADDIE+M",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.A",
@@ -11575,9 +12870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2025-507": {
@@ -11589,7 +12891,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Kirkpatrick Levels",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.A",
@@ -11608,9 +12910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2026-508": {
@@ -11622,7 +12931,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: SME (Subject Matter Expert)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.B",
@@ -11641,9 +12950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2027-509": {
@@ -11655,7 +12971,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Technical Feasibility",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.B",
@@ -11674,9 +12990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2028-510": {
@@ -11688,7 +13011,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Subject Matter Expert (SME)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.B",
@@ -11707,9 +13030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2029-511": {
@@ -11721,7 +13051,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Technical Reality",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.B",
@@ -11740,9 +13070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2019-512": {
@@ -11754,7 +13091,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Gap Analysis",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.1",
@@ -11773,9 +13110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2020-513": {
@@ -11787,7 +13131,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Stakeholders",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.1",
@@ -11806,9 +13150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2021-514": {
@@ -11820,7 +13171,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Gap Analysis",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.1",
@@ -11839,9 +13190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2022-515": {
@@ -11853,7 +13211,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: SMART Objectives",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.2",
@@ -11872,9 +13230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2023-516": {
@@ -11886,7 +13251,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Learning Outcome",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.2",
@@ -11905,9 +13270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2024-517": {
@@ -11919,7 +13291,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: SMART Goal",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.2",
@@ -11938,9 +13310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2025-518": {
@@ -11952,7 +13331,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Formative Evaluation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.3",
@@ -11971,9 +13350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2026-519": {
@@ -11985,7 +13371,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Summative Evaluation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.3",
@@ -12004,9 +13390,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2027-520": {
@@ -12018,7 +13411,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Rubric",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.3",
@@ -12037,9 +13430,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2028-521": {
@@ -12051,7 +13451,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Reliability",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.4",
@@ -12070,9 +13470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2029-522": {
@@ -12084,7 +13491,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Validity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.4",
@@ -12103,9 +13510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2019-523": {
@@ -12117,7 +13531,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Inter-rater Reliability",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.4",
@@ -12136,9 +13550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2020-524": {
@@ -12150,7 +13571,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: In-Situ Simulation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.5",
@@ -12169,9 +13590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2021-525": {
@@ -12183,7 +13611,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Footprint",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.5",
@@ -12202,9 +13630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2022-526": {
@@ -12216,7 +13651,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Setup Time",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.5",
@@ -12235,9 +13670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2023-527": {
@@ -12249,7 +13691,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Consumables",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.6",
@@ -12268,9 +13710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2024-528": {
@@ -12282,7 +13731,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.6",
@@ -12301,9 +13750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2025-529": {
@@ -12315,7 +13771,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Consumables",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.6",
@@ -12334,9 +13790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2026-530": {
@@ -12348,7 +13811,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: State",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.7",
@@ -12367,9 +13830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2027-531": {
@@ -12381,7 +13851,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Transition",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.7",
@@ -12400,9 +13870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2028-532": {
@@ -12414,7 +13891,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Trigger",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.7",
@@ -12433,9 +13910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2029-533": {
@@ -12447,7 +13931,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Branching Logic",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.7",
@@ -12466,9 +13950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2019-534": {
@@ -12480,7 +13971,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Linear Scenario",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.7",
@@ -12499,9 +13990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2020-535": {
@@ -12513,7 +14011,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: OET (Outcome-Based, Event-Driven Teaching)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.7",
@@ -12532,9 +14030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2021-536": {
@@ -12546,7 +14051,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: LIO (Live Improvised Operation, aka 'On the Fly')",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.7",
@@ -12565,9 +14070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2022-537": {
@@ -12579,7 +14091,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: SAO (Standardized Automated Operation)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.7",
@@ -12598,9 +14110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2023-538": {
@@ -12612,7 +14131,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: GAS",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.8",
@@ -12631,9 +14150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2024-539": {
@@ -12645,7 +14171,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Plus-Delta",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.8",
@@ -12664,9 +14190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2025-540": {
@@ -12678,7 +14211,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: DASH",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.8",
@@ -12697,9 +14230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2026-541": {
@@ -12711,7 +14251,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: The Diamond",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.8",
@@ -12730,9 +14270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2027-542": {
@@ -12744,7 +14291,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Plus-Delta",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.8",
@@ -12763,9 +14310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2028-543": {
@@ -12777,7 +14331,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Pilot Test",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.9",
@@ -12796,9 +14350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2029-544": {
@@ -12810,7 +14371,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Beta-Tester",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.9",
@@ -12829,9 +14390,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2019-545": {
@@ -12843,7 +14411,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Dress Rehearsal",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.9",
@@ -12862,9 +14430,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2020-546": {
@@ -12876,7 +14451,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Implementation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.10",
@@ -12895,9 +14470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2021-547": {
@@ -12909,7 +14491,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Priority Hierarchy",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.10",
@@ -12928,9 +14510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2022-548": {
@@ -12942,7 +14531,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Simulator Artifact",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.10",
@@ -12961,9 +14550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2023-549": {
@@ -12975,7 +14571,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Priority Hierarchy",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.10",
@@ -12994,9 +14590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2024-550": {
@@ -13008,7 +14611,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: CQI (Continuous Quality Improvement)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.11",
@@ -13027,9 +14630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2025-551": {
@@ -13041,7 +14651,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Software Logs",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.11",
@@ -13060,9 +14670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2026-552": {
@@ -13074,7 +14691,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: CQI (Continuous Quality Improvement)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.C.11",
@@ -13093,9 +14710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2023-527": {
@@ -13107,7 +14731,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Request Intake Form",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.F",
@@ -13126,9 +14750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2024-528": {
@@ -13140,7 +14771,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Turnover Time",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.F",
@@ -13159,9 +14790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2025-529": {
@@ -13173,7 +14811,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Closed-Loop Feedback",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.F",
@@ -13192,9 +14830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2026-530": {
@@ -13206,7 +14851,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Regulated Medical Waste (RMW)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.G",
@@ -13225,9 +14870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2027-531": {
@@ -13239,7 +14891,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Fill Line",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.G",
@@ -13258,9 +14910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2028-532": {
@@ -13272,7 +14931,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: PPE Doffing",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.G",
@@ -13291,9 +14950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2029-533": {
@@ -13305,7 +14971,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Utilization Rate",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.H",
@@ -13324,9 +14990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2019-534": {
@@ -13338,7 +15011,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Waitlist Data",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.H",
@@ -13357,9 +15030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2020-535": {
@@ -13371,7 +15051,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Steering Committee",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.H",
@@ -13390,9 +15070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2021-536": {
@@ -13404,7 +15091,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Physical (Equipment) Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.I",
@@ -13423,9 +15110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2022-537": {
@@ -13437,7 +15131,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Environmental Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.I",
@@ -13456,9 +15150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2023-538": {
@@ -13470,7 +15171,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Psychological Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.I",
@@ -13489,9 +15190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2024-539": {
@@ -13503,7 +15211,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Affordance",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.I",
@@ -13522,9 +15230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2025-540": {
@@ -13536,7 +15251,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Reliability",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.J",
@@ -13555,9 +15270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2026-541": {
@@ -13569,7 +15291,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Validity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.J",
@@ -13588,9 +15310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2027-542": {
@@ -13602,7 +15331,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Inter-rater Reliability",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.J",
@@ -13621,9 +15350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2028-543": {
@@ -13635,7 +15371,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Confounding Variable",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.J",
@@ -13654,9 +15390,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2029-544": {
@@ -13668,7 +15411,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Latent Safety Threat (LST)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.K",
@@ -13687,9 +15430,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2019-545": {
@@ -13701,7 +15451,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: In-Situ Simulation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.K",
@@ -13720,9 +15470,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2020-546": {
@@ -13734,7 +15491,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Psychological Safety",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.K",
@@ -13753,9 +15510,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2021-547": {
@@ -13767,7 +15531,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Moulage",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.L",
@@ -13786,9 +15550,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2022-548": {
@@ -13800,7 +15571,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Sensory Fidelity",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.L",
@@ -13819,9 +15590,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2023-549": {
@@ -13833,7 +15611,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Barrier Layer",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.L",
@@ -13852,9 +15630,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2024-550": {
@@ -13866,7 +15651,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Orientation Packet",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.M",
@@ -13885,9 +15670,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2025-551": {
@@ -13899,7 +15691,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Train-the-Trainer",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.M",
@@ -13918,9 +15710,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2026-552": {
@@ -13932,7 +15731,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Fort Kessler Regional Training Center, Main Bay",
     "title": "Field Briefing: Ground Rules",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.M",
@@ -13951,9 +15750,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2027-553": {
@@ -13965,7 +15771,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Coastal Med Annex 4",
     "title": "Field Briefing: Community Outreach",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.N",
@@ -13984,9 +15790,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2028-554": {
@@ -13998,7 +15811,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Ridgeline Sim Center, Moulage Studio",
     "title": "Field Briefing: Media/Photography Release",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.N",
@@ -14017,9 +15830,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-III-2029-555": {
@@ -14031,7 +15851,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Harbor District Training Annex, Bay 2",
     "title": "Field Briefing: Showcase Scenario",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "III.N",
@@ -14050,9 +15870,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2027-553": {
@@ -14064,7 +15891,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: IPE (Interprofessional Education)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.D",
@@ -14083,9 +15910,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2028-554": {
@@ -14097,7 +15931,7 @@ const GENERATED_NODES = {
     "year": 2028,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Sim-IPE (Simulation-Enhanced Interprofessional Education)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.D",
@@ -14116,9 +15950,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2029-555": {
@@ -14130,7 +15971,7 @@ const GENERATED_NODES = {
     "year": 2029,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Interdisciplinary Learning",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.D",
@@ -14149,9 +15990,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2019-556": {
@@ -14163,7 +16011,7 @@ const GENERATED_NODES = {
     "year": 2019,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Interprofessionalism",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.D",
@@ -14182,9 +16030,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2020-557": {
@@ -14196,7 +16051,7 @@ const GENERATED_NODES = {
     "year": 2020,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Telesimulation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.E",
@@ -14215,9 +16070,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2021-558": {
@@ -14229,7 +16091,7 @@ const GENERATED_NODES = {
     "year": 2021,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Distance Simulation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.E",
@@ -14248,9 +16110,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2022-559": {
@@ -14262,7 +16131,7 @@ const GENERATED_NODES = {
     "year": 2022,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Synchronous",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.E",
@@ -14281,9 +16150,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2023-560": {
@@ -14295,7 +16171,7 @@ const GENERATED_NODES = {
     "year": 2023,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Asynchronous",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.E",
@@ -14314,9 +16190,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2024-561": {
@@ -14328,7 +16211,7 @@ const GENERATED_NODES = {
     "year": 2024,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Extended Reality (XR)",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.F",
@@ -14347,9 +16230,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2025-562": {
@@ -14361,7 +16251,7 @@ const GENERATED_NODES = {
     "year": 2025,
     "location_name": "Harbor District Training Annex, Faculty Lounge",
     "title": "Field Briefing: Screen-Based Simulation",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.F",
@@ -14380,9 +16270,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2026-563": {
@@ -14394,7 +16291,7 @@ const GENERATED_NODES = {
     "year": 2026,
     "location_name": "Fort Kessler Regional Training Center, Admin Wing",
     "title": "Field Briefing: Immersive vs. Non-Immersive VR",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.F",
@@ -14413,9 +16310,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "INT-V-2027-564": {
@@ -14427,7 +16331,7 @@ const GENERATED_NODES = {
     "year": 2027,
     "location_name": "Ridgeline Sim Center, Curriculum Office",
     "title": "Field Briefing: Virtual Patient",
-    "flavor_intro": "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
       "file": "expert_knowledge.json",
       "ksa": "V.F",
@@ -14446,9 +16350,16 @@ const GENERATED_NODES = {
     "callback": null,
     "weight": null,
     "effects": {
-      "integrity": 2,
-      "morale": 0,
-      "budget": 0
+      "on_pass": {
+        "integrity": 4,
+        "morale": 2,
+        "budget": 0
+      },
+      "on_fail": {
+        "integrity": -4,
+        "morale": 0,
+        "budget": 0
+      }
     }
   },
   "SCN-I-2019-501": {

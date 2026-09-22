@@ -126,7 +126,7 @@ Story context this schema encodes: rank track = Junior Sim Tech → Operations S
   "year": 2019,
   "location_name": "en route",
   "title": "Field Briefing: Shock",
-  "flavor_intro": "Hub pulls up a card before you land. \"Refresh yourself. You'll want this in the next ten minutes.\"",
+  "flavor_intro": "Hub doesn't pull up a card this time. \"You should have this one. Prove it.\"",
   "source": { "file": "expert_knowledge.json", "ksa": "I.A", "field": "terminology" },
   "payload": {
     "term": "Sepsis",
@@ -136,9 +136,15 @@ Story context this schema encodes: rank track = Junior Sim Tech → Operations S
   "requires": { "rank_min": "junior_sim_tech" },
   "sets_flags": {},
   "callback": null,
-  "weight": null
+  "weight": null,
+  "effects": {
+    "on_pass": { "integrity": 4, "morale": 2, "budget": 0 },
+    "on_fail": { "integrity": -4, "morale": 0, "budget": 0 }
+  }
 }
 ```
+
+Rendered as a real 4-option "define the term" question every time (distractor definitions drawn from other intel nodes) — not a passive flashcard. A wrong answer is graded like any other question (`on_fail` effects, normal mastery impact); the term simply comes back around later for another shot, same as any other missed KSA.
 
 ### `rest` and `checkpoint` payload shapes (lighter — no full example yet)
 

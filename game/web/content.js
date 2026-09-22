@@ -12,14 +12,17 @@ const NODES = {
     year: 2019,
     location_name: "en route",
     title: "Field Briefing: Hypoxia",
-    flavor_intro: "Hub pulls up a card before you land. “Refresh yourself. You'll want this in the next ten minutes.”",
+    flavor_intro: "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     source: { file: "expert_knowledge.json", ksa: "I.A", field: "terminology" },
     payload: {
       term: "Hypoxia",
       definition: "A condition in which the body or a region of the body is deprived of adequate oxygen supply at the tissue level.",
       flavor: "Hub: “Say it back to me without the textbook voice, or I'm not letting you off this ship.”"
     },
-    effects: { integrity: 2, morale: 0, budget: 0 }
+    effects: {
+      on_pass: { integrity: 4, morale: 2, budget: 0 },
+      on_fail: { integrity: -4, morale: 0, budget: 0 }
+    }
   },
 
   "DIAG-II-2019-001": {

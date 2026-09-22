@@ -562,20 +562,78 @@ function advanceAfterNode(node, success) {
 }
 
 // -- intel --
+//
+// A real question every time, not a flashcard: define-the-term, 4-option
+// multiple choice, drawing distractor definitions from other intel nodes.
+// Wrong answers are just wrong answers -- normal mastery/effects impact,
+// same as diagnostic -- and the term comes back around later for another
+// shot, so getting it wrong once is part of learning it, not a dead end.
+
+function normTerm(term) {
+  return term.trim().toLowerCase();
+}
+
+function otherIntelDefinitions(excludeTerm) {
+  const excludeKey = normTerm(excludeTerm);
+  const seen = new Set();
+  const out = [];
+  Object.values(ALL_NODE_TEMPLATES).forEach(n => {
+    if (n.type !== "intel") return;
+    const key = normTerm(n.payload.term);
+    if (key === excludeKey || seen.has(key)) return;
+    seen.add(key);
+    out.push({ domain: n.domain, definition: n.payload.definition });
+  });
+  return out;
+}
+
+function pickDistractorDefinitions(node, count) {
+  const pool = otherIntelDefinitions(node.payload.term);
+  const sameDomain = pool.filter(p => p.domain === node.domain);
+  const source = sameDomain.length >= count ? sameDomain : pool;
+  return source
+    .slice()
+    .sort(() => Math.random() - 0.5)
+    .slice(0, count)
+    .map(p => p.definition);
+}
+
+function shuffleIntoOptions(correctText, distractors) {
+  const letters = ["A", "B", "C", "D"];
+  const all = [correctText, ...distractors];
+  const order = all.map((_, i) => i).sort(() => Math.random() - 0.5);
+  const options = {};
+  let answer = null;
+  order.forEach((origIdx, pos) => {
+    options[letters[pos]] = all[origIdx];
+    if (origIdx === 0) answer = letters[pos];
+  });
+  return { options, answer };
+}
 
 function renderIntel(node) {
-  panel().innerHTML = `
+  const p = panel();
+  const distractors = pickDistractorDefinitions(node, 3);
+  const { options, answer } = shuffleIntoOptions(node.payload.definition, distractors);
+  p.innerHTML = `
     <span class="node-type-tag" style="background:${domainColor(node.domain)}22;color:${domainColor(node.domain)}">INTEL</span>
     <h1 class="hud" style="margin:10px 0">${node.title}</h1>
     <div class="flavor">${node.flavor_intro}</div>
-    <div class="result-box"><strong>${node.payload.term}</strong> — ${node.payload.definition}<br><br><em>${node.payload.flavor}</em></div>
-    <div class="btn-row"><button class="btn" id="node-continue">CONTINUE</button></div>
   `;
-  document.getElementById("node-continue").onclick = () => {
-    sfxSelect();
-    applyEffects(node.effects);
-    advanceAfterNode(node, true);
-  };
+  renderMCQBlock(p, {
+    question: `DEFINE: ${node.payload.term}`,
+    options,
+    answer,
+    rationale: node.payload.definition
+  }, (correct) => {
+    const effects = correct ? node.effects.on_pass : node.effects.on_fail;
+    p.innerHTML += effectsRowHtml(effects);
+    p.innerHTML += `<div class="btn-row"><button class="btn" id="node-continue">CONTINUE</button></div>`;
+    document.getElementById("node-continue").onclick = () => {
+      applyEffects(effects);
+      advanceAfterNode(node, correct);
+    };
+  });
 }
 
 // -- diagnostic (also reused by checkpoint stages) --
