@@ -288,4 +288,18 @@ Same session as the gate-visibility work above. Matthew asked directly: with the
 
 **Verified via Playwright:** fresh boot through intro → crew-hire → Hub → Begin Deployment still generates a clean map (zero console errors), browser correctly loads all 149 distinct MCQ source ids, an Intel node still resolves correctly post-regeneration.
 
+---
+
+## Mastery-Weighted Node Selection (2026-09-22)
+
+Still the same session. Matthew played more and reported still feeling stuck at Sector 4, and specifically clarified the repeat complaint: it's not that he's re-seeing questions he'd gotten *wrong* (which would be legitimate spaced repetition) — it's redundant repeats regardless of whether he already knows the content cold. That's a sharper, different bug than the source-id duplication fixed earlier today.
+
+**Root cause:** `weightedDomainPick()` in `game/web/mapgen.js` — the function that picks which specific node fills a slot once the type/freshness tiering has narrowed the candidates — only ever weighted candidates by `DOMAIN_WEIGHT` (the fixed exam-weight per domain, e.g. Domain II=35). It never looked at `profile.ksa_mastery` at all. So among the eligible candidates, a KSA already mastered to level 5 was exactly as likely to get picked as a KSA the player had never touched or kept getting wrong. The game's own premise (per the original design notes) was that it "reuses the existing Leitner spaced-repetition data as the difficulty signal" — but that data was only ever read for the rank-up gate calculation, never actually fed into which content gets shown.
+
+**Fix:** Added `masteryUrgencyWeight(ksa, ksaMastery)`, mapping KSA mastery level to a weight via `MASTERY_URGENCY_BY_LEVEL = [6, 5, 4, 3, 2, 1]` — level 0 or never-attempted is the most urgent (weight 6), a maxed level-5 KSA is rare but not excluded entirely (weight 1), so some review still happens. `weightedDomainPick()` now multiplies this into the existing domain-exam weighting, and `pickForType()` passes `profile.ksa_mastery` through at its one call site. Checkpoint stage picks inherit this automatically since they reuse `pickForType("diagnostic")`.
+
+**Verified via a standalone Node harness:** seeded a synthetic profile with 7 of Domain II's 15 KSAs at level 5 and the other 8 untouched, then simulated 40 runs. The 8 weak/untouched KSAs were drawn ~1.6x more often in aggregate than the 7 mastered ones (103 vs 64 draws), confirming the bias actually shows up in real map generation, not just in the weight formula on paper. Playwright confirmed the full boot-to-map-to-node flow still works cleanly afterward (a false-alarm "0 options" on one quick intel-node check turned out to be a test-script timing issue, not a real bug — a slower, more careful re-check showed the Intel node rendering its 4 options correctly).
+
+**On "stuck at Sector 4" specifically:** clarified for Matthew that Sector 4 is the *intended* final window (`SECTOR_YEAR_WINDOWS` caps there since the story's run-years span ends at 2029) — `sector_index` is designed to stop advancing once you're there, not a bug. If what actually feels stuck is rank (still Junior Sim Tech), that's the same Domain II mastery gate from the gate-visibility session earlier today, and this mastery-weighting fix is the direct lever for that: more of a player's plays should now land on the KSAs actually dragging their average down, instead of on ones already at level 5 doing nothing for the 60% target.
+
 

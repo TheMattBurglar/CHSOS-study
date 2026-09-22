@@ -90,9 +90,25 @@ function weightedChoice(pairs, rng) {
   return pairs[pairs.length - 1][0];
 }
 
-function weightedDomainPick(candidates, rng) {
+// A KSA's mastery level (0-5, see app.js's bumpMastery) drives how urgently
+// it should come back up: untouched/weak KSAs (level 0, or never attempted)
+// are the most urgent, a maxed-out KSA (level 5) is rare but not impossible,
+// so occasional review still happens. This is what actually makes repeats
+// feel like spaced repetition -- reinforcing what you're shaky on -- instead
+// of the anti-repeat window's plain recency, which had no opinion on whether
+// a question you already nailed twice was worth surfacing again over one
+// you've never seen or keep missing.
+const MASTERY_URGENCY_BY_LEVEL = [6, 5, 4, 3, 2, 1];
+
+function masteryUrgencyWeight(ksa, ksaMastery) {
+  if (!ksa) return 1;
+  const level = (ksaMastery && ksaMastery[ksa]) ? ksaMastery[ksa].level : 0;
+  return MASTERY_URGENCY_BY_LEVEL[Math.max(0, Math.min(5, level))];
+}
+
+function weightedDomainPick(candidates, rng, ksaMastery) {
   if (!candidates.length) return null;
-  const weighted = candidates.map(n => [n, DOMAIN_WEIGHT[n.domain] || 10]);
+  const weighted = candidates.map(n => [n, (DOMAIN_WEIGHT[n.domain] || 10) * masteryUrgencyWeight(n.ksa, ksaMastery)]);
   const total = weighted.reduce((sum, [, w]) => sum + w, 0);
   let r = rng() * total;
   for (const [node, w] of weighted) {
@@ -292,7 +308,7 @@ function generateSectorMap({ profile, usedNodeIds, seed }) {
     const anyFresh = sameType.filter(isFresh);
     const tiers = [windowedFresh, windowed, anyFresh, sameType];
     const tier = tiers.find(t => t.length > 0);
-    const picked = weightedDomainPick(tier, rng);
+    const picked = weightedDomainPick(tier, rng, profile.ksa_mastery);
     if (picked && picked.source && picked.source.id) usedSourceIdsThisRun.add(picked.source.id);
     return picked;
   }
