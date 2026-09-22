@@ -267,7 +267,30 @@ function startIntro() {
   showScreen("screen-intro");
 }
 
+function crewCardHtml(id) {
+  const def = CREW_DEFS[id];
+  return `
+    <div class="crew-avatar" style="color:${domainColor(def.domain)};border-color:${domainColor(def.domain)}">${def.name.split(" ").map(w => w[0]).slice(0, 2).join("")}</div>
+    <div>
+      <div class="crew-name">${def.name}</div>
+      <div class="crew-domain">Domain ${def.domain} — ${DOMAIN_LABELS[def.domain]}</div>
+    </div>
+  `;
+}
+
 document.getElementById("btn-intro-continue").addEventListener("click", () => {
+  showCrewHire();
+});
+
+// First crew pickup is an actual beat, not a silent grant -- later crew get a
+// promotion-line announcement (promotionLine()) when rank-up unlocks them;
+// AV Technician previously got nothing at all since rank-up doesn't apply yet.
+function showCrewHire() {
+  document.getElementById("crew-hire-card").innerHTML = crewCardHtml("av_tech");
+  showScreen("screen-crew-hire");
+}
+
+document.getElementById("btn-crew-hire-continue").addEventListener("click", () => {
   profile.seen_intro = true;
   if (!profile.unlocked_crew.includes("av_tech")) profile.unlocked_crew.push("av_tech");
   saveProfile();
@@ -309,15 +332,35 @@ function showHub() {
 
   const domainsEl = document.getElementById("hub-domains");
   domainsEl.innerHTML = "";
+  const gateDomain = RANK_GATE_DOMAIN[profile.rank];
+  const nextRank = gateDomain ? RANK_ORDER[rankIndex(profile.rank) + 1] : null;
   Object.keys(DOMAIN_LABELS).forEach(id => {
     const pct = domainMasteryPercent(id);
     const row = document.createElement("div");
+    const isGate = id === gateDomain;
+    let gateNoteHtml = "";
+    if (isGate) {
+      const masteryReady = domainMasteryReady(id);
+      const sectorReady = profile.sector_cleared_at_current_rank;
+      const ready = masteryReady && sectorReady;
+      gateNoteHtml = `
+        <div class="domain-gate-note${ready ? " ready" : ""}">
+          ${masteryReady ? "✓" : "○"} ${MASTERY_THRESHOLD_PERCENT}% mastery for ${RANK_LABELS[nextRank]}
+          &nbsp;·&nbsp;
+          ${sectorReady ? "✓" : "○"} sector cleared at current rank
+        </div>
+      `;
+    }
     row.innerHTML = `
       <div class="domain-row">
         <span class="hud" style="color:${domainColor(id)}">${id} <span style="color:#d3d8e0;font-weight:400">${DOMAIN_LABELS[id]}</span></span>
         <span class="hud">${pct}%</span>
       </div>
-      <div class="domain-bar-track"><div class="domain-bar-fill" style="width:${pct}%;background:${domainColor(id)}"></div></div>
+      <div class="domain-bar-track">
+        <div class="domain-bar-fill" style="width:${pct}%;background:${domainColor(id)}"></div>
+        ${isGate ? `<div class="domain-bar-threshold" style="left:${MASTERY_THRESHOLD_PERCENT}%"></div>` : ""}
+      </div>
+      ${gateNoteHtml}
     `;
     row.style.marginBottom = "12px";
     domainsEl.appendChild(row);

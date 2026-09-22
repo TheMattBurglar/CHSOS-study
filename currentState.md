@@ -254,4 +254,20 @@ Matthew played the build with a first-encounter Intel "free flashcard, quiz on t
 
 **Verified via Playwright** (fresh profile each run): an Intel node now shows the `INTEL` tag with 4 options immediately, no leading flashcard/CONTINUE-only step. Correct answer: mastery goes from untracked to level 1, integrity effect applied. Incorrect answer: `-4` integrity applied, mastery recorded at level 0 (tracked but not advanced), rationale box correctly shows "Not quite." plus the real definition either way. Zero console errors across both paths.
 
+---
+
+## First Crew Pickup + Rank-Up Progress Visibility (2026-09-22)
+
+Matthew played to Sector 4 still stuck at Junior Sim Tech (Domain II mastery 28%, well under the promotion bar) and raised two related complaints: the game "doesn't feel like progress is being made past this point," and separately — he has three crew slots showing as "Locked" in the roster and was asking about crew hiring mechanics, having realized AV Technician (the one crew member he does have) was never actually *hired* on-screen, just silently present from the start.
+
+**Root cause on both:** (1) `maybeRankUp()`'s two-part gate (≥60% Domain II mastery across ≥50% of its KSAs, AND a sector cleared at the current rank) was real and working, but completely invisible — the Hub only ever showed the raw domain-mastery bar, with no indication of where the 60% line was or that a second, separate condition (sector-cleared) also had to be true. (2) AV Technician was pushed into `profile.unlocked_crew` as a silent side effect of clicking past the intro screen (`btn-intro-continue`'s handler) — no scene, no acknowledgment — while every *later* crew member gets a real announcement via `promotionLine()` on rank-up. Confirmed via `AskUserQuestion`: Matthew wants both a visible gate-progress readout (not a rebalance of the 60% threshold itself) and a real hiring beat for the first crew pickup specifically.
+
+**Change 1 — gate visibility:** The Hub's KSA Mastery panel now marks the domain gating the *next* rank promotion (`RANK_GATE_DOMAIN[profile.rank]`) with a threshold tick at 60% on its bar (`.domain-bar-threshold`) and a status line underneath reading `○/✓ 60% mastery for {next rank} · ○/✓ sector cleared at current rank`, turning green (`.domain-gate-note.ready`) once both are true. No balance change — `MASTERY_THRESHOLD_PERCENT`/`domainMasteryReady()`/`maybeRankUp()` are untouched; this only surfaces state that already existed.
+
+**Change 2 — AV Technician hiring beat:** New screen (`#screen-crew-hire` in `index.html`) inserted between the intro and the Hub. `btn-intro-continue` now calls `showCrewHire()` instead of unlocking `av_tech` directly; the new screen shows a short Hub line introducing the AV Technician plus a crew card (`crewCardHtml()`, a new small helper), and only unlocks `av_tech` + advances to the Hub when its own `btn-crew-hire-continue` is clicked. Later crew (Moulage/Debrief/Simulationist) still use the existing rank-up `promotionLine()` announcement — this only touches the one crew member that previously got no beat at all.
+
+**Verified via Playwright:** fresh-profile boot still shows the intro screen; clicking BEGIN shows the new crew-hire screen with `av_tech` *not yet* in `profile.unlocked_crew`; clicking TAKE THE ASSIGNMENT unlocks it and lands on the Hub. Gate-progress UI checked in both states by seeding profile mastery directly: not-ready shows `○`/`○` in muted color with the tick mid-bar, ready (full mastery + `sector_cleared_at_current_rank`) shows `✓`/`✓` in accent green — confirmed visually via screenshots, not just DOM text. Zero console errors throughout.
+
+**Not yet done:** the underlying grind itself (how much play it actually takes to move Domain II mastery from 28% to 60%) is unchanged and untuned — Matthew explicitly chose visibility over rebalancing this session, but if it still feels too slow once the gate is visible, that's the next lever, not this one.
+
 

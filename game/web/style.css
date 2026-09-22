@@ -193,8 +193,11 @@ a { color: inherit; }
 .domain-row {
   display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
 }
-.domain-bar-track { width: 100%; height: 8px; background: #1f242d; border-radius: 4px; overflow: hidden; margin-top: 6px; }
-.domain-bar-fill { height: 100%; }
+.domain-bar-track { position: relative; width: 100%; height: 8px; background: #1f242d; border-radius: 4px; overflow: visible; margin-top: 6px; }
+.domain-bar-fill { height: 100%; border-radius: 4px; overflow: hidden; }
+.domain-bar-threshold { position: absolute; top: -2px; bottom: -2px; width: 2px; background: #fff; opacity: 0.55; }
+.domain-gate-note { font-size: 11px; color: var(--muted); margin-top: 5px; letter-spacing: 0.3px; }
+.domain-gate-note.ready { color: var(--accent); }
 
 /* ---------- map screen ---------- */
 
