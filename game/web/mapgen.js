@@ -29,13 +29,21 @@ function rankIndex(rank) {
   return i === -1 ? 0 : i;
 }
 
-// Sectors advance chronologically toward the 2039 war (per the story bible),
-// independently of rank -- rank gates which domains/crew you have access to,
-// sector gates which slice of 2019-2029 the current deployment is drawn from.
-// Advances by one on every successful (checkpoint-passed) run; caps at the
-// last window rather than growing unboundedly, since the story's "run years"
-// span ends at 2029 -- a player who's caught up just keeps working the final
-// window. profile.sector_index is 0-based; displayed as sector_index + 1.
+// Deployments draw from a slice of 2019-2029 (per the story bible), independent
+// of rank -- rank gates which domains/crew you have access to, the deployment
+// window gates which years' content is preferred.
+//
+// Non-linear on purpose (2026-09-22 rework): a strictly-advancing sector_index
+// meant every simulated career reached the final window after exactly 3
+// successful runs (whatever the checkpoint-clear pace), then spent the
+// overwhelming majority of total playtime -- 10 to 50+ more runs, depending on
+// skill -- camped in that one window, which was also the narrowest slice of
+// content. No amount of adding content to the earlier windows helped, since
+// they were each visited once. Picking a fresh (weighted) window every
+// deployment instead means every run draws against the FULL cross-window pool
+// over time, not whichever slice a linear counter happened to be parked on --
+// fits "the leap sends you where it needs you" better than a straight march
+// through time anyway. See pickDeploymentWindow() below.
 const SECTOR_YEAR_WINDOWS = [
   [2019, 2021],
   [2022, 2024],
@@ -43,9 +51,22 @@ const SECTOR_YEAR_WINDOWS = [
   [2028, 2029],
 ];
 
-function sectorYearWindow(sectorIndex) {
-  const i = Math.max(0, Math.min(sectorIndex || 0, SECTOR_YEAR_WINDOWS.length - 1));
-  return SECTOR_YEAR_WINDOWS[i];
+// Weighted toward whichever window has gone longest without a visit (by
+// deployment count, not wall-clock time) -- not pure random, so the player
+// doesn't get dumped in the same handful of years five times running, and not
+// strict round-robin either, so it still feels like landing somewhere
+// unplanned rather than a predictable cycle. A never-visited window (-1) is
+// always among the most preferred. Squaring the staleness gives the bias real
+// teeth without making it a hard rule.
+function pickDeploymentWindow(profile, rng) {
+  const lastVisited = profile.window_last_visited || SECTOR_YEAR_WINDOWS.map(() => -1);
+  const deploymentNum = profile.deployments_completed || 0;
+  const pairs = SECTOR_YEAR_WINDOWS.map((w, i) => {
+    const lv = lastVisited[i] === undefined ? -1 : lastVisited[i];
+    const staleness = Math.max(1, deploymentNum - lv);
+    return [i, staleness * staleness];
+  });
+  return weightedChoice(pairs, rng);
 }
 
 function meetsRequires(template, profile) {
@@ -252,13 +273,16 @@ function synthesizeCheckpointNode(stages) {
  * @param {object} opts
  * @param {object} opts.profile - current player profile (rank, unlocked_crew, global_flags)
  * @param {Set<string>} opts.usedNodeIds - node_ids seen in recent runs, to avoid repeats
+ * @param {number} [opts.windowIndex] - index into SECTOR_YEAR_WINDOWS for this deployment;
+ *   defaults to a fresh pickDeploymentWindow() call if omitted (e.g. ad hoc/test callers)
  * @param {number} [opts.seed]
- * @returns {{nodes: object, start: string[], edges: object, positions: object, viewBox: object}}
+ * @returns {{nodes: object, start: string[], edges: object, positions: object, viewBox: object, windowIndex: number}}
  */
-function generateSectorMap({ profile, usedNodeIds, seed }) {
+function generateSectorMap({ profile, usedNodeIds, windowIndex, seed }) {
   const rng = mulberry32(seed !== undefined ? seed : Math.floor(Math.random() * 2 ** 31));
   const pool = Object.values(ALL_NODE_TEMPLATES).filter(n => meetsRequires(n, profile));
-  const yearWindow = sectorYearWindow(profile.sector_index);
+  const resolvedWindowIndex = windowIndex !== undefined ? windowIndex : pickDeploymentWindow(profile, rng);
+  const yearWindow = SECTOR_YEAR_WINDOWS[resolvedWindowIndex];
   const inWindow = n => n.year == null || (n.year >= yearWindow[0] && n.year <= yearWindow[1]);
 
   const layer0Width = rng() < 0.5 ? 2 : 3;
@@ -391,7 +415,7 @@ function generateSectorMap({ profile, usedNodeIds, seed }) {
 
   const start = slots.filter(s => s.layer === 0).map(s => idBySlot[s.id]).filter(Boolean);
 
-  return { nodes, start, edges: nodeEdges, positions, viewBox: MAP_VIEWBOX };
+  return { nodes, start, edges: nodeEdges, positions, viewBox: MAP_VIEWBOX, windowIndex: resolvedWindowIndex };
 }
 
 function allMapEdges(map) {

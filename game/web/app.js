@@ -100,7 +100,9 @@ function defaultProfile() {
     recent_node_ids: [],  // anti-repeat memory the map generator excludes from picks
     sector_cleared_at_current_rank: false,  // gates promotion: mastery alone can't skip the deployment beat
     pending_promotion: null,  // { rank, crew } -- surfaced once on the next Hub visit, then cleared
-    sector_index: 0,  // 0-based; advances toward the war on each successful run, independent of rank (see mapgen.js's SECTOR_YEAR_WINDOWS)
+    window_last_visited: SECTOR_YEAR_WINDOWS.map(() => -1),  // per SECTOR_YEAR_WINDOWS index: deployments_completed value at last visit, -1 = never (see mapgen.js's pickDeploymentWindow)
+    deployments_completed: 0,
+    pending_window_index: null,  // the year-window already picked for the next deployment, shown at Hub, consumed on Begin Deployment
     pending_callbacks: [],  // [{flag, message, deliver_after_hub_visits, queued_at_visit}] -- "outpost reports back" (SCHEMA.md), queued when a node with a `callback` resolves
     delivered_callback_flags: [],  // dedup guard: a recurring node's callback should only ever surface once, even if drawn again in a later run
     pending_callback_line: null  // due callback message surfaced once on the next eligible Hub visit, then cleared
@@ -316,8 +318,12 @@ function promotionLine(promotion) {
 
 function showHub() {
   document.getElementById("hub-rank").textContent = RANK_LABELS[profile.rank].toUpperCase();
-  const window = sectorYearWindow(profile.sector_index);
-  document.getElementById("hub-sector").textContent = `NEXT DEPLOYMENT — SECTOR ${profile.sector_index + 1} · ${window[0]}–${window[1]}`;
+  if (profile.pending_window_index == null) {
+    profile.pending_window_index = pickDeploymentWindow(profile, Math.random);
+    saveProfile();
+  }
+  const window = SECTOR_YEAR_WINDOWS[profile.pending_window_index];
+  document.getElementById("hub-sector").textContent = `NEXT DEPLOYMENT — ${window[0]}–${window[1]}`;
   if (profile.pending_promotion) {
     document.getElementById("hub-line").textContent = promotionLine(profile.pending_promotion);
     profile.pending_promotion = null;
@@ -388,7 +394,12 @@ function showHub() {
 
 document.getElementById("btn-begin-deployment").addEventListener("click", () => {
   const usedNodeIds = new Set(profile.recent_node_ids || []);
-  const map = generateSectorMap({ profile, usedNodeIds });
+  const windowIndex = profile.pending_window_index != null ? profile.pending_window_index : pickDeploymentWindow(profile, Math.random);
+  const map = generateSectorMap({ profile, usedNodeIds, windowIndex });
+  profile.window_last_visited[windowIndex] = profile.deployments_completed;
+  profile.deployments_completed += 1;
+  profile.pending_window_index = null;
+  saveProfile();
   run = {
     resources: { integrity: 100, morale: 100, budget: 200 },
     map,
@@ -416,8 +427,8 @@ document.getElementById("btn-new-game").addEventListener("click", () => {
 
 function showMap() {
   const years = Object.values(run.map.nodes).map(n => n.year).filter(Boolean);
-  const yearLabel = years.length ? ` · ${Math.min(...years)}–${Math.max(...years)}` : "";
-  document.getElementById("map-location").textContent = `SECTOR ${profile.sector_index + 1}${yearLabel}`;
+  const yearLabel = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : "DEPLOYMENT";
+  document.getElementById("map-location").textContent = yearLabel;
 
   const sites = new Set(Object.values(run.map.nodes).map(n => n.location_name).filter(Boolean));
   document.getElementById("map-subtitle").textContent = sites.size === 1 ? [...sites][0].toUpperCase() : "MULTI-SITE ROTATION";
@@ -908,7 +919,6 @@ function endRun(success) {
     .slice(-60); // remembers roughly the last 7-8 runs' worth of content
   if (success) {
     profile.sector_cleared_at_current_rank = true;
-    profile.sector_index = Math.min(profile.sector_index + 1, SECTOR_YEAR_WINDOWS.length - 1);
   }
   saveProfile();
 
