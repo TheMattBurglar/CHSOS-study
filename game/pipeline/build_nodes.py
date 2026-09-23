@@ -76,7 +76,7 @@ RANK_MIN_BY_DOMAIN = {
 }
 
 SITE_POOL_BY_DOMAIN = {
-    "I": ["Waystation 4", "en route", "Coastal Med Annex 4", "Fort Kessler Regional Training Center"],
+    "I": ["Ridgeline Sim Center", "Harbor District Training Annex", "Coastal Med Annex 4", "Fort Kessler Regional Training Center"],
     "II": ["Fort Kessler Regional Training Center, Wing C", "Fort Kessler Regional Training Center, Control Room",
            "Fort Kessler Regional Training Center, Server Closet", "Ridgeline Sim Center, AV Bay",
            "Ridgeline Sim Center, Server Room", "Harbor District Training Annex, Control Booth"],

@@ -27,7 +27,7 @@
   <div class="center-shell">
     <div class="card">
       <h1>INCOMING TRANSMISSION</h1>
-      <p>Hub: “You're not doing this alone — nobody does. Say hello to your AV Technician. Cables, RF, dead mics, the stuff that makes or breaks a sim before anyone even gets to the clinical part. You'll want them close.”</p>
+      <p>Hub: “You're not doing this alone. Nobody does. Your AV Technician is Rosa Quintero, callsign Patch. Cables, RF, dead mics: the stuff that makes or breaks a sim before anyone even gets to the clinical part. She's worked every kind of room there is. Keep her close.”</p>
       <div class="crew-card" id="crew-hire-card" style="margin: 18px 0;"></div>
       <div class="btn-row">
         <button id="btn-crew-hire-continue" class="btn">TAKE THE ASSIGNMENT</button>
@@ -65,9 +65,10 @@
 
   <div class="hub-main" style="grid-template-columns: 1fr;">
     <div class="panel">
-      <div class="panel-title">HUB</div>
-      <div class="eyebrow" id="hub-sector" style="margin-bottom:8px"></div>
-      <div class="hub-line" id="hub-line"></div>
+      <div class="panel-title">WAYSTATION 4</div>
+      <div class="eyebrow" id="hub-sector"></div>
+      <div class="hub-projection" id="hub-projection" hidden></div>
+      <div class="hub-convo" id="hub-convo"></div>
       <div class="btn-row">
         <button id="btn-begin-deployment" class="btn">BEGIN DEPLOYMENT</button>
       </div>
@@ -109,7 +110,7 @@
 <section id="screen-runend" class="screen" hidden>
   <div class="center-shell">
     <div class="card">
-      <h1>DEPLOYMENT COMPLETE</h1>
+      <h1 id="runend-title">DEPLOYMENT COMPLETE</h1>
       <p id="runend-text"></p>
       <div class="effects-row" id="runend-stats"></div>
       <div class="btn-row">
@@ -122,6 +123,7 @@
 <script src="content.js"></script>
 <script src="nodes_generated.js"></script>
 <script src="mapgen.js"></script>
+<script src="story.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

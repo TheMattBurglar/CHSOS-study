@@ -259,3 +259,15 @@ Rendered as a real 4-option "define the term" question every time (distractor de
 - The exact procedural algorithm for laying out a sector's node map from weighted templates (this schema gives it the inputs — `weight`, `requires` — but not the algorithm).
 - Checkpoint stage escalation formula (how difficulty/stakes scale within a `checkpoint` chain).
 - Exact dialogue-priority resolution when multiple Hub lines are eligible at once (Hades-style priority ordering) — flag *shape* is here, the resolution rule isn't yet.
+
+### Story state (added 2026-09-23, Phase A — see `STORY_BIBLE.md` §7)
+
+Stored on the browser profile (`localStorage`), not yet mirrored in `progress.json`:
+- `last_run` — summary of the most recent run: `{success, site, year, misses, misses_by_type, top_missed_topic, checkpoint_topic, end_integrity, end_morale, end_budget}`. Read by story reactions.
+- `story.returns` — Hub returns that composed a conversation.
+- `story.seen` — scene/reaction id → the `returns` value when it last played.
+- `story.tone` — tone-dial tally `{wry, earnest, by_the_book}`. Flavor only; read by the eventual Act 4 ending.
+- `story.convo` — the conversation currently on the Waystation panel `{blocks, choices, vars, projection_delta_months}`, stored so reloads don't re-roll it.
+- `story.projection_at_last_return`, `story.last_story_return` — projection-delta readout and ambient pacing.
+- Story flags (e.g. `patch_noticed_dashboard`, `hub_slipped_2039`) are written into the existing `global_flags`.
+

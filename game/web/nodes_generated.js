@@ -8,9 +8,9 @@ const GENERATED_NODES = {
     "ksa": "I.A",
     "crew_affinity": null,
     "year": 2019,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Call — I.A",
-    "flavor_intro": "A technical question comes up on site at Waystation 4. Your crew wants a second opinion before it becomes a bigger problem.",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center. Your crew wants a second opinion before it becomes a bigger problem.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.01"
@@ -35,8 +35,8 @@ const GENERATED_NODES = {
       "flag": "DIAG-I-2019-501_callback",
       "deliver_after_hub_visits": 3,
       "messages": {
-        "success": "Waystation 4 passed their next review without a single note on the item you handled.",
-        "fail": "Waystation 4's follow-up review flagged the exact same issue. It's on record now."
+        "success": "Ridgeline Sim Center passed their next review without a single note on the item you handled.",
+        "fail": "Ridgeline Sim Center's follow-up review flagged the exact same issue. It's on record now."
       }
     },
     "weight": null,
@@ -60,9 +60,9 @@ const GENERATED_NODES = {
     "ksa": "I.C",
     "crew_affinity": null,
     "year": 2020,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Call — I.C",
-    "flavor_intro": "A technical question comes up on site at en route. Your crew wants a second opinion before it becomes a bigger problem.",
+    "flavor_intro": "A technical question comes up on site at Harbor District Training Annex. Your crew wants a second opinion before it becomes a bigger problem.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.02"
@@ -2426,9 +2426,9 @@ const GENERATED_NODES = {
     "ksa": "I.E",
     "crew_affinity": null,
     "year": 2023,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Call — I.E",
-    "flavor_intro": "A technical question comes up on site at Waystation 4. Your crew wants a second opinion before it becomes a bigger problem.",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center. Your crew wants a second opinion before it becomes a bigger problem.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.05"
@@ -2453,8 +2453,8 @@ const GENERATED_NODES = {
       "flag": "DIAG-I-2023-505_callback",
       "deliver_after_hub_visits": 5,
       "messages": {
-        "success": "Whatever you sorted out at Waystation 4 held. No repeat complaints.",
-        "fail": "Waystation 4 flagged the same problem again last month. Should've stuck the first time."
+        "success": "Whatever you sorted out at Ridgeline Sim Center held. No repeat complaints.",
+        "fail": "Ridgeline Sim Center flagged the same problem again last month. Should've stuck the first time."
       }
     },
     "weight": null,
@@ -2478,9 +2478,9 @@ const GENERATED_NODES = {
     "ksa": "I.C",
     "crew_affinity": null,
     "year": 2024,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Call — I.C",
-    "flavor_intro": "A technical question comes up on site at en route. Your crew wants a second opinion before it becomes a bigger problem.",
+    "flavor_intro": "A technical question comes up on site at Harbor District Training Annex. Your crew wants a second opinion before it becomes a bigger problem.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.06"
@@ -2505,8 +2505,8 @@ const GENERATED_NODES = {
       "flag": "DIAG-I-2024-506_callback",
       "deliver_after_hub_visits": 3,
       "messages": {
-        "success": "Ran into someone from en route at a conference. Unprompted, she mentioned it's still holding up fine.",
-        "fail": "Heard through the grapevine en route had to redo that fix from scratch. Word gets around."
+        "success": "Ran into someone from Harbor District Training Annex at a conference. Unprompted, she mentioned it's still holding up fine.",
+        "fail": "Heard through the grapevine Harbor District Training Annex had to redo that fix from scratch. Word gets around."
       }
     },
     "weight": null,
@@ -5449,9 +5449,9 @@ const GENERATED_NODES = {
     "ksa": "I.A",
     "crew_affinity": null,
     "year": 2027,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Call — I.A",
-    "flavor_intro": "A technical question comes up on site at Waystation 4. Your crew wants a second opinion before it becomes a bigger problem.",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center. Your crew wants a second opinion before it becomes a bigger problem.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.09"
@@ -5494,9 +5494,9 @@ const GENERATED_NODES = {
     "ksa": "I.A",
     "crew_affinity": null,
     "year": 2028,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Call — I.A",
-    "flavor_intro": "A technical question comes up on site at en route. Your crew wants a second opinion before it becomes a bigger problem.",
+    "flavor_intro": "A technical question comes up on site at Harbor District Training Annex. Your crew wants a second opinion before it becomes a bigger problem.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.10"
@@ -5521,8 +5521,8 @@ const GENERATED_NODES = {
       "flag": "DIAG-I-2028-510_callback",
       "deliver_after_hub_visits": 2,
       "messages": {
-        "success": "A trainee at en route asked about the fix you made. Apparently it's become the example they teach from now.",
-        "fail": "en route worked around it instead of fixing it properly. It's still broken, just quieter about it."
+        "success": "A trainee at Harbor District Training Annex asked about the fix you made. Apparently it's become the example they teach from now.",
+        "fail": "Harbor District Training Annex worked around it instead of fixing it properly. It's still broken, just quieter about it."
       }
     },
     "weight": null,
@@ -5650,9 +5650,9 @@ const GENERATED_NODES = {
     "ksa": "I.C",
     "crew_affinity": null,
     "year": 2020,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Call — I.C",
-    "flavor_intro": "A technical question comes up on site at Waystation 4. Your crew wants a second opinion before it becomes a bigger problem.",
+    "flavor_intro": "A technical question comes up on site at Ridgeline Sim Center. Your crew wants a second opinion before it becomes a bigger problem.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.13"
@@ -5677,8 +5677,8 @@ const GENERATED_NODES = {
       "flag": "DIAG-I-2020-513_callback",
       "deliver_after_hub_visits": 3,
       "messages": {
-        "success": "Waystation 4 passed their next review without a single note on the item you handled.",
-        "fail": "Waystation 4's follow-up review flagged the exact same issue. It's on record now."
+        "success": "Ridgeline Sim Center passed their next review without a single note on the item you handled.",
+        "fail": "Ridgeline Sim Center's follow-up review flagged the exact same issue. It's on record now."
       }
     },
     "weight": null,
@@ -5702,9 +5702,9 @@ const GENERATED_NODES = {
     "ksa": "I.D",
     "crew_affinity": null,
     "year": 2021,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Call — I.D",
-    "flavor_intro": "A technical question comes up on site at en route. Your crew wants a second opinion before it becomes a bigger problem.",
+    "flavor_intro": "A technical question comes up on site at Harbor District Training Annex. Your crew wants a second opinion before it becomes a bigger problem.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.14"
@@ -7574,7 +7574,7 @@ const GENERATED_NODES = {
     "ksa": "I.A",
     "crew_affinity": null,
     "year": 2019,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Briefing: AMI",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -7614,7 +7614,7 @@ const GENERATED_NODES = {
     "ksa": "I.A",
     "crew_affinity": null,
     "year": 2020,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Briefing: CVA",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -7734,7 +7734,7 @@ const GENERATED_NODES = {
     "ksa": "I.A",
     "crew_affinity": null,
     "year": 2023,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Briefing: Pulse Oximetry (SpO2)",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -7774,7 +7774,7 @@ const GENERATED_NODES = {
     "ksa": "I.A",
     "crew_affinity": null,
     "year": 2024,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Briefing: Cyanosis",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -7894,7 +7894,7 @@ const GENERATED_NODES = {
     "ksa": "I.B",
     "crew_affinity": null,
     "year": 2027,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Briefing: Fidelity (Conceptual)",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -7934,7 +7934,7 @@ const GENERATED_NODES = {
     "ksa": "I.B",
     "crew_affinity": null,
     "year": 2028,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Briefing: Fidelity (Physical)",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8054,7 +8054,7 @@ const GENERATED_NODES = {
     "ksa": "I.B",
     "crew_affinity": null,
     "year": 2020,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Briefing: Environmental Fidelity",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8094,7 +8094,7 @@ const GENERATED_NODES = {
     "ksa": "I.C",
     "crew_affinity": null,
     "year": 2021,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Briefing: Bolus",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8214,7 +8214,7 @@ const GENERATED_NODES = {
     "ksa": "I.C",
     "crew_affinity": null,
     "year": 2024,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Briefing: MAR (Medication Administration Record)",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8254,7 +8254,7 @@ const GENERATED_NODES = {
     "ksa": "I.C",
     "crew_affinity": null,
     "year": 2025,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Briefing: Onset of Action",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8374,7 +8374,7 @@ const GENERATED_NODES = {
     "ksa": "I.D",
     "crew_affinity": null,
     "year": 2028,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Briefing: Defibrillator",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8414,7 +8414,7 @@ const GENERATED_NODES = {
     "ksa": "I.D",
     "crew_affinity": null,
     "year": 2029,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Briefing: Fidelity",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8534,7 +8534,7 @@ const GENERATED_NODES = {
     "ksa": "I.D",
     "crew_affinity": null,
     "year": 2021,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Briefing: Pulse Point",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8574,7 +8574,7 @@ const GENERATED_NODES = {
     "ksa": "I.D",
     "crew_affinity": null,
     "year": 2022,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Briefing: Environmental Fidelity",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8694,7 +8694,7 @@ const GENERATED_NODES = {
     "ksa": "I.E",
     "crew_affinity": null,
     "year": 2025,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Briefing: Conflict of Role",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8734,7 +8734,7 @@ const GENERATED_NODES = {
     "ksa": "I.E",
     "crew_affinity": null,
     "year": 2026,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Briefing: IPE (Interprofessional Education)",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8854,7 +8854,7 @@ const GENERATED_NODES = {
     "ksa": "I.E",
     "crew_affinity": null,
     "year": 2029,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Field Briefing: Pre-briefing",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -8894,7 +8894,7 @@ const GENERATED_NODES = {
     "ksa": "I.E",
     "crew_affinity": null,
     "year": 2019,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Field Briefing: Confederate",
     "flavor_intro": "Hub doesn't pull up a card this time. “You should have this one. Prove it.”",
     "source": {
@@ -18494,9 +18494,9 @@ const GENERATED_NODES = {
     "ksa": "I.A",
     "crew_affinity": null,
     "year": 2019,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Judgment Call — I.A",
-    "flavor_intro": "A judgment call comes up at Waystation 4 that no manual quite covers. The next block starts in twenty minutes and the room isn't ready. Your crew looks to you.",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center that no manual quite covers. The next block starts in twenty minutes and the room isn't ready. Your crew looks to you.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.01",
@@ -18522,8 +18522,8 @@ const GENERATED_NODES = {
       "flag": "SCN-I-2019-501_callback",
       "deliver_after_hub_visits": 3,
       "messages": {
-        "success": "A trainee at Waystation 4 asked about the fix you made. Apparently it's become the example they teach from now.",
-        "fail": "Waystation 4 worked around it instead of fixing it properly. It's still broken, just quieter about it."
+        "success": "A trainee at Ridgeline Sim Center asked about the fix you made. Apparently it's become the example they teach from now.",
+        "fail": "Ridgeline Sim Center worked around it instead of fixing it properly. It's still broken, just quieter about it."
       }
     },
     "weight": null,
@@ -18547,9 +18547,9 @@ const GENERATED_NODES = {
     "ksa": "I.C",
     "crew_affinity": null,
     "year": 2020,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Judgment Call — I.C",
-    "flavor_intro": "A judgment call comes up at en route that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "flavor_intro": "A judgment call comes up at Harbor District Training Annex that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.02",
@@ -20981,9 +20981,9 @@ const GENERATED_NODES = {
     "ksa": "I.E",
     "crew_affinity": null,
     "year": 2023,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Judgment Call — I.E",
-    "flavor_intro": "A judgment call comes up at Waystation 4 that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.05",
@@ -21027,9 +21027,9 @@ const GENERATED_NODES = {
     "ksa": "I.C",
     "crew_affinity": null,
     "year": 2024,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Judgment Call — I.C",
-    "flavor_intro": "A judgment call comes up at en route that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "flavor_intro": "A judgment call comes up at Harbor District Training Annex that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.06",
@@ -21055,8 +21055,8 @@ const GENERATED_NODES = {
       "flag": "SCN-I-2024-506_callback",
       "deliver_after_hub_visits": 5,
       "messages": {
-        "success": "No news out of en route on that one. In this job, no news is the best you get.",
-        "fail": "en route put in a request for the same part again. Make of that what you will."
+        "success": "No news out of Harbor District Training Annex on that one. In this job, no news is the best you get.",
+        "fail": "Harbor District Training Annex put in a request for the same part again. Make of that what you will."
       }
     },
     "weight": null,
@@ -23986,9 +23986,9 @@ const GENERATED_NODES = {
     "ksa": "I.A",
     "crew_affinity": null,
     "year": 2027,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Judgment Call — I.A",
-    "flavor_intro": "A judgment call comes up at Waystation 4 that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.09",
@@ -24032,9 +24032,9 @@ const GENERATED_NODES = {
     "ksa": "I.A",
     "crew_affinity": null,
     "year": 2028,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Judgment Call — I.A",
-    "flavor_intro": "A judgment call comes up at en route that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
+    "flavor_intro": "A judgment call comes up at Harbor District Training Annex that no manual quite covers. It's worked every time so far, and nobody's bothered to double-check it. Your crew looks to you.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.10",
@@ -24177,9 +24177,9 @@ const GENERATED_NODES = {
     "ksa": "I.C",
     "crew_affinity": null,
     "year": 2020,
-    "location_name": "Waystation 4",
+    "location_name": "Ridgeline Sim Center",
     "title": "Judgment Call — I.C",
-    "flavor_intro": "A judgment call comes up at Waystation 4 that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
+    "flavor_intro": "A judgment call comes up at Ridgeline Sim Center that no manual quite covers. The quarterly supply budget is already stretched thin, and doing this right isn't free. Your crew looks to you.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.13",
@@ -24223,9 +24223,9 @@ const GENERATED_NODES = {
     "ksa": "I.D",
     "crew_affinity": null,
     "year": 2021,
-    "location_name": "en route",
+    "location_name": "Harbor District Training Annex",
     "title": "Judgment Call — I.D",
-    "flavor_intro": "A judgment call comes up at en route that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
+    "flavor_intro": "A judgment call comes up at Harbor District Training Annex that no manual quite covers. The faculty lead waves it off — she's run this a dozen times and never had a problem. Your crew looks to you.",
     "source": {
       "file": "mcq_bank.json",
       "id": "MCQ.I.14",
@@ -24251,8 +24251,8 @@ const GENERATED_NODES = {
       "flag": "SCN-I-2021-514_callback",
       "deliver_after_hub_visits": 2,
       "messages": {
-        "success": "en route's lead tech sent a one-line email: 'still good.' High praise, for her.",
-        "fail": "en route's lead tech sent a one-line email. It was not 'still good.'"
+        "success": "Harbor District Training Annex's lead tech sent a one-line email: 'still good.' High praise, for her.",
+        "fail": "Harbor District Training Annex's lead tech sent a one-line email. It was not 'still good.'"
       }
     },
     "weight": null,

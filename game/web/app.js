@@ -4,11 +4,12 @@
 
 const SAVE_KEY = "chsos_roguelite_save_v1";
 
+// `person`/`initials` per STORY_BIBLE.md §4.2 (approved 2026-09-23).
 const CREW_DEFS = {
-  av_tech: { name: "AV Technician", domain: "II" },
-  moulage_artist: { name: "Moulage & Fidelity Artist", domain: "III" },
-  debrief_facilitator: { name: "Debrief Facilitator", domain: "IV" },
-  simulationist: { name: "Simulationist", domain: "V" }
+  av_tech: { name: "AV Technician", person: "Rosa “Patch” Quintero", initials: "PQ", domain: "II" },
+  moulage_artist: { name: "Moulage & Fidelity Artist", person: "Theo Lind", initials: "TL", domain: "III" },
+  debrief_facilitator: { name: "Debrief Facilitator", person: "Dr. Nadia Achebe", initials: "NA", domain: "IV" },
+  simulationist: { name: "Simulationist", person: "Wren Castellanos", initials: "WC", domain: "V" }
 };
 
 const CREW_ORDER = ["av_tech", "moulage_artist", "debrief_facilitator", "simulationist"];
@@ -105,7 +106,20 @@ function defaultProfile() {
     pending_window_index: null,  // the year-window already picked for the next deployment, shown at Hub, consumed on Begin Deployment
     pending_callbacks: [],  // [{flag, message, deliver_after_hub_visits, queued_at_visit}] -- "outpost reports back" (SCHEMA.md), queued when a node with a `callback` resolves
     delivered_callback_flags: [],  // dedup guard: a recurring node's callback should only ever surface once, even if drawn again in a later run
-    pending_callback_line: null  // due callback message surfaced once on the next eligible Hub visit, then cleared
+    last_run: null,  // summary of the most recent run (see summarizeRun), read by story reactions
+    story: defaultStoryState()
+  };
+}
+
+// Story engine state (story.js content, STORY_BIBLE.md §7).
+function defaultStoryState() {
+  return {
+    returns: 0,          // Hub returns that composed a conversation (a run ended)
+    seen: {},            // scene/reaction id -> `returns` value when it last played
+    tone: { wry: 0, earnest: 0, by_the_book: 0 },  // tone-dial tally; flavor only, read by the Act 4 ending
+    convo: null,         // the conversation currently on the Waystation panel (see composeHubConversation)
+    projection_at_last_return: null,  // fractional year, for the "moved N months" readout
+    last_story_return: null  // `returns` value when a scene/callback last played (ambient pacing)
   };
 }
 
@@ -114,11 +128,24 @@ function loadProfile() {
     const raw = localStorage.getItem(SAVE_KEY);
     if (!raw) return defaultProfile();
     const parsed = JSON.parse(raw);
-    return Object.assign(defaultProfile(), parsed);
+    return migrateProfile(Object.assign(defaultProfile(), parsed));
   } catch (e) {
     console.warn("Save data unreadable, starting fresh.", e);
     return defaultProfile();
   }
+}
+
+// Saves from before the story engine have hub_visits but no story state --
+// don't greet a veteran with the first-rotation welcome.
+function migrateProfile(p) {
+  if (!p.story || typeof p.story !== "object") p.story = defaultStoryState();
+  p.story = Object.assign(defaultStoryState(), p.story);
+  if (p.story.returns === 0 && p.hub_visits > 0) {
+    p.story.returns = p.hub_visits;
+    p.global_flags = Object.assign({}, p.global_flags, { first_clear_seen: true });
+  }
+  delete p.pending_callback_line;
+  return p;
 }
 
 function saveProfile() {
@@ -142,7 +169,7 @@ function importSaveFile(file) {
   reader.onload = () => {
     try {
       const parsed = JSON.parse(reader.result);
-      profile = Object.assign(defaultProfile(), parsed);
+      profile = migrateProfile(Object.assign(defaultProfile(), parsed));
       saveProfile();
       run = null;
       showHub();
@@ -251,6 +278,309 @@ function checkDueCallback() {
   return due.message;
 }
 
+// ---------- readiness projection (STORY_BIBLE.md §6) ----------
+//
+// Blueprint-weighted coverage across *every* KSA in the pool (untouched KSAs
+// count as level 0), mapped linearly from 2044 (nothing mastered) to 2039
+// (everything at level 5). Deliberately not domainMasteryPercent(), which
+// averages only touched KSAs and would let one lucky answer read as 100%.
+// Can move backwards: a wrong answer drops that KSA's Leitner level.
+
+function readinessFraction() {
+  let totalWeight = 0, score = 0;
+  Object.keys(DOMAIN_WEIGHT).forEach(d => {
+    const ksas = [...domainKsaCodes(d)];
+    if (!ksas.length) return;
+    totalWeight += DOMAIN_WEIGHT[d];
+    const levels = ksas.reduce((sum, k) => sum + (profile.ksa_mastery[k] ? profile.ksa_mastery[k].level : 0), 0);
+    score += DOMAIN_WEIGHT[d] * levels / (5 * ksas.length);
+  });
+  return totalWeight ? score / totalWeight : 0;
+}
+
+function projectionYear() {
+  return PROJECTION_START_YEAR - (PROJECTION_START_YEAR - PROJECTION_END_YEAR) * readinessFraction();
+}
+
+const MONTH_ABBR = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+function formatProjection(yearFrac) {
+  const year = Math.floor(yearFrac + 1e-9);
+  const month = Math.min(11, Math.floor((yearFrac - year) * 12 + 1e-9));
+  return `${MONTH_ABBR[month]} ${year}`;
+}
+
+// ---------- run summary (feeds story reactions) ----------
+
+// Site names are "Outpost, Room" -- reactions talk about the outpost.
+function outpostName(locationName) {
+  if (!locationName) return null;
+  const outpost = locationName.split(",")[0].trim();
+  return outpost === "en route" ? null : outpost;
+}
+
+function runSite() {
+  const nodes = Object.values(run.map.nodes);
+  const checkpoint = nodes.find(n => n.type === "checkpoint");
+  const fromCheckpoint = checkpoint && outpostName(checkpoint.location_name);
+  if (fromCheckpoint) return fromCheckpoint;
+  const counts = {};
+  nodes.forEach(n => { const o = outpostName(n.location_name); if (o) counts[o] = (counts[o] || 0) + 1; });
+  const best = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
+  return best || "the outpost";
+}
+
+// Blueprint labels are title-ish ("Healthcare equipment recommendations");
+// lowercase the first letter so they read mid-sentence, but leave acronyms
+// ("A/V equipment utilization", "LMS ...") alone.
+function topicPhrase(ksa) {
+  const label = KSA_LABELS[ksa];
+  if (!label) return null;
+  return /^[A-Z][a-z]/.test(label) ? label[0].toLowerCase() + label.slice(1) : label;
+}
+
+function summarizeRun(success) {
+  const misses = run.misses || [];
+  const byType = { intel: 0, diagnostic: 0, scenario: 0, checkpoint: 0 };
+  const byKsa = {};
+  misses.forEach(m => {
+    byType[m.type] = (byType[m.type] || 0) + 1;
+    if (m.ksa) byKsa[m.ksa] = (byKsa[m.ksa] || 0) + 1;
+  });
+  const topKsa = Object.keys(byKsa).sort((a, b) => byKsa[b] - byKsa[a])[0];
+  const checkpoint = Object.values(run.map.nodes).find(n => n.type === "checkpoint");
+  const years = Object.values(run.map.nodes).map(n => n.year).filter(Boolean);
+  return {
+    success,
+    site: runSite(),
+    year: checkpoint && checkpoint.year ? checkpoint.year : (years[0] || null),
+    misses: misses.length,
+    misses_by_type: byType,
+    top_missed_topic: topKsa && byKsa[topKsa] >= 2 ? topicPhrase(topKsa) : null,
+    checkpoint_topic: !success && checkpoint ? topicPhrase(checkpoint.ksa) : null,
+    end_integrity: run.resources.integrity,
+    end_morale: run.resources.morale,
+    end_budget: run.resources.budget
+  };
+}
+
+// ---------- story engine (story.js content, STORY_BIBLE.md §7.1) ----------
+//
+// Each Hub return composes one conversation: a reaction to the run that just
+// ended, then at most one story slot in priority order
+//   promotion > main (projection beats) > character (crew arcs) > due outpost callback > ambient.
+// Anything eligible but not picked stays eligible for a later return -- the
+// same deferral rule the callback queue already used against promotions.
+// The composed conversation is stored on the profile so a reload or re-render
+// shows the same thing instead of re-rolling.
+
+function storyContext(projectionDeltaMonths) {
+  const st = profile.story;
+  return {
+    profile,
+    last: profile.last_run,
+    flag: f => !!(profile.global_flags && profile.global_flags[f]),
+    seen: id => st.seen[id] != null,
+    crew: id => profile.unlocked_crew.includes(id),
+    domainPct: d => domainMasteryPercent(d),
+    rankAtLeast: r => rankIndex(profile.rank) >= rankIndex(r),
+    projectionYear: projectionYear(),
+    projectionDeltaMonths
+  };
+}
+
+function markStorySeen(entry) {
+  profile.story.seen[entry.id] = profile.story.returns;
+  (entry.sets_flags || []).forEach(f => { profile.global_flags[f] = true; });
+}
+
+// A reaction heard within this many returns yields to any other eligible one,
+// even a lower-priority one -- otherwise a lone high-priority reaction (e.g.
+// the failed-checkpoint one) would play on every matching return.
+const REACTION_RECENCY_WINDOW = 4;
+
+function pickReaction(ctx) {
+  const seen = profile.story.seen;
+  const eligible = STORY_REACTIONS.filter(r => r.when(ctx));
+  if (!eligible.length) return null;
+  const fresh = eligible.filter(r => seen[r.id] == null || profile.story.returns - seen[r.id] > REACTION_RECENCY_WINDOW);
+  const pool = fresh.length ? fresh : eligible;
+  const top = Math.max(...pool.map(r => r.priority));
+  // Unseen variants first, then whichever was heard longest ago.
+  return pool
+    .filter(r => r.priority === top)
+    .sort((a, b) => (seen[a.id] == null ? -1 : seen[a.id]) - (seen[b.id] == null ? -1 : seen[b.id]))[0];
+}
+
+function pickScene(ctx, layer) {
+  const candidates = STORY_SCENES.filter(sc => sc.layer === layer && !ctx.seen(sc.id) && sc.when(ctx));
+  if (!candidates.length) return null;
+  const top = Math.max(...candidates.map(sc => sc.priority));
+  return candidates.find(sc => sc.priority === top); // declared order breaks ties
+}
+
+function composeHubConversation() {
+  const st = profile.story;
+  const projNow = projectionYear();
+  const deltaMonths = st.projection_at_last_return == null
+    ? 0
+    : Math.round((projNow - st.projection_at_last_return) * 12);
+  const ctx = storyContext(deltaMonths);
+  const blocks = [];
+
+  const reaction = pickReaction(ctx);
+  if (reaction) { markStorySeen(reaction); blocks.push({ kind: "reaction", id: reaction.id }); }
+
+  if (profile.pending_promotion) {
+    blocks.push({ kind: "text", lines: promotionLines(profile.pending_promotion) });
+    profile.pending_promotion = null;
+  } else {
+    const scene = pickScene(ctx, "main") || pickScene(ctx, "character");
+    const callback = scene ? null : checkDueCallback();
+    // Ambient filler at most every other return, so the pool stretches across
+    // the gaps between gated beats instead of being burned all at once.
+    const ambientRested = st.last_story_return == null || st.returns - st.last_story_return >= 2;
+    const ambient = scene || callback || !ambientRested ? null : pickScene(ctx, "ambient");
+    const chosen = scene || ambient;
+    if (chosen || callback) st.last_story_return = st.returns;
+    if (chosen) {
+      markStorySeen(chosen);
+      blocks.push({ kind: "scene", id: chosen.id });
+    } else if (callback) {
+      blocks.push({ kind: "text", lines: [
+        { setting: "An outpost report scrolls across the Waystation console." },
+        { s: "hub", t: callback }
+      ] });
+    }
+  }
+
+  const last = profile.last_run;
+  st.convo = {
+    blocks,
+    choices: {},
+    vars: {
+      site: last ? last.site : "",
+      year: last && last.year ? String(last.year) : "",
+      topic: last ? (last.top_missed_topic || last.checkpoint_topic || "") : "",
+      budget: last ? String(last.end_budget) : "",
+      projection: formatProjection(projNow),
+      rank: RANK_LABELS[profile.rank]
+    },
+    projection_delta_months: deltaMonths
+  };
+  st.projection_at_last_return = projNow;
+  convoAnimateFrom = 0;
+}
+
+function promotionLines(promotion) {
+  const lines = [
+    { setting: "A notification chimes on the Waystation console. Hub reads it out loud, and doesn't bother hiding that it's pleased." },
+    { s: "hub", t: promotionLine(promotion) }
+  ];
+  if (promotion.crew) {
+    lines.push({ s: "av_tech", t: "New face. Somebody tell them about rule two before Hub does." });
+  }
+  return lines;
+}
+
+function storyEntryById(id) {
+  return STORY_SCENES.find(sc => sc.id === id) || STORY_REACTIONS.find(r => r.id === id) || null;
+}
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[ch]));
+}
+
+// Placeholders come from the conversation's stored vars; *word* -> emphasis.
+function renderStoryText(text, vars) {
+  const filled = text.replace(/\{(\w+)\}/g, (m, key) => (vars[key] != null && vars[key] !== "" ? vars[key] : m));
+  return escapeHtml(filled).replace(/\*([^*]+)\*/g, "<em>$1</em>");
+}
+
+// Index of the first line to fade in on the next render; null = no animation.
+// Set by composeHubConversation() (animate everything) and by a tone choice
+// (animate only the reply), so re-rendering the Hub doesn't replay old lines.
+let convoAnimateFrom = null;
+
+function storyLineHtml(line, vars) {
+  if (line.setting) return `<div class="convo-setting">${renderStoryText(line.setting, vars)}</div>`;
+  const spk = SPEAKERS[line.s] || { label: line.s.toUpperCase(), colorVar: "--muted" };
+  return `
+    <div class="convo-line">
+      <span class="convo-speaker hud" style="color:var(${spk.colorVar})">${spk.label}</span>
+      <span class="convo-text">${renderStoryText(line.t, vars)}</span>
+    </div>`;
+}
+
+function renderHubConversation() {
+  const el = document.getElementById("hub-convo");
+  const convo = profile.story.convo;
+  if (!convo) { el.innerHTML = ""; return; }
+  const parts = [];
+  convo.blocks.forEach(block => {
+    const lines = block.kind === "text" ? block.lines : ((storyEntryById(block.id) || {}).lines || []);
+    lines.forEach(line => {
+      if (!line.choice) { parts.push(storyLineHtml(line, convo.vars)); return; }
+      const picked = convo.choices[block.id];
+      if (picked) {
+        const opt = line.choice[picked];
+        parts.push(`
+          <div class="convo-line convo-trigger">
+            <span class="convo-speaker hud">TRIGGER <span class="tone-tag">${TONE_LABELS[picked]}</span></span>
+            <span class="convo-text">${renderStoryText(opt.t, convo.vars)}</span>
+          </div>`);
+        (opt.reply || []).forEach(r => parts.push(storyLineHtml(r, convo.vars)));
+      } else {
+        const buttons = Object.keys(TONE_LABELS).filter(k => line.choice[k]).map(k => `
+          <button class="convo-choice" data-block="${escapeHtml(block.id)}" data-tone="${k}">
+            <span class="tone-tag">${TONE_LABELS[k]}</span>
+            <span>${renderStoryText(line.choice[k].t, convo.vars)}</span>
+          </button>`).join("");
+        parts.push(`<div class="convo-choices">${buttons}</div>`);
+      }
+    });
+  });
+  el.innerHTML = parts.join("");
+
+  if (convoAnimateFrom != null) {
+    [...el.children].forEach((child, i) => {
+      if (i < convoAnimateFrom) return;
+      child.classList.add("convo-fade");
+      child.style.animationDelay = `${(i - convoAnimateFrom) * 140}ms`;
+    });
+    convoAnimateFrom = null;
+  }
+
+  el.querySelectorAll(".convo-choice").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const tone = btn.dataset.tone;
+      convo.choices[btn.dataset.block] = tone;
+      profile.story.tone[tone] = (profile.story.tone[tone] || 0) + 1;
+      saveProfile();
+      sfxSelect();
+      // Everything before the (now-replaced) choice row stays put; animate the rest.
+      convoAnimateFrom = [...el.children].indexOf(btn.closest(".convo-choices"));
+      renderHubConversation();
+    });
+  });
+}
+
+function renderProjectionReadout() {
+  const el = document.getElementById("hub-projection");
+  // The readout "appears" in-fiction during main_projection_intro.
+  if (profile.story.seen.main_projection_intro == null) { el.hidden = true; return; }
+  el.hidden = false;
+  const convo = profile.story.convo;
+  const delta = convo ? convo.projection_delta_months : 0;
+  let deltaHtml = "";
+  if (delta < 0) deltaHtml = `<span class="proj-delta gain">▲ ${-delta} MO EARLIER</span>`;
+  else if (delta > 0) deltaHtml = `<span class="proj-delta slip">▼ ${delta} MO LATER</span>`;
+  el.innerHTML = `
+    <span class="eyebrow">PROGRAM READINESS PROJECTION</span>
+    <span class="proj-value hud">${formatProjection(projectionYear())}</span>
+    ${deltaHtml}`;
+}
+
 // ---------- screen helpers ----------
 
 function showScreen(id) {
@@ -272,10 +602,10 @@ function startIntro() {
 function crewCardHtml(id) {
   const def = CREW_DEFS[id];
   return `
-    <div class="crew-avatar" style="color:${domainColor(def.domain)};border-color:${domainColor(def.domain)}">${def.name.split(" ").map(w => w[0]).slice(0, 2).join("")}</div>
+    <div class="crew-avatar" style="color:${domainColor(def.domain)};border-color:${domainColor(def.domain)}">${def.initials}</div>
     <div>
-      <div class="crew-name">${def.name}</div>
-      <div class="crew-domain">Domain ${def.domain} — ${DOMAIN_LABELS[def.domain]}</div>
+      <div class="crew-name">${def.person}</div>
+      <div class="crew-domain">${def.name} · Domain ${def.domain} — ${DOMAIN_LABELS[def.domain]}</div>
     </div>
   `;
 }
@@ -301,17 +631,9 @@ document.getElementById("btn-crew-hire-continue").addEventListener("click", () =
 
 // ---------- hub ----------
 
-function hubLineForVisit() {
-  if (profile.hub_visits <= 0) return HUB_LINES.first_visit;
-  // Alternates rather than parking on one line forever past visit 2 -- still
-  // just 2 lines of real variety here; see currentState.md for the bigger
-  // rotating-pool expansion this doesn't replace.
-  return profile.hub_visits % 2 === 1 ? HUB_LINES.default : HUB_LINES.second_visit_bonus;
-}
-
 function promotionLine(promotion) {
   const crewLine = promotion.crew
-    ? ` And there's someone new joining the roster: ${CREW_DEFS[promotion.crew].name}.`
+    ? ` And there's someone new joining the roster: ${CREW_DEFS[promotion.crew].person}, ${CREW_DEFS[promotion.crew].name}.`
     : "";
   return `Command must've liked what they saw. You're being bumped to ${RANK_LABELS[promotion.rank].toUpperCase()}.${crewLine}`;
 }
@@ -324,17 +646,14 @@ function showHub() {
   }
   const window = SECTOR_YEAR_WINDOWS[profile.pending_window_index];
   document.getElementById("hub-sector").textContent = `NEXT DEPLOYMENT — ${window[0]}–${window[1]}`;
-  if (profile.pending_promotion) {
-    document.getElementById("hub-line").textContent = promotionLine(profile.pending_promotion);
-    profile.pending_promotion = null;
+  // A fresh profile, or one loaded/imported without a stored conversation,
+  // gets one composed now (no last_run, so only non-run content is eligible).
+  if (!profile.story.convo) {
+    composeHubConversation();
     saveProfile();
-  } else if (profile.pending_callback_line) {
-    document.getElementById("hub-line").textContent = profile.pending_callback_line;
-    profile.pending_callback_line = null;
-    saveProfile();
-  } else {
-    document.getElementById("hub-line").textContent = hubLineForVisit();
   }
+  renderProjectionReadout();
+  renderHubConversation();
 
   const domainsEl = document.getElementById("hub-domains");
   domainsEl.innerHTML = "";
@@ -380,10 +699,10 @@ function showHub() {
     const card = document.createElement("div");
     card.className = "crew-card" + (unlocked ? "" : " locked");
     card.innerHTML = `
-      <div class="crew-avatar" style="color:${domainColor(def.domain)};border-color:${domainColor(def.domain)}">${unlocked ? def.name.split(" ").map(w => w[0]).slice(0, 2).join("") : "?"}</div>
+      <div class="crew-avatar" style="color:${domainColor(def.domain)};border-color:${domainColor(def.domain)}">${unlocked ? def.initials : "?"}</div>
       <div>
-        <div class="crew-name">${unlocked ? def.name : "Locked"}</div>
-        <div class="crew-domain">${unlocked ? "Domain " + def.domain + " — " + DOMAIN_LABELS[def.domain] : "Unlocks later"}</div>
+        <div class="crew-name">${unlocked ? def.person : "Locked"}</div>
+        <div class="crew-domain">${unlocked ? def.name + " · Domain " + def.domain + " — " + DOMAIN_LABELS[def.domain] : "Unlocks later"}</div>
       </div>
     `;
     crewEl.appendChild(card);
@@ -405,6 +724,7 @@ document.getElementById("btn-begin-deployment").addEventListener("click", () => 
     map,
     available: [...map.start],
     completedIds: [],
+    misses: [],  // [{type, domain, ksa}] -- summarized into profile.last_run for story reactions
     lastOutcomeOk: true
   };
   showMap();
@@ -603,6 +923,7 @@ function effectsRowHtml(effects) {
 function advanceAfterNode(node, success) {
   run.completedIds.push(node.node_id);
   run.lastOutcomeOk = success;
+  if (!success && node.ksa) run.misses.push({ type: node.type, domain: node.domain, ksa: node.ksa });
   bumpMastery(node.ksa, success);
   queueCallback(node, success);
   if (node.type === "checkpoint") {
@@ -906,9 +1227,11 @@ function renderCheckpoint(node) {
 // ---------- run end ----------
 
 function endRun(success) {
+  const site = runSite();
+  document.getElementById("runend-title").textContent = success ? "DEPLOYMENT COMPLETE" : "LEAP SNAPPED BACK";
   document.getElementById("runend-text").textContent = success
-    ? "Fort Kessler passes review. Whatever happens here later, it won't be because nobody tried."
-    : "Fort Kessler squeaks by. Hub doesn't say anything about it. That's somehow worse.";
+    ? `${site} passes its accreditation review. The timeline keeps this version.`
+    : `The review at ${site} doesn't go your way, and the leap lets go before any of it goes on the record. Hub will want to talk about it.`;
   document.getElementById("runend-stats").innerHTML = `
     <span class="effect-chip">INTEGRITY ${run.resources.integrity}</span>
     <span class="effect-chip">MORALE ${run.resources.morale}</span>
@@ -920,6 +1243,7 @@ function endRun(success) {
   if (success) {
     profile.sector_cleared_at_current_rank = true;
   }
+  profile.last_run = summarizeRun(success);
   saveProfile();
 
   closeNodeOverlay();
@@ -929,12 +1253,10 @@ function endRun(success) {
 document.getElementById("btn-return-hub").addEventListener("click", () => {
   profile.hub_visits += 1;
   run = null;
+  profile.story.returns += 1;
   maybeRankUp();
-  // Don't consume a due callback if a promotion is also showing this visit --
-  // it stays queued and surfaces on a later, uncontested visit instead.
-  if (!profile.pending_promotion) {
-    profile.pending_callback_line = checkDueCallback();
-  }
+  // Promotion/callback/story priority lives in composeHubConversation().
+  composeHubConversation();
   saveProfile();
   showHub();
 });

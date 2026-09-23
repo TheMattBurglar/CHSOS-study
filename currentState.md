@@ -54,6 +54,8 @@ Exploring turning this study content into a game. Landed on an **FTL-style, turn
 
 ## Story Bible — Locked Decisions (2026-09-19)
 
+> **Superseded as the living reference (2026-09-23):** these decisions now live, together with the proposed Hades-style narrative systems, in [`game/STORY_BIBLE.md`](game/STORY_BIBLE.md). Kept here as the historical record.
+
 **Platform/architecture (settled, superseding the earlier Godot recommendation):** Static HTML/CSS/JS site, deployed the same way as the existing web app (GitHub Pages). No engine, no build step, no server. Save/load is fully client-side: auto-persist to `localStorage` plus explicit export/import of a save file, so it works for anyone (workmates included) with no account and no dependency on personal Syncthing/NAS infrastructure. Android/PortMaster handheld support is explicitly off the table for this project — if a dedicated handheld version is ever wanted, that's a separate future project reusing the same underlying study content, not a port of this one.
 
 **Premise — "Frontier Outposts," reframed as time travel:** Protagonist **Trigger** (a chosen callsign, not a birth name — leap-program convention) is a newly-hired Junior Sim Tech, recruited specifically for being sci-fi-genre-fluent enough to not choke on concepts like the bootstrap paradox. He's a **silent protagonist** (FTL/JRPG convention) — personality expressed entirely through dialogue choices on a **tonal dial** (Wry / Earnest / By-the-book) rather than branching content, to keep writing scope sane.
@@ -320,4 +322,51 @@ Still the same session. Matthew pushed back that he blows through Sectors 1-3 qu
 
 **Not yet done:** the site/location-name pool (`SITE_POOL_BY_DOMAIN`) is still too small (3-4 named facilities per domain) to show at the Hub-preview level per Matthew's own stated condition — worth expanding if a per-deployment location preview is wanted later. `profile.sector_index`-shaped save data from before this change is simply ignored now (dead key, harmless via the existing `Object.assign(defaultProfile(), parsed)` load path) rather than migrated.
 
+
+## Story Bible Consolidation (2026-09-23)
+
+Matthew named the core remaining problem as a lack of **narrative pull**: the game should borrow Hades's approach to story (it advances *because* you fail and return), since FTL never really had one. Inventory of what actually reaches the player today: 1 intro paragraph, 1 crew-hire beat, 3 static Hub lines, 8 generic callback templates, 1 promotion template, 2 run-end lines (hardcoded to "Fort Kessler" regardless of the run's site), and zero named characters besides Hub. The locked premise (time travel, 2039 war, Hub's origin) never surfaces after the intro.
+
+Created [`game/STORY_BIBLE.md`](game/STORY_BIBLE.md), which consolidates the 2026-09-19 locked decisions and adds clearly marked **proposals** for workshopping: named crew with rapport gated on their own domain's mastery, recurring outposts with residents, a recurring checkpoint Surveyor whose out-of-order encounters turn non-linear deployment picking into a bootstrap-paradox story feature, a Readiness Projection meter (2044 → 2039, derived from existing mastery data), a 6-layer "sprinkling" model with a Hades-style dialogue-priority rule, and a phased content budget (Phase A ≈ 60 lines). Nothing is built yet; open questions are listed at the end of the bible.
+
+## Story Bible Workshop + Phase A Narrative Build (2026-09-23)
+
+Matthew answered the bible's open questions (all recorded in `game/STORY_BIBLE.md` §9):
+- Crew names approved.
+- Trigger has no gendered pronouns; he wants to share the game with coworkers.
+- Readiness Projection: yes, and it can move backwards.
+- Surveyor Marsh: yes.
+- Site story must be delivered in context, not as loose lines (arrival briefings, Phase B).
+- Waystation 4 is the command post's name.
+- No payoff for the "Hub's origin is this game" meta-joke: too procedural to be believable.
+- Marionette takeover branch deferred until he can actually playtest Act 2→3 (still in Domain II).
+- Build Phase A.
+
+**Built:**
+- `game/web/story.js` (all story content as data).
+- A Hades-style story engine in `game/web/app.js`: `composeHubConversation()`, `pickReaction()`/`pickScene()`, `renderHubConversation()` with tone-dial choices, `readinessFraction()`/`projectionYear()`, and `summarizeRun()`.
+- The Hub panel is now "WAYSTATION 4", with a multi-speaker conversation and a Program Readiness Projection readout (month/year plus change since the last return).
+- Every return: one reaction to *how* the run went (checkpoint topic missed, clean run, repeated misses on a KSA, low resources, projection slip or gain), then at most one story slot in the order promotion > main > Patch's arc > due callback > ambient.
+- Crew now have names (`CREW_DEFS.person`/`initials`). The run-end screen names the actual site and says "LEAP SNAPPED BACK" on failure.
+- Removed `HUB_LINES`/`hubLineForVisit()`/`pending_callback_line`. `migrateProfile()` keeps older saves from getting the first-rotation welcome.
+- Pipeline: Domain I's site pool swapped "Waystation 4"/"en route" for real outposts. That also fixes callbacks that would have read "en route flagged the same problem again." Regenerated; only location text changed.
+
+**Quantified before choosing thresholds (Node harness plus in-browser 60-run careers through the real engine):**
+- The projection moves ~0.5 months/run at 75% accuracy, so beats are every half-year, not every whole year.
+- Patch's beats are keyed to Domain II mastery every 10%.
+- The first sim pass caught two problems, both fixed: an identical failed-checkpoint reaction replaying on consecutive runs (fixed with a 4-return recency rule plus more variants), and ambient lines all used up on consecutive early returns (now capped at every other return).
+- Final: no raw placeholders, `undefined` or console errors; zero back-to-back repeats; 51–56 of 60 returns carry a story slot on top of the per-run reaction.
+
+**Verified via Playwright:**
+- Fresh boot → crew hire (Patch named) → first-visit scene → a real clicked-through run → site-specific run-end → return shows the first-return reaction plus the projection intro with 3 tone choices; picking one renders Trigger's line and the reply and records the tone.
+- Reload keeps the same conversation.
+- A legacy save (25 visits, no story state) migrates without the first-rotation welcome.
+- 390px phone width has no horizontal scroll.
+
+**Not yet done:** Phase B (outpost arrival briefings, Surveyor Marsh, resident-voiced callbacks replacing the 8 generic templates). Theo's arc (Phase C) is the thin spot after the first promotion. Committed and pushed at end of day 2026-09-23.
+
+**Pick up here next session:**
+1. Matthew playtests Phase A on his real save. He's at about 31% Domain II, so expect the projection intro, then Patch's intro and her beats up to 30%, on successive returns. Watch for lines that repeat or land flat.
+2. Before writing Phase B site content, decide the **arrival-briefing format**: a short scene screen before the map, or a panel on the map screen. It's the open question in `game/STORY_BIBLE.md` §10.
+3. Then Phase B: 4 outpost identities/residents, Surveyor Marsh's first ~8 encounters (including out-of-order payoffs), resident-voiced callbacks replacing the 8 generic `CALLBACK_TEMPLATES`, and ~30 in-run barks.
 
