@@ -370,3 +370,34 @@ Matthew answered the bible's open questions (all recorded in `game/STORY_BIBLE.m
 2. Before writing Phase B site content, decide the **arrival-briefing format**: a short scene screen before the map, or a panel on the map screen. It's the open question in `game/STORY_BIBLE.md` §10.
 3. Then Phase B: 4 outpost identities/residents, Surveyor Marsh's first ~8 encounters (including out-of-order payoffs), resident-voiced callbacks replacing the 8 generic `CALLBACK_TEMPLATES`, and ~30 in-run barks.
 
+
+## Sound Control + Phase B Part 1: Outposts, Arrival Briefings, Surveyor Marsh (2026-09-24)
+
+**Sound:** a fixed corner widget (mute button + volume slider, slider hidden under 520px) on every screen. It feeds a master gain node in front of all SFX. It's stored under its own localStorage key (`chsos_audio_prefs_v1`), so New Game / Import don't reset it and it isn't part of exported saves.
+
+**Arrival format:** Matthew picked **hybrid** (the open question from `STORY_BIBLE.md` §10). A full arrival screen plays only when an unseen briefing is eligible. Otherwise the map shows a one-line status banner, e.g. `MARCUS ON SITE · YOU'VE BEEN HERE IN 2027. THEY HAVEN'T MET YOU YET · RECORD 1–0`.
+
+**Structural change: a deployment is one outpost in one year.** Before this, every node carried its own generated site, and a run was a "multi-site rotation" with no single place to brief. Now:
+- `pickDeployment()` in app.js returns `{ window_index, outpost, year }`. The window still comes from `pickDeploymentWindow()`; the outpost uses the same staleness-squared weighting; the year is uniform within the window.
+- `profile.pending_window_index` has been **replaced** by `profile.pending_deployment`, and `migrateProfile()` converts old saves.
+- `rehomeNode()` deep-copies each picked node and rewrites any of the four outpost names in its strings to the run's outpost, keeping room suffixes. That covers flavor text, `location_name`, and queued callback messages.
+- The Hub preview now names the outpost and year: `NEXT DEPLOYMENT — HARBOR DISTRICT TRAINING ANNEX · 2024`. On 2026-09-22 Matthew held off on showing locations because the pool was small. The bible's later decision to lean into four recurring outposts replaces that concern, but flag it if it feels repetitive.
+- New save state: `profile.outposts[id].visits` and `profile.story.marsh` (`meetings` and `seen_year`).
+
+**Time rule:** residents and Marsh remember only successful visits (a failed leap is dropped from the timeline) in years at or before the current one (`timelineStatus()`). The possible states are first, met, future, and unrecorded.
+
+**Content (`game/web/outposts.js`, new file):** 4 outposts with residents (Brandt, Priya, Marcus, June), 26 one-time briefings, 10 Marsh encounters plus rotating fallbacks and result lines. The 2 bootstrap loops (jumpsuit; crash-cart sim-only labels) pay off in any year earlier than where the setup was heard. Technical lines were checked against `expert_knowledge.json` and the `StudyGuide/` notes: warranty needs maintenance logs; boundary mics per zone into a mixer for multi-zone MCI audio; par level formula and FIFO; weekly blood-line flushing against mold; GAS / plus-delta; moulage patch test and barrier layer; "for simulation use only" labeling.
+
+**Verified (Playwright, real UI):**
+- 14 randomly answered runs from a fresh save: every run's nodes named only that run's outpost; briefings or banner appeared as designed; the jumpsuit loop fired in order on its own (setup 2026, payoff 2021); zero console errors; no horizontal scroll at 1280 or 390.
+- Seeded saves covered the "met" (Brandt remembers 2020), "future" (Marcus/Marsh haven't met you; you were there in 2027) and labels-payoff paths, plus a legacy save with `pending_window_index` migrating cleanly.
+
+**Phase B part 2, same day:**
+- **Resident callbacks.** `OUTPOST_CALLBACKS` in outposts.js: 24 lines. `callbackLines()` picks least-recently-used by outpost and outcome, and falls back to the generic message for callbacks queued before outposts existed.
+- **Callbacks follow the time rule.** Found in playtest: Brandt reported "whatever you did in 2027 is still holding" about a run that failed, while the banner said "no visit on record". Callbacks are now held on `run.held_callbacks` and committed in `endRun()` only on success (`commitRunCallbacks()`). The trade-off is fewer callbacks for players who fail a lot (about 1.2 queued per run times the pass rate).
+- **In-run barks.** `BARKS`: 35 lines on a `#map-bark` strip under the banner, chosen by `barkEvent()` and `pickBark()`, least-recently-used. The first playtest showed the rest and checkpoint barks firing nearly every run (every map has a rest stop). They're now 50% and 60% chance, and there are 4 resident checkpoint lines.
+- **Verified:** a 22-run Playwright playthrough (barks and callbacks site-correct, both Marsh loops fired naturally in order, zero errors) and an in-page check (each low-resource bark fires once per run; held callbacks drop on failure, commit on success; the legacy fallback works). A 6-run regression at 390px showed no horizontal scroll.
+
+**Pick up here next session:**
+1. Matthew playtests Phase B. On an existing save every outpost starts as a first visit and Marsh introduces herself once, which is intended because these characters are new.
+2. Phase C: Acts 1–2 main thread, Theo's arc (the thin spot after the first promotion), Marionette ambient, and the first Codex entries.

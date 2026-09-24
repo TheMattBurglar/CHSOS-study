@@ -14,6 +14,8 @@
   --domain-IV: #6fbf73;
   --domain-V: #e0584f;
   --danger: #e0584f;
+  --resident: #a9b8d6;
+  --surveyor: #d9a0c0;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -464,3 +466,66 @@ a { color: inherit; }
 @media (max-width: 520px) {
   .convo-line { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* ---------- sound control ---------- */
+
+.sound-control {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 20;  /* above .overlay so it stays usable mid-node */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px 4px 4px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.sound-toggle {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1;
+  padding: 0;
+}
+.sound-toggle:hover { background: var(--border); }
+.sound-toggle:focus-visible, .sound-volume:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.sound-volume {
+  width: 90px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.sound-volume.is-muted { opacity: 0.4; }
+
+@media (max-width: 520px) {
+  /* Collapse to just the mute button on narrow screens. */
+  .sound-control { padding: 4px; }
+  .sound-volume { display: none; }
+}
+
+/* ---------- outpost arrival ---------- */
+
+.briefing-card { max-width: 620px; }
+.briefing-card h1 { margin: 6px 0 4px; }
+.briefing-card .eyebrow { font-size: 11px; letter-spacing: 2px; color: var(--muted); }
+.briefing-status, .map-banner {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--resident);
+}
+.briefing-status { margin-bottom: 14px; }
+.map-banner { padding: 10px 28px; border-bottom: 1px solid var(--border); }
+.map-banner:empty { display: none; }
+.node-panel .hub-convo { margin: 4px 0 12px; }
+.map-bark { padding: 10px 28px 0; font-size: 14px; line-height: 1.5; color: #cbd2dc; min-height: 31px; }
+.map-bark .convo-line { grid-template-columns: 76px 1fr; }
+@media (max-width: 760px) { .map-bark, .map-banner { padding-left: 16px; padding-right: 16px; } }

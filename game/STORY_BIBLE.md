@@ -277,6 +277,17 @@ Tone-dial replies set a small running tally (`tone_history`) instead of branchin
 - Measured on 60-run simulated careers through the real engine: every return gets a reaction, and 51–56 of 60 also get a story slot (scene, crew beat, callback or ambient). No back-to-back identical reactions.
 - **Known thin spot:** after promotion to Operations Specialist, only Patch's beats 70 and 80 remain until Theo's arc is written (Phase C). Callbacks carry most returns there.
 
+**Phase B part 1: built 2026-09-24.** Content in `game/web/outposts.js`, engine in `game/web/app.js` (the "outposts" and "Surveyor Marsh" sections).
+- A deployment is now **one outpost in one year**. `pickDeployment()` keeps the year-window weighting and adds the same staleness-squared weighting across the four outposts. Question nodes are re-homed at runtime (`rehomeNode()`), so their baked-in site text matches the outpost.
+- **Time rule:** residents and Marsh remember only *successful* visits in years at or before the current one. A success in a later year means "you've been in their future; they haven't met you yet". A site with only failed visits has no visit on record.
+- 26 arrival briefings: a first visit, "future" and "met" beats per outpost, era beats (Ridgeline's SimMed pilot from 2022, Harbor's Marionette box from 2023, Kessler's mass-casualty wing from 2025, Theo at Coastal), late-decade good/poor beats keyed to that site's record, and one "no visit on record" beat.
+- 10 Marsh encounters at the checkpoint, including both out-of-order loops (the jumpsuit; the crash-cart "for simulation use only" labels). The payoff unlocks in any year earlier than the one where the setup played. Rotating fallbacks after that.
+
+**Phase B part 2: built 2026-09-24.**
+- **Resident callbacks:** 24 lines (3 success + 3 fail per outpost) replace the generic templates at delivery time. A node still decides whether a callback queues; the resident of that run's outpost says it, least-recently-used first. Callbacks queued before this change keep their old generic text.
+- **Callbacks obey the time rule.** They're held on the run and committed only if the review passes, because a snapped-back visit never happened. This lowers callback volume for struggling players: roughly 1.2 callbacks queue per run (35% of about 4 content nodes), times the pass rate.
+- **Barks:** 35 one-liners on a strip under the map banner. Events: arrive, miss, clean node (50%), rest (50%), each low resource (once per run), and checkpoint next (60%). Outpost barks come from residents, and Theo's need him on the roster. Least-recently-used selection.
+
 ---
 
 ## 8. Tone and writing rules
@@ -304,6 +315,11 @@ Tone-dial replies set a small running tally (`tone_history`) instead of branchin
 8. Marionette takeover branch: deferred until the Act 2→3 flow is playtestable.
 9. Phase A: started.
 
+**2026-09-24:**
+10. Arrival-briefing format: **hybrid**. A full arrival screen only when an unseen briefing is eligible; otherwise a one-line status banner on the map.
+11. Phase B built: each deployment is one outpost in one year; residents, Marsh, resident callbacks and barks live in `game/web/outposts.js`.
+12. Callbacks follow the time rule: only runs that pass their review keep their callbacks.
+
 ## 10. Open questions
 
-- None blocking Phase A. Phase B needs the outpost arrival-briefing format settled before writing site content.
+- None blocking. Phase B is done; Phase C (Acts 1–2 main thread, Theo's arc, Marionette ambient, first Codex entries) is next.

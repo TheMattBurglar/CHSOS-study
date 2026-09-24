@@ -76,6 +76,21 @@
   </div>
 </section>
 
+<!-- OUTPOST ARRIVAL BRIEFING (only when there's something new to say) -->
+<section id="screen-briefing" class="screen" hidden>
+  <div class="center-shell">
+    <div class="card briefing-card">
+      <span class="eyebrow" id="briefing-eyebrow">ARRIVAL</span>
+      <h1 id="briefing-title" class="hud"></h1>
+      <div class="briefing-status" id="briefing-status"></div>
+      <div class="hub-convo" id="briefing-lines"></div>
+      <div class="btn-row">
+        <button id="btn-briefing-deploy" class="btn">DEPLOY</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- NODE MAP -->
 <section id="screen-map" class="screen" hidden>
   <div class="topbar">
@@ -89,6 +104,9 @@
       <div class="stat-pill"><span class="label">BUDGET</span><span class="value" id="stat-budget">200 CR</span></div>
     </div>
   </div>
+
+  <div class="map-banner" id="map-banner"></div>
+  <div class="map-bark" id="map-bark" aria-live="polite"></div>
 
   <div class="map-layers">
     <div class="map-layer-label">NEXT ROTATION</div>
@@ -120,10 +138,17 @@
   </div>
 </section>
 
+<!-- SOUND CONTROL (fixed, shown on every screen) -->
+<div class="sound-control" role="group" aria-label="Sound">
+  <button id="btn-sound-toggle" class="sound-toggle" type="button">🔊</button>
+  <input id="sound-volume" class="sound-volume" type="range" min="0" max="100" step="5" aria-label="Volume">
+</div>
+
 <script src="content.js"></script>
 <script src="nodes_generated.js"></script>
 <script src="mapgen.js"></script>
 <script src="story.js"></script>
+<script src="outposts.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
