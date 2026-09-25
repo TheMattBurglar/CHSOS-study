@@ -1,6 +1,6 @@
 # CHSOS Study App
 
-A self-study toolkit for the **Certified Healthcare Simulation Operations Specialist (CHSOS)** certification exam. Includes a Python CLI quiz engine for the terminal and a full static web app you can use on your phone or share with colleagues — no server required.
+A self-study toolkit for the **Certified Healthcare Simulation Operations Specialist (CHSOS)** certification exam. Includes a browser-based study game (an FTL-style roguelite built on the exam content) hosted on GitHub Pages, plus a Python CLI quiz engine for the terminal — no server required.
 
 ---
 
@@ -25,8 +25,6 @@ The CHSOS is a professional certification for healthcare simulation technicians 
 - **Terminology Flashcards** — definition drills for all key terms
 - **Spaced Repetition** — Leitner system (levels 0–5) that automatically prioritises your weakest areas
 - **Progress Dashboard** — per-domain mastery bars, overall readiness percentage, and exam weighting reminders
-- **Export / Import** — save your progress as a JSON file and load it on another device
-- **Keyboard shortcuts** in the web app — `Space`/`Enter` to reveal, `Y`/`N` to grade, `→` for next question
 
 ---
 
@@ -34,11 +32,13 @@ The CHSOS is a professional certification for healthcare simulation technicians 
 
 ```
 CHSOS/
-├── docs/                        # Static web app (served by GitHub Pages)
-│   ├── index.html
-│   ├── style.css
-│   ├── app.js
-│   └── expert_knowledge.json    # Copy of study data (auto-synced)
+├── game/                        # Study game
+│   ├── web/                     # Static game site (deployed to GitHub Pages)
+│   ├── pipeline/build_nodes.py  # Builds web/nodes_generated.js from the study data
+│   ├── STORY_BIBLE.md
+│   └── SCHEMA.md
+│
+├── .github/workflows/pages.yml  # Deploys game/web/ to GitHub Pages
 │
 ├── StudyGuide/                  # Generated Markdown study notes, one file per KSA
 │   ├── Domain_I_.../
@@ -51,29 +51,25 @@ CHSOS/
 ├── blueprint.json               # Exam domain/KSA structure
 ├── architect.py                 # Scaffolds the StudyGuide folder structure
 ├── study_generator.py           # Populates StudyGuide .md files from expert_knowledge.json
-├── update_knowledge.py          # Injects new domain content + syncs docs/ copy
+├── update_knowledge.py          # Injects new domain content into expert_knowledge.json
 ├── quiz_engine.py               # Interactive CLI quiz (terminal)
 └── currentState.md              # Project status notes
 ```
 
 ---
 
-## Using the Web App
+## Playing the Game
 
-The web app is hosted on GitHub Pages and requires no installation:
+The game is hosted on GitHub Pages and requires no installation:
 
 **[https://themattburglar.github.io/CHSOS-study/](https://themattburglar.github.io/CHSOS-study/)**
 
-On mobile, tap the share button in your browser and choose **"Add to Home Screen"** for an app-like experience.
+Progress is stored in your browser's `localStorage` — it persists between sessions on the same device.
 
-Progress is stored in your browser's `localStorage` — it persists between sessions on the same device. Use the **Export Progress** button to back it up or move it to another device.
-
-### Running the web app locally
-
-The web app requires an HTTP server (browsers block `fetch()` from `file://` URLs).
+### Running the game locally
 
 ```bash
-python3 -m http.server 8080 --directory docs
+python3 -m http.server 8080 --directory game/web
 # Then open http://localhost:8080
 ```
 
@@ -105,7 +101,7 @@ To add or revise knowledge content, edit the domain dictionaries in `update_know
 python3 update_knowledge.py
 ```
 
-This writes changes to `expert_knowledge.json` **and** automatically copies it to `docs/expert_knowledge.json` so the web app stays in sync.
+This writes changes to `expert_knowledge.json`. To pull new content into the game, rebuild its node data with `python3 game/pipeline/build_nodes.py`.
 
 To regenerate all the Markdown study notes in `StudyGuide/`:
 
@@ -117,16 +113,15 @@ python3 study_generator.py
 
 ## Deployment (GitHub Pages)
 
-The web app is deployed from the `docs/` folder on the `main` branch.
+The game in `game/web/` is deployed by the GitHub Actions workflow in `.github/workflows/pages.yml` on every push to `main`.
 
 ### First-time setup
 
 1. Fork or clone this repo
 2. Go to **Settings → Pages** in your GitHub repository
-3. Under **Branch**, select `main` and set the folder to `/docs`
-4. Click **Save**
+3. Under **Build and deployment → Source**, select **GitHub Actions**
 
-Your app will be live at `https://<your-username>.github.io/<repo-name>/` within about a minute.
+Your game will be live at `https://<your-username>.github.io/<repo-name>/` once the workflow finishes (see the **Actions** tab).
 
 ### Pushing updates
 
@@ -136,7 +131,7 @@ git commit -m "describe your change"
 git push
 ```
 
-GitHub Pages redeploys automatically on every push to `main`.
+The workflow redeploys automatically on every push to `main` (or run it manually from the **Actions** tab).
 
 ---
 

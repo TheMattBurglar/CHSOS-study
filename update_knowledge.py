@@ -495,15 +495,6 @@ def update_expert_knowledge():
         print(f"expert_knowledge.json: left {len(skipped)} existing KSA(s) untouched (already present).")
     print("expert_knowledge.json updated (non-destructive merge complete).")
 
-    # Keep the web app in sync — copy the updated JSON into docs/
-    web_path = os.path.join("docs", "expert_knowledge.json")
-    if os.path.exists("docs"):
-        import shutil
-
-        shutil.copy2(file_path, web_path)
-        print(f"Web app copy updated: {web_path}")
-    else:
-        print("Note: 'docs/' folder not found — skipping web app sync.")
 
 
 if __name__ == "__main__":
