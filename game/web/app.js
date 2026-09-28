@@ -192,7 +192,10 @@ function defaultStoryState() {
     last_story_return: null,  // `returns` value when a scene/callback last played (ambient pacing)
     marsh: { meetings: [], seen_year: {} },  // checkpoint encounters: meetings [{year, success}] in play order; encounter id -> year it played
     callback_used: {},  // resident callback line id -> `returns` when delivered (least-recently-used pick)
-    bark_used: {}       // bark id -> deployments_completed when shown (least-recently-used pick)
+    bark_used: {},      // bark id -> deployments_completed when shown (least-recently-used pick)
+    promoted_at: null,  // `returns` value when the latest promotion was announced (Act 2+ pacing)
+    last_slot_layer: null,  // layer of the last scene played, so character and thread beats alternate
+    codex: {}           // codex entry id -> { at: `returns` when unlocked, read: bool } (codex.js)
   };
 }
 
@@ -533,7 +536,8 @@ function outpostContext(outpostId, year) {
     fails: visits.filter(v => !v.success).length,
     seen: id => profile.story.seen[id] != null,
     flag: f => !!(profile.global_flags && profile.global_flags[f]),
-    crew: id => profile.unlocked_crew.includes(id)
+    crew: id => profile.unlocked_crew.includes(id),
+    met: crewMet
   };
 }
 
@@ -632,10 +636,10 @@ function barkEvent(node, success) {
 
 function pickBark(event) {
   if (!event) return null;
-  const b = { year: run.year, resources: run.resources };
+  const b = { year: run.year, resources: run.resources, flag: f => !!profile.global_flags[f] };
   const eligible = BARKS.filter(k => k.on === event
     && (!k.outpost || k.outpost === run.outpost)
-    && (!k.crew || profile.unlocked_crew.includes(k.crew))
+    && (!k.crew || crewMet(k.crew))
     && (!k.when || k.when(b)));
   if (!eligible.length) return null;
   const used = profile.story.bark_used;
@@ -664,11 +668,19 @@ function convoLinesHtml(lines, vars) {
 //
 // Each Hub return composes one conversation: a reaction to the run that just
 // ended, then at most one story slot in priority order
-//   promotion > main (projection beats) > character (crew arcs) > due outpost callback > ambient.
+//   promotion > main (act milestones, projection beats) > character / thread
+//   (alternating) > due outpost callback > ambient.
 // Anything eligible but not picked stays eligible for a later return -- the
 // same deferral rule the callback queue already used against promotions.
 // The composed conversation is stored on the profile so a reload or re-render
 // shows the same thing instead of re-rolling.
+
+// On the roster and introduced (CREW_INTRO_SCENE in story.js).
+function crewMet(id) {
+  if (!profile.unlocked_crew.includes(id)) return false;
+  const intro = CREW_INTRO_SCENE[id];
+  return !intro || profile.story.seen[intro] != null;
+}
 
 function storyContext(projectionDeltaMonths) {
   const st = profile.story;
@@ -678,8 +690,15 @@ function storyContext(projectionDeltaMonths) {
     flag: f => !!(profile.global_flags && profile.global_flags[f]),
     seen: id => st.seen[id] != null,
     crew: id => profile.unlocked_crew.includes(id),
+    met: crewMet,
     domainPct: d => domainMasteryPercent(d),
     rankAtLeast: r => rankIndex(profile.rank) >= rankIndex(r),
+    // Returns since a scene last played; Infinity if it never has, so an
+    // unseen prerequisite has to be checked with seen() separately.
+    returnsSince: id => (st.seen[id] == null ? Infinity : st.returns - st.seen[id]),
+    sincePromotion: st.promoted_at == null ? st.returns : st.returns - st.promoted_at,
+    visited: id => !!(profile.outposts[id] && profile.outposts[id].visits.length),
+    marshMeetings: st.marsh.meetings.length,
     projectionYear: projectionYear(),
     projectionDeltaMonths
   };
@@ -708,11 +727,25 @@ function pickReaction(ctx) {
     .sort((a, b) => (seen[a.id] == null ? -1 : seen[a.id]) - (seen[b.id] == null ? -1 : seen[b.id]))[0];
 }
 
+// When the "returns" value an arc's latest beat played at, -1 if none yet.
+function arcLastBeat(arc) {
+  const seen = profile.story.seen;
+  return STORY_SCENES.reduce((last, sc) =>
+    (sc.arc === arc && seen[sc.id] != null ? Math.max(last, seen[sc.id]) : last), -1);
+}
+
 function pickScene(ctx, layer) {
   const candidates = STORY_SCENES.filter(sc => sc.layer === layer && !ctx.seen(sc.id) && sc.when(ctx));
   if (!candidates.length) return null;
   const top = Math.max(...candidates.map(sc => sc.priority));
-  return candidates.find(sc => sc.priority === top); // declared order breaks ties
+  const tied = candidates.filter(sc => sc.priority === top);
+  // Crew arcs take turns: the one that has waited longest goes first, so a
+  // new crew member's beats don't queue behind the whole of Patch's backlog.
+  // Otherwise declared order breaks ties.
+  if (layer === "character") {
+    return tied.reduce((best, sc) => (arcLastBeat(sc.arc) < arcLastBeat(best.arc) ? sc : best));
+  }
+  return tied[0];
 }
 
 function composeHubConversation() {
@@ -730,8 +763,12 @@ function composeHubConversation() {
   if (profile.pending_promotion) {
     blocks.push({ kind: "text", lines: promotionLines(profile.pending_promotion) });
     profile.pending_promotion = null;
+    st.promoted_at = st.returns;
   } else {
-    const scene = pickScene(ctx, "main") || pickScene(ctx, "character");
+    // Crew beats and thread scenes alternate, crew first, so neither can
+    // starve the other while both have something due.
+    const [firstLayer, secondLayer] = st.last_slot_layer === "character" ? ["thread", "character"] : ["character", "thread"];
+    const scene = pickScene(ctx, "main") || pickScene(ctx, firstLayer) || pickScene(ctx, secondLayer);
     const callback = scene ? null : checkDueCallback();
     // Ambient filler at most every other return, so the pool stretches across
     // the gaps between gated beats instead of being burned all at once.
@@ -740,6 +777,7 @@ function composeHubConversation() {
     const chosen = scene || ambient;
     if (chosen || callback) st.last_story_return = st.returns;
     if (chosen) {
+      st.last_slot_layer = chosen.layer;
       markStorySeen(chosen);
       blocks.push({ kind: "scene", id: chosen.id });
     } else if (callback) {
@@ -762,6 +800,7 @@ function composeHubConversation() {
     projection_delta_months: deltaMonths
   };
   st.projection_at_last_return = projNow;
+  unlockCodexEntries();
   convoAnimateFrom = 0;
 }
 
@@ -868,11 +907,102 @@ function renderProjectionReadout() {
   let deltaHtml = "";
   if (delta < 0) deltaHtml = `<span class="proj-delta gain">▲ ${-delta} MO EARLIER</span>`;
   else if (delta > 0) deltaHtml = `<span class="proj-delta slip">▼ ${delta} MO LATER</span>`;
+  // The target only goes on screen once Hub has named it (main_act2_war).
+  const targetHtml = profile.global_flags.war_named ? `<span class="proj-target hud">TARGET ${PROJECTION_END_YEAR}</span>` : "";
   el.innerHTML = `
     <span class="eyebrow">PROGRAM READINESS PROJECTION</span>
     <span class="proj-value hud">${formatProjection(projectionYear())}</span>
-    ${deltaHtml}`;
+    ${deltaHtml}
+    ${targetHtml}`;
 }
+
+// ---------- Study Log / Codex (codex.js) ----------
+
+// Checked on every Hub return (end of composeHubConversation()) and on Hub
+// load. Entries never re-lock.
+function unlockCodexEntries() {
+  const codex = profile.story.codex;
+  const ctx = storyContext(0);
+  CODEX_ENTRIES.forEach(e => {
+    if (!codex[e.id] && e.when(ctx)) codex[e.id] = { at: profile.story.returns, read: false };
+  });
+}
+
+function codexUnreadCount() {
+  return Object.values(profile.story.codex).filter(r => !r.read).length;
+}
+
+function renderCodexButton() {
+  const unread = codexUnreadCount();
+  const btn = document.getElementById("btn-codex");
+  btn.innerHTML = unread ? `STUDY LOG <span class="codex-new">${unread} NEW</span>` : "STUDY LOG";
+  btn.hidden = !Object.keys(profile.story.codex).length;
+}
+
+let codexSelected = null;
+
+function showCodex() {
+  const codex = profile.story.codex;
+  const unlocked = CODEX_ENTRIES.filter(e => codex[e.id]);
+  if (!codexSelected || !codex[codexSelected]) {
+    const firstUnread = unlocked.find(e => !codex[e.id].read);
+    codexSelected = (firstUnread || unlocked[0] || {}).id || null;
+  }
+  renderCodex();
+  showScreen("screen-codex");
+}
+
+function renderCodex() {
+  const codex = profile.story.codex;
+  if (codexSelected && codex[codexSelected]) codex[codexSelected].read = true;
+  saveProfile();
+
+  document.getElementById("codex-list").innerHTML = CODEX_CATEGORIES.map(cat => {
+    const all = CODEX_ENTRIES.filter(e => e.cat === cat.id);
+    const open = all.filter(e => codex[e.id]);
+    const items = open.map(e => `
+      <button class="codex-item${e.id === codexSelected ? " active" : ""}" data-id="${e.id}">
+        <span>${escapeHtml(e.title)}</span>
+        ${codex[e.id].read ? "" : `<span class="codex-new">NEW</span>`}
+      </button>`).join("");
+    const locked = all.length - open.length;
+    return `
+      <div class="codex-cat">
+        <div class="codex-cat-title hud">${cat.label} <span>${open.length}/${all.length}</span></div>
+        ${items}
+        ${locked ? `<div class="codex-locked">${locked} ${locked === 1 ? "record" : "records"} not recovered yet</div>` : ""}
+      </div>`;
+  }).join("");
+
+  const entry = CODEX_ENTRIES.find(e => e.id === codexSelected);
+  const el = document.getElementById("codex-entry");
+  if (!entry) {
+    el.innerHTML = `<p class="codex-empty">Nothing recovered yet. Records turn up as the story moves.</p>`;
+  } else {
+    const domain = entry.fact.ksa.split(".")[0];
+    el.innerHTML = `
+      <span class="eyebrow">${escapeHtml(entry.meta.toUpperCase())}</span>
+      <h2 class="hud">${escapeHtml(entry.title)}</h2>
+      ${entry.body.map(p => `<p>${escapeHtml(p)}</p>`).join("")}
+      <div class="codex-fact" style="border-left-color:${domainColor(domain)}">
+        <div class="codex-fact-label hud" style="color:${domainColor(domain)}">FIELD NOTE · KSA ${entry.fact.ksa} · ${escapeHtml(DOMAIN_LABELS[domain] || "")}</div>
+        <div>${escapeHtml(entry.fact.t)}</div>
+      </div>`;
+  }
+
+  document.querySelectorAll("#codex-list .codex-item").forEach(btn => {
+    btn.addEventListener("click", () => {
+      codexSelected = btn.dataset.id;
+      sfxSelect();
+      renderCodex();
+      // Narrow screens stack the list above the entry.
+      if (window.matchMedia("(max-width: 760px)").matches) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+}
+
+document.getElementById("btn-codex").addEventListener("click", () => { sfxSelect(); showCodex(); });
+document.getElementById("btn-codex-back").addEventListener("click", () => { sfxSelect(); showHub(); });
 
 // ---------- screen helpers ----------
 
@@ -947,6 +1077,8 @@ function showHub() {
   }
   renderProjectionReadout();
   renderHubConversation();
+  unlockCodexEntries();  // older saves, and anything the current state already qualifies for
+  renderCodexButton();
 
   const domainsEl = document.getElementById("hub-domains");
   domainsEl.innerHTML = "";

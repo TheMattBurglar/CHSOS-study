@@ -409,3 +409,29 @@ Matthew found them pointless in playtest, and the numbers agreed. A rest stop co
 - Reworded `bark_low_integrity_b`, which recommended a rest stop.
 - **Still open:** the Hub scenes gated on a successful run ending with `end_integrity <= 25` or `end_morale <= 30` (story.js) can't be reached. The best-case floor for a successful run is 55 integrity / 70 morale (three missed scenarios, checkpoint passed), and budget can't fall below about 125, so `end_budget <= 20` can't fire either. Resources need a real role (e.g. low integrity shortens the diagnostic timer) before those scenes or rest stops make sense.
 - Verified by generating 20,000 maps across all three year windows: 0 rest stops.
+
+## Phase C: Acts 1–2, Theo, Cal, Study Log (2026-09-28)
+
+Matthew skipped a formal Phase B playtest (he remembers Marsh from a test run and it looked fine) and asked for all of Phase C in one pass. Decisions (via `AskUserQuestion`): the Codex is **lore with a real exam fact in every entry**, Cal from Marionette **is** a recurring character, and the whole of Phase C was built in this pass. Details and the full content list are in `game/STORY_BIBLE.md` §7.3 ("Phase C: built 2026-09-28").
+
+**Engine changes (`game/web/app.js`):**
+- New `thread` scene layer. Non-milestone main-story scenes take turns with crew beats (`profile.story.last_slot_layer`). `main` is now only act milestones and projection beats. The first harness run, with the Act 1 scenes still in `main`, pushed Patch's intro back to the 11th return.
+- Crew arcs take turns: tied character beats go to the arc whose last beat is oldest (`arc` field on character scenes, `arcLastBeat()`).
+- `crewMet()` / `c.met()`: a crew member speaks in reactions, ambient lines, barks and briefings only after their intro scene has played (`CREW_INTRO_SCENE` in story.js). Theo had been speaking on the promotion return, two returns before his intro.
+- Story context gained `returnsSince(id)`, `sincePromotion` (`profile.story.promoted_at`), `visited(outpost)` and `marshMeetings`. Bark `when` predicates can read flags (`b.flag`).
+- The projection readout shows `TARGET 2039` once `war_named` is set.
+- New Study Log screen (`#screen-codex`, `game/web/codex.js`): entries unlock on every Hub return and on load, so existing saves catch up. The STUDY LOG button on the Hub shows an unread count, and it's hidden until something has unlocked.
+
+**Content:** 9 thread scenes, 3 new main scenes (Act 2's war milestone, two projection beats past the Junior ceiling), 12 Theo beats, 3 Theo reactions, 5 ambient lines, 3 Cal briefings, 7 barks, and 21 Codex entries. Every technical claim was checked against `expert_knowledge.json`: moulage patch test/barrier/no acetone (III.L), three kinds of fidelity (III.I), reliability vs validity (III.J / V.C.4), LSTs through in-situ (III.K), orientation and ground rules (III.M), sharps fill line and red bag (III.G), SDS (III.E), utilization 70–85% (III.B/H), phantom power (II.A.2), boundary mics (II.B.1), plus the Codex field notes listed in each entry. Shipped text uses no pronouns for Theo (none are set in the bible) or for Cal.
+
+**Verified (Playwright, real engine, harness in the session scratchpad):**
+- Two 120-return careers from a fresh save (65% and 80% accuracy): zero console errors; every Phase C beat and all 21 Codex entries reached; Theo never speaks before his intro; no horizontal scroll at 1280 or 390; Codex and Hub checked visually at both widths.
+- Returns with a story slot: 107/120 (80%) and 86/120 (65%). In the 65% career the gaps cluster in the long Operations Specialist stretch (Theo's Domain III gates are 12–20 returns apart there) and after all the content has played.
+- A Junior-rank save with the new fields stripped loads cleanly, unlocks 14 Codex entries retroactively, and completes a run and return.
+- A Cal briefing and a Theo scene with a tone choice checked visually.
+
+**Noticed, not changed:** once scenes run out (Lead rank in the simulations), the callback backlog drains first-in, first-out and each outpost's 3 lines repeat back to back (e.g. six Brandt callbacks in a row). This is a Phase B volume issue; more callback lines or a per-return outpost rotation would fix it.
+
+**Pick up here next session:**
+1. Matthew plays on his real save (Junior, ~31% Domain II). Expect Act 1 thread scenes alternating with Patch's beats, Cal once Harbor comes up in 2023 or later, and a Study Log that already holds entries for what the save has seen.
+2. Phase D: Nadia's and Wren's arcs, Act 3 (the joke that doesn't land, a second presence in the logs, Hub's origin in the Codex) and Act 4. Settle Theo's pronouns first.

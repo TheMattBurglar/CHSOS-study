@@ -162,7 +162,7 @@ Marionette is a rival company (a fictional stand-in for the real-world big-vendo
 
 **[PROPOSED] How to seed it before Act 3:**
 - Marionette brochures, emails and salespeople as ambient texture at outposts (Harbor especially), in cheerful, deeply hollow marketing voice. "Marionette CompliancePro™: accreditation-ready in one afternoon!"
-- One recurring sales rep, **"Cal from Marionette"**, as a comic-relief bark character who is never quite a villain.
+- One recurring sales rep, **"Cal from Marionette"**, as a comic-relief bark character who is never quite a villain. **[LOCKED 2026-09-28, built in Phase C.]** Cal forgets everyone ("Have we met? I meet a lot of people!"), so the time rule never has to account for Cal. No pronouns for Cal in shipped text.
 - Act 3: Codex entries and Hub logs start containing lines neither Hub nor the player wrote.
 
 **[DEFERRED 2026-09-23] Full takeover branch** (Marionette contests control of the leap, forcing a who-do-you-trust choice). Decide once the build is far enough along that Matthew can actually playtest the Act 2→3 narrative flow; he's still in Domain II.
@@ -219,8 +219,8 @@ Six layers, from cheapest and most frequent to most expensive and rarest. The Ha
 ### 7.1 Dialogue selection rule (Hades-style) [BUILT, Phase A]
 
 One conversation per Hub return, chosen by:
-1. **Essential** (main thread and promotion). Always wins, and is never skipped.
-2. **Character beat** that's eligible and unseen, preferring the crew member whose arc has waited longest.
+1. **Essential** (act milestones, projection beats and promotion). Always wins, and is never skipped.
+2. **Character beat** or **thread scene** (the rest of the main story), taking turns: crew first, then a thread scene on the next return if one is due. Among crew beats, the crew member whose arc has waited longest goes first. *(Thread layer added 2026-09-28: when the Act 1 scenes were `main`, they pushed Patch's intro back to the 11th return.)*
 3. **Due callback** (existing FIFO queue).
 4. **Return reaction** matching how the run ended.
 5. **Ambient** pool, unseen lines first, repeats only once the pool is exhausted.
@@ -290,6 +290,15 @@ Tone-dial replies set a small running tally (`tone_history`) instead of branchin
 
 ---
 
+**Phase C: built 2026-09-28.** Content in `game/web/story.js` (thread scenes, Theo's arc) and `game/web/codex.js` (new), plus Cal in `game/web/outposts.js`.
+- **Act 1 thread** (Junior): how the leap and snap-back work; the time rule, after the first "future" briefing; who Marsh is; Hub on the SimMed pilot and on Marionette (Hub's first crack: "Opinions aren't history."); the bootstrap paradox, which points at the jumpsuit loop. The act still ends on `main_projection_2043`.
+- **Act 2** (Operations Specialist): "why these four sites?"; Patch and Theo's SimMed-vs-Marionette whiteboard; the **milestone `main_act2_war`**, where Hub names 2039, the war and the 2044 baseline, and the projection readout gains `TARGET 2039`; then an aftermath scene. The war scene waits for Theo's 40% beat, or 12 returns after promotion, whichever comes first. Two projection beats past the Junior ceiling (mid-2041, 2041).
+- **Theo's arc:** 12 beats. Ten are gated on Domain III mastery (0–80%) and two on time on the roster (8 and 16 returns after his intro), so a slow Domain III grind still hears from him. Marionette thread: replaced by a compliance bundle → reliable-but-not-valid → "Marionette Assist" knew his name → Cal sold the bundle → "put us at Harbor as often as you can," with a cursor that keeps blinking after Hub stops (Act 3 seed). Plus 3 reactions, 3 ambient lines and 3 barks.
+- **Crew speak only after their intro.** `CREW_INTRO_SCENE` / `crewMet()`: Theo's reactions, ambient lines, barks and his Coastal briefing wait for `theo_00_intro`. Before this, Theo spoke on the promotion return itself, before anyone had met him.
+- **Cal from Marionette:** 3 briefings (Harbor from 2023, where Cal is introduced; Kessler's mass-casualty wing; a phone call at Coastal), 5 barks, a voicemail ambient line after the war reveal, and an email in the Codex.
+- **Codex / Study Log:** 21 entries in 5 categories (Hub logs, personnel, site files, SimMed, Marionette). Each one is short in-fiction lore plus a **field note**: one real exam fact with its KSA, taken from `expert_knowledge.json`. They unlock from story flags, scenes seen, crew and outpost visits, are checked on every Hub return and on load (so existing saves catch up), and never re-lock. A STUDY LOG button on the Hub shows an unread count.
+- **Measured** (120-return careers through the real engine, 65% and 80% accuracy): zero console errors; every Phase C beat and all 21 entries reached; Theo never speaks before his intro; no horizontal scroll at 1280 or 390. Returns with a story slot: 107/120 at 80%, 86/120 at 65%. The empty ones cluster in the long Operations Specialist stretch for a slow player (Theo's Domain III gates at 30–60% are ~12–20 returns apart at 65%) and after everything has played. Phase D (Nadia, Wren) only helps after the next promotion, so more ambient lines or roster-time beats are the lever if that stretch feels quiet.
+
 ## 8. Tone and writing rules
 
 - **Jargon through voice.** Terminology lands in jokes, complaints and banter, never in exposition dumps. Every crew member's lines should be quietly correct Sim Ops practice.
@@ -320,6 +329,13 @@ Tone-dial replies set a small running tally (`tone_history`) instead of branchin
 11. Phase B built: each deployment is one outpost in one year; residents, Marsh, resident callbacks and barks live in `game/web/outposts.js`.
 12. Callbacks follow the time rule: only runs that pass their review keep their callbacks.
 
+**2026-09-28:**
+13. Codex: in-fiction lore, each entry with one grounded exam fact (a "field note"), not a separate study-notes tab.
+14. Cal from Marionette: yes, as a recurring comic-relief rep.
+15. Phase C built in one pass (Act 1 thread, Act 2 thread and war milestone, Theo, Cal, Codex).
+
 ## 10. Open questions
 
-- None blocking. Phase B is done; Phase C (Acts 1–2 main thread, Theo's arc, Marionette ambient, first Codex entries) is next.
+- None blocking. Phases A–C are done. Phase D is next: Nadia's and Wren's arcs, Act 3 ("What does Hub want?": the joke that doesn't land, a second presence in the logs, Hub's origin in the Codex) and Act 4.
+- The Marionette takeover branch is still deferred until the Act 2→3 flow is playtestable.
+- Theo's pronouns aren't set in this bible, so shipped text avoids them. Decide before writing Phase D scenes that talk *about* Theo.

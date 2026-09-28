@@ -22,11 +22,12 @@
 // Briefing context `c`:
 //   c.outpost (id), c.year, c.status ("first" | "met" | "future" | "unrecorded"),
 //   c.visits / c.clears / c.fails (all prior visits here, any year),
-//   c.seen(id), c.flag(f), c.crew(id)
+//   c.seen(id), c.flag(f), c.crew(id), c.met(id) (on the roster and introduced)
 // Marsh context `m`:
 //   m.year, m.meetings (count), m.status ("first" | "met" | "future" | "unrecorded"),
 //   m.lastFailed (the most recent meeting was a failed review), m.seenYear(id)
 //   (the year an encounter played, or null)
+// Bark context `b` (optional `when`): b.year, b.resources, b.flag(f)
 //
 // Extra placeholders here: {short} {resident} {refYear} (the year of the
 // visit/meeting the status refers to). Same writing rules as story.js.
@@ -45,7 +46,8 @@ Object.assign(SPEAKERS, {
   priya: { label: "PRIYA", colorVar: "--resident" },
   marcus: { label: "MARCUS", colorVar: "--resident" },
   june: { label: "JUNE", colorVar: "--resident" },
-  marsh: { label: "MARSH", colorVar: "--surveyor" }
+  marsh: { label: "MARSH", colorVar: "--surveyor" },
+  cal: { label: "CAL", colorVar: "--marionette" }
 });
 
 // ---------- arrival briefings ----------
@@ -109,6 +111,18 @@ const OUTPOST_BRIEFINGS = [
       { s: "brandt", t: "Four zones, a dozen casualties, one control room. Command wants it running by spring." },
       { s: "av_tech", t: "Then the control room has to hear all four zones. A boundary mic in each, into a mixer, so you can isolate one zone or blend them." },
       { s: "hub", t: "Build it right. Somebody who trains in that wing is going to need it." }
+    ]
+  },
+  {
+    id: "brief_kessler_cal", outpost: "kessler", priority: 55,
+    when: c => c.year >= 2025 && c.flag("cal_met") && c.seen("brief_kessler_mci"),
+    lines: [
+      { setting: "Cal from Marionette is in the Fort Kessler lobby, signing the sign-in sheet with a branded pen." },
+      { s: "cal", t: "Hi! Cal, Marionette. Have we met? I meet a lot of people." },
+      { s: "cal", t: "Heard you've got a mass-casualty wing. We have an MCI module! Zero casualties. It's all slides. Very safe." },
+      { s: "brandt", t: "Is there a work order for you being in my building?" },
+      { s: "cal", t: "...Is there a form?" },
+      { s: "brandt", t: "There's always a form." }
     ]
   },
   {
@@ -225,6 +239,21 @@ const OUTPOST_BRIEFINGS = [
       { s: "hub", t: "It counts as hours. It doesn't count as simulation." }
     ]
   },
+  // Cal from Marionette (STORY_BIBLE.md §4.6): comic relief, never quite a
+  // villain. Cal forgets everyone, so the time rule never trips over Cal.
+  {
+    id: "brief_harbor_cal", outpost: "harbor", priority: 55,
+    when: c => c.visits >= 2 && c.year >= 2023 && c.flag("harbor_marionette_seen"),
+    sets_flags: ["cal_met"],
+    lines: [
+      { setting: "Someone in a Marionette polo, with a lanyard full of conference badges, is waiting in Bay 2 holding two coffees." },
+      { s: "cal", t: "Cal, Marionette Solutions! You must be the consultant. I brought you a coffee. I bring everyone a coffee." },
+      { s: "cal", t: "Quick question: how many sim hours is your team logging per learner? Because CompliancePro can triple that. Tonight." },
+      { s: "marcus", t: "Cal. We talked about this." },
+      { s: "cal", t: "We did! And I respect that. Call me." },
+      { s: "hub", t: "Cal isn't the problem. Cal is what the problem looks like when it's friendly." }
+    ]
+  },
   {
     id: "brief_harbor_late_good", outpost: "harbor", priority: 40,
     when: c => c.year >= 2026 && c.clears >= 3 && c.clears > c.fails && c.flag("harbor_marionette_seen"),
@@ -273,12 +302,21 @@ const OUTPOST_BRIEFINGS = [
   },
   {
     id: "brief_coastal_moulage", outpost: "coastal", priority: 60,
-    when: c => c.visits >= 1 && c.crew("moulage_artist"),
+    when: c => c.visits >= 1 && c.met("moulage_artist"),
     lines: [
       { s: "june", t: "Gary's left ankle is permanently purple. Stage blood." },
       { s: "moulage_artist", t: "Patch test on a hidden spot first, then a barrier layer before anything goes on the skin. Some dyes never come out, and a stained skin can void the warranty." },
       { s: "june", t: "Where were you three years ago?" },
       { s: "moulage_artist", t: "Somewhere with a much worse manikin." }
+    ]
+  },
+  {
+    id: "brief_coastal_cal", outpost: "coastal", priority: 45,
+    when: c => c.visits >= 1 && c.year >= 2024 && c.flag("cal_met"),
+    lines: [
+      { s: "june", t: "A Marionette rep called last week to pitch CompliancePro. I asked if it could run a mock code on Gary." },
+      { s: "june", t: "Cal said Gary 'wouldn't be necessary anymore.' I hung up." },
+      { s: "hub", t: "Good call. A slide can't let a learner get it wrong and try again. Gary can." }
     ]
   },
   {
@@ -505,12 +543,15 @@ const BARKS = [
   { id: "bark_arrive_marcus_a", on: "arrive", outpost: "harbor", line: { s: "marcus", t: "Bay 2 is yours until noon. After that it's a flu clinic." } },
   { id: "bark_arrive_marcus_b", on: "arrive", outpost: "harbor", line: { s: "marcus", t: "Supplies are in the booth. If they're not in the booth, we don't have them." } },
   { id: "bark_arrive_june_a", on: "arrive", outpost: "coastal", line: { s: "june", t: "Gary's warmed up and ready. Please don't break Gary." } },
+  { id: "bark_arrive_cal", on: "arrive", outpost: "harbor", when: b => b.year >= 2023 && b.flag("cal_met"), line: { s: "cal", t: "Oh, hey! Cal, Marionette. Want a coffee? I've got a lot of coffee." } },
+  { id: "bark_arrive_theo_harbor", on: "arrive", outpost: "harbor", crew: "moulage_artist", when: b => b.year >= 2023 && b.flag("harbor_marionette_seen"), line: { s: "moulage_artist", t: "The Marionette box is still on the desk. Of course it is." } },
   { id: "bark_arrive_june_b", on: "arrive", outpost: "coastal", line: { s: "june", t: "The generator tests Thursdays and the lights flicker. Save your work." } },
 
   // -- after a miss --
   { id: "bark_miss_hub_a", on: "miss", line: { s: "hub", t: "Missed that one. Note it and keep moving. It'll be back." } },
   { id: "bark_miss_patch", on: "miss", line: { s: "av_tech", t: "Happens. Figure out what you'd do differently. That's a debrief, not a confession." } },
   { id: "bark_miss_hub_b", on: "miss", line: { s: "hub", t: "That's a gap, not a verdict." } },
+  { id: "bark_miss_cal", on: "miss", outpost: "harbor", when: b => b.year >= 2023 && b.flag("cal_met"), line: { s: "cal", t: "You know, CompliancePro never gets a question wrong. It doesn't ask any!" } },
   { id: "bark_miss_theo", on: "miss", crew: "moulage_artist", line: { s: "moulage_artist", t: "Wrong call. Better here than in front of learners." } },
 
   // -- after a clean node --
@@ -519,6 +560,8 @@ const BARKS = [
   { id: "bark_ok_brandt", on: "ok", outpost: "kessler", line: { s: "brandt", t: "Huh. It works now. Put in a work order so it stays working." } },
   { id: "bark_ok_priya", on: "ok", outpost: "ridgeline", line: { s: "priya", t: "Wait, can you do that again slower? I'm going to teach that." } },
   { id: "bark_ok_marcus", on: "ok", outpost: "harbor", line: { s: "marcus", t: "That's going on the whiteboard." } },
+  { id: "bark_ok_theo", on: "ok", crew: "moulage_artist", line: { s: "moulage_artist", t: "Clean. A learner would have believed every second of that." } },
+  { id: "bark_ok_cal", on: "ok", outpost: "kessler", when: b => b.year >= 2025 && b.flag("cal_met"), line: { s: "cal", t: "Wow. That's very hands-on. Have you considered not?" } },
   { id: "bark_ok_june", on: "ok", outpost: "coastal", line: { s: "june", t: "Gary approves." } },
 
   // -- resources running low (each fires at most once per run) --
@@ -538,5 +581,7 @@ const BARKS = [
   { id: "bark_checkpoint_brandt", on: "checkpoint", outpost: "kessler", line: { s: "brandt", t: "Surveyor's in the lobby. She signed both sheets without being asked. I like her." } },
   { id: "bark_checkpoint_priya", on: "checkpoint", outpost: "ridgeline", line: { s: "priya", t: "The surveyor's here! Should I move the tour group?" } },
   { id: "bark_checkpoint_marcus", on: "checkpoint", outpost: "harbor", line: { s: "marcus", t: "Surveyor's early. Of course she's early." } },
+  { id: "bark_checkpoint_theo", on: "checkpoint", crew: "moulage_artist", line: { s: "moulage_artist", t: "Surveyor's here. Somebody wipe the stage blood off the door handle." } },
+  { id: "bark_checkpoint_cal", on: "checkpoint", outpost: "harbor", when: b => b.year >= 2023 && b.flag("cal_met"), line: { s: "cal", t: "Surveyor's here? I'll just leave a few brochures in the lobby. A lot of brochures." } },
   { id: "bark_checkpoint_june", on: "checkpoint", outpost: "coastal", line: { s: "june", t: "The surveyor drove two hours to get here. Let's make it worth the drive." } }
 ];

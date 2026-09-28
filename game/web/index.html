@@ -71,8 +71,24 @@
       <div class="hub-convo" id="hub-convo"></div>
       <div class="btn-row">
         <button id="btn-begin-deployment" class="btn">BEGIN DEPLOYMENT</button>
+        <button id="btn-codex" class="btn-secondary btn-codex">STUDY LOG</button>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- STUDY LOG / CODEX (codex.js) -->
+<section id="screen-codex" class="screen" hidden>
+  <div class="topbar">
+    <div class="topbar-title">
+      <span class="eyebrow">WAYSTATION 4</span>
+      <span class="main">STUDY LOG</span>
+    </div>
+    <button id="btn-codex-back" class="btn-secondary">BACK TO WAYSTATION</button>
+  </div>
+  <div class="codex-main">
+    <nav class="codex-list" id="codex-list" aria-label="Study Log entries"></nav>
+    <article class="panel codex-entry" id="codex-entry" aria-live="polite"></article>
   </div>
 </section>
 
@@ -149,6 +165,7 @@
 <script src="mapgen.js"></script>
 <script src="story.js"></script>
 <script src="outposts.js"></script>
+<script src="codex.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
