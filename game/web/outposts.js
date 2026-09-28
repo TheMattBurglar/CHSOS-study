@@ -523,7 +523,7 @@ const BARKS = [
 
   // -- resources running low (each fires at most once per run) --
   { id: "bark_low_integrity_a", on: "low_integrity", line: { s: "av_tech", t: "Gear's in rough shape. If anything else breaks, we're fixing it live." } },
-  { id: "bark_low_integrity_b", on: "low_integrity", line: { s: "hub", t: "Equipment integrity's low. A rest stop wouldn't hurt." } },
+  { id: "bark_low_integrity_b", on: "low_integrity", line: { s: "hub", t: "Equipment integrity's low. Slow down and read the whole question." } },
   { id: "bark_low_morale_a", on: "low_morale", line: { s: "hub", t: "Crew's running on fumes. Pace yourself." } },
   { id: "bark_low_morale_b", on: "low_morale", line: { s: "av_tech", t: "I'm fine. I'm fine. I would like a nap." } },
   { id: "bark_low_budget", on: "low_budget", line: { s: "hub", t: "Budget's thin. Spend what's left like it's the last of it. It is." } },

@@ -401,3 +401,11 @@ Matthew answered the bible's open questions (all recorded in `game/STORY_BIBLE.m
 **Pick up here next session:**
 1. Matthew playtests Phase B. On an existing save every outpost starts as a first visit and Marsh introduces herself once, which is intended because these characters are new.
 2. Phase C: Acts 1–2 main thread, Theo's arc (the thin spot after the first promotion), Marionette ambient, and the first Codex entries.
+
+## Rest Stops Removed From Map Generation (2026-09-25)
+
+Matthew found them pointless in playtest, and the numbers agreed. A rest stop could only be the 2nd node of a 3-question run, where the worst possible loss so far is -15 integrity from 100. Integrity, morale and budget also don't affect run outcome (only the checkpoint does). Every map had one (forced by a `restPlaced` fallback), 51% of maps routed every path through it, and it has no KSA, so it replaced a third of a run's questions with nothing.
+- `assignSlotTypes()` no longer rolls `rest`, and the forced placement is gone. `synthesizeRestNode()`, `renderRest()` and the rest barks stay so rest stops are easy to restore once resources have mechanical teeth. The only remaining path to a rest stop is the empty-pool fallback in `generateSectorMap()`.
+- Reworded `bark_low_integrity_b`, which recommended a rest stop.
+- **Still open:** the Hub scenes gated on a successful run ending with `end_integrity <= 25` or `end_morale <= 30` (story.js) can't be reached. The best-case floor for a successful run is 55 integrity / 70 morale (three missed scenarios, checkpoint passed), and budget can't fall below about 125, so `end_budget <= 20` can't fire either. Resources need a real role (e.g. low integrity shortens the diagnostic timer) before those scenes or rest stops make sense.
+- Verified by generating 20,000 maps across all three year windows: 0 rest stops.

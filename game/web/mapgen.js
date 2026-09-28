@@ -197,7 +197,10 @@ function assignSlotTypes(slots, layerWidths, rng) {
   const starterTypes = shuffle(["intel", "diagnostic", "scenario"], rng);
   slots.filter(s => s.layer === 0).forEach((s, i) => (types[s.id] = starterTypes[i % starterTypes.length]));
 
-  const midWeights = [["diagnostic", 0.45], ["scenario", 0.25], ["intel", 0.20], ["rest", 0.10]];
+  // No "rest" here: resources don't affect run outcome yet, and a rest stop
+  // (always the 2nd node of a 3-question run) just displaced a question.
+  // Re-add it once integrity/morale have mechanical teeth.
+  const midWeights = [["diagnostic", 0.45], ["scenario", 0.25], ["intel", 0.20]];
   slots
     .filter(s => s.layer > 0 && s.layer < lastLayer)
     .forEach(s => (types[s.id] = weightedChoice(midWeights, rng)));
@@ -298,7 +301,6 @@ function generateSectorMap({ profile, usedNodeIds, windowIndex, seed }) {
   const usedThisRun = new Set();
   const idBySlot = {};
   const nodes = {};
-  let restPlaced = false;
 
   // Diagnostic and scenario nodes both draw from mcq_bank.json 1:1 -- a
   // scenario node is the SAME question/options/rationale as its diagnostic
@@ -340,7 +342,6 @@ function generateSectorMap({ profile, usedNodeIds, windowIndex, seed }) {
   slots.forEach(slot => {
     const type = typeForSlot[slot.id];
     if (type === "rest") {
-      restPlaced = true;
       const template = synthesizeRestNode(slot.id, rng);
       nodes[template.node_id] = template;
       idBySlot[slot.id] = template.node_id;
@@ -357,7 +358,6 @@ function generateSectorMap({ profile, usedNodeIds, windowIndex, seed }) {
       }
     }
     if (!picked) {
-      restPlaced = true;
       const template = synthesizeRestNode(slot.id, rng);
       nodes[template.node_id] = template;
       idBySlot[slot.id] = template.node_id;
@@ -367,17 +367,6 @@ function generateSectorMap({ profile, usedNodeIds, windowIndex, seed }) {
     nodes[picked.node_id] = picked;
     idBySlot[slot.id] = picked.node_id;
   });
-
-  if (!restPlaced) {
-    const midSlots = slots.filter(s => s.layer > 0 && s.layer < layerWidths.length - 1);
-    if (midSlots.length) {
-      const target = midSlots[Math.floor(rng() * midSlots.length)];
-      delete nodes[idBySlot[target.id]];
-      const restTemplate = synthesizeRestNode(target.id, rng);
-      nodes[restTemplate.node_id] = restTemplate;
-      idBySlot[target.id] = restTemplate.node_id;
-    }
-  }
 
   // checkpoint: stitch two fresh diagnostic templates into an escalating chain,
   // via the same tiered (in-window/fresh) preference as regular slots
