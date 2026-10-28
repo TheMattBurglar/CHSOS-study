@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shift loadout</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: 0.9; }
+</style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: #0e1116; color: #e7ebf1; font-family: 'IBM Plex Sans', sans-serif; display: flex; flex-direction: column; overflow: hidden;">
+
+  <!-- Header -->
+  <div style="padding: 28px 20px 18px; display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid #262c37;">
+    <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 3px; color: #9aa3b1;">MORNING SHIFT · 2024</div>
+    <div style="font-family: 'Chakra Petch', sans-serif; font-size: 22px; font-weight: 700; line-height: 1.25;">Harbor District Training Annex</div>
+  </div>
+
+  <!-- Shift shape -->
+  <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 12px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 2px; color: #9aa3b1;">TODAY'S CALLS</div>
+      <div style="font-family: 'Chakra Petch', sans-serif; font-size: 14px; color: #cbd2dc;">TARGET 2,400</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px;">
+      <sc-for list="{{calls}}" as="c" hint-placeholder-count="6">
+        <div style="{{c.style}}">{{c.id}}</div>
+      </sc-for>
+    </div>
+    <div style="font-size: 14px; line-height: 1.5; color: #9aa3b1;">Heavy on Domain II. Pick who to bring.</div>
+  </div>
+
+  <!-- Crew pick -->
+  <div style="padding: 4px 20px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 2px; color: #9aa3b1;">ON CALL</div>
+      <div style="font-family: 'Chakra Petch', sans-serif; font-size: 14px; color: #cbd2dc;">2 of 2</div>
+    </div>
+
+    <sc-for list="{{crew}}" as="m" hint-placeholder-count="4">
+      <div style="{{m.cardStyle}}">
+        <div style="{{m.avatarStyle}}">{{m.initials}}</div>
+        <div style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; gap: 8px;">
+            <div style="font-size: 15px; font-weight: 600;">{{m.name}}</div>
+            <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; color: #9aa3b1;">{{m.bond}}</div>
+          </div>
+          <div style="font-family: 'Chakra Petch', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; color: {{m.color}};">{{m.perk}}</div>
+          <div style="font-size: 13px; line-height: 1.45; color: #cbd2dc;">{{m.effect}}</div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="padding: 16px 20px 26px;">
+    <a href="Question.dc.html" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; background: #3ecfb2; color: #0e1116; border-radius: 10px; font-family: 'Chakra Petch', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 1px;">
+      LEAP
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2"/><polyline points="13,6 19,12 13,18" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var colors = { I: '#5b8def', II: '#3ecfb2', III: '#e8a33d', IV: '#6fbf73', V: '#e0584f' };
+    var calls = ['II', 'II', 'III', 'I', 'II', 'IV'].map(function (id) {
+      return { id: id, style: 'height: 40px; border-radius: 6px; border: 1px solid ' + colors[id] + '; color: ' + colors[id] + '; display: flex; align-items: center; justify-content: center; font-family: "Chakra Petch", sans-serif; font-size: 14px; font-weight: 700;' };
+    });
+    var raw = [
+      { initials: 'RQ', name: 'Patch', bond: 'BOND 3', color: '#3ecfb2', perk: 'SIGNAL CHAIN', effect: 'Each Domain II answer in a row adds +1 to your multiplier.', picked: true },
+      { initials: 'TL', name: 'Theo', bond: 'BOND 1', color: '#e8a33d', perk: 'DRESS REHEARSAL', effect: 'Your first miss of the shift does not break your streak.', picked: true },
+      { initials: '?', name: 'Not met yet', bond: '', color: '#6b7280', perk: 'DOMAIN IV', effect: 'Someone at Waystation 4 runs the debriefs.', locked: true },
+      { initials: '?', name: 'Not met yet', bond: '', color: '#6b7280', perk: 'DOMAIN V', effect: 'Someone at Waystation 4 writes the scenarios.', locked: true }
+    ];
+    var crew = raw.map(function (m) {
+      var border = m.picked ? m.color : '#262c37';
+      return {
+        initials: m.initials, name: m.name, bond: m.bond, color: m.color, perk: m.perk, effect: m.effect,
+        cardStyle: 'display: flex; gap: 12px; padding: 14px; background: ' + (m.picked ? '#141a20' : '#12151b') + '; border: ' + (m.picked ? '2px' : '1px') + ' solid ' + border + '; border-radius: 10px; opacity: ' + (m.locked ? '0.5' : '1') + ';',
+        avatarStyle: 'width: 40px; height: 40px; border-radius: 50%; background: #1f242d; border: 2px solid ' + (m.locked ? '#333b47' : m.color) + '; display: flex; align-items: center; justify-content: center; font-family: "Chakra Petch", sans-serif; font-size: 13px; font-weight: 700; flex-shrink: 0;'
+      };
+    });
+    return { calls: calls, crew: crew };
+  }
+}
+</script>
+</body>
+</html>

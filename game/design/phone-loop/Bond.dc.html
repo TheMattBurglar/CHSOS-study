@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bond scene</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: 0.9; }
+  button { font: inherit; color: inherit; }
+</style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: #0e1116; color: #e7ebf1; font-family: 'IBM Plex Sans', sans-serif; display: flex; flex-direction: column; overflow: hidden;">
+
+  <!-- Bond header -->
+  <div style="padding: 28px 20px 16px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid #262c37;">
+    <div style="width: 52px; height: 52px; border-radius: 50%; background: #1f242d; border: 2px solid #3ecfb2; display: flex; align-items: center; justify-content: center; font-family: 'Chakra Petch', sans-serif; font-size: 16px; font-weight: 700;">RQ</div>
+    <div style="display: flex; flex-direction: column; gap: 4px; flex-grow: 1;">
+      <div style="font-size: 17px; font-weight: 600;">Rosa "Patch" Quintero</div>
+      <div style="display: flex; gap: 4px; align-items: center;">
+        <div style="width: 18px; height: 8px; border-radius: 2px; background: #3ecfb2;"></div>
+        <div style="width: 18px; height: 8px; border-radius: 2px; background: #3ecfb2;"></div>
+        <div style="width: 18px; height: 8px; border-radius: 2px; background: #3ecfb2;"></div>
+        <div style="width: 18px; height: 8px; border-radius: 2px; background: #3ecfb2; opacity: 0.5;"></div>
+        <div style="width: 18px; height: 8px; border-radius: 2px; background: #262c37;"></div>
+        <span style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; color: #9aa3b1; margin-left: 6px;">BOND 3 → 4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene: one beat per screen, large type -->
+  <div style="padding: 26px 22px; display: flex; flex-direction: column; gap: 20px; flex-grow: 1;">
+    <div style="font-size: 15px; line-height: 1.55; font-style: italic; color: #9aa3b1;">Patch has the Harbor District recording playing on loop. The hum fills the Waystation.</div>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 2px; color: #3ecfb2;">PATCH</div>
+      <div style="font-size: 19px; line-height: 1.55;">"Sixty cycles, steady as a heartbeat. You called it before I could. I'm not sure how I feel about that."</div>
+    </div>
+    <div style="font-size: 13px; color: #6f7886; display: flex; align-items: center; gap: 6px;">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="#6f7886"/></svg>
+      Beat 3 of 7 · tap to continue
+    </div>
+  </div>
+
+  <!-- Tone choices: the existing Wry / Earnest / By-the-book dial -->
+  <div style="padding: 0 20px 26px; display: flex; flex-direction: column; gap: 8px;">
+    <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 2px; color: #9aa3b1;">RESPOND</div>
+    <button type="button" style="display: flex; flex-direction: column; gap: 2px; align-items: flex-start; min-height: 56px; padding: 12px 14px; border-radius: 10px; background: #171b22; border: 1px solid #262c37; text-align: left; cursor: pointer;">
+      <span style="font-family: 'Chakra Petch', sans-serif; font-size: 11px; letter-spacing: 1.5px; color: #9aa3b1;">WRY</span>
+      <span style="font-size: 15px;">"I had a decent teacher. Mostly."</span>
+    </button>
+    <button type="button" style="display: flex; flex-direction: column; gap: 2px; align-items: flex-start; min-height: 56px; padding: 12px 14px; border-radius: 10px; background: #171b22; border: 1px solid #262c37; text-align: left; cursor: pointer;">
+      <span style="font-family: 'Chakra Petch', sans-serif; font-size: 11px; letter-spacing: 1.5px; color: #9aa3b1;">EARNEST</span>
+      <span style="font-size: 15px;">"What gave it away for you, the first time?"</span>
+    </button>
+    <button type="button" style="display: flex; flex-direction: column; gap: 2px; align-items: flex-start; min-height: 56px; padding: 12px 14px; border-radius: 10px; background: #171b22; border: 1px solid #262c37; text-align: left; cursor: pointer;">
+      <span style="font-family: 'Chakra Petch', sans-serif; font-size: 11px; letter-spacing: 1.5px; color: #9aa3b1;">BY THE BOOK</span>
+      <span style="font-size: 15px;">"We should map every cable run in that building."</span>
+    </button>
+
+    <div style="margin-top: 10px; padding: 12px 14px; border-radius: 10px; border: 1px dashed #3ecfb2; display: flex; flex-direction: column; gap: 2px;">
+      <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 1.5px; color: #3ecfb2;">AT BOND 4 · NEW PERK</div>
+      <div style="font-size: 14px; line-height: 1.45; color: #cbd2dc;"><strong style="color: #e7ebf1;">Ground Lift</strong>: once per shift, rule out one wrong answer on a Domain II call.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

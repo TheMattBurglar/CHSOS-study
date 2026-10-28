@@ -435,3 +435,35 @@ Matthew skipped a formal Phase B playtest (he remembers Marsh from a test run an
 **Pick up here next session:**
 1. Matthew plays on his real save (Junior, ~31% Domain II). Expect Act 1 thread scenes alternating with Patch's beats, Cal once Harbor comes up in 2023 or later, and a Study Log that already holds entries for what the save has seen.
 2. Phase D: Nadia's and Wren's arcs, Act 3 (the joke that doesn't land, a second presence in the logs, Hub's origin in the Codex) and Act 4. Settle Theo's pronouns first.
+
+## Redesign: calendar + bonds + scored shifts (2026-10-27)
+
+Matthew reported again that the game doesn't feel like progress, and asked whether the genre itself is wrong. **Decision: move off the FTL roguelite structure.** The story, cast, content pipeline, mastery tracking and Codex carry over; the run and the Hub change.
+
+**Why the roguelite didn't work (diagnosis):**
+- The run had no game of its own. Integrity, morale and budget never affect whether a run succeeds (only the checkpoint does; see the rest-stop removal above). Runs are about 3 questions. Take the questions away and nothing is left to play.
+- The only persistent progress was a slow mastery percentage. The career simulations from 2026-09-22 showed 10–55 runs to the first promotion. The story layer added rewards on top but couldn't change that pace.
+- The roguelite's reset-on-loss is the opposite of the visible, cumulative progress Matthew keeps asking for.
+
+**What Matthew told us (shapes everything):**
+- Favorite games: story RPGs (FF7–10, Mass Effect trilogy, Persona 4/5, Pokemon mostly for gameplay) and phone casual games played in short sessions (Balatro, Slay the Spire). Hades worked as story first, then a casual grind.
+- The game is **for him first**. The exam is about a year away. Share it only if he enjoys it.
+- The story is worth keeping, modified to fit the new shape.
+- **Reading takes focus.** It isn't muscle memory like a racing game. No timers on reading; keep the non-question parts low-text.
+
+**The new design (approved direction, mockup stage only — no game code changed yet):**
+- **Calendar:** each in-game day counts down to a final readout. Morning = one shift (deploy). Evening = a crew bond scene or the Study Log.
+- **Shift:** a fixed 6 questions from one outpost/year. Domains of the 6 calls shown up front; pick 2 crew to bring, each with one perk. No timer.
+- **Scoring:** base × (streak + perk bonuses) × confidence. Confidence is chosen as the lock-in button: SURE ×3 (a miss resets the streak), LIKELY ×2 (a miss halves it), GUESS ×1 (a miss keeps it). Beat a target score. Results show calibration ("4 of 4 Sure calls were right").
+- **Knowledge ranks:** each domain has 5 named ranks (Novice, Familiar, Competent, Proficient, Expert) with a rank-up moment, replacing the bare mastery bar and the Junior Sim Tech promotion gate.
+- **Bonds:** crew arcs (Theo's 12 beats, Patch's beats) become bond levels. A bond's next scene needs a domain rank. Bond levels unlock or upgrade shift perks. So: story → perks → better shifts → ranks → story.
+- **Phone first, portrait.** Same visual style as the original mockup (dark slate, domain colors, Chakra Petch + IBM Plex Sans).
+- Sample perks used in the mockup (not final): Patch "Signal Chain" (+1 multiplier per Domain II answer in a row), Patch bond 4 "Ground Lift" (once per shift, rule out one wrong answer on a Domain II call), Theo "Dress Rehearsal" (first miss doesn't break the streak). The Patch bond line in the mockup is sample text, not in the story bible.
+
+**Mockup:** https://claude.ai/artifact/NK5Y593BE1R7Vk8biMRPJh — 7 phone screens (Waystation, Loadout, Question [clickable], Answer, Results, Bond scene, Ranks & bonds). Source backed up in `game/design/phone-loop/`.
+
+**Pick up here next session:**
+1. Matthew's feedback on the mockup, especially the shift screens (Question, Answer, Results), since that's the part played most.
+2. Before locking the scoring numbers, simulate them (Node `vm` harness, like the career simulations): target score vs. accuracy and confidence habits, how many shifts per rank-up, and how fast bonds open. The numbers in the mockup are placeholders.
+3. Decide open questions: how many in-game days the calendar has and whether it tracks the real exam date; whether a failed shift costs anything beyond lost progress; how Hub/the Readiness Projection and the act structure map onto days; what happens to outposts, Marsh and checkpoints.
+4. Then build a working prototype of one day on the existing question bank and save data, phone-first. Old roguelite code stays in place until the new loop replaces it.

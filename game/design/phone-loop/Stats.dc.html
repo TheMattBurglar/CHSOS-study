@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ranks and bonds</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: 0.9; }
+</style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: #0e1116; color: #e7ebf1; font-family: 'IBM Plex Sans', sans-serif; display: flex; flex-direction: column; overflow: hidden;">
+
+  <div style="padding: 28px 20px 16px; display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #262c37;">
+    <div style="font-family: 'Chakra Petch', sans-serif; font-size: 24px; font-weight: 700;">TRIGGER</div>
+    <a href="Main.dc.html" style="font-size: 14px; color: #9aa3b1; padding: 8px 0;">Back</a>
+  </div>
+
+  <!-- Domain ranks -->
+  <div style="padding: 18px 20px 8px; display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 2px; color: #9aa3b1;">KNOWLEDGE RANKS</div>
+    <sc-for list="{{domains}}" as="d" hint-placeholder-count="5">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <span><span style="font-family: 'Chakra Petch', sans-serif; font-size: 15px; font-weight: 700; color: {{d.color}};">{{d.id}}</span> <span style="font-size: 14px; color: #cbd2dc;">{{d.name}}</span></span>
+          <span style="font-family: 'Chakra Petch', sans-serif; font-size: 14px; font-weight: 600;">{{d.rankName}}</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px;">
+          <sc-for list="{{d.pips}}" as="p" hint-placeholder-count="5">
+            <div style="{{p.style}}"></div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <!-- Bonds -->
+  <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1;">
+    <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 2px; color: #9aa3b1;">BONDS</div>
+    <sc-for list="{{bonds}}" as="b" hint-placeholder-count="4">
+      <div style="{{b.card}}">
+        <div style="{{b.avatar}}">{{b.initials}}</div>
+        <div style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1;">
+          <div style="display: flex; justify-content: space-between;">
+            <span style="font-size: 15px; font-weight: 600;">{{b.name}}</span>
+            <span style="font-family: 'Chakra Petch', sans-serif; font-size: 13px; color: #cbd2dc;">{{b.level}}</span>
+          </div>
+          <div style="font-size: 13px; line-height: 1.4; color: {{b.noteColor}};">{{b.note}}</div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var names = ['Novice', 'Familiar', 'Competent', 'Proficient', 'Expert'];
+    var raw = [
+      { id: 'I', name: 'Healthcare', color: '#5b8def', rank: 2, part: 70 },
+      { id: 'II', name: 'Sim Technology', color: '#3ecfb2', rank: 4, part: 5 },
+      { id: 'III', name: 'Practices', color: '#e8a33d', rank: 1, part: 65 },
+      { id: 'IV', name: 'Professional', color: '#6fbf73', rank: 2, part: 20 },
+      { id: 'V', name: 'Instructional', color: '#e0584f', rank: 1, part: 10 }
+    ];
+    var domains = raw.map(function (d) {
+      var pips = [];
+      for (var i = 0; i < 5; i++) {
+        var bg;
+        if (i < d.rank) bg = d.color;
+        else if (i === d.rank) bg = 'linear-gradient(90deg, ' + d.color + ' ' + d.part + '%, #262c37 ' + d.part + '%)';
+        else bg = '#262c37';
+        pips.push({ style: 'height: 10px; border-radius: 2px; background: ' + bg + ';' });
+      }
+      return { id: d.id, name: d.name, color: d.color, rankName: names[d.rank - 1], pips: pips };
+    });
+    var bondRaw = [
+      { initials: 'RQ', name: 'Patch', color: '#3ecfb2', level: 'BOND 4', note: 'Next scene at Domain II Expert', noteColor: '#9aa3b1' },
+      { initials: 'TL', name: 'Theo', color: '#e8a33d', level: 'BOND 1', note: 'Next scene at Domain III Familiar · 65% there', noteColor: '#e8a33d' },
+      { initials: '?', name: 'Not met yet', color: '#333b47', level: '', note: 'Arrives with the Act 2 story', noteColor: '#9aa3b1', locked: true },
+      { initials: '?', name: 'Not met yet', color: '#333b47', level: '', note: 'Arrives with the Act 2 story', noteColor: '#9aa3b1', locked: true }
+    ];
+    var bonds = bondRaw.map(function (b) {
+      return {
+        initials: b.initials, name: b.name, level: b.level, note: b.note, noteColor: b.noteColor,
+        card: 'display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 10px; background: #171b22; border: 1px solid #262c37; opacity: ' + (b.locked ? '0.5' : '1') + ';',
+        avatar: 'width: 40px; height: 40px; border-radius: 50%; background: #1f242d; border: 2px solid ' + b.color + '; display: flex; align-items: center; justify-content: center; font-family: "Chakra Petch", sans-serif; font-size: 13px; font-weight: 700; flex-shrink: 0;'
+      };
+    });
+    return { domains: domains, bonds: bonds };
+  }
+}
+</script>
+</body>
+</html>

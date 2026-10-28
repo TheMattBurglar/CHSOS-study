@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Waystation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: 0.9; }
+</style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: #0e1116; color: #e7ebf1; font-family: 'IBM Plex Sans', sans-serif; display: flex; flex-direction: column; overflow: hidden;">
+
+  <!-- Calendar header -->
+  <div style="padding: 28px 20px 18px; display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid #262c37;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 3px; color: #9aa3b1;">WAYSTATION 4</div>
+        <div style="font-family: 'Chakra Petch', sans-serif; font-size: 30px; font-weight: 700;">DAY 14</div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px;">
+        <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 2px; color: #9aa3b1;">READINESS</div>
+        <div style="font-family: 'Chakra Petch', sans-serif; font-size: 20px; font-weight: 700; color: {{accent}};">2041</div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="width: 100%; height: 6px; background: #1f242d; border-radius: 3px; overflow: hidden;">
+        <div style="width: 12%; height: 100%; background: {{accent}};"></div>
+      </div>
+      <div style="font-size: 13px; color: #9aa3b1;">106 days until the final readout</div>
+    </div>
+  </div>
+
+  <!-- Hub line -->
+  <div style="padding: 18px 20px; display: flex; gap: 12px; align-items: flex-start;">
+    <div style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid {{accent}}; display: flex; align-items: center; justify-content: center; font-family: 'Chakra Petch', sans-serif; font-size: 12px; font-weight: 700; color: {{accent}}; flex-shrink: 0;">HUB</div>
+    <div style="font-size: 16px; line-height: 1.5; color: #d3d8e0;">Harbor District, 2024. Their debrief recordings keep coming back with a hum. Morning shift is yours.</div>
+  </div>
+
+  <!-- Today's choices -->
+  <div style="padding: 4px 20px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1;">
+    <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 2px; color: #9aa3b1;">MORNING</div>
+    <a href="Loadout.dc.html" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px; background: {{accent}}; color: #0e1116; border-radius: 10px; min-height: 72px;">
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <div style="font-family: 'Chakra Petch', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 0.5px;">DEPLOY · 6 QUESTIONS</div>
+        <div style="font-size: 14px; font-weight: 500;">Harbor District Training Annex · 2024</div>
+      </div>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2"/><polyline points="13,6 19,12 13,18" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </a>
+
+    <div style="font-family: 'Chakra Petch', sans-serif; font-size: 12px; letter-spacing: 2px; color: #9aa3b1; margin-top: 12px;">EVENING · LOCKED UNTIL SHIFT ENDS</div>
+    <div style="display: flex; flex-direction: column; gap: 8px; opacity: 0.6;">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px; background: #171b22; border: 1px solid #262c37; border-radius: 10px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #1f242d; border: 2px solid #3ecfb2; display: flex; align-items: center; justify-content: center; font-family: 'Chakra Petch', sans-serif; font-size: 13px; font-weight: 700;">RQ</div>
+        <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+          <div style="font-size: 15px; font-weight: 600;">Patch has something to show you</div>
+          <div style="font-size: 13px; color: #9aa3b1;">Bond 3 → 4 · new scene</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px; background: #171b22; border: 1px solid #262c37; border-radius: 10px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #1f242d; border: 2px solid #e8a33d; display: flex; align-items: center; justify-content: center; font-family: 'Chakra Petch', sans-serif; font-size: 13px; font-weight: 700;">TL</div>
+        <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+          <div style="font-size: 15px; font-weight: 600;">Theo is mixing blood again</div>
+          <div style="font-size: 13px; color: #9aa3b1;">Bond 2 · needs Domain III rank 2</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px; background: #171b22; border: 1px solid #262c37; border-radius: 10px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #1f242d; border: 1px solid #333b47; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 4h10l4 4v12H5z" fill="none" stroke="#cbd2dc" stroke-width="1.6"/><line x1="8" y1="11" x2="16" y2="11" stroke="#cbd2dc" stroke-width="1.6"/><line x1="8" y1="15" x2="14" y2="15" stroke="#cbd2dc" stroke-width="1.6"/></svg>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+          <div style="font-size: 15px; font-weight: 600;">Read the Study Log</div>
+          <div style="font-size: 13px; color: #9aa3b1;">2 new entries from yesterday's shift</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Domain ranks strip -->
+  <a href="Stats.dc.html" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; padding: 14px 20px 26px; border-top: 1px solid #262c37;">
+    <sc-for list="{{domains}}" as="d" hint-placeholder-count="5">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <div style="font-family: 'Chakra Petch', sans-serif; font-size: 13px; font-weight: 700; color: {{d.color}};">{{d.id}}</div>
+        <div style="display: flex; gap: 3px;">
+          <sc-for list="{{d.pips}}" as="p" hint-placeholder-count="5">
+            <div style="{{p.style}}"></div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#3ecfb2","options":["#3ecfb2","#5b8def","#e8a33d"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var raw = [
+      { id: 'I', color: '#5b8def', rank: 2 },
+      { id: 'II', color: '#3ecfb2', rank: 3 },
+      { id: 'III', color: '#e8a33d', rank: 1 },
+      { id: 'IV', color: '#6fbf73', rank: 2 },
+      { id: 'V', color: '#e0584f', rank: 1 }
+    ];
+    var domains = raw.map(function (d) {
+      var pips = [];
+      for (var i = 0; i < 5; i++) {
+        pips.push({ style: 'width: 8px; height: 14px; border-radius: 2px; background: ' + (i < d.rank ? d.color : '#262c37') + ';' });
+      }
+      return { id: d.id, color: d.color, pips: pips };
+    });
+    return { accent: this.props.accent ?? '#3ecfb2', domains: domains };
+  }
+}
+</script>
+</body>
+</html>

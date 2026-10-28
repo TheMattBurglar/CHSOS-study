@@ -62,6 +62,8 @@ The internal continuity, revealed slowly to the player:
 
 ## 3. Structure: where story lives in the loop [LOCKED 2026-09-23]
 
+> **[2026-10-27] Structure changing.** The game is moving from the FTL roguelite to a phone-first calendar game: each day is a 6-question scored shift plus an evening crew bond scene or Study Log. Crew rapport becomes explicit bond levels gated on domain ranks, and bonds unlock shift perks. The cast, acts, Waystation, Codex and tone rules carry over; how outposts, Marsh and the Readiness Projection fit days is still open. See `currentState.md`, "Redesign: calendar + bonds + scored shifts".
+
 Hades puts story in three places. Every one maps onto something this game already has:
 
 | Hades | This game | Already built? |
@@ -334,7 +336,12 @@ Tone-dial replies set a small running tally (`tone_history`) instead of branchin
 14. Cal from Marionette: yes, as a recurring comic-relief rep.
 15. Phase C built in one pass (Act 1 thread, Act 2 thread and war milestone, Theo, Cal, Codex).
 
+**2026-10-27:**
+16. Genre change: calendar + crew bonds + short scored question shifts, phone first. The story stays, adapted to fit. Mockup: https://claude.ai/artifact/NK5Y593BE1R7Vk8biMRPJh.
+
 ## 10. Open questions
+
+- **[2026-10-27]** How the story maps onto the new calendar structure: acts per stretch of days, bond levels for each crew arc, and the role of outposts, Marsh and the Readiness Projection.
 
 - None blocking. Phases A–C are done. Phase D is next: Nadia's and Wren's arcs, Act 3 ("What does Hub want?": the joke that doesn't land, a second presence in the logs, Hub's origin in the Codex) and Act 4.
 - The Marionette takeover branch is still deferred until the Act 2→3 flow is playtestable.
