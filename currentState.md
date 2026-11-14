@@ -467,3 +467,33 @@ Matthew reported again that the game doesn't feel like progress, and asked wheth
 2. Before locking the scoring numbers, simulate them (Node `vm` harness, like the career simulations): target score vs. accuracy and confidence habits, how many shifts per rank-up, and how fast bonds open. The numbers in the mockup are placeholders.
 3. Decide open questions: how many in-game days the calendar has and whether it tracks the real exam date; whether a failed shift costs anything beyond lost progress; how Hub/the Readiness Projection and the act structure map onto days; what happens to outposts, Marsh and checkpoints.
 4. Then build a working prototype of one day on the existing question bank and save data, phone-first. Old roguelite code stays in place until the new loop replaces it.
+
+## Pivot to a Persona-style battle game; first playable fight prototype (2026-11-11)
+
+Matthew rejected the calendar/scored-shift mockups from 2026-10-27: "a prettier version of anki". He wants to have fun while working through the material, not just drill it, and asked for an actual game that includes the questions. The calendar also can't track his real exam date (more than a year away). **Rule from here on: the game has to be fun with the questions removed. Questions are the strongest move inside it, never a gate in front of progress.**
+
+**Direction chosen: Persona-style party RPG (option 1), with some Ace Attorney-style case scenes (option 2) mixed in later**, probably as bosses. Matthew hasn't played Ace Attorney, but the description appealed. Alternatives considered: a Pokemon-style collection game (rejected because questions turn into a toll for leveling up).
+
+**Built: `game/web/battle/`**, standalone, phone-first, separate from the old roguelite (which is untouched).
+- `battle-core.js`: rules only, no DOM, also loads under Node. `battle-ui.js` + `battle.css` + `index.html`: the UI. Questions are the 149 unique MCQs from `nodes_generated.js` (diagnostic nodes).
+- The party is Trigger, Patch and Theo. Faults (Hub "renders" a site's problems as things you can hit) each have a domain and hidden relationships to four damage types: **Tech** (Patch), **Craft** (Theo), **Insight** and **Design** (only Trigger's Improvise covers these for now). A Fault can be weak to, resist, or absorb (heal from) a type.
+- Hitting a weakness knocks the Fault down and gives that member ONE MORE action. All Faults down unlocks the All-Out Attack. Enemy intents are shown in advance. Downed Faults take ×1.25 damage, then get up and still act.
+- **Analyze** (Trigger) asks a question from the Fault's domain. Every answer reveals all its types. A right answer also knocks it down and gives ONE MORE. Rationale shown after each answer, no timer. Missed questions come back sooner (localStorage `chsos-battle-qstats`).
+- One leap: AV Bay (2 Faults, tutorial) → Moulage Studio (3 Faults, absorbs that punish guessing) → boss "Readiness: 94%" (Patch's thread), which at half HP switches to domain IV and starts absorbing Tech, so it has to be read again. A loss snaps back and retries the fight at full HP. Summary lists every question with its rationale.
+
+**Balance sim: `node game/pipeline/sim_battle.js [runs]`.** Three problems found and fixed with it:
+1. HP pools were tiny and weakness chains ended every fight in round 1, so Analyze added nothing. Raised HP and damage, added absorb.
+2. Downed Faults skipped their turn, so the AV Bay fight was a permanent stunlock. Now they get up and act.
+3. A wrong Analyze only ruled out one type, so a 40%-accurate player did *worse* than one who never used Analyze (fight 2 first-try wins: 71% vs 83%). Now a miss still reveals the weaknesses and only loses the knockdown and extra turn.
+Final numbers (2000 runs, boss fight): never Analyze 50% first-try win, 8.7 rounds; 40% accurate 100%, 5.4 rounds, 49% HP left; 95% accurate 100%, 5.1 rounds, 58% HP left. Known weak spot: past 40% accuracy, knowing more only helps a little, and a full leap asks only about 7 questions.
+
+**How to run / test:**
+- Play locally: `cd game/web && python3 -m http.server 8765`, then open `http://localhost:8765/battle/` (from the phone on the same Wi-Fi, use this machine's LAN IP instead of localhost). Add `#fast` to the URL for 10x faster animations.
+- Balance: `node game/pipeline/sim_battle.js 2000`.
+- Browser playthrough: `game/pipeline/playtest_battle.js` (Playwright; usage in its header). Playwright isn't a project dependency; on 2026-11-11 a working copy was in `~/.npm/_npx/e41f203b7505f1fb/node_modules`.
+- **Not committed yet** at the end of the 2026-11-11 session (`game/web/battle/`, both pipeline scripts, this log entry). Pushing to `main` deploys `game/web` to GitHub Pages, so the prototype would go live at `/battle/`. Matthew hadn't approved a push yet.
+
+**Pick up here next session:**
+1. Matthew plays it on his phone. Ask whether it's fun first, then whether the questions feel like part of the fight.
+2. If the core holds: more question hooks that aren't Analyze (crew "assist" calls, terminology from the 273 intel cards), progression between leaps (levels, skills unlocked by bonds and domain ranks), and the Ace Attorney-style case boss.
+3. Story fit: Theo joins in Act 2 in the bible but is in this prototype; the "Hub renders problems as Faults" framing needs a place in `game/STORY_BIBLE.md`.

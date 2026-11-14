@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CHSOS Battle Prototype</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="battle.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- STORY / INTERLUDE -->
+  <section id="screen-story" class="screen" hidden>
+    <div class="story-place hud" id="story-place"></div>
+    <div class="story-lines" id="story-lines"></div>
+    <button class="btn primary" id="story-next">CONTINUE</button>
+  </section>
+
+  <!-- BATTLE -->
+  <section id="screen-battle" class="screen" hidden>
+    <header class="b-head">
+      <div class="hud b-place" id="b-place"></div>
+      <div class="hud b-round" id="b-round"></div>
+    </header>
+
+    <div class="enemies" id="enemies"></div>
+
+    <div class="log" id="log" aria-live="polite"></div>
+
+    <div class="party" id="party"></div>
+
+    <div class="panel" id="panel"></div>
+
+    <div class="banner hud" id="banner" hidden></div>
+  </section>
+
+  <!-- QUESTION SHEET -->
+  <section id="sheet" class="sheet" hidden>
+    <div class="sheet-inner">
+      <div class="sheet-head">
+        <span class="hud sheet-tag">ANALYZE</span>
+        <span class="chip" id="q-domain"></span>
+      </div>
+      <div class="q-target" id="q-target"></div>
+      <p class="q-text" id="q-text"></p>
+      <div class="q-options" id="q-options"></div>
+      <div class="q-result" id="q-result" hidden>
+        <div class="q-verdict hud" id="q-verdict"></div>
+        <p class="q-rationale" id="q-rationale"></p>
+        <button class="btn primary" id="q-continue">BACK TO THE FIGHT</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section id="screen-summary" class="screen" hidden>
+    <h1 class="hud">LEAP COMPLETE</h1>
+    <p class="muted" id="sum-line"></p>
+    <div class="sum-list" id="sum-list"></div>
+    <button class="btn primary" id="sum-again">LEAP AGAIN</button>
+  </section>
+
+</div>
+<script src="../nodes_generated.js"></script>
+<script src="battle-core.js"></script>
+<script src="battle-ui.js"></script>
+</body>
+</html>
