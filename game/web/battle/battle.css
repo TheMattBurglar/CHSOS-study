@@ -30,9 +30,9 @@ button:disabled { cursor: default; opacity: 0.4; }
 .hud { font-family: 'Chakra Petch', sans-serif; letter-spacing: 0.04em; }
 .muted { color: var(--muted); }
 
-#app { max-width: 480px; margin: 0 auto; min-height: 100vh; position: relative; }
+#app { max-width: 480px; margin: 0 auto; min-height: 100vh; min-height: 100dvh; position: relative; }
 .screen {
-  min-height: 100vh; display: flex; flex-direction: column; gap: 12px;
+  min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; gap: 12px;
   padding: calc(12px + env(safe-area-inset-top, 0px)) 16px calc(16px + env(safe-area-inset-bottom, 0px));
 }
 
@@ -50,7 +50,7 @@ button:disabled { cursor: default; opacity: 0.4; }
 .dom-IV { color: var(--domain-IV); } .dom-V { color: var(--domain-V); }
 
 /* ---------- story ---------- */
-#screen-story { justify-content: flex-end; padding-bottom: 32px; }
+#screen-story { justify-content: flex-end; }
 .story-place { color: var(--muted); font-size: 13px; margin-bottom: auto; padding-top: 24px; }
 .story-lines { display: flex; flex-direction: column; gap: 14px; }
 .line { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; line-height: 1.5; }
