@@ -51,10 +51,10 @@ button:disabled { cursor: default; opacity: 0.4; }
 
 /* ---------- story ---------- */
 #screen-story { justify-content: flex-end; }
-.story-place { color: var(--muted); font-size: 13px; margin-bottom: auto; padding-top: 24px; }
+.story-place { color: var(--muted); font-size: 15px; margin-bottom: auto; padding-top: 24px; }
 .story-lines { display: flex; flex-direction: column; gap: 14px; }
-.line { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; line-height: 1.5; }
-.line .who { display: block; font-family: 'Chakra Petch', sans-serif; font-size: 12px; font-weight: 700; margin-bottom: 2px; }
+.line { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 19px; line-height: 1.5; }
+.line .who { display: block; font-family: 'Chakra Petch', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
 .who-hub { color: var(--accent); } .who-patch { color: var(--domain-II); } .who-theo { color: var(--domain-III); }
 .line.narr { background: none; border: none; color: var(--muted); font-style: italic; padding: 0 2px; }
 
@@ -193,3 +193,10 @@ button:disabled { cursor: default; opacity: 0.4; }
 .sum-item .ok { color: var(--gold); } .sum-item .no { color: var(--danger); }
 .sum-item p { font-size: 13px; color: #c9cfd9; line-height: 1.5; margin: 8px 0 0; }
 #sum-again { margin-top: auto; }
+
+/* Phones that report a desktop-width layout viewport (e.g. "Desktop site" on):
+   drop the 480px cap so the UI fills the screen instead of shrinking to a strip. */
+@media (pointer: coarse) and (min-width: 600px) {
+  #app { max-width: none; }
+  .sheet-inner { max-width: none; }
+}

@@ -497,3 +497,37 @@ Final numbers (2000 runs, boss fight): never Analyze 50% first-try win, 8.7 roun
 1. Matthew plays it on his phone. Ask whether it's fun first, then whether the questions feel like part of the fight.
 2. If the core holds: more question hooks that aren't Analyze (crew "assist" calls, terminology from the 273 intel cards), progression between leaps (levels, skills unlocked by bonds and domain ranks), and the Ace Attorney-style case boss.
 3. Story fit: Theo joins in Act 2 in the bible but is in this prototype; the "Hub renders problems as Faults" framing needs a place in `game/STORY_BIBLE.md`.
+
+---
+
+## Session 2026-11-14: pivot toward Worlds Upon The Wind (Godot)
+
+**Why:** Matthew played the web battle prototype on his phone and said it's "a quiz engine with nice colors," not a game. He wants an actual game where the questions are a mechanic that *tricks* the player into learning, and wants it shareable with colleagues. This **supersedes the 2026-09-19 "static web only, no Godot, no Android" platform decision.** The web prototype and story bible stay in the repo as reference and as the source of the content (`nodes_generated.js`, question bank, Theo/Cal/Hub story).
+
+**Candidates considered:**
+- *Shattered Pixel Dungeon:* Java/libGDX, GPL v3 (fork must be open source), Android + desktop only (Mac needs a port). Good hook: unidentified potions/scrolls become clinical-judgment questions. Rejected for sharing reasons.
+- *Worlds Upon The Wind* (`github.com/max99x/wutw-public`): **chosen.** Godot 4.7, peaceful roguelite deckbuilder, CC0 (audio excluded, runs silent), exports to Windows/Mac/Linux, so colleagues can download a build. It already has a learning layer (Japanese practice minigames), so there's a pattern to copy. Events are data resources (`wutw/events/`, ~84 under `generic/`).
+
+**Hard limits found (verified in the repo, not assumed):**
+- The repo ships native extensions for Windows/Linux/macOS only: map generator (`wutw-gdext`), GodotSteam, Wwise. **No Android or web builds.** Those need rebuilding or stubbing before a browser link or an APK is possible. That is real work, not a setting.
+- ~7 GB clone. The Japanese data files in `wutw/japanese/databases/` are **Git LFS**: without `git-lfs` they are 130-byte stubs and New Game dies on `assert(line.size() == 2)` in `japanese/strokes/stroke.gd:43`. Fixed on the desktop by downloading the real files from `media.githubusercontent.com`.
+
+**State at end of session:**
+- Desktop: cloned to `~/Games/wutw-public` (deliberately outside Syncthing), Godot 4.7.2 from pacman, imported. The title screen rendered; New Game hit the LFS assertion; the data files were then fixed but **New Game has not been re-tested**. Matthew's next step was to let Godot re-import and press F5.
+- Unresolved: `res://map/settlement_list/settlement_list.tscn` fails to parse (line 78) in headless runs. Unknown whether it is headless-only.
+- Laptop (Ubuntu, ThinkPad T14 Gen 1 AMD, Niri) setup is written up in [`WUTW_SETUP.md`](WUTW_SETUP.md). Not started yet; Matthew may try it at work.
+- Nothing about the question system is built. No code in WUTW has been modified.
+
+**Design ideas for the questions (not decided):**
+- Questions must change a game decision, not gate progress. "Answer for gold" was rejected as still being a quiz.
+- Events as clinical vignettes (right answer, better outcome); question result affects card power or upgrade; wrong answers cost information, not progress; missed questions return later in the run (spaced repetition via the existing Leitner data).
+- Music, if wanted: long ambient loops, a quiet cue for question moments, gentle result stings. Source must be CC0/royalty-free. Plain Godot audio players are simpler than the Wwise system.
+
+**Pick up here next session:**
+1. Get the base game running (desktop first, then the laptop per `WUTW_SETUP.md`). Confirm New Game works; if not, get the top error from the Debugger tab.
+2. Read how WUTW defines events, glyphs (cards), relics and rewards, plus the `japanese/practice_blanks/` minigame wiring. Report how invasive a question layer would be.
+3. Decide the first integration: clinical-vignette events (likely easiest, they're data resources) before touching card combat.
+4. Plan the content export from `mcq_bank.json` / `nodes_generated.js` into Godot resources.
+5. Decide what happens to the web prototype (keep as a phone-friendly study mode, or retire).
+
+**Uncommitted in this repo:** `game/web/battle/battle.css` (the `100dvh` fix; a `pointer: coarse` rule that is a workaround only needed because Matthew's phone browser had Desktop site on, so it can be dropped) and `WUTW_SETUP.md`. The battle prototype itself is committed (5af32e8) and was live on GitHub Pages at `/battle/` when Matthew tested it on his phone.
